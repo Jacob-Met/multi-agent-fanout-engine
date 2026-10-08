@@ -1,6 +1,6 @@
 {
   "repository": "Jacob-Met/multi-agent-fanout-engine",
-  "claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6063635477",
+  "claim": "[redacted]",
   "read_at": "2026-10-08T16:11:09.476Z",
   "current_head": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
   "current_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
@@ -68,13 +68,13 @@
     }
   ],
   "adjacent_owner": {
-    "claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062467135",
-    "owner": "estate-accel-dc13ebf4687f/execution_integrity",
+    "claim": "[redacted]",
+    "owner": "[redacted]/execution_integrity",
     "scope": "Stored Ledger inspection; ledger.py, inspection.py, __init__.py, its example/test and separate README additions remain preserved."
   },
   "initial_coordination_coverage": {
-    "hamon140": 458,
-    "hamon142": 71,
+    "[redacted]140": 458,
+    "[redacted]142": 71,
     "memory8": 225,
     "issues_disabled_is_not_coverage": true
   },
