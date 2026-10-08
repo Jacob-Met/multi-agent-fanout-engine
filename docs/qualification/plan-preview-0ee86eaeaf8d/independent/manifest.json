@@ -1,0 +1,130 @@
+{
+  "artifact_records": 35,
+  "base": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "candidate_module_git_blob": "81e23c1269dc3d53a4c734ecd662e0f80d829eee",
+  "candidate_module_sha256": "ee546965e5c95f165ad798e374847cc04f399afc067dfc1b62b06cc0edcf4029",
+  "files": [
+    {
+      "bytes": 5238,
+      "git_blob": "657c782121355e2cd7447c0b534903545a27cf86",
+      "mode": "100644",
+      "path": "README.md",
+      "sha256": "41386d287cce246e73ec4aa502ba8a855df07f5c5e06eadc1e26d02ba503b0c7"
+    },
+    {
+      "bytes": 6155,
+      "git_blob": "a2a289cfe3b07cf1320c29c57fdd82e182b7d26b",
+      "mode": "100644",
+      "path": "current-main.json",
+      "sha256": "1d2992c083312874d43f70c260072be26d2912e30c18342290a16d9ec30385a7"
+    },
+    {
+      "bytes": 75782,
+      "git_blob": "f5d5fee1ea283715aec66fe04881cad3fa3db3ee",
+      "mode": "100644",
+      "path": "native-artifacts.json",
+      "sha256": "e3f4677d43191446d85c5d7526d78c33f38400a3a497783612ae7ba036ac47ef"
+    },
+    {
+      "bytes": 346,
+      "git_blob": "3b99b59d1cffa1f81faf8b13d0764af5c966d9b6",
+      "mode": "100644",
+      "path": "native-command-result.json",
+      "sha256": "c980ae8d18cdcc30a074461e676a1f7445c9fb239afed91ba269a7e4f776bd6f"
+    },
+    {
+      "bytes": 2842,
+      "git_blob": "f0cc2c7e1a5ad80d976d02b105d4fb2d9b5db87e",
+      "mode": "100644",
+      "path": "oracle/README.md",
+      "sha256": "6b7e32bf783f54a8ad4b9ac9c86e6a81c8f8f027058b2cc837c840dbb873ac3b"
+    },
+    {
+      "bytes": 3584,
+      "git_blob": "727e246bd32176e8ba96f5142dbcb1298a27d6e8",
+      "mode": "100644",
+      "path": "oracle/build_oracle.py",
+      "sha256": "f034f9d2ef8b4b0045b7efca33cfc8c3f84ba34cc4680d7203a92058717ba009"
+    },
+    {
+      "bytes": 2115,
+      "git_blob": "6162ac565531863e5889db89659048c4391f602e",
+      "mode": "100644",
+      "path": "oracle/expected-stdout.json",
+      "sha256": "b29f1c941343a3f1797cae7003223aae9fcdb5f69c0e8da65184d949f6f7af73"
+    },
+    {
+      "bytes": 6590,
+      "git_blob": "a363cf09b2eb7800588b054b635eefabce96ec83",
+      "mode": "100644",
+      "path": "oracle/expected.json",
+      "sha256": "e2b9b3a95350ab41563e27a6df7fb5955335ee38e35a9e5121c1f8db478790a4"
+    },
+    {
+      "bytes": 1127,
+      "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+      "mode": "100644",
+      "path": "oracle/fixture-plan.json",
+      "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+    },
+    {
+      "bytes": 504,
+      "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+      "mode": "100644",
+      "path": "oracle/fixture-routes.json",
+      "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+    },
+    {
+      "bytes": 3194,
+      "git_blob": "101bdb05876b691f99aa7086a02082ac95051bde",
+      "mode": "100644",
+      "path": "oracle/native_api_oracle.py",
+      "sha256": "361165cdb166ef823cff5132dad6a256f7d38c206a91b0187971340d9d550826"
+    },
+    {
+      "bytes": 4543,
+      "git_blob": "2ffd30160132f9cd004aca575678f032ef363180",
+      "mode": "100644",
+      "path": "oracle/oracle-manifest.json",
+      "sha256": "16adc942f823dbeb27d0c22df33d956e3366eb4c52447c722b59a6126a0a6909"
+    },
+    {
+      "bytes": 10301,
+      "git_blob": "b12b97e2982a042f323f84f8aa985090c7ca01d0",
+      "mode": "100644",
+      "path": "oracle/receive_preview.py",
+      "sha256": "44ab44d70f7da5f0236ae65b6981517080a84865c9d6bd528137c27bbe2fbf1a"
+    },
+    {
+      "bytes": 28520,
+      "git_blob": "0c43700a14c021d4718f91cb2c3d64d49d8d4bc5",
+      "mode": "100644",
+      "path": "receiving.json",
+      "sha256": "d1477ba7c3a3d71bb5151df7bd0412bd429949b7b56436e60f08c30815e62adb"
+    },
+    {
+      "bytes": 6541,
+      "git_blob": "ea4d5dd5ce34ba623dd1591a6603c49f79f801d3",
+      "mode": "100644",
+      "path": "source-review.json",
+      "sha256": "f0322921d06cd961e2ae61902447b3c86500e158b277bbd66e34dcc697ef6cf6"
+    }
+  ],
+  "full_suite_or_baseline_repetitions": 0,
+  "native_processes": 8,
+  "native_receipt": {
+    "bytes": 28520,
+    "git_blob": "0c43700a14c021d4718f91cb2c3d64d49d8d4bc5",
+    "sha256": "d1477ba7c3a3d71bb5151df7bd0412bd429949b7b56436e60f08c30815e62adb"
+  },
+  "oracle_manifest": {
+    "bytes": 4543,
+    "git_blob": "2ffd30160132f9cd004aca575678f032ef363180",
+    "sha256": "16adc942f823dbeb27d0c22df33d956e3366eb4c52447c722b59a6126a0a6909"
+  },
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "result": "FROZEN INDEPENDENT ACCEPT",
+  "shared_original_snapshot_path": "docs/qualification/plan-preview-0ee86eaeaf8d/original-twelve-files.json",
+  "shared_original_snapshot_sha256": "ddd44fb5ba154e66c0950d754b70b34770038d0c726b4afd98379536b32ca53a",
+  "unique_artifact_bodies": 14
+}

@@ -1,0 +1,104 @@
+{
+  "name": "main",
+  "commit": {
+    "sha": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "node_id": "C_kwDOU76fxtoAKGQ2NWJkZTljNTliMWQyNTkzYTgwZjZkODM4YzBhNDBiZjY3NjgwMTM",
+    "commit": {
+      "author": {
+        "name": "Jacob Metoyer",
+        "email": "150724801+Jacob-Met@users.noreply.github.com",
+        "date": "2026-10-07T19:50:38Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-07T19:50:38Z"
+      },
+      "message": "Merge pull request #3 from Jacob-Met/docs/ci-badge\n\nDocs: add CI status badge to README",
+      "tree": {
+        "sha": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+        "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/trees/d5e5ad4e316be0b20a50151f8549ac490d3d99de"
+      },
+      "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/commits/d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqxqKOCRC1aQ7uu5UhlAAAm90QAJfdGasnQ8L5uUJsSFUcrjiN\nkTBK4t6PqOVyjE0bOpZ2UY5Y+zbTlc8f42HGdGtk4PljLTPz+ZTKSL6zDstsYdDs\nd1juSNLIBHuilQs8r0ILnc0UQel9Q+G7VLTe4BKFqP5suRI5jdg2XrkzMWKO2ihP\nWCtAYwBZmbtLLLYLAyr67Ck7uoIT4a51v0xrGhHTUhVTAHJLVSLX0lbKzv66lMQl\nCNAwjNkpCYU9v3N9FPX62IlDSzZpU+ze0PxdaF9Pkbc3Y1F/LnG/f6tm9dBYBrX8\nt/t1tTkxTwIAIDmncp0CB9Zy5q5lJOMGhrwWPmmTvdUtfpYH8WFmDv5PKKv00OwO\nFlTSgkn7035lAzks1vgJB6fFSQG/UZdkjxmEi4WnR+dYY2BJAodGGCpUAksMCt+b\nD/cVK54xtSsMdVcREuWg21rfPmxoEkw3P5+s8pO+hUf0tp/jjrHbW3aJWbiBmTKJ\n6m6O+AA+ZmFyH547ZA95SafPkirvGSZ9ypalmZR91WUUX1RZm9BtA0pYBej5dhI0\nXrjCAdwAXc8wlKfoDVeOXP54Fy3FGjIxN7XESO15vHWrqH3xRRw9PrnLQ5T54MXe\nFOINRKT/61eBVGb0vlxyCIv5PHqb7M16l4113WgfOIHCKORdbMBYD4+U1YFWd9T5\ns5RCWMN6C0Y9SDAvsDMR\n=R5A4\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d5e5ad4e316be0b20a50151f8549ac490d3d99de\nparent 611dfbf320d0ac461b2ae5efb3b3e749e4ecaa07\nparent bfdbeaaca0c5fc1ab19f24c0ee09e771c94050a1\nauthor Jacob Metoyer <150724801+Jacob-Met@users.noreply.github.com> 1791402638 -0700\ncommitter GitHub <noreply@github.com> 1791402638 -0700\n\nMerge pull request #3 from Jacob-Met/docs/ci-badge\n\nDocs: add CI status badge to README",
+        "verified_at": "2026-10-07T19:50:39Z"
+      }
+    },
+    "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/commits/d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "html_url": "https://github.com/Jacob-Met/multi-agent-fanout-engine/commit/d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "comments_url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/commits/d65bde9c59b1d2593a80f6d838c0a40bf6768013/comments",
+    "author": {
+      "login": "Jacob-Met",
+      "id": 150724801,
+      "node_id": "U_kgDOCPvgwQ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/150724801?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Jacob-Met",
+      "html_url": "https://github.com/Jacob-Met",
+      "followers_url": "https://api.github.com/users/Jacob-Met/followers",
+      "following_url": "https://api.github.com/users/Jacob-Met/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Jacob-Met/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Jacob-Met/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Jacob-Met/subscriptions",
+      "organizations_url": "https://api.github.com/users/Jacob-Met/orgs",
+      "repos_url": "https://api.github.com/users/Jacob-Met/repos",
+      "events_url": "https://api.github.com/users/Jacob-Met/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Jacob-Met/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "611dfbf320d0ac461b2ae5efb3b3e749e4ecaa07",
+        "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/commits/611dfbf320d0ac461b2ae5efb3b3e749e4ecaa07",
+        "html_url": "https://github.com/Jacob-Met/multi-agent-fanout-engine/commit/611dfbf320d0ac461b2ae5efb3b3e749e4ecaa07"
+      },
+      {
+        "sha": "bfdbeaaca0c5fc1ab19f24c0ee09e771c94050a1",
+        "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/commits/bfdbeaaca0c5fc1ab19f24c0ee09e771c94050a1",
+        "html_url": "https://github.com/Jacob-Met/multi-agent-fanout-engine/commit/bfdbeaaca0c5fc1ab19f24c0ee09e771c94050a1"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/branches/main",
+    "html": "https://github.com/Jacob-Met/multi-agent-fanout-engine/tree/main"
+  },
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [],
+      "checks": []
+    }
+  },
+  "protection_url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/branches/main/protection"
+}

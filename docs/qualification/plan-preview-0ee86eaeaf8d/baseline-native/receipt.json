@@ -1,0 +1,269 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "base": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "runtime": {
+    "python": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "linux"
+  },
+  "product_processes": 2,
+  "existing_api_processes": 1,
+  "absent_cli_processes": 1,
+  "observed_native_output": {
+    "native_plan": {
+      "project": "authored-review",
+      "parts": [
+        {
+          "id": "review",
+          "instruction": "Review the completed draft against its sources.",
+          "depends_on": [
+            "draft"
+          ],
+          "tags": [
+            "review"
+          ]
+        },
+        {
+          "id": "draft",
+          "instruction": "Write a short source-bound draft.",
+          "depends_on": [
+            "research"
+          ],
+          "tags": []
+        },
+        {
+          "id": "research",
+          "instruction": "Read the authored source 日本語 fixture.",
+          "depends_on": [],
+          "tags": [
+            "sources"
+          ]
+        },
+        {
+          "id": "notes",
+          "instruction": "Prepare a separate empty notes template.",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "handoff",
+          "instruction": "Prepare an offline handoff after both prerequisites.",
+          "depends_on": [
+            "review",
+            "notes"
+          ],
+          "tags": []
+        }
+      ]
+    },
+    "native_plan_digest": "fd28b2a3d4cbb7baef3aaeeb76f5d28eb31366e3ab5a49268bbc4675b8ec0194",
+    "dependency_ready_without_completions": [
+      "research",
+      "notes"
+    ],
+    "native_routes": [
+      {
+        "part_id": "review",
+        "route": {
+          "model": "model-b",
+          "effort": "high"
+        },
+        "idempotency_key": "fanout-25ed4842f162aece7b68795341a79404101a60111f7b98cff589222f0d63f12d"
+      },
+      {
+        "part_id": "draft",
+        "route": {
+          "model": "model-a",
+          "effort": "low"
+        },
+        "idempotency_key": "fanout-98c87d9c54c9920afadc4d2eeb9fd29c0dfe1c0c8903e613d9ab55b141838567"
+      },
+      {
+        "part_id": "research",
+        "route": {
+          "model": "model-a",
+          "effort": "low"
+        },
+        "idempotency_key": "fanout-9865057ceb7ab8e566c66568d43d583475a345a19c5c91217cce0ab6806a08d7"
+      },
+      {
+        "part_id": "notes",
+        "route": {
+          "model": "model-a",
+          "effort": "low"
+        },
+        "idempotency_key": "fanout-31563396426ea303699db3b1048e513d9fe97a26156b8bd44e77265b54000587"
+      },
+      {
+        "part_id": "handoff",
+        "route": {
+          "model": "model-b",
+          "effort": "low"
+        },
+        "idempotency_key": "fanout-26189848aad83f82a73babcbdb5bd5d6ce79a8d4b73befe20adfcabde7aa9b0c"
+      }
+    ],
+    "declared_step_up": {
+      "model": "model-b",
+      "effort": "high"
+    },
+    "observed_connection_or_spawn_events": []
+  },
+  "processes": [
+    {
+      "label": "01-native-plan-routing",
+      "category": "Existing public Python APIs; no Ledger or Hub instance",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-c",
+        "\nimport dataclasses, json, pathlib, sys\nside_effect_events = []\ndef audit(event, args):\n    if event.startswith(('sqlite3.connect', 'socket.', 'subprocess.Popen')):\n        side_effect_events.append(event)\nsys.addaudithook(audit)\nfrom fanout_engine import Plan, Route, EffortRouter, strict_json_loads\nplan = Plan.from_dict(strict_json_loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf-8')))\nsettings = strict_json_loads(pathlib.Path(sys.argv[2]).read_text(encoding='utf-8'))\nrouter = EffortRouter(settings['catalog'], pool=[Route(**row) for row in settings['pool']], step_up=Route(**settings['step_up']))\nrows = []\nfor part in plan.parts:\n    explicit = settings['explicit_routes'].get(part.id)\n    route = router.route_for(part.id, Route(**explicit) if explicit is not None else None)\n    rows.append({'part_id': part.id, 'route': dataclasses.asdict(route), 'idempotency_key': plan.idempotency_key(part.id)})\nprint(json.dumps({'native_plan': plan.to_dict(), 'native_plan_digest': plan.digest,\n    'dependency_ready_without_completions': [part.id for part in plan.ready_parts()],\n    'native_routes': rows, 'declared_step_up': dataclasses.asdict(router.step_up),\n    'observed_connection_or_spawn_events': side_effect_events}, ensure_ascii=False, indent=2))\nassert not side_effect_events\n",
+        "/dev/fanout-preview-0ee86-iiw7nz6u/plan.json",
+        "/dev/fanout-preview-0ee86-iiw7nz6u/routes.json"
+      ],
+      "cwd": "/dev/fanout-preview-0ee86-iiw7nz6u/source",
+      "returncode": 0,
+      "stdout": {
+        "bytes": 2423,
+        "sha256": "7c7e66e7b27e9c1ecf2ecb666d7039212c22eae3adb89f5c538d4613aa938da0",
+        "git_blob": "bce051f9fcb07f8b6b30f34dedafaba5d3efb4c6"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      }
+    },
+    {
+      "label": "02-missing-preview-command",
+      "category": "Absent maintained terminal consumer",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-preview-0ee86-iiw7nz6u/plan.json",
+        "--routes",
+        "/dev/fanout-preview-0ee86-iiw7nz6u/routes.json",
+        "--output",
+        "/dev/fanout-preview-0ee86-iiw7nz6u/existing-preview.json"
+      ],
+      "cwd": "/dev/fanout-preview-0ee86-iiw7nz6u/source",
+      "returncode": 1,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+      },
+      "stderr": {
+        "bytes": 113,
+        "sha256": "fcf2090d60496af17a0572f3f826dc23afbfd33431d3cde756fb28d33ef4f974",
+        "git_blob": "531f3b611aa40d4ca38eaa5a6919c5005f0aaf2e"
+      }
+    }
+  ],
+  "before": {
+    "existing-preview.json": {
+      "bytes": 33,
+      "sha256": "86f28b65c25305a7d72864872979a2908c1f0314668a6ee82d3cf5910f130237",
+      "git_blob": "87496bf3524b5f5b845a327bfe5a5c6cba96b7be"
+    },
+    "routes.json": {
+      "bytes": 424,
+      "sha256": "75bf741842b622340d7cf022cb979a4a2b21509e8a0347f23a07560ce30078a0",
+      "git_blob": "82596d15d303c4aa76361408a8773c27e67e6ed3"
+    },
+    "plan.json": {
+      "bytes": 810,
+      "sha256": "caa6802bde5171d145cfff577dc183fbce667675afa9458fd4d4694b714772fa",
+      "git_blob": "0637cc97e13b13de622b47b4cd081e272ea317a2"
+    },
+    "source/pyproject.toml": {
+      "bytes": 248,
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    "source/fanout_engine/ledger.py": {
+      "bytes": 11600,
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac",
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e"
+    },
+    "source/fanout_engine/routing.py": {
+      "bytes": 2622,
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15",
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    "source/fanout_engine/dispatch.py": {
+      "bytes": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    "source/fanout_engine/__init__.py": {
+      "bytes": 510,
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a",
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a"
+    },
+    "source/fanout_engine/plan.py": {
+      "bytes": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    }
+  },
+  "after": {
+    "existing-preview.json": {
+      "bytes": 33,
+      "sha256": "86f28b65c25305a7d72864872979a2908c1f0314668a6ee82d3cf5910f130237",
+      "git_blob": "87496bf3524b5f5b845a327bfe5a5c6cba96b7be"
+    },
+    "routes.json": {
+      "bytes": 424,
+      "sha256": "75bf741842b622340d7cf022cb979a4a2b21509e8a0347f23a07560ce30078a0",
+      "git_blob": "82596d15d303c4aa76361408a8773c27e67e6ed3"
+    },
+    "plan.json": {
+      "bytes": 810,
+      "sha256": "caa6802bde5171d145cfff577dc183fbce667675afa9458fd4d4694b714772fa",
+      "git_blob": "0637cc97e13b13de622b47b4cd081e272ea317a2"
+    },
+    "source/pyproject.toml": {
+      "bytes": 248,
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    "source/fanout_engine/ledger.py": {
+      "bytes": 11600,
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac",
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e"
+    },
+    "source/fanout_engine/routing.py": {
+      "bytes": 2622,
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15",
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    "source/fanout_engine/dispatch.py": {
+      "bytes": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    "source/fanout_engine/__init__.py": {
+      "bytes": 510,
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a",
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a"
+    },
+    "source/fanout_engine/plan.py": {
+      "bytes": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    }
+  },
+  "all_source_input_and_prior_output_bytes_preserved": true,
+  "scope": "Authored-plan and caller-supplied route preview before Ledger/Hub use. This is not the separately owned retained-project inspection workflow.",
+  "boundaries": [
+    "Synthetic local plan and model identifiers only.",
+    "No Ledger or Hub instance, dispatch, provider, broker, host or account operation.",
+    "Initial dependency readiness is not queued/runtime dispatch eligibility.",
+    "The missing module establishes an absent terminal route, not a failed worker submission."
+  ]
+}

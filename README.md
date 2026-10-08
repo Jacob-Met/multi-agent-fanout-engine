@@ -55,3 +55,13 @@ with Ledger(":memory:") as ledger:
 ## Scope
 
 This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
+
+## Preview an authored plan
+
+Review native plan identity, initial dependency readiness, every configured route and stable idempotency keys before attaching a Ledger or Hub:
+
+~~~sh
+python -m fanout_engine.preview --plan plan.json --routes routes.json
+~~~
+
+The command validates the entire request and writes deterministic JSON to stdout. An optional --output new-preview.json saves a new file without replacing an existing destination. [The plan preview guide](docs/plan-preview.md) provides complete input examples, the report contract, native Python helper, consumer limits and file-delivery behavior. Initial dependency readiness is separate from stored dispatch eligibility; this preview performs no dispatch or provider operation.

@@ -1,0 +1,100 @@
+{
+  "native_plan": {
+    "project": "authored-review",
+    "parts": [
+      {
+        "id": "review",
+        "instruction": "Review the completed draft against its sources.",
+        "depends_on": [
+          "draft"
+        ],
+        "tags": [
+          "review"
+        ]
+      },
+      {
+        "id": "draft",
+        "instruction": "Write a short source-bound draft.",
+        "depends_on": [
+          "research"
+        ],
+        "tags": []
+      },
+      {
+        "id": "research",
+        "instruction": "Read the authored source 日本語 fixture.",
+        "depends_on": [],
+        "tags": [
+          "sources"
+        ]
+      },
+      {
+        "id": "notes",
+        "instruction": "Prepare a separate empty notes template.",
+        "depends_on": [],
+        "tags": []
+      },
+      {
+        "id": "handoff",
+        "instruction": "Prepare an offline handoff after both prerequisites.",
+        "depends_on": [
+          "review",
+          "notes"
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "native_plan_digest": "fd28b2a3d4cbb7baef3aaeeb76f5d28eb31366e3ab5a49268bbc4675b8ec0194",
+  "dependency_ready_without_completions": [
+    "research",
+    "notes"
+  ],
+  "native_routes": [
+    {
+      "part_id": "review",
+      "route": {
+        "model": "model-b",
+        "effort": "high"
+      },
+      "idempotency_key": "fanout-25ed4842f162aece7b68795341a79404101a60111f7b98cff589222f0d63f12d"
+    },
+    {
+      "part_id": "draft",
+      "route": {
+        "model": "model-a",
+        "effort": "low"
+      },
+      "idempotency_key": "fanout-98c87d9c54c9920afadc4d2eeb9fd29c0dfe1c0c8903e613d9ab55b141838567"
+    },
+    {
+      "part_id": "research",
+      "route": {
+        "model": "model-a",
+        "effort": "low"
+      },
+      "idempotency_key": "fanout-9865057ceb7ab8e566c66568d43d583475a345a19c5c91217cce0ab6806a08d7"
+    },
+    {
+      "part_id": "notes",
+      "route": {
+        "model": "model-a",
+        "effort": "low"
+      },
+      "idempotency_key": "fanout-31563396426ea303699db3b1048e513d9fe97a26156b8bd44e77265b54000587"
+    },
+    {
+      "part_id": "handoff",
+      "route": {
+        "model": "model-b",
+        "effort": "low"
+      },
+      "idempotency_key": "fanout-26189848aad83f82a73babcbdb5bd5d6ce79a8d4b73befe20adfcabde7aa9b0c"
+    }
+  ],
+  "declared_step_up": {
+    "model": "model-b",
+    "effort": "high"
+  },
+  "observed_connection_or_spawn_events": []
+}

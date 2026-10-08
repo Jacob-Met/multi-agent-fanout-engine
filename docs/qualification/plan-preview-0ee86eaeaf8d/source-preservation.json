@@ -1,0 +1,92 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "current_primary_read_at": "2026-10-08T16:14:44.492Z",
+  "qualified_native_base": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "publication_base": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "publication_base_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "complete_base_leaf_count": 12,
+  "current_readme_git": "0313a67500469d4e736ea7430d7f727588981fc5",
+  "current_readme_is_exact_candidate_prefix": true,
+  "other_eleven_current_leaves_unchanged": [
+    {
+      "path": ".github/workflows/test.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+    },
+    {
+      "path": "examples/demo.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7"
+    },
+    {
+      "path": "fanout_engine/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73115ea48286832e425599668e4557ea6a12758a"
+    },
+    {
+      "path": "fanout_engine/dispatch.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    {
+      "path": "fanout_engine/ledger.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e"
+    },
+    {
+      "path": "fanout_engine/plan.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8967c1db75507f564852c66ed913aa55103f6f76"
+    },
+    {
+      "path": "fanout_engine/routing.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a138baed2644160b999719f888cb97e288d31ff3"
+    },
+    {
+      "path": "tests/test_plan.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec1cc812bb02b506ea8e346f10179080627a9fee"
+    },
+    {
+      "path": "tests/test_routing.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+    }
+  ],
+  "changed_paths": [
+    "README.md",
+    "docs/plan-preview.md",
+    "fanout_engine/preview.py",
+    "tests/test_preview.py"
+  ],
+  "candidate_manifest": {
+    "bytes": 4775,
+    "sha256": "73b5bcba7076e56aa7451dc1c69481cc4856dfea964b0a170cbdb808002d6727",
+    "git_blob": "693fc7a95f1e4ecb0e5ac6c69bdae4667d2225eb"
+  },
+  "root_source_design_review": "ACCEPT after full module/test/guide read and independent eight-process receiving; no new native execution",
+  "stored_inspection_owner_paths_not_overlaid": true,
+  "scope_claim": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6063635477"
+}

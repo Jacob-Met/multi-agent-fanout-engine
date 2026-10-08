@@ -1,0 +1,7 @@
+{
+  "chunk_id": "c0e122",
+  "wall_time_seconds": 0.520813601,
+  "exit_code": 0,
+  "original_token_count": 50,
+  "output": "{\"result\": \"ACCEPT\", \"processes\": 8, \"receipt\": {\"bytes\": 28520, \"sha256\": \"d1477ba7c3a3d71bb5151df7bd0412bd429949b7b56436e60f08c30815e62adb\", \"git_blob\": \"0c43700a14c021d4718f91cb2c3d64d49d8d4bc5\"}}\n"
+}

@@ -1,0 +1,32 @@
+{
+  "catalog": {
+    "model-a": [
+      "low",
+      "high"
+    ],
+    "model-b": [
+      "low",
+      "high"
+    ]
+  },
+  "pool": [
+    {
+      "model": "model-a",
+      "effort": "low"
+    },
+    {
+      "model": "model-b",
+      "effort": "low"
+    }
+  ],
+  "explicit_routes": {
+    "review": {
+      "model": "model-b",
+      "effort": "high"
+    }
+  },
+  "step_up": {
+    "model": "model-b",
+    "effort": "high"
+  }
+}
