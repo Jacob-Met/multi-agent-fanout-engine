@@ -56,7 +56,9 @@ class EffortRouter:
             return explicit
         digest = hashlib.sha256(part_id.encode("utf-8")).digest()
         index = int.from_bytes(digest[:8], "big") % len(self.pool)
-        return self.pool[index]
+        route = self.pool[index]
+        self._validate(route)
+        return route
 
     def step_up_after_refusal(
         self,
