@@ -1,0 +1,449 @@
+﻿2026-10-08T16:32:09.5077089Z Current runner version: '2.337.0'
+2026-10-08T16:32:09.5098910Z ##[group]Runner Image Provisioner
+2026-10-08T16:32:09.5099611Z Hosted Compute Agent
+2026-10-08T16:32:09.5100152Z Version: 20261002.596
+2026-10-08T16:32:09.5100687Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-08T16:32:09.5101250Z Build Date: 2026-10-02T22:28:27Z
+2026-10-08T16:32:09.5101854Z Worker ID: {5c0ed7a9-189c-4c17-914f-214485d8364a}
+2026-10-08T16:32:09.5102439Z Region: westus3
+2026-10-08T16:32:09.5102915Z Cloud: Azure
+2026-10-08T16:32:09.5103400Z ##[endgroup]
+2026-10-08T16:32:09.5104509Z ##[group]Operating System
+2026-10-08T16:32:09.5105081Z Ubuntu
+2026-10-08T16:32:09.5105513Z 24.04.5
+2026-10-08T16:32:09.5105950Z LTS
+2026-10-08T16:32:09.5106416Z ##[endgroup]
+2026-10-08T16:32:09.5106860Z ##[group]Runner Image
+2026-10-08T16:32:09.5107386Z Image: ubuntu-24.04
+2026-10-08T16:32:09.5107852Z Version: 20261004.327.1
+2026-10-08T16:32:09.5109021Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-08T16:32:09.5110406Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-08T16:32:09.5111211Z ##[endgroup]
+2026-10-08T16:32:09.5112129Z ##[group]GITHUB_TOKEN Permissions
+2026-10-08T16:32:09.5113660Z Contents: read
+2026-10-08T16:32:09.5114148Z Metadata: read
+2026-10-08T16:32:09.5114691Z ##[endgroup]
+2026-10-08T16:32:09.5116394Z Secret source: Actions
+2026-10-08T16:32:09.5117111Z Cache mode: write
+2026-10-08T16:32:09.5117775Z Prepare workflow directory
+2026-10-08T16:32:09.5414830Z Prepare all required actions
+2026-10-08T16:32:09.5461025Z Getting action download info
+2026-10-08T16:32:09.8589752Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-08T16:32:10.3529187Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-08T16:32:10.5318630Z Complete job name: test (3.10)
+2026-10-08T16:32:10.5922010Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-08T16:32:10.5922803Z with:
+2026-10-08T16:32:10.5923203Z   repository: Jacob-Met/multi-agent-fanout-engine
+2026-10-08T16:32:10.5926447Z   token: ***
+2026-10-08T16:32:10.5926793Z   ssh-strict: true
+2026-10-08T16:32:10.5927148Z   ssh-user: git
+2026-10-08T16:32:10.5927501Z   persist-credentials: true
+2026-10-08T16:32:10.5927886Z   clean: true
+2026-10-08T16:32:10.5928239Z   sparse-checkout-cone-mode: true
+2026-10-08T16:32:10.5928641Z   fetch-depth: 1
+2026-10-08T16:32:10.5929138Z   fetch-tags: false
+2026-10-08T16:32:10.5929497Z   show-progress: true
+2026-10-08T16:32:10.5929844Z   lfs: false
+2026-10-08T16:32:10.5930168Z   submodules: false
+2026-10-08T16:32:10.5930526Z   set-safe-directory: true
+2026-10-08T16:32:10.5930921Z   allow-unsafe-pr-checkout: false
+2026-10-08T16:32:10.5931529Z ##[endgroup]
+2026-10-08T16:32:10.6742556Z Syncing repository: Jacob-Met/multi-agent-fanout-engine
+2026-10-08T16:32:10.6744338Z ##[group]Getting Git version info
+2026-10-08T16:32:10.6745376Z Working directory is '/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine'
+2026-10-08T16:32:10.6746663Z [command]/usr/bin/git version
+2026-10-08T16:32:10.6797409Z git version 2.55.0
+2026-10-08T16:32:10.6824597Z ##[endgroup]
+2026-10-08T16:32:10.6831706Z Temporarily overriding HOME='/home/runner/work/_temp/3c3820a9-c1f1-4c3b-b35d-4138f7e5bc47' before making global git config changes
+2026-10-08T16:32:10.6833302Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T16:32:10.6837330Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine
+2026-10-08T16:32:10.6901049Z Deleting the contents of '/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine'
+2026-10-08T16:32:10.6902695Z ##[group]Initializing the repository
+2026-10-08T16:32:10.6904152Z [command]/usr/bin/git init /home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine
+2026-10-08T16:32:10.6988704Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-08T16:32:10.6990096Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-08T16:32:10.6991285Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-08T16:32:10.6992548Z hint: call:
+2026-10-08T16:32:10.6993325Z hint:
+2026-10-08T16:32:10.6994228Z hint: 	git config --global init.defaultBranch <name>
+2026-10-08T16:32:10.6995291Z hint:
+2026-10-08T16:32:10.6996313Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-08T16:32:10.6997769Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-08T16:32:10.6999180Z hint:
+2026-10-08T16:32:10.7000125Z hint: 	git branch -m <name>
+2026-10-08T16:32:10.7000775Z hint:
+2026-10-08T16:32:10.7001599Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-08T16:32:10.7003163Z Initialized empty Git repository in /home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/.git/
+2026-10-08T16:32:10.7010853Z [command]/usr/bin/git remote add origin https://github.com/Jacob-Met/multi-agent-fanout-engine
+2026-10-08T16:32:10.7064366Z ##[endgroup]
+2026-10-08T16:32:10.7065281Z ##[group]Disabling automatic garbage collection
+2026-10-08T16:32:10.7067348Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-08T16:32:10.7095607Z ##[endgroup]
+2026-10-08T16:32:10.7096492Z ##[group]Setting up auth
+2026-10-08T16:32:10.7100738Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T16:32:10.7128299Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T16:32:10.7453230Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T16:32:10.7484756Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T16:32:10.7677228Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T16:32:10.7708026Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T16:32:10.7904546Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-08T16:32:10.8021388Z ##[endgroup]
+2026-10-08T16:32:10.8028274Z ##[group]Fetching the repository
+2026-10-08T16:32:10.8029663Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b99acb72fe79837914661d95a01b23e7b40ec81e:refs/remotes/pull/5/merge
+2026-10-08T16:32:11.3524547Z From https://github.com/Jacob-Met/multi-agent-fanout-engine
+2026-10-08T16:32:11.3526274Z  * [new ref]         b99acb72fe79837914661d95a01b23e7b40ec81e -> pull/5/merge
+2026-10-08T16:32:11.3529161Z ##[endgroup]
+2026-10-08T16:32:11.3530272Z ##[group]Determining the checkout info
+2026-10-08T16:32:11.3531649Z ##[endgroup]
+2026-10-08T16:32:11.3535797Z [command]/usr/bin/git sparse-checkout disable
+2026-10-08T16:32:11.3583297Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-08T16:32:11.3618954Z ##[group]Checking out the ref
+2026-10-08T16:32:11.3621460Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/5/merge
+2026-10-08T16:32:11.3698690Z Note: switching to 'refs/remotes/pull/5/merge'.
+2026-10-08T16:32:11.3699542Z 
+2026-10-08T16:32:11.3700083Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-08T16:32:11.3701600Z changes and commit them, and you can discard any commits you make in this
+2026-10-08T16:32:11.3702971Z state without impacting any branches by switching back to a branch.
+2026-10-08T16:32:11.3704023Z 
+2026-10-08T16:32:11.3704586Z If you want to create a new branch to retain commits you create, you may
+2026-10-08T16:32:11.3705775Z do so (now or later) by using -c with the switch command. Example:
+2026-10-08T16:32:11.3706443Z 
+2026-10-08T16:32:11.3706869Z   git switch -c <new-branch-name>
+2026-10-08T16:32:11.3707338Z 
+2026-10-08T16:32:11.3707653Z Or undo this operation with:
+2026-10-08T16:32:11.3708154Z 
+2026-10-08T16:32:11.3708485Z   git switch -
+2026-10-08T16:32:11.3709134Z 
+2026-10-08T16:32:11.3709791Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-08T16:32:11.3710783Z 
+2026-10-08T16:32:11.3711818Z HEAD is now at b99acb7 Merge 5478d8789503d518f7f24a23823a1872d3b4f7fa into d65bde9c59b1d2593a80f6d838c0a40bf6768013
+2026-10-08T16:32:11.3715135Z ##[endgroup]
+2026-10-08T16:32:11.3745132Z [command]/usr/bin/git log -1 --format=%H
+2026-10-08T16:32:11.3768389Z b99acb72fe79837914661d95a01b23e7b40ec81e
+2026-10-08T16:32:11.4079425Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-10-08T16:32:11.4080689Z with:
+2026-10-08T16:32:11.4081327Z   python-version: 3.10
+2026-10-08T16:32:11.4082055Z   check-latest: false
+2026-10-08T16:32:11.4089664Z   token: ***
+2026-10-08T16:32:11.4090332Z   update-environment: true
+2026-10-08T16:32:11.4091112Z   allow-prereleases: false
+2026-10-08T16:32:11.4091920Z   freethreaded: false
+2026-10-08T16:32:11.4092602Z ##[endgroup]
+2026-10-08T16:32:11.5176719Z ##[group]Installed versions
+2026-10-08T16:32:11.6571503Z (node:2079) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-08T16:32:11.6574586Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-08T16:32:11.6576048Z Successfully set up CPython (3.10.22)
+2026-10-08T16:32:11.6577403Z ##[endgroup]
+2026-10-08T16:32:11.6761997Z ##[group]Run python -m unittest discover -s tests -v
+2026-10-08T16:32:11.6763243Z [36;1mpython -m unittest discover -s tests -v[0m
+2026-10-08T16:32:11.7014714Z shell: /usr/bin/bash -e {0}
+2026-10-08T16:32:11.7015562Z env:
+2026-10-08T16:32:11.7016358Z   pythonLocation: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-08T16:32:11.7017686Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib/pkgconfig
+2026-10-08T16:32:11.7019157Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-08T16:32:11.7020355Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-08T16:32:11.7021534Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.10.22/x64
+2026-10-08T16:32:11.7022726Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.22/x64/lib
+2026-10-08T16:32:11.7023740Z ##[endgroup]
+2026-10-08T16:32:12.1616562Z test_dependency_and_completion_flow (test_dispatch.DispatchTests) ... ok
+2026-10-08T16:32:12.1621309Z test_plan_conflict_is_rejected (test_dispatch.DispatchTests) ... ok
+2026-10-08T16:32:12.1628411Z test_unknown_submission_is_never_replayed (test_dispatch.DispatchTests) ... ok
+2026-10-08T16:32:12.1691083Z test_all_six_states_are_observed_without_recovery_or_reclassification (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.1710800Z test_complete_mixed_project_and_direct_blockers (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.1763906Z test_configured_integer_conversion_limit_has_the_public_refusal_code (test_inspection.InspectionTests) ... test_detached_snapshots_and_later_native_progress (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.1774783Z test_direct_constructor_tags_and_dependency_order_remain_exact (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.1999663Z test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests) ... test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.2009887Z test_native_references_and_additional_evidence_are_preserved_as_data (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.2015582Z test_unknown_project_and_missing_parts_are_distinct (test_inspection.InspectionTests) ... ERROR
+2026-10-08T16:32:12.2019791Z test_ready_parts_and_stable_idempotency_key (test_plan.PlanTests) ... ok
+2026-10-08T16:32:12.2029872Z test_rejects_unknown_dependency_and_cycle (test_plan.PlanTests) ... ok
+2026-10-08T16:32:12.2030805Z test_strict_json_rejects_duplicate_keys_and_nan (test_plan.PlanTests) ... ok
+2026-10-08T16:32:12.2031690Z test_pool_choice_is_stable_and_explicit_route_wins (test_routing.RoutingTests) ... ok
+2026-10-08T16:32:12.2032460Z test_rejects_route_outside_authorized_catalog (test_routing.RoutingTests) ... ok
+2026-10-08T16:32:12.2033035Z test_step_up_only_before_output_and_effect (test_routing.RoutingTests) ... ok
+2026-10-08T16:32:12.2033354Z 
+2026-10-08T16:32:12.2033526Z ======================================================================
+2026-10-08T16:32:12.2034130Z ERROR: test_all_six_states_are_observed_without_recovery_or_reclassification (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2034809Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2035368Z Traceback (most recent call last):
+2026-10-08T16:32:12.2041801Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 174, in test_all_six_states_are_observed_without_recovery_or_reclassification
+2026-10-08T16:32:12.2042863Z     report = self.receive(ledger, plan.project_id)
+2026-10-08T16:32:12.2043668Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2044510Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2045240Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2045873Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2046627Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2046945Z 
+2026-10-08T16:32:12.2047273Z ======================================================================
+2026-10-08T16:32:12.2047894Z ERROR: test_complete_mixed_project_and_direct_blockers (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2048534Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2049169Z Traceback (most recent call last):
+2026-10-08T16:32:12.2050033Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 84, in test_complete_mixed_project_and_direct_blockers
+2026-10-08T16:32:12.2050884Z     report = self.receive(ledger, plan.project_id)
+2026-10-08T16:32:12.2051629Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2052372Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2053054Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2053664Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2054100Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2054370Z 
+2026-10-08T16:32:12.2054581Z ======================================================================
+2026-10-08T16:32:12.2055319Z ERROR: test_configured_integer_conversion_limit_has_the_public_refusal_code (test_inspection.InspectionTests) (column='route_json')
+2026-10-08T16:32:12.2056040Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2056506Z Traceback (most recent call last):
+2026-10-08T16:32:12.2057381Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 250, in test_configured_integer_conversion_limit_has_the_public_refusal_code
+2026-10-08T16:32:12.2058298Z     error = self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2059150Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2059866Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2060668Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2061249Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2061650Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2061900Z 
+2026-10-08T16:32:12.2062096Z ======================================================================
+2026-10-08T16:32:12.2062837Z ERROR: test_configured_integer_conversion_limit_has_the_public_refusal_code (test_inspection.InspectionTests) (column='evidence_json')
+2026-10-08T16:32:12.2063582Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2064053Z Traceback (most recent call last):
+2026-10-08T16:32:12.2064984Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 250, in test_configured_integer_conversion_limit_has_the_public_refusal_code
+2026-10-08T16:32:12.2065888Z     error = self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2066675Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2067424Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2068083Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2068662Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2069182Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2069453Z 
+2026-10-08T16:32:12.2069657Z ======================================================================
+2026-10-08T16:32:12.2070267Z ERROR: test_detached_snapshots_and_later_native_progress (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2071015Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2071495Z Traceback (most recent call last):
+2026-10-08T16:32:12.2072366Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 140, in test_detached_snapshots_and_later_native_progress
+2026-10-08T16:32:12.2073215Z     first = self.receive(ledger, plan.project_id)
+2026-10-08T16:32:12.2073972Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2074685Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2075352Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2075932Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2076336Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2076582Z 
+2026-10-08T16:32:12.2076775Z ======================================================================
+2026-10-08T16:32:12.2077420Z ERROR: test_direct_constructor_tags_and_dependency_order_remain_exact (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2078080Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2078555Z Traceback (most recent call last):
+2026-10-08T16:32:12.2079552Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 128, in test_direct_constructor_tags_and_dependency_order_remain_exact
+2026-10-08T16:32:12.2080399Z     report = self.receive(ledger, plan.project_id)
+2026-10-08T16:32:12.2081131Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2081851Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2082506Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2083084Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2083487Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2083726Z 
+2026-10-08T16:32:12.2083913Z ======================================================================
+2026-10-08T16:32:12.2084768Z ERROR: test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests) (column='plan_json', value='{')
+2026-10-08T16:32:12.2085510Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2085954Z Traceback (most recent call last):
+2026-10-08T16:32:12.2086850Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 205, in test_malformed_or_changed_stored_plan_refuses_without_partial_report
+2026-10-08T16:32:12.2087713Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2088441Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2089345Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2089987Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2090542Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2090914Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2091146Z 
+2026-10-08T16:32:12.2091329Z ======================================================================
+2026-10-08T16:32:12.2092424Z ERROR: test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests) (column='plan_json', value='{"project":"a","project":"b","parts":[]}')
+2026-10-08T16:32:12.2093734Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2094386Z Traceback (most recent call last):
+2026-10-08T16:32:12.2095903Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 205, in test_malformed_or_changed_stored_plan_refuses_without_partial_report
+2026-10-08T16:32:12.2097020Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2097762Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2098468Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2099263Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2099817Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2100201Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2100436Z 
+2026-10-08T16:32:12.2100624Z ======================================================================
+2026-10-08T16:32:12.2101431Z ERROR: test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests) (column='plan_json', value='{"project":"wrong","parts":[]}')
+2026-10-08T16:32:12.2102243Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2102693Z Traceback (most recent call last):
+2026-10-08T16:32:12.2103582Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 205, in test_malformed_or_changed_stored_plan_refuses_without_partial_report
+2026-10-08T16:32:12.2104449Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2105161Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2105847Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2106481Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2107046Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2107428Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2107662Z 
+2026-10-08T16:32:12.2107848Z ======================================================================
+2026-10-08T16:32:12.2108603Z ERROR: test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests) (column='plan_digest', value='different')
+2026-10-08T16:32:12.2109633Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2110072Z Traceback (most recent call last):
+2026-10-08T16:32:12.2110950Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 205, in test_malformed_or_changed_stored_plan_refuses_without_partial_report
+2026-10-08T16:32:12.2111818Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2112554Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2113249Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2113871Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2114433Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2114823Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2115050Z 
+2026-10-08T16:32:12.2115232Z ======================================================================
+2026-10-08T16:32:12.2115937Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='payload_json', value='{')
+2026-10-08T16:32:12.2116653Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2117089Z Traceback (most recent call last):
+2026-10-08T16:32:12.2117944Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2118965Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2119687Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2120500Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2121127Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2121685Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2122064Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2122298Z 
+2026-10-08T16:32:12.2122478Z ======================================================================
+2026-10-08T16:32:12.2123355Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='payload_json', value='{"id":"notes","instruction":"Changed","depends_on":[],"tags":[]}')
+2026-10-08T16:32:12.2124224Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2124664Z Traceback (most recent call last):
+2026-10-08T16:32:12.2125518Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2126374Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2127099Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2127788Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2128408Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2129157Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2129537Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2129771Z 
+2026-10-08T16:32:12.2129945Z ======================================================================
+2026-10-08T16:32:12.2130691Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='payload_digest', value='different')
+2026-10-08T16:32:12.2131443Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2131892Z Traceback (most recent call last):
+2026-10-08T16:32:12.2132738Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2133716Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2134444Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2135144Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2135773Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2136335Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2136714Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2136955Z 
+2026-10-08T16:32:12.2137133Z ======================================================================
+2026-10-08T16:32:12.2137876Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='idempotency_key', value='different')
+2026-10-08T16:32:12.2138636Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2139230Z Traceback (most recent call last):
+2026-10-08T16:32:12.2140110Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2140989Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2141749Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2142474Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2143128Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2143841Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2144270Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2144522Z 
+2026-10-08T16:32:12.2144712Z ======================================================================
+2026-10-08T16:32:12.2145516Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='route_json', value='{"duplicate":1,"duplicate":2}')
+2026-10-08T16:32:12.2146336Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2146806Z Traceback (most recent call last):
+2026-10-08T16:32:12.2147684Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2148551Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2149423Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2150128Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2150777Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2151355Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2151760Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2152007Z 
+2026-10-08T16:32:12.2152196Z ======================================================================
+2026-10-08T16:32:12.2152955Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='evidence_json', value='{"number":1e999}')
+2026-10-08T16:32:12.2153732Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2154201Z Traceback (most recent call last):
+2026-10-08T16:32:12.2155070Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2155935Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2156674Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2157491Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2158136Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2158703Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2159241Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2159479Z 
+2026-10-08T16:32:12.2159677Z ======================================================================
+2026-10-08T16:32:12.2160495Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='worker_id', value='<memory at 0x7f3f312bc940>')
+2026-10-08T16:32:12.2161295Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2161770Z Traceback (most recent call last):
+2026-10-08T16:32:12.2162652Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2163526Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2164268Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2164997Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2165630Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2166198Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2166606Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2166851Z 
+2026-10-08T16:32:12.2167035Z ======================================================================
+2026-10-08T16:32:12.2167888Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='updated_at', value='not a timestamp')
+2026-10-08T16:32:12.2168662Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2169338Z Traceback (most recent call last):
+2026-10-08T16:32:12.2170205Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2171069Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2171792Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2172486Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2173126Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2173703Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2174103Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2174348Z 
+2026-10-08T16:32:12.2174535Z ======================================================================
+2026-10-08T16:32:12.2175257Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests) (column='updated_at', value='inf')
+2026-10-08T16:32:12.2175993Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2176459Z Traceback (most recent call last):
+2026-10-08T16:32:12.2177316Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 225, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2178172Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2179073Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2179787Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2180432Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2181124Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2181523Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2181762Z 
+2026-10-08T16:32:12.2181957Z ======================================================================
+2026-10-08T16:32:12.2182571Z ERROR: test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2183202Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2183658Z Traceback (most recent call last):
+2026-10-08T16:32:12.2184516Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 232, in test_malformed_or_inconsistent_part_rows_refuse_without_write
+2026-10-08T16:32:12.2185376Z     self.receive(ledger, plan.project_id, "invalid_record")
+2026-10-08T16:32:12.2186101Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2186801Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2187455Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2188030Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2188428Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2188665Z 
+2026-10-08T16:32:12.2189040Z ======================================================================
+2026-10-08T16:32:12.2189688Z ERROR: test_native_references_and_additional_evidence_are_preserved_as_data (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2190337Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2190794Z Traceback (most recent call last):
+2026-10-08T16:32:12.2191782Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 264, in test_native_references_and_additional_evidence_are_preserved_as_data
+2026-10-08T16:32:12.2192647Z     report = self.receive(ledger, plan.project_id)
+2026-10-08T16:32:12.2193359Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2194065Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2194704Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2195268Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2195670Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2195920Z 
+2026-10-08T16:32:12.2196117Z ======================================================================
+2026-10-08T16:32:12.2196686Z ERROR: test_unknown_project_and_missing_parts_are_distinct (test_inspection.InspectionTests)
+2026-10-08T16:32:12.2197296Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2197753Z Traceback (most recent call last):
+2026-10-08T16:32:12.2198570Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 184, in test_unknown_project_and_missing_parts_are_distinct
+2026-10-08T16:32:12.2199547Z     self.receive(ledger, "absent", "project_not_found")
+2026-10-08T16:32:12.2200265Z   File "/home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine/tests/test_inspection.py", line 78, in receive
+2026-10-08T16:32:12.2200961Z     self.assertEqual(list(ledger._db.iterdump()), before)
+2026-10-08T16:32:12.2201599Z   File "/opt/hostedtoolcache/Python/3.10.22/x64/lib/python3.10/sqlite3/dump.py", line 30, in _iterdump
+2026-10-08T16:32:12.2202171Z     schema_res = cu.execute(q)
+2026-10-08T16:32:12.2202583Z sqlite3.DatabaseError: not authorized
+2026-10-08T16:32:12.2202833Z 
+2026-10-08T16:32:12.2203051Z ----------------------------------------------------------------------
+2026-10-08T16:32:12.2203506Z Ran 18 tests in 0.042s
+2026-10-08T16:32:12.2203708Z 
+2026-10-08T16:32:12.2203868Z FAILED (errors=22)
+2026-10-08T16:32:12.2215383Z ##[error]Process completed with exit code 1.
+2026-10-08T16:32:12.2395876Z Post job cleanup.
+2026-10-08T16:32:12.3074864Z [command]/usr/bin/git version
+2026-10-08T16:32:12.3111307Z git version 2.55.0
+2026-10-08T16:32:12.3141753Z Temporarily overriding HOME='/home/runner/work/_temp/90706f00-a35a-4c4f-aae1-4b4eeebde42c' before making global git config changes
+2026-10-08T16:32:12.3143119Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-08T16:32:12.3145999Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/multi-agent-fanout-engine/multi-agent-fanout-engine
+2026-10-08T16:32:12.3181597Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-08T16:32:12.3212882Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-08T16:32:12.3426882Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-08T16:32:12.3451169Z http.https://github.com/.extraheader
+2026-10-08T16:32:12.3462076Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-08T16:32:12.3493186Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-08T16:32:12.3714042Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-08T16:32:12.3746946Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-08T16:32:12.4072134Z Cleaning up orphan processes
+2026-10-08T16:32:12.4342961Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

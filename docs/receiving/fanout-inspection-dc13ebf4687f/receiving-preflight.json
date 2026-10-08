@@ -1,0 +1,130 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "clock_marker": "2026-10-08 15:38:45 UTC",
+  "clock_marker_scope": "after main-ref, open-PR and tree reads; immutable commit binding was read afterward",
+  "method": "GitHub connector read-only GET; no remote mutation",
+  "urls": {
+    "main_ref": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/ref/heads/main",
+    "open_pull_requests": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/pulls?state=open&per_page=100",
+    "commit": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/commits/d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "tree": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/trees/d5e5ad4e316be0b20a50151f8549ac490d3d99de?recursive=1"
+  },
+  "ref": {
+    "ref": "refs/heads/main",
+    "node_id": "REF_kwDOU76fxq9yZWZzL2hlYWRzL21haW4",
+    "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/refs/heads/main",
+    "object": {
+      "sha": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+      "type": "commit",
+      "url": "https://api.github.com/repos/Jacob-Met/multi-agent-fanout-engine/git/commits/d65bde9c59b1d2593a80f6d838c0a40bf6768013"
+    }
+  },
+  "commit": {
+    "sha": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+    "parents": [
+      "611dfbf320d0ac461b2ae5efb3b3e749e4ecaa07",
+      "bfdbeaaca0c5fc1ab19f24c0ee09e771c94050a1"
+    ]
+  },
+  "tree": {
+    "sha": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+    "truncated": false,
+    "files": [
+      {
+        "path": ".github/workflows/test.yml",
+        "mode": "100644",
+        "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+        "size": 574
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "git_blob": "0313a67500469d4e736ea7430d7f727588981fc5",
+        "size": 3357
+      },
+      {
+        "path": "examples/demo.py",
+        "mode": "100644",
+        "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7",
+        "size": 1129
+      },
+      {
+        "path": "fanout_engine/__init__.py",
+        "mode": "100644",
+        "git_blob": "73115ea48286832e425599668e4557ea6a12758a",
+        "size": 510
+      },
+      {
+        "path": "fanout_engine/dispatch.py",
+        "mode": "100644",
+        "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+        "size": 3363
+      },
+      {
+        "path": "fanout_engine/ledger.py",
+        "mode": "100644",
+        "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+        "size": 11600
+      },
+      {
+        "path": "fanout_engine/plan.py",
+        "mode": "100644",
+        "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76",
+        "size": 6089
+      },
+      {
+        "path": "fanout_engine/routing.py",
+        "mode": "100644",
+        "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2",
+        "size": 2622
+      },
+      {
+        "path": "pyproject.toml",
+        "mode": "100644",
+        "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "size": 248
+      },
+      {
+        "path": "tests/test_dispatch.py",
+        "mode": "100644",
+        "git_blob": "a138baed2644160b999719f888cb97e288d31ff3",
+        "size": 3293
+      },
+      {
+        "path": "tests/test_plan.py",
+        "mode": "100644",
+        "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee",
+        "size": 1660
+      },
+      {
+        "path": "tests/test_routing.py",
+        "mode": "100644",
+        "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998",
+        "size": 1651
+      }
+    ]
+  },
+  "open_pull_requests": [],
+  "scope": "Fresh snapshot only; parent must gate publication on expected main/preimages. No AGENTS.md exists in the complete 12-file source tree.",
+  "expected_preimages": {
+    "README.md": "0313a67500469d4e736ea7430d7f727588981fc5",
+    "examples/inspect_plan.py": null,
+    "fanout_engine/__init__.py": "73115ea48286832e425599668e4557ea6a12758a",
+    "fanout_engine/inspection.py": null,
+    "fanout_engine/ledger.py": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+    "tests/test_inspection.py": null
+  },
+  "unaffected_baseline_files": {
+    ".github/workflows/test.yml": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+    "examples/demo.py": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7",
+    "fanout_engine/dispatch.py": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+    "fanout_engine/plan.py": "8967c1db75507f564852c66ed913aa55103f6f76",
+    "fanout_engine/routing.py": "0e957dcbd79a59b47958eee49a41e776961467d2",
+    "pyproject.toml": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+    "tests/test_dispatch.py": "a138baed2644160b999719f888cb97e288d31ff3",
+    "tests/test_plan.py": "ec1cc812bb02b506ea8e346f10179080627a9fee",
+    "tests/test_routing.py": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+  },
+  "new_evidence_namespace_absent": "docs/receiving/fanout-inspection-dc13ebf4687f"
+}

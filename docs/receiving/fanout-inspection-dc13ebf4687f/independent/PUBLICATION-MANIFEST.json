@@ -1,0 +1,99 @@
+{
+  "status": "accepted; physical frozen observations and explicit virtual carriers",
+  "convention": "Binds other seven files; allowlist includes all eight; external map binds manifest.",
+  "files": [
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/PUBLICATION-ALLOWLIST.txt",
+      "absolute_source": null,
+      "size": 166,
+      "sha256": "2acaaf8cb92dc8b5d9486cc020fe36e2e4348c4fafbad66a144118c330911eb2",
+      "git_blob": "3c574fd7c5885cc30b2d5a0fe128fc71a53d2f8c",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent carrier",
+      "origin": "virtual: complete eight-file independent list"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/REVIEW.md",
+      "absolute_source": null,
+      "size": 4184,
+      "sha256": "f00cb5d57bfee2a6c49019dd320bb0d0a995e66a96a36b0d0a8aa1d8b68108f7",
+      "git_blob": "0fa5492a94cdc54bde3af5ed00e1dbeb55f89ab3",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "virtual: complete reviewer text supersedes empty ENOSPC output"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/freeze_native_oracle.py",
+      "absolute_source": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/freeze_native_oracle.py",
+      "size": 4925,
+      "sha256": "6794ce223acfbd0593566be0d4b5491562b86511ab73a49a5113341afd6f7057",
+      "git_blob": "c0fff31feb909d146a4600706e87d1428659b2f2",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/freeze_native_oracle.py"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/native-oracle.json",
+      "absolute_source": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/native-oracle.json",
+      "size": 23764,
+      "sha256": "01510b42676795d65a3072ad3e9876c7fcc10f2b170ecf67b645cfd277008da7",
+      "git_blob": "bfcaad1a3173b7ced6fd16d34254f35dd9daf243",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/native-oracle.json"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/review-receipt.json",
+      "absolute_source": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/review-receipt.json",
+      "size": 59893,
+      "sha256": "d27fcc9b0e8ccad35b0bfa6a4e52f1744daa616cfa9c412f68e05f5df4547053",
+      "git_blob": "70027c6e319902cf0b4b0c67b0f3892801dd5be9",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/review-receipt.json"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/review_fanout_v2.py",
+      "absolute_source": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/review_fanout_v2.py",
+      "size": 16276,
+      "sha256": "b8a9c6c46430e776f9aca9066dfd549ef55d74c3c09332f92050cfa42cef817d",
+      "git_blob": "1f30d9aefe4126d71ceee9cc42a4c68781d47c16",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/review_fanout_v2.py"
+    },
+    {
+      "path": "docs/receiving/fanout-inspection-dc13ebf4687f/independent/run-observation.json",
+      "absolute_source": null,
+      "size": 769,
+      "sha256": "b28169507438417f47153233312f59b7ed2a74ac54778c18f7f45bd0259db021",
+      "git_blob": "2ab078ecfe57964740f216a0633be9852bda7492",
+      "mode": "100644",
+      "expected_old_blob": null,
+      "role": "independent evidence",
+      "origin": "virtual: exact observed tool exit-zero metadata"
+    }
+  ],
+  "assembly_failure": {
+    "operation": "apply_patch add independent REVIEW.md",
+    "result": "Failed to write file; ENOSPC",
+    "partial_path": "/dev/shm/work-portability-fanout-review-dc13ebf4687f/REVIEW.md",
+    "partial_size": 0,
+    "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "partial_preserved": true,
+    "excluded": true,
+    "resolution": "Complete text and small carriers supplied in memory. No cleanup or test rerun."
+  },
+  "excluded": [
+    "native-oracle.sqlite",
+    "concurrent-authored.sqlite and any WAL/SHM state",
+    "empty failed REVIEW.md",
+    "all nonallowlisted temporary state"
+  ]
+}

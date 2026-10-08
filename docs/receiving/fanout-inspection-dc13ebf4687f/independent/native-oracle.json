@@ -1,0 +1,737 @@
+{
+  "oracle_source": "Original Ledger part/completed_ids/dispatchable_ids and Plan ready_parts/idempotency_key",
+  "baseline_main": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "baseline_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "baseline_inputs": {
+    "fanout_engine/plan.py": {
+      "size": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    },
+    "fanout_engine/ledger.py": {
+      "size": 11600,
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac",
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e"
+    },
+    "fanout_engine/dispatch.py": {
+      "size": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    }
+  },
+  "candidate_or_author_test_code_read_before_freeze": false,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "database": {
+    "size": 28672,
+    "sha256": "82d8d88901f5f7887672e4a227ad41cd7455da077cf2629d2d78eef4be151b22",
+    "git_blob": "9f82718de78eac9eac4acdcace699b82aa818185"
+  },
+  "expected": {
+    "project_id": "Native-Oracle",
+    "plan_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+    "plan": {
+      "project": "Native-Oracle",
+      "parts": [
+        {
+          "id": "blocked",
+          "instruction": "Wait for a finding: \"Ω\"\nsecond line",
+          "depends_on": [
+            "uncertain",
+            "done"
+          ],
+          "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+          ]
+        },
+        {
+          "id": "ready",
+          "instruction": "Can run after done",
+          "depends_on": [
+            "done"
+          ],
+          "tags": []
+        },
+        {
+          "id": "failed",
+          "instruction": "A reconciled failed native part",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "done",
+          "instruction": "Completed predecessor",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "queued",
+          "instruction": "Independent queued part",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "uncertain",
+          "instruction": "Native uncertainty must remain visible",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "running",
+          "instruction": "Accepted task remains in flight",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "dispatching",
+          "instruction": "Acceptance has not been recorded",
+          "depends_on": [],
+          "tags": []
+        },
+        {
+          "id": "blocked-two",
+          "instruction": "Keep failed and queued blockers in dependency order",
+          "depends_on": [
+            "failed",
+            "queued"
+          ],
+          "tags": []
+        }
+      ]
+    },
+    "part_order": [
+      "blocked",
+      "ready",
+      "failed",
+      "done",
+      "queued",
+      "uncertain",
+      "running",
+      "dispatching",
+      "blocked-two"
+    ],
+    "state_counts": {
+      "queued": 4,
+      "dispatching": 1,
+      "running": 1,
+      "outcome_unknown": 1,
+      "completed": 1,
+      "failed": 1
+    },
+    "dependency_ready_ids": [
+      "ready",
+      "failed",
+      "done",
+      "queued",
+      "uncertain",
+      "running",
+      "dispatching"
+    ],
+    "queued_ids": [
+      "blocked",
+      "ready",
+      "queued",
+      "blocked-two"
+    ],
+    "eligible_ids": [
+      "ready",
+      "queued"
+    ],
+    "blockers": {
+      "blocked": [
+        "uncertain"
+      ],
+      "ready": [],
+      "failed": [],
+      "done": [],
+      "queued": [],
+      "uncertain": [],
+      "running": [],
+      "dispatching": [],
+      "blocked-two": [
+        "failed",
+        "queued"
+      ]
+    },
+    "records": [
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "blocked",
+        "payload_json": "{\"depends_on\":[\"uncertain\",\"done\"],\"id\":\"blocked\",\"instruction\":\"Wait for a finding: \\\"Ω\\\"\\nsecond line\",\"tags\":[\"zeta\",\"alpha\",\"zeta\"]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-e3198400567f43ade242678ccd6b3229c462558072d48b6d70976c879fba3880",
+        "state": "queued",
+        "worker_id": null,
+        "task_id": null,
+        "route_json": null,
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.7788043,
+        "payload": {
+          "depends_on": [
+            "uncertain",
+            "done"
+          ],
+          "id": "blocked",
+          "instruction": "Wait for a finding: \"Ω\"\nsecond line",
+          "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+          ]
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "ready",
+        "payload_json": "{\"depends_on\":[\"done\"],\"id\":\"ready\",\"instruction\":\"Can run after done\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-253a1ba69cbc5587879cdf60157ca972bb9af53ac37a2022d0b8baf5b626e4a8",
+        "state": "queued",
+        "worker_id": null,
+        "task_id": null,
+        "route_json": null,
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.778858,
+        "payload": {
+          "depends_on": [
+            "done"
+          ],
+          "id": "ready",
+          "instruction": "Can run after done",
+          "tags": []
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "failed",
+        "payload_json": "{\"depends_on\":[],\"id\":\"failed\",\"instruction\":\"A reconciled failed native part\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-9849edce56a742ee24f9bcd28ade566e136ba9f39afb8b2f8357f3d0bee31710",
+        "state": "failed",
+        "worker_id": "fixture-worker",
+        "task_id": "fixture-task-failed",
+        "route_json": "{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"}",
+        "artifact_ref": null,
+        "evidence_json": "{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}",
+        "updated_at": 1791473080.7797663,
+        "payload": {
+          "depends_on": [],
+          "id": "failed",
+          "instruction": "A reconciled failed native part",
+          "tags": []
+        },
+        "route": {
+          "effort": "low",
+          "extensions": {
+            "labels": [
+              "one",
+              "two"
+            ],
+            "weights": [
+              1,
+              2
+            ]
+          },
+          "model": "authored-Ω"
+        },
+        "evidence": {
+          "extras": {
+            "chain": [
+              "α",
+              {
+                "literal": "<tag>,\"quote\"\nline"
+              }
+            ]
+          },
+          "finding": "known from fixture",
+          "locator": "fixture://only",
+          "source": "authored native API"
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "done",
+        "payload_json": "{\"depends_on\":[],\"id\":\"done\",\"instruction\":\"Completed predecessor\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-b27faf742503c45953f31ade3a5b7c570b3cbd1eaa1b835ebe38fe2ed94328f8",
+        "state": "completed",
+        "worker_id": "fixture-worker",
+        "task_id": "fixture-task-done",
+        "route_json": "{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"}",
+        "artifact_ref": "fixture://Ω/output.json",
+        "evidence_json": "{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}",
+        "updated_at": 1791473080.779581,
+        "payload": {
+          "depends_on": [],
+          "id": "done",
+          "instruction": "Completed predecessor",
+          "tags": []
+        },
+        "route": {
+          "effort": "low",
+          "extensions": {
+            "labels": [
+              "one",
+              "two"
+            ],
+            "weights": [
+              1,
+              2
+            ]
+          },
+          "model": "authored-Ω"
+        },
+        "evidence": {
+          "extras": {
+            "chain": [
+              "α",
+              {
+                "literal": "<tag>,\"quote\"\nline"
+              }
+            ]
+          },
+          "finding": "known from fixture",
+          "locator": "fixture://only",
+          "source": "authored native API"
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "queued",
+        "payload_json": "{\"depends_on\":[],\"id\":\"queued\",\"instruction\":\"Independent queued part\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-9cf7bf14e1629fb9650fbc606572ba8e8bbf106a27c05148d5bed64ec1d3aa55",
+        "state": "queued",
+        "worker_id": null,
+        "task_id": null,
+        "route_json": null,
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.7788906,
+        "payload": {
+          "depends_on": [],
+          "id": "queued",
+          "instruction": "Independent queued part",
+          "tags": []
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "uncertain",
+        "payload_json": "{\"depends_on\":[],\"id\":\"uncertain\",\"instruction\":\"Native uncertainty must remain visible\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-987efc935681ac59222870763f704fc9de0c546542c558317447e451baa1bc09",
+        "state": "outcome_unknown",
+        "worker_id": "fixture-worker",
+        "task_id": "fixture-task-uncertain",
+        "route_json": "{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"}",
+        "artifact_ref": null,
+        "evidence_json": "{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}",
+        "updated_at": 1791473080.779651,
+        "payload": {
+          "depends_on": [],
+          "id": "uncertain",
+          "instruction": "Native uncertainty must remain visible",
+          "tags": []
+        },
+        "route": {
+          "effort": "low",
+          "extensions": {
+            "labels": [
+              "one",
+              "two"
+            ],
+            "weights": [
+              1,
+              2
+            ]
+          },
+          "model": "authored-Ω"
+        },
+        "evidence": {
+          "extras": {
+            "chain": [
+              "α",
+              {
+                "literal": "<tag>,\"quote\"\nline"
+              }
+            ]
+          },
+          "finding": "known from fixture",
+          "locator": "fixture://only",
+          "source": "authored native API"
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "running",
+        "payload_json": "{\"depends_on\":[],\"id\":\"running\",\"instruction\":\"Accepted task remains in flight\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-5eb2b911b898caafaab77f2f32b7b41b8802952df1f1c2493bd27dce1529a97b",
+        "state": "running",
+        "worker_id": "fixture-worker",
+        "task_id": "fixture-task-running",
+        "route_json": "{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"}",
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.7794917,
+        "payload": {
+          "depends_on": [],
+          "id": "running",
+          "instruction": "Accepted task remains in flight",
+          "tags": []
+        },
+        "route": {
+          "effort": "low",
+          "extensions": {
+            "labels": [
+              "one",
+              "two"
+            ],
+            "weights": [
+              1,
+              2
+            ]
+          },
+          "model": "authored-Ω"
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "dispatching",
+        "payload_json": "{\"depends_on\":[],\"id\":\"dispatching\",\"instruction\":\"Acceptance has not been recorded\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-6e9b455de427cd610ec5499e7c4a580dc96c7fd860278202c134645cd906e55d",
+        "state": "dispatching",
+        "worker_id": "fixture-worker",
+        "task_id": null,
+        "route_json": "{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"}",
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.77953,
+        "payload": {
+          "depends_on": [],
+          "id": "dispatching",
+          "instruction": "Acceptance has not been recorded",
+          "tags": []
+        },
+        "route": {
+          "effort": "low",
+          "extensions": {
+            "labels": [
+              "one",
+              "two"
+            ],
+            "weights": [
+              1,
+              2
+            ]
+          },
+          "model": "authored-Ω"
+        }
+      },
+      {
+        "project_id": "Native-Oracle",
+        "part_id": "blocked-two",
+        "payload_json": "{\"depends_on\":[\"failed\",\"queued\"],\"id\":\"blocked-two\",\"instruction\":\"Keep failed and queued blockers in dependency order\",\"tags\":[]}",
+        "payload_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+        "idempotency_key": "fanout-749a31190e1de3bb31dce7bfb025bd34e37275516b592f4f09fed0a76da09fc2",
+        "state": "queued",
+        "worker_id": null,
+        "task_id": null,
+        "route_json": null,
+        "artifact_ref": null,
+        "evidence_json": null,
+        "updated_at": 1791473080.7789214,
+        "payload": {
+          "depends_on": [
+            "failed",
+            "queued"
+          ],
+          "id": "blocked-two",
+          "instruction": "Keep failed and queued blockers in dependency order",
+          "tags": []
+        }
+      }
+    ],
+    "events": [
+      {
+        "seq": 1,
+        "project_id": "Native-Oracle",
+        "part_id": null,
+        "event": "plan_recorded",
+        "detail_json": "{\"part_count\":9,\"plan_digest\":\"747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7\"}",
+        "at": 1791473080.7789295,
+        "detail": {
+          "part_count": 9,
+          "plan_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7"
+        }
+      },
+      {
+        "seq": 2,
+        "project_id": "Native-Oracle",
+        "part_id": "done",
+        "event": "dispatch_started",
+        "detail_json": "{\"route\":{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"},\"worker_id\":\"fixture-worker\"}",
+        "at": 1791473080.7791011,
+        "detail": {
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "worker_id": "fixture-worker"
+        }
+      },
+      {
+        "seq": 3,
+        "project_id": "Native-Oracle",
+        "part_id": "done",
+        "event": "dispatch_accepted",
+        "detail_json": "{\"task_id\":\"fixture-task-done\"}",
+        "at": 1791473080.779197,
+        "detail": {
+          "task_id": "fixture-task-done"
+        }
+      },
+      {
+        "seq": 4,
+        "project_id": "Native-Oracle",
+        "part_id": "failed",
+        "event": "dispatch_started",
+        "detail_json": "{\"route\":{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"},\"worker_id\":\"fixture-worker\"}",
+        "at": 1791473080.7792637,
+        "detail": {
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "worker_id": "fixture-worker"
+        }
+      },
+      {
+        "seq": 5,
+        "project_id": "Native-Oracle",
+        "part_id": "failed",
+        "event": "dispatch_accepted",
+        "detail_json": "{\"task_id\":\"fixture-task-failed\"}",
+        "at": 1791473080.7793083,
+        "detail": {
+          "task_id": "fixture-task-failed"
+        }
+      },
+      {
+        "seq": 6,
+        "project_id": "Native-Oracle",
+        "part_id": "uncertain",
+        "event": "dispatch_started",
+        "detail_json": "{\"route\":{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"},\"worker_id\":\"fixture-worker\"}",
+        "at": 1791473080.7793875,
+        "detail": {
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "worker_id": "fixture-worker"
+        }
+      },
+      {
+        "seq": 7,
+        "project_id": "Native-Oracle",
+        "part_id": "uncertain",
+        "event": "dispatch_accepted",
+        "detail_json": "{\"task_id\":\"fixture-task-uncertain\"}",
+        "at": 1791473080.7794263,
+        "detail": {
+          "task_id": "fixture-task-uncertain"
+        }
+      },
+      {
+        "seq": 8,
+        "project_id": "Native-Oracle",
+        "part_id": "running",
+        "event": "dispatch_started",
+        "detail_json": "{\"route\":{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"},\"worker_id\":\"fixture-worker\"}",
+        "at": 1791473080.7794678,
+        "detail": {
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "worker_id": "fixture-worker"
+        }
+      },
+      {
+        "seq": 9,
+        "project_id": "Native-Oracle",
+        "part_id": "running",
+        "event": "dispatch_accepted",
+        "detail_json": "{\"task_id\":\"fixture-task-running\"}",
+        "at": 1791473080.7795043,
+        "detail": {
+          "task_id": "fixture-task-running"
+        }
+      },
+      {
+        "seq": 10,
+        "project_id": "Native-Oracle",
+        "part_id": "dispatching",
+        "event": "dispatch_started",
+        "detail_json": "{\"route\":{\"effort\":\"low\",\"extensions\":{\"labels\":[\"one\",\"two\"],\"weights\":[1,2]},\"model\":\"authored-Ω\"},\"worker_id\":\"fixture-worker\"}",
+        "at": 1791473080.7795444,
+        "detail": {
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "worker_id": "fixture-worker"
+        }
+      },
+      {
+        "seq": 11,
+        "project_id": "Native-Oracle",
+        "part_id": "done",
+        "event": "completed",
+        "detail_json": "{\"artifact_ref\":\"fixture://Ω/output.json\",\"evidence\":{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}}",
+        "at": 1791473080.7796135,
+        "detail": {
+          "artifact_ref": "fixture://Ω/output.json",
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          }
+        }
+      },
+      {
+        "seq": 12,
+        "project_id": "Native-Oracle",
+        "part_id": "uncertain",
+        "event": "outcome_unknown",
+        "detail_json": "{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}",
+        "at": 1791473080.7796786,
+        "detail": {
+          "extras": {
+            "chain": [
+              "α",
+              {
+                "literal": "<tag>,\"quote\"\nline"
+              }
+            ]
+          },
+          "finding": "known from fixture",
+          "locator": "fixture://only",
+          "source": "authored native API"
+        }
+      },
+      {
+        "seq": 13,
+        "project_id": "Native-Oracle",
+        "part_id": "failed",
+        "event": "outcome_unknown",
+        "detail_json": "{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"}",
+        "at": 1791473080.7797327,
+        "detail": {
+          "extras": {
+            "chain": [
+              "α",
+              {
+                "literal": "<tag>,\"quote\"\nline"
+              }
+            ]
+          },
+          "finding": "known from fixture",
+          "locator": "fixture://only",
+          "source": "authored native API"
+        }
+      },
+      {
+        "seq": 14,
+        "project_id": "Native-Oracle",
+        "part_id": "failed",
+        "event": "reconciled",
+        "detail_json": "{\"artifact_ref\":null,\"evidence\":{\"extras\":{\"chain\":[\"α\",{\"literal\":\"<tag>,\\\"quote\\\"\\nline\"}]},\"finding\":\"known from fixture\",\"locator\":\"fixture://only\",\"source\":\"authored native API\"},\"verdict\":\"failed\"}",
+        "at": 1791473080.7797961,
+        "detail": {
+          "artifact_ref": null,
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "verdict": "failed"
+        }
+      }
+    ],
+    "normalizing_from_dict_digest": "1cafb50ad9a2dda1eaa316f36286dd5e029d2e4c9c735cca6e03f642131683dd"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3 -B /dev/shm/work-portability-fanout-review-dc13ebf4687f/review_fanout_v2.py",
+  "tool_chunk": "1cafbe",
+  "exit_code": 0,
+  "wall_time_seconds": 0.016454254,
+  "stdout": {
+    "accepted": true,
+    "checks": 123,
+    "guarded_reads": 15,
+    "typed_rejections": 7,
+    "receipt": {
+      "size": 59893,
+      "sha256": "d27fcc9b0e8ccad35b0bfa6a4e52f1744daa616cfa9c412f68e05f5df4547053",
+      "git_blob": "70027c6e319902cf0b4b0c67b0f3892801dd5be9"
+    },
+    "concurrent_write_log": [
+      "uncertain reconciled completed",
+      "running completed"
+    ],
+    "sqlite": "3.53.1"
+  },
+  "scope": "Actual normal-mode independent local run; no author or inherited suite rerun."
+}

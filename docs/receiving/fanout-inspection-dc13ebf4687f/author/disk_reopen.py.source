@@ -1,0 +1,125 @@
+import hashlib, json, os, shutil, subprocess, sys
+from pathlib import Path
+
+source = Path("/dev/shm/fanout-inspection-dc13ebf4687f/candidate-v2")
+fixture = Path("/dev/shm/fanout-inspection-dc13ebf4687f/qualification/disk-reopen-v2")
+free = shutil.disk_usage(source).free
+if free < 262144:
+    print(json.dumps({"status": "not_run_capacity", "available_bytes": free, "required_bytes": 262144}))
+    raise SystemExit(0)
+if fixture.exists():
+    raise RuntimeError("exclusive authored fixture already exists")
+source_before = {str(p.relative_to(source)): hashlib.sha256(p.read_bytes()).hexdigest()
+                 for p in source.rglob("*") if p.is_file()}
+fixture.mkdir(parents=True)
+database = fixture / "authored.sqlite"
+
+setup = r'''
+import json, sys
+sys.path.insert(0, sys.argv[1])
+from fanout_engine import Ledger, Part, Plan
+
+project = "retained-disk-demo"
+plan = Plan(project, (
+    Part("done", "Completed authored source", tags=("zeta", "alpha", "zeta")),
+    Part("uncertain", "Keep the native unknown outcome"),
+    Part("inflight", "Keep recorded dispatching unchanged"),
+    Part("waiting", "Show only unmet direct dependencies", ("done", "uncertain")),
+    Part("free", "Queued and dependency-ready"),
+))
+evidence = {"source": "authored disk witness", "locator": "fixture:opaque-custody",
+            "finding": "recorded only", "extra": {"literal": ["雪", "<native>", 7]}}
+with Ledger(sys.argv[2]) as ledger:
+    ledger.record_plan(plan)
+    for name in ("done", "uncertain", "inflight"):
+        ledger.mark_dispatching(project, name, "authored-worker-" + name,
+                                {"model": "opaque-model-label", "effort": "opaque-effort",
+                                 "extension": {"literal": ["not-opened"]}})
+    for name in ("done", "uncertain"):
+        ledger.mark_running(project, name, "authored-task-" + name)
+    ledger.mark_completed(project, "done", "fixture:retained-artifact", evidence)
+    ledger.mark_outcome_unknown(project, "uncertain", evidence)
+    print(json.dumps({"project_id": project, "plan_digest": plan.digest,
+                      "events": ledger.events(project)}, ensure_ascii=False))
+'''
+setup_result = subprocess.run([sys.executable, "-B", "-c", setup, str(source), str(database)],
+                              cwd="/tmp", capture_output=True, text=True)
+if setup_result.returncode != 0:
+    raise RuntimeError("authored setup refused: " + setup_result.stderr)
+setup_json = json.loads(setup_result.stdout)
+def identity():
+    raw = database.read_bytes()
+    stat = database.stat()
+    return {"size": len(raw), "sha256": hashlib.sha256(raw).hexdigest(),
+            "inode": stat.st_ino, "mtime_ns": stat.st_mtime_ns}
+before = identity()
+
+reader = r'''
+import json, sqlite3, sys
+sys.path.insert(0, sys.argv[1])
+from fanout_engine import Ledger, inspect_project
+
+blocked = []
+def audit(event, args):
+    if event in ("subprocess.Popen", "socket.connect", "socket.bind"):
+        blocked.append(event)
+        raise RuntimeError("unexpected external action")
+sys.addaudithook(audit)
+with Ledger(sys.argv[2]) as ledger:
+    trace = []
+    denied = []
+    def allow_read_only(action, arg1, arg2, database, trigger):
+        if action in (sqlite3.SQLITE_SELECT, sqlite3.SQLITE_READ, sqlite3.SQLITE_FUNCTION):
+            return sqlite3.SQLITE_OK
+        denied.append({"action": action, "arg1": arg1, "arg2": arg2})
+        return sqlite3.SQLITE_DENY
+    ledger._db.set_trace_callback(trace.append)
+    ledger._db.set_authorizer(allow_read_only)
+    report = inspect_project(ledger, "retained-disk-demo")
+    ledger._db.set_authorizer(None)
+    ledger._db.set_trace_callback(None)
+    events = ledger.events("retained-disk-demo")
+    print(json.dumps({"report": report, "events": events, "select_statements": trace,
+                      "denied_sql": denied, "blocked_external": blocked}, ensure_ascii=False))
+'''
+reader_result = subprocess.run([sys.executable, "-B", "-c", reader, str(source), str(database)],
+                               cwd="/tmp", capture_output=True, text=True)
+if reader_result.returncode != 0:
+    raise RuntimeError("retained read refused: " + reader_result.stderr)
+result = json.loads(reader_result.stdout)
+after = identity()
+report = result["report"]
+rows = {part["id"]: part for part in report["parts"]}
+checks = {
+    "two_fresh_child_processes_exited_zero": setup_result.returncode == reader_result.returncode == 0,
+    "consumer_used_only_stored_project_id": report["project_id"] == setup_json["project_id"],
+    "same_plan_digest": report["plan_digest"] == setup_json["plan_digest"],
+    "only_queued_ready_intersection": report["queued_ready_ids"] == ["free"],
+    "blocked_queued_id": report["blocked_queued_ids"] == ["waiting"],
+    "direct_unmet_dependency_state": rows["waiting"]["unmet_dependencies"] == [{"id": "uncertain", "state": "outcome_unknown"}],
+    "dispatching_not_recovered": rows["inflight"]["state"] == "dispatching",
+    "unknown_not_reclassified": rows["uncertain"]["state"] == "outcome_unknown",
+    "native_tag_order_and_duplicates": rows["done"]["tags"] == ["zeta", "alpha", "zeta"],
+    "native_custody": rows["done"]["artifact_ref"] == "fixture:retained-artifact" and rows["done"]["task_id"] == "authored-task-done",
+    "opaque_route_and_evidence": rows["done"]["route"]["extension"] == {"literal": ["not-opened"]} and rows["done"]["evidence"]["extra"] == {"literal": ["雪", "<native>", 7]},
+    "one_compound_select": len(result["select_statements"]) == 1 and "UNION ALL" in result["select_statements"][0],
+    "no_denied_sql_attempts": result["denied_sql"] == [],
+    "no_external_action_attempts": result["blocked_external"] == [],
+    "same_event_rows": result["events"] == setup_json["events"],
+    "same_database_bytes_inode_mtime": before == after,
+}
+source_after = {str(p.relative_to(source)): hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in source.rglob("*") if p.is_file()}
+checks["all_15_source_bytes_unchanged"] = source_before == source_after and len(source_before) == 15
+if not all(checks.values()):
+    raise RuntimeError(json.dumps({"failed": [name for name, ok in checks.items() if not ok]}))
+receipt = {"status": "qualified", "python": sys.version, "source": str(source), "fixture": str(fixture),
+           "available_bytes_before": free, "checks": checks, "database_before": before, "database_after": after,
+           "report": report, "select_statements": result["select_statements"], "event_count": len(result["events"]),
+           "setup_stdout": setup_result.stdout, "reader_stdout": reader_result.stdout,
+           "source_sha256": source_after,
+           "limits": ["Author-created fixture only; no existing user or estate state.",
+                      "The unchanged Ledger constructor is used to reopen the authored database; the inspection API consumes an already-open Ledger.",
+                      "No WAL writer contention, external adapter or serving deployment was exercised.",
+                      "Physical database is retained outside the publication allowlist; the exact authored driver and hash/stat receipt reproduce this receiving boundary."]}
+print(json.dumps(receipt, ensure_ascii=False))

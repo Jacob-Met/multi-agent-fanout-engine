@@ -1,0 +1,257 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "main": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "tree_truncated": false,
+  "tree_leaves": 12,
+  "open_issues_or_prs": 0,
+  "hamon_named_owner_search": {
+    "issues": []
+  },
+  "scope_claimed": false,
+  "implementation_started": false,
+  "proposed_paths": [
+    "fanout_engine/ledger.py (new snapshot read only)",
+    "fanout_engine/inspection.py (new)",
+    "fanout_engine/__init__.py (additive exports)",
+    "examples/inspect_plan.py (new local example)",
+    "tests/test_inspection.py (new)",
+    "README.md (usage)"
+  ],
+  "preserve": [
+    "existing schemas and transition methods",
+    "dispatch/plan/routing bytes",
+    "all inherited tests and CI",
+    "no new scheduler/store/Hub adapter or model request"
+  ],
+  "local_runtime": "Python 3.12.14; stdlib only; exact five modules loaded from memory; no filesystem fixture",
+  "comparison": {
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "source_head": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+    "mode": "exact five modules loaded from memory; standard-library imports normal; in-memory authored SQLite only",
+    "fixture": {
+      "project": "review-example",
+      "parts": [
+        {
+          "id": "research",
+          "instruction": "Read authored sample references."
+        },
+        {
+          "id": "draft",
+          "instruction": "Prepare authored text."
+        },
+        {
+          "id": "fetch",
+          "instruction": "Retrieve the local fixture material."
+        },
+        {
+          "id": "verify",
+          "instruction": "Check retrieved material.",
+          "depends_on": [
+            "fetch"
+          ]
+        },
+        {
+          "id": "benchmark",
+          "instruction": "Evaluate the authored control."
+        },
+        {
+          "id": "signoff",
+          "instruction": "Review evaluation.",
+          "depends_on": [
+            "benchmark"
+          ]
+        },
+        {
+          "id": "publish",
+          "instruction": "Prepare a local review artifact.",
+          "depends_on": [
+            "draft",
+            "verify",
+            "signoff"
+          ]
+        },
+        {
+          "id": "notes",
+          "instruction": "Prepare fixture notes."
+        }
+      ]
+    },
+    "part_states": {
+      "research": "completed",
+      "draft": "running",
+      "fetch": "outcome_unknown",
+      "verify": "queued",
+      "benchmark": "failed",
+      "signoff": "queued",
+      "publish": "queued",
+      "notes": "queued"
+    },
+    "completed_ids": [
+      "research"
+    ],
+    "plan_dependency_ready": [
+      "research",
+      "draft",
+      "fetch",
+      "benchmark",
+      "notes"
+    ],
+    "ledger_queued_ids": [
+      "notes",
+      "publish",
+      "signoff",
+      "verify"
+    ],
+    "actual_queued_dependency_ready": [
+      "notes"
+    ],
+    "direct_unfinished_dependencies": {
+      "verify": [
+        {
+          "part_id": "fetch",
+          "state": "outcome_unknown"
+        }
+      ],
+      "signoff": [
+        {
+          "part_id": "benchmark",
+          "state": "failed"
+        }
+      ],
+      "publish": [
+        {
+          "part_id": "draft",
+          "state": "running"
+        },
+        {
+          "part_id": "verify",
+          "state": "queued"
+        },
+        {
+          "part_id": "signoff",
+          "state": "queued"
+        }
+      ]
+    },
+    "public_exports": [
+      "DispatchReport",
+      "EffortRouter",
+      "Ledger",
+      "LedgerError",
+      "Part",
+      "Plan",
+      "PlanError",
+      "Route",
+      "UnsafeStepUp",
+      "canonical_json",
+      "dispatch_ready",
+      "strict_json_loads"
+    ],
+    "ledger_public_callables": [
+      "close",
+      "completed_ids",
+      "dispatchable_ids",
+      "events",
+      "idempotency_key",
+      "mark_completed",
+      "mark_dispatching",
+      "mark_interrupted_dispatches_unknown",
+      "mark_outcome_unknown",
+      "mark_running",
+      "part",
+      "part_state",
+      "reconcile_unknown",
+      "record_plan"
+    ],
+    "read_event_count_before": 13,
+    "read_event_count_after": 13,
+    "reads_preserve_event_rows": true,
+    "hub_calls": 0,
+    "provider_calls": 0,
+    "filesystem_state_paths": [],
+    "classification": "Missing complete read-only project inspection API/example; existing low-level methods behaved as documented, no misdispatch or ledger defect alleged.",
+    "source_pins": {
+      "fanout_engine/__init__.py": "73115ea48286832e425599668e4557ea6a12758a",
+      "fanout_engine/dispatch.py": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+      "fanout_engine/ledger.py": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+      "fanout_engine/plan.py": "8967c1db75507f564852c66ed913aa55103f6f76",
+      "fanout_engine/routing.py": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    }
+  },
+  "source_pins": [
+    {
+      "path": ".github/workflows/test.yml",
+      "bytes": 574,
+      "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3357,
+      "git_blob": "0313a67500469d4e736ea7430d7f727588981fc5",
+      "sha256": "31889ed6aaceab3441fe89ac88048083d7aa629521ba3c7d7e762b7a6a091e28"
+    },
+    {
+      "path": "examples/demo.py",
+      "bytes": 1129,
+      "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7",
+      "sha256": "3898fbf2a192960a1b4f60d9bdad40c62d87c7fb2e723d6bbeb377114d1cf296"
+    },
+    {
+      "path": "fanout_engine/__init__.py",
+      "bytes": 510,
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a",
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a"
+    },
+    {
+      "path": "fanout_engine/dispatch.py",
+      "bytes": 3363,
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf"
+    },
+    {
+      "path": "fanout_engine/ledger.py",
+      "bytes": 11600,
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac"
+    },
+    {
+      "path": "fanout_engine/plan.py",
+      "bytes": 6089,
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76",
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a"
+    },
+    {
+      "path": "fanout_engine/routing.py",
+      "bytes": 2622,
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2",
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 248,
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28"
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "bytes": 3293,
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3",
+      "sha256": "f6354a62b45dbd06a91a5b02ec503e1b6caf041a853dbe165de10de3aa861d51"
+    },
+    {
+      "path": "tests/test_plan.py",
+      "bytes": 1660,
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee",
+      "sha256": "aad7ac5e7ce24f58cc809dee6202c187bf89fe664483ba433371e0ca9a4ffb6d"
+    },
+    {
+      "path": "tests/test_routing.py",
+      "bytes": 1651,
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998",
+      "sha256": "ddd530ac149561ca4c7894928a56690dbe89fa32bd70d6eb485e306d1a1fc6b8"
+    }
+  ],
+  "recorded_at_utc": "2026-10-08T14:37:56.050131+00:00"
+}
