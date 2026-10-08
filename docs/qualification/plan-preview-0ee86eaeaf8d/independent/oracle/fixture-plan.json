@@ -1,0 +1,55 @@
+{
+   "project": "paper-preview",
+   "parts": [
+      {
+         "id": "publish",
+         "instruction": "  Assemble the 日本語 review without dispatch.  ",
+         "depends_on": [
+            "verify",
+            "pack"
+         ],
+         "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+         ]
+      },
+      {
+         "id": "scan",
+         "instruction": "Read the authored sources."
+      },
+      {
+         "id": "caption",
+         "instruction": "Describe each retained figure.",
+         "depends_on": [
+            "scan"
+         ]
+      },
+      {
+         "id": "verify",
+         "instruction": "Check the descriptions.",
+         "depends_on": [
+            "caption"
+         ],
+         "tags": [
+            "review"
+         ]
+      },
+      {
+         "id": "side",
+         "instruction": "Keep independent notes.",
+         "tags": [
+            "notes",
+            "notes"
+         ]
+      },
+      {
+         "id": "pack",
+         "instruction": "Collect notes and sources.",
+         "depends_on": [
+            "scan",
+            "side"
+         ]
+      }
+   ]
+}

@@ -1,0 +1,142 @@
+{
+  "all_11_other_original_files_unchanged": true,
+  "base": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "base_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "changed_paths": [
+    "README.md",
+    "docs/plan-preview.md",
+    "fanout_engine/preview.py",
+    "tests/test_preview.py"
+  ],
+  "files": [
+    {
+      "bytes": 574,
+      "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+      "mode": "100644",
+      "path": ".github/workflows/test.yml",
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634"
+    },
+    {
+      "bytes": 4093,
+      "git_blob": "ca346cc0089e7f56ebe16bce9f3249135e090356",
+      "mode": "100644",
+      "path": "README.md",
+      "sha256": "4cc37ae27c21842edf1454cb87ee28ee8dcc939fca455e86fe5f47ea1848c94c"
+    },
+    {
+      "bytes": 7792,
+      "git_blob": "72224e404facf1d0b71a2404de8d26bc0f861f7b",
+      "mode": "100644",
+      "path": "docs/plan-preview.md",
+      "sha256": "41266be5dc6863cf001aad69010beef1e3ddb05cc9c15aeffdc17394cb8001da"
+    },
+    {
+      "bytes": 1129,
+      "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7",
+      "mode": "100644",
+      "path": "examples/demo.py",
+      "sha256": "3898fbf2a192960a1b4f60d9bdad40c62d87c7fb2e723d6bbeb377114d1cf296"
+    },
+    {
+      "bytes": 510,
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a",
+      "mode": "100644",
+      "path": "fanout_engine/__init__.py",
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a"
+    },
+    {
+      "bytes": 3363,
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+      "mode": "100644",
+      "path": "fanout_engine/dispatch.py",
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf"
+    },
+    {
+      "bytes": 11600,
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+      "mode": "100644",
+      "path": "fanout_engine/ledger.py",
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac"
+    },
+    {
+      "bytes": 6089,
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76",
+      "mode": "100644",
+      "path": "fanout_engine/plan.py",
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a"
+    },
+    {
+      "bytes": 9023,
+      "git_blob": "81e23c1269dc3d53a4c734ecd662e0f80d829eee",
+      "mode": "100644",
+      "path": "fanout_engine/preview.py",
+      "sha256": "ee546965e5c95f165ad798e374847cc04f399afc067dfc1b62b06cc0edcf4029"
+    },
+    {
+      "bytes": 2622,
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2",
+      "mode": "100644",
+      "path": "fanout_engine/routing.py",
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15"
+    },
+    {
+      "bytes": 248,
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+      "mode": "100644",
+      "path": "pyproject.toml",
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28"
+    },
+    {
+      "bytes": 3293,
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3",
+      "mode": "100644",
+      "path": "tests/test_dispatch.py",
+      "sha256": "f6354a62b45dbd06a91a5b02ec503e1b6caf041a853dbe165de10de3aa861d51"
+    },
+    {
+      "bytes": 1660,
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee",
+      "mode": "100644",
+      "path": "tests/test_plan.py",
+      "sha256": "aad7ac5e7ce24f58cc809dee6202c187bf89fe664483ba433371e0ca9a4ffb6d"
+    },
+    {
+      "bytes": 19291,
+      "git_blob": "53fbf3777bc0bcd2b0cad553158124de8dd58a32",
+      "mode": "100644",
+      "path": "tests/test_preview.py",
+      "sha256": "1ccbbf3db0e7ec65b71272af13ad845a1bea4dd06f7bfbbe76b7cbaef1dbd3b0"
+    },
+    {
+      "bytes": 1651,
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998",
+      "mode": "100644",
+      "path": "tests/test_routing.py",
+      "sha256": "ddd530ac149561ca4c7894928a56690dbe89fa32bd70d6eb485e306d1a1fc6b8"
+    }
+  ],
+  "native_qualification": {
+    "bytes": 136831,
+    "git_blob": "91e642beaadce2b720a021899f47ca2f711f1e9e",
+    "path": "native-r1/capsule.json",
+    "sha256": "6143f85be0fbcb919fc5887720beb110a589b8abbf30a2a106817ac4cf383b49"
+  },
+  "native_summary": {
+    "consumer_cli_processes": 41,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0,
+    "status": "ACCEPT",
+    "subtests": 27,
+    "tests_run": 24
+  },
+  "original_native_baseline": {
+    "bytes": 10621,
+    "git_blob": "d1db605c20adb64e47997ffd38f5394f9cf034b2",
+    "path": "baseline-native/receipt.json",
+    "sha256": "1d5df58bef3b0e884d0a8d5355df1d01a7094a77c32e84f1ce2eb964d67d7a03"
+  },
+  "original_readme_is_exact_prefix": true,
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "status": "Frozen for independent receiving; no further source or test edits planned"
+}

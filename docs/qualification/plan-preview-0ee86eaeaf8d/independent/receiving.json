@@ -1,0 +1,799 @@
+{
+  "author_tests_imported_or_executed": 0,
+  "baseline_processes_repeated": 0,
+  "candidate_custody": {
+    "bytes": 9023,
+    "git_blob": "81e23c1269dc3d53a4c734ecd662e0f80d829eee",
+    "inode": 807636,
+    "mode": 33188,
+    "mtime_ns": 1791474678070467963,
+    "sha256": "ee546965e5c95f165ad798e374847cc04f399afc067dfc1b62b06cc0edcf4029"
+  },
+  "cases": [
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 26,
+          "mode": 33188,
+          "mtime_ns": 1791475463445611439,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 28,
+          "mode": 33188,
+          "mtime_ns": 1791475463445845892,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 27,
+          "mode": 33188,
+          "mtime_ns": 1791475463445823028,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 26,
+          "mode": 33188,
+          "mtime_ns": 1791475463445611439,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 28,
+          "mode": 33188,
+          "mtime_ns": 1791475463445845892,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 27,
+          "mode": 33188,
+          "mtime_ns": 1791475463445823028,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "native-api",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/0ee86eaeaf8d/production/fanout-preview-receiving/native_api_oracle.py",
+        "/workspace/scratch/0ee86eaeaf8d/production/fanout-preview-receiving"
+      ],
+      "exit": 0,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 2813,
+        "git_blob": "9dfea231050b08aab04ce59651bae0ddb0314c47",
+        "sha256": "e5eb481ded30223648994cb906ba4430a305cbeca653dbd1b68d9092747a692c"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 30,
+          "mode": 33188,
+          "mtime_ns": 1791475463532226743,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 32,
+          "mode": 33188,
+          "mtime_ns": 1791475463532304220,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 31,
+          "mode": 33188,
+          "mtime_ns": 1791475463532269878,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 30,
+          "mode": 33188,
+          "mtime_ns": 1791475463532226743,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 32,
+          "mode": 33188,
+          "mtime_ns": 1791475463532304220,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 31,
+          "mode": 33188,
+          "mtime_ns": 1791475463532269878,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "stdout-success",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/stdout-success/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/stdout-success/routes.json"
+      ],
+      "exit": 0,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 2115,
+        "git_blob": "6162ac565531863e5889db89659048c4391f602e",
+        "sha256": "b29f1c941343a3f1797cae7003223aae9fcdb5f69c0e8da65184d949f6f7af73"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 34,
+          "mode": 33188,
+          "mtime_ns": 1791475463590095011,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 36,
+          "mode": 33188,
+          "mtime_ns": 1791475463590172578,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 35,
+          "mode": 33188,
+          "mtime_ns": 1791475463590153639,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 34,
+          "mode": 33188,
+          "mtime_ns": 1791475463590095011,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 36,
+          "mode": 33188,
+          "mtime_ns": 1791475463590172578,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 35,
+          "mode": 33188,
+          "mtime_ns": 1791475463590153639,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "file-success-no-status-write",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/file-success-no-status-write/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/file-success-no-status-write/routes.json",
+        "--output",
+        "/dev/fanout-independent-csyi7ye5/file-success-no-status-write/preview.json"
+      ],
+      "exit": 0,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "preview.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": {
+        "bytes": 2115,
+        "git_blob": "6162ac565531863e5889db89659048c4391f602e",
+        "sha256": "b29f1c941343a3f1797cae7003223aae9fcdb5f69c0e8da65184d949f6f7af73"
+      },
+      "stderr_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout_device": "/dev/full",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 39,
+          "mode": 33188,
+          "mtime_ns": 1791475463656476730,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 41,
+          "mode": 33188,
+          "mtime_ns": 1791475463656645214,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 389,
+          "git_blob": "cd423dd69390eaf6b5ab6a881304314647733197",
+          "inode": 40,
+          "mode": 33188,
+          "mtime_ns": 1791475463656621047,
+          "sha256": "af0a07d86f922f161aa141a4161100f1928a4d57ee320defd3f9c23f8e13fbbe"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 39,
+          "mode": 33188,
+          "mtime_ns": 1791475463656476730,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 41,
+          "mode": 33188,
+          "mtime_ns": 1791475463656645214,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 389,
+          "git_blob": "cd423dd69390eaf6b5ab6a881304314647733197",
+          "inode": 40,
+          "mode": 33188,
+          "mtime_ns": 1791475463656621047,
+          "sha256": "af0a07d86f922f161aa141a4161100f1928a4d57ee320defd3f9c23f8e13fbbe"
+        }
+      },
+      "case": "blocked-unauthorized-route",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/blocked-unauthorized-route/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/blocked-unauthorized-route/routes.json",
+        "--output",
+        "/dev/fanout-independent-csyi7ye5/blocked-unauthorized-route/preview.json"
+      ],
+      "exit": 2,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 56,
+        "git_blob": "435ce8ca503a2d0116715b279e9642df73ed881c",
+        "sha256": "d9f6e20baff1effe42db25ab065b138c52635f2a9d7f44f5a7930566a05cc509"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 611,
+          "git_blob": "2fc3590fde92baddd05370df17e8be02044da54f",
+          "inode": 43,
+          "mode": 33188,
+          "mtime_ns": 1791475463745076727,
+          "sha256": "94f587bdc0aa0de8528de98631ae9de5a5f63c78db7af28bf01bbe8a753db8aa"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 45,
+          "mode": 33188,
+          "mtime_ns": 1791475463745104879,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 44,
+          "mode": 33188,
+          "mtime_ns": 1791475463744936686,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 611,
+          "git_blob": "2fc3590fde92baddd05370df17e8be02044da54f",
+          "inode": 43,
+          "mode": 33188,
+          "mtime_ns": 1791475463745076727,
+          "sha256": "94f587bdc0aa0de8528de98631ae9de5a5f63c78db7af28bf01bbe8a753db8aa"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 45,
+          "mode": 33188,
+          "mtime_ns": 1791475463745104879,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 44,
+          "mode": 33188,
+          "mtime_ns": 1791475463744936686,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "malformed-later-part",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/malformed-later-part/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/malformed-later-part/routes.json",
+        "--output",
+        "/dev/fanout-independent-csyi7ye5/malformed-later-part/preview.json"
+      ],
+      "exit": 2,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 56,
+        "git_blob": "8ecef50c8e70f149a3c2e031a4fd9327338ab4b0",
+        "sha256": "f5f5e6a3b87bcb893e659ea18932616a8cbc78d6d76b55ea8aee1f4d6f2bdab1"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 47,
+          "mode": 33188,
+          "mtime_ns": 1791475463804525444,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 49,
+          "mode": 33188,
+          "mtime_ns": 1791475463804597662,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 48,
+          "mode": 33188,
+          "mtime_ns": 1791475463804582930,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 47,
+          "mode": 33188,
+          "mtime_ns": 1791475463804525444,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 49,
+          "mode": 33188,
+          "mtime_ns": 1791475463804597662,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 48,
+          "mode": 33188,
+          "mtime_ns": 1791475463804582930,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "no-clobber-input-symlink",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/no-clobber-input-symlink/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/no-clobber-input-symlink/routes.json",
+        "--output",
+        "/dev/fanout-independent-csyi7ye5/no-clobber-input-symlink/preview.json"
+      ],
+      "exit": 2,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "preview.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "preview.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 57,
+        "git_blob": "53651dd5ec2be7faa6749b888c57b8532e6a7b23",
+        "sha256": "9d5b1c464b90fba0686c026949116a76257511a253c7b7ec22d7bb163332a4da"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 52,
+          "mode": 33188,
+          "mtime_ns": 1791475463867011793,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 54,
+          "mode": 33188,
+          "mtime_ns": 1791475463867113636,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 53,
+          "mode": 33188,
+          "mtime_ns": 1791475463867099194,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 52,
+          "mode": 33188,
+          "mtime_ns": 1791475463867011793,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 54,
+          "mode": 33188,
+          "mtime_ns": 1791475463867113636,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 53,
+          "mode": 33188,
+          "mtime_ns": 1791475463867099194,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "prepublication-file-size-failure",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/prepublication-file-size-failure/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/prepublication-file-size-failure/routes.json",
+        "--output",
+        "/dev/fanout-independent-csyi7ye5/prepublication-file-size-failure/preview.json"
+      ],
+      "exit": 2,
+      "file_size_limit": 512,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 42,
+        "git_blob": "828091497bf9f43e224822b42901c7ffef5b321e",
+        "sha256": "33b41735688b83596bcdb5fdb7a86c0edb425841c80a80eb67f0fd24065ef18b"
+      },
+      "stdout_device": "pipe",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "after": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 57,
+          "mode": 33188,
+          "mtime_ns": 1791475463934963090,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 59,
+          "mode": 33188,
+          "mtime_ns": 1791475463935087497,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 58,
+          "mode": 33188,
+          "mtime_ns": 1791475463935015809,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "before": {
+        "authored plan 日本語.json": {
+          "bytes": 1127,
+          "git_blob": "c6ff9edf18b3b29a774cd475d139265516124091",
+          "inode": 57,
+          "mode": 33188,
+          "mtime_ns": 1791475463934963090,
+          "sha256": "9cc1795424079c9bdbb33afe8878f0583d9e519b0e7cbab3e441b22cb946ae3c"
+        },
+        "retained-owner.sqlite": {
+          "bytes": 27,
+          "git_blob": "1f094e5c48310468a08f3a944c476b9902461b99",
+          "inode": 59,
+          "mode": 33188,
+          "mtime_ns": 1791475463935087497,
+          "sha256": "1174adbf1ccb1b4ad7920ecf49d3cf35446d8414a77ab97a72445ae55c8dcd84"
+        },
+        "routes.json": {
+          "bytes": 504,
+          "git_blob": "bbd53453e3966b8d3eeec97d021bb536a5a3529a",
+          "inode": 58,
+          "mode": 33188,
+          "mtime_ns": 1791475463935015809,
+          "sha256": "65665cf6b9b8fa8cc88857d1a567687c02d92c7af3ccd459e682b3e0e5224990"
+        }
+      },
+      "case": "stdout-delivery-failure",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.preview",
+        "--plan",
+        "/dev/fanout-independent-csyi7ye5/stdout-delivery-failure/authored plan 日本語.json",
+        "--routes",
+        "/dev/fanout-independent-csyi7ye5/stdout-delivery-failure/routes.json"
+      ],
+      "exit": 2,
+      "file_size_limit": null,
+      "names_after": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "names_before": [
+        "authored plan 日本語.json",
+        "retained-owner.sqlite",
+        "routes.json"
+      ],
+      "output": null,
+      "stderr_sha256": {
+        "bytes": 51,
+        "git_blob": "c64416caa7dbb245783567e7eed1c51afb58adf8",
+        "sha256": "31aa0721293ab4a65b61d60b71c6ecb86cc8dedc3c179c81dd71466f8a86ca74"
+      },
+      "stdout_device": "/dev/full",
+      "stdout_sha256": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "delivery_boundary": "File-mode success remains successful with unusable stdout and publishes exact bytes without a status write. Prepublication staging failure and existing input symlink preserve prior files. Stdout failure is refusal; a general broken stream may already have delivered a prefix.",
+  "original_custody": {
+    "bytes": 41588,
+    "git_blob": "6d9f96602c51a7ef98b2e96fbd198cc70f0bed3d",
+    "inode": 807216,
+    "mode": 33188,
+    "mtime_ns": 1791474218314451607,
+    "sha256": "ddd44fb5ba154e66c0950d754b70b34770038d0c726b4afd98379536b32ca53a"
+  },
+  "processes": 8,
+  "result": "ACCEPT",
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "scope": "Preview only. Configured routes/catalog are not provider authorization, capacity, execution readiness or dispatch receipts.",
+  "source_or_input_mutations": 0,
+  "source_pins": [
+    {
+      "bytes": 510,
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a",
+      "path": "fanout_engine/__init__.py",
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a"
+    },
+    {
+      "bytes": 3363,
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+      "path": "fanout_engine/dispatch.py",
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf"
+    },
+    {
+      "bytes": 11600,
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+      "path": "fanout_engine/ledger.py",
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac"
+    },
+    {
+      "bytes": 6089,
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76",
+      "path": "fanout_engine/plan.py",
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a"
+    },
+    {
+      "bytes": 2622,
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2",
+      "path": "fanout_engine/routing.py",
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15"
+    },
+    {
+      "bytes": 9023,
+      "git_blob": "81e23c1269dc3d53a4c734ecd662e0f80d829eee",
+      "path": "fanout_engine/preview.py",
+      "sha256": "ee546965e5c95f165ad798e374847cc04f399afc067dfc1b62b06cc0edcf4029"
+    }
+  ]
+}

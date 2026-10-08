@@ -1,0 +1,43 @@
+{
+ "catalog": {
+  "cpu-a": [
+   "low",
+   "high"
+  ],
+  "gpu-b": [
+   "medium"
+  ],
+  "review-c": [
+   "xhigh",
+   "max"
+  ]
+ },
+ "pool": [
+  {
+   "model": "cpu-a",
+   "effort": "low"
+  },
+  {
+   "model": "gpu-b",
+   "effort": "medium"
+  },
+  {
+   "model": "cpu-a",
+   "effort": "high"
+  }
+ ],
+ "explicit_routes": {
+  "pack": {
+   "model": "gpu-b",
+   "effort": "medium"
+  },
+  "publish": {
+   "model": "review-c",
+   "effort": "xhigh"
+  }
+ },
+ "step_up": {
+  "model": "review-c",
+  "effort": "max"
+ }
+}

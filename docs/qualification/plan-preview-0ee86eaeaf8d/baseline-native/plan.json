@@ -1,0 +1,41 @@
+{
+  "project": "authored-review",
+  "parts": [
+    {
+      "id": "review",
+      "instruction": "Review the completed draft against its sources.",
+      "depends_on": [
+        "draft"
+      ],
+      "tags": [
+        "review"
+      ]
+    },
+    {
+      "id": "draft",
+      "instruction": "Write a short source-bound draft.",
+      "depends_on": [
+        "research"
+      ]
+    },
+    {
+      "id": "research",
+      "instruction": "Read the authored source 日本語 fixture.",
+      "tags": [
+        "sources"
+      ]
+    },
+    {
+      "id": "notes",
+      "instruction": "Prepare a separate empty notes template."
+    },
+    {
+      "id": "handoff",
+      "instruction": "Prepare an offline handoff after both prerequisites.",
+      "depends_on": [
+        "review",
+        "notes"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "stage": "functions.exec JavaScript parsing before nested tools",
+  "error": "SyntaxError: missing ) after argument list",
+  "cause": "An embedded Markdown backtick ended the raw JavaScript template used to construct the packet-builder patch.",
+  "nested_tool_calls_executed": 0,
+  "source_files_modified": 0,
+  "product_or_test_processes_executed": 0,
+  "correction": "Quote the embedded PR Markdown through a placeholder replaced with character 96 inside the Python builder.",
+  "status": "Packaging-wrapper failure only; frozen product and native evidence unchanged."
+}
