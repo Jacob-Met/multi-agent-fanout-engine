@@ -1,0 +1,144 @@
+{
+  "status": "author-qualified; independent receiving and publication pending",
+  "version": "v2",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "owner_scope": "estate-accel-dc13ebf4687f/execution_integrity",
+  "scope_url": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062467135",
+  "baseline_head": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "baseline_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "candidate_root": "/dev/shm/fanout-inspection-dc13ebf4687f/candidate-v2",
+  "local_source_commit": null,
+  "source_files": 15,
+  "source_bytes": 63828,
+  "changed_product_paths": [
+    "README.md",
+    "examples/inspect_plan.py",
+    "fanout_engine/__init__.py",
+    "fanout_engine/inspection.py",
+    "fanout_engine/ledger.py",
+    "tests/test_inspection.py"
+  ],
+  "preserved_old_files": 9,
+  "preserved_original_ledger_methods": 21,
+  "available_code": "Public reference implementation with caller-supplied authorized adapters; not an installed estate worker payload.",
+  "qualified_runtime": "Actual local CPython 3.12.14 public Ledger/inspect_project/example and fixture adapters only.",
+  "observed_gain": {
+    "baseline_dependency_ready": 5,
+    "baseline_queued": 4,
+    "actual_intersection": [
+      "notes"
+    ],
+    "new_complete_report_parts": 8,
+    "blocked_queued_ids": [
+      "verify",
+      "signoff",
+      "publish"
+    ],
+    "native_states_preserved": true,
+    "beneficiary": "Operator inspecting a recorded project before choosing an existing dispatch or reconciliation operation.",
+    "performance_claim": null
+  },
+  "qualification": {
+    "memory_v1": {
+      "normal_methods": 17,
+      "optimized_methods": 17,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0
+    },
+    "v1_integer_limit_control": {
+      "methods": 1,
+      "expected_subcase_errors": 2,
+      "source_unchanged": true
+    },
+    "memory_v2": {
+      "normal_methods": 18,
+      "optimized_methods": 18,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "blocked_attempts": 0
+    },
+    "filesystem_v1": {
+      "normal_default_discovery_methods": 17
+    },
+    "filesystem_v2": {
+      "normal_default_discovery_methods": 18,
+      "exit_code": 0,
+      "example_cwd": "/tmp",
+      "absolute_example_invocation": true
+    },
+    "disk_v2": {
+      "fresh_child_processes": 2,
+      "checks": 17,
+      "all_passed": true,
+      "event_rows": 8,
+      "before": {
+        "size": 28672,
+        "sha256": "8c9253f07e707347a577e34ab4ec2659c3e0da33502044a896b0cf317d9e49ed",
+        "inode": 869267,
+        "mtime_ns": 1791471874225845200
+      },
+      "after": {
+        "size": 28672,
+        "sha256": "8c9253f07e707347a577e34ab4ec2659c3e0da33502044a896b0cf317d9e49ed",
+        "inode": 869267,
+        "mtime_ns": 1791471874225845200
+      },
+      "source_files_unchanged": 15
+    },
+    "every_inspection_test": {
+      "one_traced_select": true,
+      "sql_writes_and_transactions_denied": true,
+      "full_database_dump_unchanged": true
+    },
+    "no_live_sessions_or_provider_calls": true
+  },
+  "report_contract": {
+    "public_call": "inspect_project(ledger, project_id)",
+    "input": "Existing open Ledger plus the recorded project ID; plan read from its stored native record.",
+    "snapshot": "One compound SELECT/fetchall; project JSON copied once and detached per-part rows.",
+    "preserves": [
+      "plan order",
+      "instructions",
+      "tag order and duplicates",
+      "dependency order",
+      "all six native states",
+      "idempotency keys",
+      "worker/task references",
+      "route/evidence JSON",
+      "artifact reference",
+      "recorded updated_at"
+    ],
+    "queued_ready": "Queued state intersected with all direct dependencies completed at the observed snapshot.",
+    "errors": [
+      "project_not_found",
+      "missing_parts",
+      "invalid_record"
+    ],
+    "no_partial_report": true,
+    "detached_results": true,
+    "no_reference_locator_access": true
+  },
+  "revision_limit_control": {
+    "v1_raw_value_error": true,
+    "v2_catches_value_error_only_at_decode_boundary": true,
+    "parser_limits_unchanged": true,
+    "configured_limit_disabled_platforms": "The focused runtime-limit test explicitly skips; current local runs had an active 4300-digit limit and zero skips."
+  },
+  "runtime_and_receiving_limits": [
+    "Remote Python 3.10/3.11/3.12 CI has not run in this author's receipt.",
+    "No deployed estate import or active worker/Hub operation was exercised.",
+    "Snapshot observations are not dispatch reservations or worker/route capacity checks.",
+    "No WAL concurrent-writer contention fixture was run.",
+    "Native Ledger constructor behavior is unchanged; inspection consumes an already-open Ledger.",
+    "The disk receiving fixture is authored data only, retained outside the publication allowlist.",
+    "The complete self-contained memory harness is explicitly invoked from its inert .source suffix.",
+    "The historical disk driver contains an exclusive already-used local fixture path; choose a new authored path and exact received source before any separate replay."
+  ],
+  "failures_preserved": [
+    "Configured integer conversion limit raised raw ValueError in v1 with native rows unchanged.",
+    "The v1 disk receiving capacity gate saw zero bytes and created no fixture.",
+    "An evidence copy later hit ENOSPC after 16384 harness bytes; the recorded prefix was verified before exact append completion."
+  ]
+}

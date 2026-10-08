@@ -1,0 +1,1661 @@
+{
+  "accepted": true,
+  "candidate_manifest": {
+    "size": 6602,
+    "sha256": "2291e1fa72dc45c343c6ecec6c47dff1dbc1fcbeb67f523db7268896c0dac7b7",
+    "git_blob": "4df1977f8b39ad686a7962d12c77401a67783958"
+  },
+  "candidate_files": {
+    ".github/workflows/test.yml": {
+      "size": 574,
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634",
+      "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+    },
+    "README.md": {
+      "size": 5827,
+      "sha256": "7b35cfabbb8f24dd5edf90c3e312274ab8b8827f726a84301d6594e166dc7eb7",
+      "git_blob": "64d0bfd3e92b7f0539763e4371005e02df27747d"
+    },
+    "examples/demo.py": {
+      "size": 1129,
+      "sha256": "3898fbf2a192960a1b4f60d9bdad40c62d87c7fb2e723d6bbeb377114d1cf296",
+      "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7"
+    },
+    "fanout_engine/__init__.py": {
+      "size": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8"
+    },
+    "fanout_engine/dispatch.py": {
+      "size": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    "fanout_engine/ledger.py": {
+      "size": 13331,
+      "sha256": "a987f4c53dd8d0ce8961a20a1d9d151d268ce534937410ad09bb17eab3a0511d",
+      "git_blob": "28e8eeafa37a9faceebddff7de1894cc35fe189b"
+    },
+    "fanout_engine/plan.py": {
+      "size": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    },
+    "fanout_engine/routing.py": {
+      "size": 2622,
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15",
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    "pyproject.toml": {
+      "size": 248,
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    "tests/test_dispatch.py": {
+      "size": 3293,
+      "sha256": "f6354a62b45dbd06a91a5b02ec503e1b6caf041a853dbe165de10de3aa861d51",
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3"
+    },
+    "tests/test_plan.py": {
+      "size": 1660,
+      "sha256": "aad7ac5e7ce24f58cc809dee6202c187bf89fe664483ba433371e0ca9a4ffb6d",
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee"
+    },
+    "tests/test_routing.py": {
+      "size": 1651,
+      "sha256": "ddd530ac149561ca4c7894928a56690dbe89fa32bd70d6eb485e306d1a1fc6b8",
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+    },
+    "fanout_engine/inspection.py": {
+      "size": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34"
+    },
+    "examples/inspect_plan.py": {
+      "size": 2413,
+      "sha256": "102eff7c58c9db8fdabd09616fe87a53f93d7c2cb519107a82930f81b0196d61",
+      "git_blob": "82390cacd20d4d0e26a3ca73da9044306ac65e16"
+    },
+    "tests/test_inspection.py": {
+      "size": 14960,
+      "sha256": "3e8e4d122c03bd6a8d7521ccd8342ec636bff9d4d4d5486cdaae481aa8d31f4d",
+      "git_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99"
+    }
+  },
+  "baseline_head": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "baseline_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "oracle": {
+    "size": 23764,
+    "sha256": "01510b42676795d65a3072ad3e9876c7fcc10f2b170ecf67b645cfd277008da7",
+    "git_blob": "bfcaad1a3173b7ced6fd16d34254f35dd9daf243"
+  },
+  "original_database": {
+    "size": 28672,
+    "sha256": "82d8d88901f5f7887672e4a227ad41cd7455da077cf2629d2d78eef4be151b22",
+    "git_blob": "9f82718de78eac9eac4acdcace699b82aa818185"
+  },
+  "program": {
+    "size": 16276,
+    "sha256": "b8a9c6c46430e776f9aca9066dfd549ef55d74c3c09332f92050cfa42cef817d",
+    "git_blob": "1f30d9aefe4126d71ceee9cc42a4c68781d47c16"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "mode": "normal; no inherited or author suite rerun",
+  "checks": [
+    {
+      "name": "frozen native oracle pin",
+      "passed": true
+    },
+    {
+      "name": "original native database pin",
+      "passed": true
+    },
+    {
+      "name": "candidate manifest pin",
+      "passed": true
+    },
+    {
+      "name": "all 15 candidate inputs match author freeze",
+      "passed": true
+    },
+    {
+      "name": "all 12 original source inputs match",
+      "passed": true
+    },
+    {
+      "name": "exact six changed paths",
+      "passed": true
+    },
+    {
+      "name": "removing only added snapshot method recovers every original ledger byte",
+      "passed": true
+    },
+    {
+      "name": "all 21 original Ledger methods unchanged",
+      "passed": true
+    },
+    {
+      "name": "original README bytes retained",
+      "passed": true
+    },
+    {
+      "name": "single additive public export from .inspection import InspectionError, inspect_project",
+      "passed": true
+    },
+    {
+      "name": "single additive public export \"InspectionError\",",
+      "passed": true
+    },
+    {
+      "name": "single additive public export \"inspect_project\",",
+      "passed": true
+    },
+    {
+      "name": "original public initialization recovered exactly",
+      "passed": true
+    },
+    {
+      "name": "actual candidate inspector imported",
+      "passed": true
+    },
+    {
+      "name": "original native oracle receiving: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "original native oracle receiving: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "original native oracle receiving: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "original native oracle receiving: no database changes",
+      "passed": true
+    },
+    {
+      "name": "original native oracle receiving: report returned",
+      "passed": true
+    },
+    {
+      "name": "every reported native value, state, order and blocker matches independently frozen oracle",
+      "passed": true
+    },
+    {
+      "name": "direct repeated tag digest preserved",
+      "passed": true
+    },
+    {
+      "name": "after detached nested mutations: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "after detached nested mutations: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "after detached nested mutations: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "after detached nested mutations: no database changes",
+      "passed": true
+    },
+    {
+      "name": "after detached nested mutations: report returned",
+      "passed": true
+    },
+    {
+      "name": "nested report and raw snapshot mutations do not change later report",
+      "passed": true
+    },
+    {
+      "name": "inspection did not append or rewrite native events",
+      "passed": true
+    },
+    {
+      "name": "original authored database bytes unchanged after receiving",
+      "passed": true
+    },
+    {
+      "name": "inside preexisting caller transaction: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "inside preexisting caller transaction: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "inside preexisting caller transaction: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "inside preexisting caller transaction: no database changes",
+      "passed": true
+    },
+    {
+      "name": "inside preexisting caller transaction: report returned",
+      "passed": true
+    },
+    {
+      "name": "read sees caller's prior uncommitted change",
+      "passed": true
+    },
+    {
+      "name": "read did not commit or roll back caller transaction",
+      "passed": true
+    },
+    {
+      "name": "explicit caller rollback restores all authored rows",
+      "passed": true
+    },
+    {
+      "name": "missing expected row: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "missing expected row: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "missing expected row: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "missing expected row: no database changes",
+      "passed": true
+    },
+    {
+      "name": "missing expected row: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "missing expected row: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "missing expected row: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "wrong idempotency identity: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "wrong idempotency identity: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "wrong idempotency identity: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "wrong idempotency identity: no database changes",
+      "passed": true
+    },
+    {
+      "name": "wrong idempotency identity: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "wrong idempotency identity: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "wrong idempotency identity: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: no database changes",
+      "passed": true
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "normalized payload disagrees with direct tags: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "non-UTF-8 decoded route: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "non-UTF-8 decoded route: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "non-UTF-8 decoded route: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "non-UTF-8 decoded route: no database changes",
+      "passed": true
+    },
+    {
+      "name": "non-UTF-8 decoded route: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "non-UTF-8 decoded route: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "non-UTF-8 decoded route: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "unexpected native part: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "unexpected native part: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "unexpected native part: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "unexpected native part: no database changes",
+      "passed": true
+    },
+    {
+      "name": "unexpected native part: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "unexpected native part: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "unexpected native part: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "wrong stored plan digest: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "wrong stored plan digest: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "wrong stored plan digest: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "wrong stored plan digest: no database changes",
+      "passed": true
+    },
+    {
+      "name": "wrong stored plan digest: typed failure with no partial report",
+      "passed": true
+    },
+    {
+      "name": "wrong stored plan digest: rejection did not close caller transaction",
+      "passed": true
+    },
+    {
+      "name": "wrong stored plan digest: authored rollback exact",
+      "passed": true
+    },
+    {
+      "name": "absent literal project: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "absent literal project: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'' OR 1=1 --'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'' OR 1=1 --'\n            "
+      ]
+    },
+    {
+      "name": "absent literal project: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "absent literal project: no database changes",
+      "passed": true
+    },
+    {
+      "name": "unknown literal project returns typed missing error",
+      "passed": true
+    },
+    {
+      "name": "ordinary closed-connection SQLite error propagates",
+      "passed": true,
+      "detail": "ProgrammingError"
+    },
+    {
+      "name": "concurrent authored destination is new",
+      "passed": true
+    },
+    {
+      "name": "authored concurrent fixture uses WAL",
+      "passed": true
+    },
+    {
+      "name": "independent writer initialized before read",
+      "passed": true
+    },
+    {
+      "name": "writer initialization succeeded",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "writer commits after snapshot header fetched: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "writer commits after snapshot header fetched: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "writer commits after snapshot header fetched: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "writer commits after snapshot header fetched: no database changes",
+      "passed": true
+    },
+    {
+      "name": "writer commits after snapshot header fetched: report returned",
+      "passed": true
+    },
+    {
+      "name": "both native writes committed before reader continued",
+      "passed": true,
+      "detail": [
+        "uncertain reconciled completed",
+        "running completed"
+      ]
+    },
+    {
+      "name": "one SELECT retained the complete older snapshot despite both concurrent commits",
+      "passed": true
+    },
+    {
+      "name": "fresh read after both native commits: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "fresh read after both native commits: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "fresh read after both native commits: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "fresh read after both native commits: no database changes",
+      "passed": true
+    },
+    {
+      "name": "fresh read after both native commits: report returned",
+      "passed": true
+    },
+    {
+      "name": "later snapshot exposes newly eligible dependent in original order",
+      "passed": true
+    },
+    {
+      "name": "later snapshot sees both completed states",
+      "passed": true
+    },
+    {
+      "name": "prior returned snapshot stays detached after commits",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction initial snapshot: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "explicit read transaction initial snapshot: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "explicit read transaction initial snapshot: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction initial snapshot: no database changes",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction initial snapshot: report returned",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction after other connection commit: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "explicit read transaction after other connection commit: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "explicit read transaction after other connection commit: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction after other connection commit: no database changes",
+      "passed": true
+    },
+    {
+      "name": "explicit read transaction after other connection commit: report returned",
+      "passed": true
+    },
+    {
+      "name": "existing read transaction snapshot retained without implicit commit",
+      "passed": true
+    },
+    {
+      "name": "read after caller ends read transaction: no write, transaction, pragma or function request",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "read after caller ends read transaction: one compound SELECT",
+      "passed": true,
+      "detail": [
+        "\n            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,\n                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,\n                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,\n                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,\n                   NULL AS evidence_json, NULL AS updated_at\n            FROM projects WHERE project_id='Native-Oracle'\n            UNION ALL\n            SELECT 1, project_id, NULL, NULL,\n                   part_id, payload_json, payload_digest,\n                   idempotency_key, state, worker_id,\n                   task_id, route_json, artifact_ref, evidence_json, updated_at\n            FROM parts WHERE project_id='Native-Oracle'\n            "
+      ]
+    },
+    {
+      "name": "read after caller ends read transaction: caller transaction state unchanged",
+      "passed": true
+    },
+    {
+      "name": "read after caller ends read transaction: no database changes",
+      "passed": true
+    },
+    {
+      "name": "read after caller ends read transaction: report returned",
+      "passed": true
+    },
+    {
+      "name": "caller ending transaction exposes later dispatch state",
+      "passed": true
+    },
+    {
+      "name": "frozen native database remains unchanged after all controls",
+      "passed": true
+    },
+    {
+      "name": "all 15 frozen candidate files unchanged after review",
+      "passed": true
+    }
+  ],
+  "read_calls": [
+    {
+      "name": "original native oracle receiving",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "after detached nested mutations",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "inside preexisting caller transaction",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "missing expected row",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "missing_parts",
+      "denied_actions": []
+    },
+    {
+      "name": "wrong idempotency identity",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "invalid_record",
+      "denied_actions": []
+    },
+    {
+      "name": "normalized payload disagrees with direct tags",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "invalid_record",
+      "denied_actions": []
+    },
+    {
+      "name": "non-UTF-8 decoded route",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "invalid_record",
+      "denied_actions": []
+    },
+    {
+      "name": "unexpected native part",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "invalid_record",
+      "denied_actions": []
+    },
+    {
+      "name": "wrong stored plan digest",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "invalid_record",
+      "denied_actions": []
+    },
+    {
+      "name": "absent literal project",
+      "statement_count": 1,
+      "error_type": "InspectionError",
+      "error_code": "project_not_found",
+      "denied_actions": []
+    },
+    {
+      "name": "writer commits after snapshot header fetched",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "fresh read after both native commits",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "explicit read transaction initial snapshot",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "explicit read transaction after other connection commit",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    },
+    {
+      "name": "read after caller ends read transaction",
+      "statement_count": 1,
+      "error_type": null,
+      "error_code": null,
+      "denied_actions": []
+    }
+  ],
+  "typed_rejections": [
+    {
+      "name": "missing expected row",
+      "code": "missing_parts",
+      "message": "stored project is missing parts: queued"
+    },
+    {
+      "name": "wrong idempotency identity",
+      "code": "invalid_record",
+      "message": "part ready does not match its recorded plan"
+    },
+    {
+      "name": "normalized payload disagrees with direct tags",
+      "code": "invalid_record",
+      "message": "part blocked does not match its recorded plan"
+    },
+    {
+      "name": "non-UTF-8 decoded route",
+      "code": "invalid_record",
+      "message": "part running route cannot be decoded as finite UTF-8 JSON"
+    },
+    {
+      "name": "unexpected native part",
+      "code": "invalid_record",
+      "message": "stored parts contain an unexpected or repeated identifier"
+    },
+    {
+      "name": "wrong stored plan digest",
+      "code": "invalid_record",
+      "message": "stored plan identity does not match its recorded digest"
+    },
+    {
+      "name": "absent literal project",
+      "code": "project_not_found",
+      "message": "project is not in the ledger"
+    }
+  ],
+  "concurrent_observation": {
+    "before_concurrent": {
+      "project_id": "Native-Oracle",
+      "plan_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+      "state_counts": {
+        "queued": 4,
+        "dispatching": 1,
+        "running": 1,
+        "outcome_unknown": 1,
+        "completed": 1,
+        "failed": 1
+      },
+      "queued_ready_ids": [
+        "ready",
+        "queued"
+      ],
+      "blocked_queued_ids": [
+        "blocked",
+        "blocked-two"
+      ],
+      "parts": [
+        {
+          "id": "blocked",
+          "instruction": "Wait for a finding: \"Ω\"\nsecond line",
+          "depends_on": [
+            "uncertain",
+            "done"
+          ],
+          "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+          ],
+          "state": "queued",
+          "idempotency_key": "fanout-e3198400567f43ade242678ccd6b3229c462558072d48b6d70976c879fba3880",
+          "worker_id": null,
+          "task_id": null,
+          "artifact_ref": null,
+          "updated_at": 1791473080.7788043,
+          "route": null,
+          "evidence": null,
+          "unmet_dependencies": [
+            {
+              "id": "uncertain",
+              "state": "outcome_unknown"
+            }
+          ]
+        },
+        {
+          "id": "ready",
+          "instruction": "Can run after done",
+          "depends_on": [
+            "done"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-253a1ba69cbc5587879cdf60157ca972bb9af53ac37a2022d0b8baf5b626e4a8",
+          "worker_id": null,
+          "task_id": null,
+          "artifact_ref": null,
+          "updated_at": 1791473080.778858,
+          "route": null,
+          "evidence": null,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "failed",
+          "instruction": "A reconciled failed native part",
+          "depends_on": [],
+          "tags": [],
+          "state": "failed",
+          "idempotency_key": "fanout-9849edce56a742ee24f9bcd28ade566e136ba9f39afb8b2f8357f3d0bee31710",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-failed",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.7797663,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "done",
+          "instruction": "Completed predecessor",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-b27faf742503c45953f31ade3a5b7c570b3cbd1eaa1b835ebe38fe2ed94328f8",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-done",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://Ω/output.json",
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.779581,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "queued",
+          "instruction": "Independent queued part",
+          "depends_on": [],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-9cf7bf14e1629fb9650fbc606572ba8e8bbf106a27c05148d5bed64ec1d3aa55",
+          "worker_id": null,
+          "task_id": null,
+          "artifact_ref": null,
+          "updated_at": 1791473080.7788906,
+          "route": null,
+          "evidence": null,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "uncertain",
+          "instruction": "Native uncertainty must remain visible",
+          "depends_on": [],
+          "tags": [],
+          "state": "outcome_unknown",
+          "idempotency_key": "fanout-987efc935681ac59222870763f704fc9de0c546542c558317447e451baa1bc09",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-uncertain",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.779651,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "running",
+          "instruction": "Accepted task remains in flight",
+          "depends_on": [],
+          "tags": [],
+          "state": "running",
+          "idempotency_key": "fanout-5eb2b911b898caafaab77f2f32b7b41b8802952df1f1c2493bd27dce1529a97b",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-running",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "updated_at": 1791473080.7794917,
+          "evidence": null,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "dispatching",
+          "instruction": "Acceptance has not been recorded",
+          "depends_on": [],
+          "tags": [],
+          "state": "dispatching",
+          "idempotency_key": "fanout-6e9b455de427cd610ec5499e7c4a580dc96c7fd860278202c134645cd906e55d",
+          "worker_id": "fixture-worker",
+          "task_id": null,
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "updated_at": 1791473080.77953,
+          "evidence": null,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "blocked-two",
+          "instruction": "Keep failed and queued blockers in dependency order",
+          "depends_on": [
+            "failed",
+            "queued"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-749a31190e1de3bb31dce7bfb025bd34e37275516b592f4f09fed0a76da09fc2",
+          "worker_id": null,
+          "task_id": null,
+          "artifact_ref": null,
+          "updated_at": 1791473080.7789214,
+          "route": null,
+          "evidence": null,
+          "unmet_dependencies": [
+            {
+              "id": "failed",
+              "state": "failed"
+            },
+            {
+              "id": "queued",
+              "state": "queued"
+            }
+          ]
+        }
+      ]
+    },
+    "after_two_commits": {
+      "project_id": "Native-Oracle",
+      "plan_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+      "state_counts": {
+        "completed": 3,
+        "dispatching": 1,
+        "failed": 1,
+        "outcome_unknown": 0,
+        "queued": 4,
+        "running": 0
+      },
+      "queued_ready_ids": [
+        "blocked",
+        "ready",
+        "queued"
+      ],
+      "blocked_queued_ids": [
+        "blocked-two"
+      ],
+      "parts": [
+        {
+          "id": "blocked",
+          "instruction": "Wait for a finding: \"Ω\"\nsecond line",
+          "depends_on": [
+            "uncertain",
+            "done"
+          ],
+          "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+          ],
+          "state": "queued",
+          "idempotency_key": "fanout-e3198400567f43ade242678ccd6b3229c462558072d48b6d70976c879fba3880",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.7788043,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "ready",
+          "instruction": "Can run after done",
+          "depends_on": [
+            "done"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-253a1ba69cbc5587879cdf60157ca972bb9af53ac37a2022d0b8baf5b626e4a8",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.778858,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "failed",
+          "instruction": "A reconciled failed native part",
+          "depends_on": [],
+          "tags": [],
+          "state": "failed",
+          "idempotency_key": "fanout-9849edce56a742ee24f9bcd28ade566e136ba9f39afb8b2f8357f3d0bee31710",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-failed",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.7797663,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "done",
+          "instruction": "Completed predecessor",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-b27faf742503c45953f31ade3a5b7c570b3cbd1eaa1b835ebe38fe2ed94328f8",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-done",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://Ω/output.json",
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.779581,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "queued",
+          "instruction": "Independent queued part",
+          "depends_on": [],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-9cf7bf14e1629fb9650fbc606572ba8e8bbf106a27c05148d5bed64ec1d3aa55",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.7788906,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "uncertain",
+          "instruction": "Native uncertainty must remain visible",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-987efc935681ac59222870763f704fc9de0c546542c558317447e451baa1bc09",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-uncertain",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://uncertain-complete",
+          "evidence": {
+            "finding": "authored completion",
+            "locator": "fixture://commit",
+            "source": "independent writer fixture"
+          },
+          "updated_at": 1791473391.4974835,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "running",
+          "instruction": "Accepted task remains in flight",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-5eb2b911b898caafaab77f2f32b7b41b8802952df1f1c2493bd27dce1529a97b",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-running",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://running-complete",
+          "evidence": {
+            "finding": "authored completion",
+            "locator": "fixture://commit",
+            "source": "independent writer fixture"
+          },
+          "updated_at": 1791473391.4977992,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "dispatching",
+          "instruction": "Acceptance has not been recorded",
+          "depends_on": [],
+          "tags": [],
+          "state": "dispatching",
+          "idempotency_key": "fanout-6e9b455de427cd610ec5499e7c4a580dc96c7fd860278202c134645cd906e55d",
+          "worker_id": "fixture-worker",
+          "task_id": null,
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.77953,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "blocked-two",
+          "instruction": "Keep failed and queued blockers in dependency order",
+          "depends_on": [
+            "failed",
+            "queued"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-749a31190e1de3bb31dce7bfb025bd34e37275516b592f4f09fed0a76da09fc2",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.7789214,
+          "unmet_dependencies": [
+            {
+              "id": "failed",
+              "state": "failed"
+            },
+            {
+              "id": "queued",
+              "state": "queued"
+            }
+          ]
+        }
+      ]
+    },
+    "after_later_dispatch": {
+      "project_id": "Native-Oracle",
+      "plan_digest": "747695e001cdf5fcba581b87c282bcf2637e9b80d170adbdf79c85fa326518a7",
+      "state_counts": {
+        "completed": 3,
+        "dispatching": 2,
+        "failed": 1,
+        "outcome_unknown": 0,
+        "queued": 3,
+        "running": 0
+      },
+      "queued_ready_ids": [
+        "blocked",
+        "ready"
+      ],
+      "blocked_queued_ids": [
+        "blocked-two"
+      ],
+      "parts": [
+        {
+          "id": "blocked",
+          "instruction": "Wait for a finding: \"Ω\"\nsecond line",
+          "depends_on": [
+            "uncertain",
+            "done"
+          ],
+          "tags": [
+            "zeta",
+            "alpha",
+            "zeta"
+          ],
+          "state": "queued",
+          "idempotency_key": "fanout-e3198400567f43ade242678ccd6b3229c462558072d48b6d70976c879fba3880",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.7788043,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "ready",
+          "instruction": "Can run after done",
+          "depends_on": [
+            "done"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-253a1ba69cbc5587879cdf60157ca972bb9af53ac37a2022d0b8baf5b626e4a8",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.778858,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "failed",
+          "instruction": "A reconciled failed native part",
+          "depends_on": [],
+          "tags": [],
+          "state": "failed",
+          "idempotency_key": "fanout-9849edce56a742ee24f9bcd28ade566e136ba9f39afb8b2f8357f3d0bee31710",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-failed",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.7797663,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "done",
+          "instruction": "Completed predecessor",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-b27faf742503c45953f31ade3a5b7c570b3cbd1eaa1b835ebe38fe2ed94328f8",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-done",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://Ω/output.json",
+          "evidence": {
+            "extras": {
+              "chain": [
+                "α",
+                {
+                  "literal": "<tag>,\"quote\"\nline"
+                }
+              ]
+            },
+            "finding": "known from fixture",
+            "locator": "fixture://only",
+            "source": "authored native API"
+          },
+          "updated_at": 1791473080.779581,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "queued",
+          "instruction": "Independent queued part",
+          "depends_on": [],
+          "tags": [],
+          "state": "dispatching",
+          "idempotency_key": "fanout-9cf7bf14e1629fb9650fbc606572ba8e8bbf106a27c05148d5bed64ec1d3aa55",
+          "worker_id": "fixture-later",
+          "task_id": null,
+          "route": {
+            "effort": "low",
+            "model": "authored"
+          },
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473391.5007243,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "uncertain",
+          "instruction": "Native uncertainty must remain visible",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-987efc935681ac59222870763f704fc9de0c546542c558317447e451baa1bc09",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-uncertain",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://uncertain-complete",
+          "evidence": {
+            "finding": "authored completion",
+            "locator": "fixture://commit",
+            "source": "independent writer fixture"
+          },
+          "updated_at": 1791473391.4974835,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "running",
+          "instruction": "Accepted task remains in flight",
+          "depends_on": [],
+          "tags": [],
+          "state": "completed",
+          "idempotency_key": "fanout-5eb2b911b898caafaab77f2f32b7b41b8802952df1f1c2493bd27dce1529a97b",
+          "worker_id": "fixture-worker",
+          "task_id": "fixture-task-running",
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": "fixture://running-complete",
+          "evidence": {
+            "finding": "authored completion",
+            "locator": "fixture://commit",
+            "source": "independent writer fixture"
+          },
+          "updated_at": 1791473391.4977992,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "dispatching",
+          "instruction": "Acceptance has not been recorded",
+          "depends_on": [],
+          "tags": [],
+          "state": "dispatching",
+          "idempotency_key": "fanout-6e9b455de427cd610ec5499e7c4a580dc96c7fd860278202c134645cd906e55d",
+          "worker_id": "fixture-worker",
+          "task_id": null,
+          "route": {
+            "effort": "low",
+            "extensions": {
+              "labels": [
+                "one",
+                "two"
+              ],
+              "weights": [
+                1,
+                2
+              ]
+            },
+            "model": "authored-Ω"
+          },
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.77953,
+          "unmet_dependencies": []
+        },
+        {
+          "id": "blocked-two",
+          "instruction": "Keep failed and queued blockers in dependency order",
+          "depends_on": [
+            "failed",
+            "queued"
+          ],
+          "tags": [],
+          "state": "queued",
+          "idempotency_key": "fanout-749a31190e1de3bb31dce7bfb025bd34e37275516b592f4f09fed0a76da09fc2",
+          "worker_id": null,
+          "task_id": null,
+          "route": null,
+          "artifact_ref": null,
+          "evidence": null,
+          "updated_at": 1791473080.7789214,
+          "unmet_dependencies": [
+            {
+              "id": "failed",
+              "state": "failed"
+            },
+            {
+              "id": "queued",
+              "state": "dispatching"
+            }
+          ]
+        }
+      ]
+    },
+    "writer_log": [
+      "uncertain reconciled completed",
+      "running completed"
+    ]
+  },
+  "ordinary_sqlite_error": "ProgrammingError from closed connection propagated",
+  "limits": [
+    "Authored local state only; no adapter, Hub, provider, router or live ledger action.",
+    "WAL concurrency uses two SQLite connections on two threads of one process; no distributed or multi-process guarantee is inferred.",
+    "Caller transaction visibility is preserved; queued readiness is an observation, never a dispatch reservation.",
+    "No concurrent writes through the same connection, shared-cache read_uncommitted or arbitrary row-factory contract is claimed.",
+    "Existing native event history is unchanged but is not part of the new report API.",
+    "No broad author/inherited suite, -O replay, original integer-limit regression replay or deployment qualification."
+  ],
+  "official_context": "https://sqlite.org/isolation.html (read 2026-10-08; observed controls above, not inferred outcomes)"
+}

@@ -1,0 +1,22 @@
+test_dependency_and_completion_flow (test_dispatch.DispatchTests.test_dependency_and_completion_flow) ... ok
+test_plan_conflict_is_rejected (test_dispatch.DispatchTests.test_plan_conflict_is_rejected) ... ok
+test_unknown_submission_is_never_replayed (test_dispatch.DispatchTests.test_unknown_submission_is_never_replayed) ... ok
+test_all_six_states_are_observed_without_recovery_or_reclassification (test_inspection.InspectionTests.test_all_six_states_are_observed_without_recovery_or_reclassification) ... ok
+test_complete_mixed_project_and_direct_blockers (test_inspection.InspectionTests.test_complete_mixed_project_and_direct_blockers) ... ok
+test_detached_snapshots_and_later_native_progress (test_inspection.InspectionTests.test_detached_snapshots_and_later_native_progress) ... ok
+test_direct_constructor_tags_and_dependency_order_remain_exact (test_inspection.InspectionTests.test_direct_constructor_tags_and_dependency_order_remain_exact) ... ok
+test_malformed_or_changed_stored_plan_refuses_without_partial_report (test_inspection.InspectionTests.test_malformed_or_changed_stored_plan_refuses_without_partial_report) ... ok
+test_malformed_or_inconsistent_part_rows_refuse_without_write (test_inspection.InspectionTests.test_malformed_or_inconsistent_part_rows_refuse_without_write) ... ok
+test_native_references_and_additional_evidence_are_preserved_as_data (test_inspection.InspectionTests.test_native_references_and_additional_evidence_are_preserved_as_data) ... ok
+test_unknown_project_and_missing_parts_are_distinct (test_inspection.InspectionTests.test_unknown_project_and_missing_parts_are_distinct) ... ok
+test_ready_parts_and_stable_idempotency_key (test_plan.PlanTests.test_ready_parts_and_stable_idempotency_key) ... ok
+test_rejects_unknown_dependency_and_cycle (test_plan.PlanTests.test_rejects_unknown_dependency_and_cycle) ... ok
+test_strict_json_rejects_duplicate_keys_and_nan (test_plan.PlanTests.test_strict_json_rejects_duplicate_keys_and_nan) ... ok
+test_pool_choice_is_stable_and_explicit_route_wins (test_routing.RoutingTests.test_pool_choice_is_stable_and_explicit_route_wins) ... ok
+test_rejects_route_outside_authorized_catalog (test_routing.RoutingTests.test_rejects_route_outside_authorized_catalog) ... ok
+test_step_up_only_before_output_and_effect (test_routing.RoutingTests.test_step_up_only_before_output_and_effect) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.051s
+
+OK

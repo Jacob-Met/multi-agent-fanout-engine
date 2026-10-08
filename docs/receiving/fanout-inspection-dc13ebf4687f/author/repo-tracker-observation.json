@@ -1,0 +1,15 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "default_branch": "main",
+  "private": false,
+  "has_issues": false,
+  "open_pull_requests": [],
+  "issue_create": {
+    "performed_by": "lead, not this read-only worker",
+    "status": "failed",
+    "http_status": 410,
+    "message": "Issues has been disabled",
+    "source": "https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062467135"
+  },
+  "qualification": "An empty Issues read is not exhaustive ownership coverage; current pull requests and central source claims are the applicable evidence."
+}

@@ -65,3 +65,54 @@ python -m fanout_engine.preview --plan plan.json --routes routes.json
 ~~~
 
 The command validates the entire request and writes deterministic JSON to stdout. An optional --output new-preview.json saves a new file without replacing an existing destination. [The plan preview guide](docs/plan-preview.md) provides complete input examples, the report contract, native Python helper, consumer limits and file-delivery behavior. Initial dependency readiness is separate from stored dispatch eligibility; this preview performs no dispatch or provider operation.
+
+## Inspect a retained project
+
+Before deciding what to dispatch or reconcile, inspect a project already recorded
+in the existing ledger:
+
+```python
+from fanout_engine import inspect_project
+
+report = inspect_project(ledger, "sample")
+print(report["queued_ready_ids"])
+for part in report["parts"]:
+    print(part["id"], part["state"], part["unmet_dependencies"])
+```
+
+The caller supplies its existing open `Ledger` and project ID; no external Plan,
+Hub or route catalog is needed. One SQL statement reads the stored plan and all
+its part rows. The report preserves plan order, instructions, tags and dependency
+order, native state, idempotency keys, worker/task references, route/evidence JSON,
+artifact references and recorded update timestamps. It includes counts for all
+six native states and each part's **direct** prerequisites that are not completed.
+
+`queued_ready_ids` is the intersection of queued parts and parts whose direct
+prerequisites are completed. `blocked_queued_ids` contains the other queued parts.
+A failed or unknown prerequisite remains visible as such; no task is retried,
+reconciled or reclassified by inspection. Dispatching work is not recovered or
+marked unknown by this read. These are observations at the snapshot, not a
+reservation, a worker/route availability check, or proof about external effects.
+References and evidence are retained records; inspection does not open their
+locators or authenticate their claims.
+
+The returned JSON-compatible values are detached: changing them does not edit the
+ledger or a later report. The read performs no writes. Unknown project IDs raise
+`InspectionError` with code `project_not_found`; missing expected part rows use
+`missing_parts`. Malformed JSON, inconsistent plan/payload/key identities,
+unexpected part rows or values that cannot form finite UTF-8 JSON use
+`invalid_record`. No partial report is returned on these failures. Ordinary
+database errors still propagate; this is not database repair or a new storage
+initialization interface.
+
+Run a complete local mixed-state example:
+
+```sh
+python examples/inspect_plan.py
+```
+
+It builds an authored in-memory project with completed, running, unknown, failed
+and queued work, then prints the report without an adapter. Only `notes` is queued
+and dependency-ready; `verify`, `signoff` and `publish` show their different
+unfinished prerequisites. This reference workflow does not claim production
+worker capacity or installed estate integration.

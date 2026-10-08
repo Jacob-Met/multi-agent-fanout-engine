@@ -1,0 +1,167 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "source_branch": "main",
+  "baseline_head": "d65bde9c59b1d2593a80f6d838c0a40bf6768013",
+  "baseline_tree": "d5e5ad4e316be0b20a50151f8549ac490d3d99de",
+  "baseline_tree_truncated": false,
+  "candidate": "v2",
+  "candidate_root": "/dev/shm/fanout-inspection-dc13ebf4687f/candidate-v2",
+  "baseline_root": "/dev/shm/execution-fanout-discovery-dc13ebf4687f/baseline",
+  "source_commit": null,
+  "changed_paths": [
+    "README.md",
+    "examples/inspect_plan.py",
+    "fanout_engine/__init__.py",
+    "fanout_engine/inspection.py",
+    "fanout_engine/ledger.py",
+    "tests/test_inspection.py"
+  ],
+  "baseline_files": {
+    ".github/workflows/test.yml": {
+      "size": 574,
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634",
+      "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+    },
+    "README.md": {
+      "size": 3357,
+      "sha256": "31889ed6aaceab3441fe89ac88048083d7aa629521ba3c7d7e762b7a6a091e28",
+      "git_blob": "0313a67500469d4e736ea7430d7f727588981fc5"
+    },
+    "examples/demo.py": {
+      "size": 1129,
+      "sha256": "3898fbf2a192960a1b4f60d9bdad40c62d87c7fb2e723d6bbeb377114d1cf296",
+      "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7"
+    },
+    "fanout_engine/__init__.py": {
+      "size": 510,
+      "sha256": "b55f155a4dd13db7e5e5a92e0d0b8d2e2c5055d03bcea579da8d9ae8b1a9146a",
+      "git_blob": "73115ea48286832e425599668e4557ea6a12758a"
+    },
+    "fanout_engine/dispatch.py": {
+      "size": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    "fanout_engine/ledger.py": {
+      "size": 11600,
+      "sha256": "4beba942d2ce9f96e0f6e4dbc37d911db894864cd656aac4a314996277f2dcac",
+      "git_blob": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e"
+    },
+    "fanout_engine/plan.py": {
+      "size": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    },
+    "fanout_engine/routing.py": {
+      "size": 2622,
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15",
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    "pyproject.toml": {
+      "size": 248,
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    "tests/test_dispatch.py": {
+      "size": 3293,
+      "sha256": "f6354a62b45dbd06a91a5b02ec503e1b6caf041a853dbe165de10de3aa861d51",
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3"
+    },
+    "tests/test_plan.py": {
+      "size": 1660,
+      "sha256": "aad7ac5e7ce24f58cc809dee6202c187bf89fe664483ba433371e0ca9a4ffb6d",
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee"
+    },
+    "tests/test_routing.py": {
+      "size": 1651,
+      "sha256": "ddd530ac149561ca4c7894928a56690dbe89fa32bd70d6eb485e306d1a1fc6b8",
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+    }
+  },
+  "candidate_files": {
+    ".github/workflows/test.yml": {
+      "size": 574,
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634",
+      "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+    },
+    "README.md": {
+      "size": 5827,
+      "sha256": "7b35cfabbb8f24dd5edf90c3e312274ab8b8827f726a84301d6594e166dc7eb7",
+      "git_blob": "64d0bfd3e92b7f0539763e4371005e02df27747d"
+    },
+    "examples/demo.py": {
+      "size": 1129,
+      "sha256": "3898fbf2a192960a1b4f60d9bdad40c62d87c7fb2e723d6bbeb377114d1cf296",
+      "git_blob": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7"
+    },
+    "fanout_engine/__init__.py": {
+      "size": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8"
+    },
+    "fanout_engine/dispatch.py": {
+      "size": 3363,
+      "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf",
+      "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06"
+    },
+    "fanout_engine/ledger.py": {
+      "size": 13331,
+      "sha256": "a987f4c53dd8d0ce8961a20a1d9d151d268ce534937410ad09bb17eab3a0511d",
+      "git_blob": "28e8eeafa37a9faceebddff7de1894cc35fe189b"
+    },
+    "fanout_engine/plan.py": {
+      "size": 6089,
+      "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a",
+      "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76"
+    },
+    "fanout_engine/routing.py": {
+      "size": 2622,
+      "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15",
+      "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2"
+    },
+    "pyproject.toml": {
+      "size": 248,
+      "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    "tests/test_dispatch.py": {
+      "size": 3293,
+      "sha256": "f6354a62b45dbd06a91a5b02ec503e1b6caf041a853dbe165de10de3aa861d51",
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3"
+    },
+    "tests/test_plan.py": {
+      "size": 1660,
+      "sha256": "aad7ac5e7ce24f58cc809dee6202c187bf89fe664483ba433371e0ca9a4ffb6d",
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee"
+    },
+    "tests/test_routing.py": {
+      "size": 1651,
+      "sha256": "ddd530ac149561ca4c7894928a56690dbe89fa32bd70d6eb485e306d1a1fc6b8",
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+    },
+    "fanout_engine/inspection.py": {
+      "size": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34"
+    },
+    "examples/inspect_plan.py": {
+      "size": 2413,
+      "sha256": "102eff7c58c9db8fdabd09616fe87a53f93d7c2cb519107a82930f81b0196d61",
+      "git_blob": "82390cacd20d4d0e26a3ca73da9044306ac65e16"
+    },
+    "tests/test_inspection.py": {
+      "size": 14960,
+      "sha256": "3e8e4d122c03bd6a8d7521ccd8342ec636bff9d4d4d5486cdaae481aa8d31f4d",
+      "git_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99"
+    }
+  },
+  "expected_receiving_preimages": {
+    "README.md": "0313a67500469d4e736ea7430d7f727588981fc5",
+    "examples/inspect_plan.py": null,
+    "fanout_engine/__init__.py": "73115ea48286832e425599668e4557ea6a12758a",
+    "fanout_engine/inspection.py": null,
+    "fanout_engine/ledger.py": "66ece8d87d6781ebd4dd21b0cb810ae6fb1c861e",
+    "tests/test_inspection.py": null
+  },
+  "all_existing_baseline_files_byte_verified": 12
+}

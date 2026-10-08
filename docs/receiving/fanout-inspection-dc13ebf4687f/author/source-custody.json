@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-10-08T15:08:57.104955+00:00",
+  "changed_paths": [
+    "README.md",
+    "examples/inspect_plan.py",
+    "fanout_engine/__init__.py",
+    "fanout_engine/inspection.py",
+    "fanout_engine/ledger.py",
+    "tests/test_inspection.py"
+  ],
+  "v1_to_v2_changed_paths": [
+    "fanout_engine/inspection.py",
+    "tests/test_inspection.py"
+  ],
+  "unchanged_existing_paths": [
+    ".github/workflows/test.yml",
+    "examples/demo.py",
+    "fanout_engine/dispatch.py",
+    "fanout_engine/plan.py",
+    "fanout_engine/routing.py",
+    "pyproject.toml",
+    "tests/test_dispatch.py",
+    "tests/test_plan.py",
+    "tests/test_routing.py"
+  ],
+  "all_original_ledger_methods_exact": [
+    "__init__",
+    "_transaction",
+    "_event",
+    "record_plan",
+    "_part",
+    "part_state",
+    "part",
+    "idempotency_key",
+    "completed_ids",
+    "dispatchable_ids",
+    "mark_dispatching",
+    "mark_running",
+    "mark_outcome_unknown",
+    "mark_completed",
+    "reconcile_unknown",
+    "mark_interrupted_dispatches_unknown",
+    "events",
+    "_validate_evidence",
+    "close",
+    "__enter__",
+    "__exit__"
+  ],
+  "entire_ledger_recovers_by_removing_one_insertion": true,
+  "original_readme_exact_prefix": true,
+  "all_original_exports_preserved": true,
+  "frozen_physical_baseline_files_unchanged": 12,
+  "frozen_physical_v1_files_unchanged": 15,
+  "final_physical_files_verified": 15,
+  "new_paths_absent_from_complete_baseline": {
+    "examples/inspect_plan.py": true,
+    "fanout_engine/inspection.py": true,
+    "tests/test_inspection.py": true
+  },
+  "patch": {
+    "size": 29721,
+    "sha256": "828e2d91f9f491251b63ee04dd7a665bda8f98a16169ad2785f9910ab8711c4d",
+    "git_blob": "9cb9016b1241d7ecebe3d7877719a57a5a076db4"
+  }
+}

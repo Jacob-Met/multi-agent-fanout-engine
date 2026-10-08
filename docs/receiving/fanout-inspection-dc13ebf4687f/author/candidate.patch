@@ -1,0 +1,599 @@
+--- a/README.md
++++ b/README.md
+@@ -55,3 +55,54 @@
+ ## Scope
+ 
+ This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
++
++## Inspect a retained project
++
++Before deciding what to dispatch or reconcile, inspect a project already recorded
++in the existing ledger:
++
++```python
++from fanout_engine import inspect_project
++
++report = inspect_project(ledger, "sample")
++print(report["queued_ready_ids"])
++for part in report["parts"]:
++    print(part["id"], part["state"], part["unmet_dependencies"])
++```
++
++The caller supplies its existing open `Ledger` and project ID; no external Plan,
++Hub or route catalog is needed. One SQL statement reads the stored plan and all
++its part rows. The report preserves plan order, instructions, tags and dependency
++order, native state, idempotency keys, worker/task references, route/evidence JSON,
++artifact references and recorded update timestamps. It includes counts for all
++six native states and each part's **direct** prerequisites that are not completed.
++
++`queued_ready_ids` is the intersection of queued parts and parts whose direct
++prerequisites are completed. `blocked_queued_ids` contains the other queued parts.
++A failed or unknown prerequisite remains visible as such; no task is retried,
++reconciled or reclassified by inspection. Dispatching work is not recovered or
++marked unknown by this read. These are observations at the snapshot, not a
++reservation, a worker/route availability check, or proof about external effects.
++References and evidence are retained records; inspection does not open their
++locators or authenticate their claims.
++
++The returned JSON-compatible values are detached: changing them does not edit the
++ledger or a later report. The read performs no writes. Unknown project IDs raise
++`InspectionError` with code `project_not_found`; missing expected part rows use
++`missing_parts`. Malformed JSON, inconsistent plan/payload/key identities,
++unexpected part rows or values that cannot form finite UTF-8 JSON use
++`invalid_record`. No partial report is returned on these failures. Ordinary
++database errors still propagate; this is not database repair or a new storage
++initialization interface.
++
++Run a complete local mixed-state example:
++
++```sh
++python examples/inspect_plan.py
++```
++
++It builds an authored in-memory project with completed, running, unknown, failed
++and queued work, then prints the report without an adapter. Only `notes` is queued
++and dependency-ready; `verify`, `signoff` and `publish` show their different
++unfinished prerequisites. This reference workflow does not claim production
++worker capacity or installed estate integration.
+--- /dev/null
++++ b/examples/inspect_plan.py
+@@ -0,0 +1,49 @@
++"""Inspect an authored retained project locally; no adapter is connected."""
++import json
++from pathlib import Path
++import sys
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++
++from fanout_engine import Ledger, Plan, inspect_project
++
++
++def main() -> None:
++    plan = Plan.from_dict({
++        "project": "inspection-demo",
++        "parts": [
++            {"id": "research", "instruction": "Read authored sample references."},
++            {"id": "draft", "instruction": "Prepare authored text."},
++            {"id": "fetch", "instruction": "Retrieve local fixture material."},
++            {"id": "verify", "instruction": "Check retrieved material.", "depends_on": ["fetch"]},
++            {"id": "benchmark", "instruction": "Evaluate the authored control."},
++            {"id": "signoff", "instruction": "Review evaluation.", "depends_on": ["benchmark"]},
++            {"id": "publish", "instruction": "Prepare a local review artifact.",
++             "depends_on": ["draft", "verify", "signoff"]},
++            {"id": "notes", "instruction": "Prepare fixture notes."},
++        ],
++    })
++    with Ledger(":memory:") as ledger:
++        ledger.record_plan(plan)
++        for name in ("research", "draft", "fetch", "benchmark"):
++            ledger.mark_dispatching(plan.project_id, name, "local-worker",
++                                    {"model": "model-a", "effort": "low"})
++            ledger.mark_running(plan.project_id, name, "local-task-" + name)
++        ledger.mark_completed(plan.project_id, "research", "local-artifact:references")
++        evidence = {"source": "authored local example", "locator": "fixture:fetch",
++                    "finding": "acceptance is intentionally unverified in this example"}
++        ledger.mark_outcome_unknown(plan.project_id, "fetch", evidence)
++        ledger.mark_outcome_unknown(plan.project_id, "benchmark",
++                                    {**evidence, "locator": "fixture:benchmark"})
++        ledger.reconcile_unknown(
++            plan.project_id, "benchmark", verdict="failed",
++            evidence={**evidence, "locator": "fixture:benchmark",
++                      "finding": "authored failure control"},
++        )
++        # This consumer needs only the recorded project ID and existing ledger.
++        print(json.dumps(inspect_project(ledger, "inspection-demo"),
++                         indent=2, ensure_ascii=False))
++
++
++if __name__ == "__main__":
++    main()
+--- a/fanout_engine/__init__.py
++++ b/fanout_engine/__init__.py
+@@ -2,12 +2,14 @@
+ 
+ from .dispatch import DispatchReport, dispatch_ready
+ from .ledger import Ledger, LedgerError
++from .inspection import InspectionError, inspect_project
+ from .plan import Part, Plan, PlanError, canonical_json, strict_json_loads
+ from .routing import EffortRouter, Route, UnsafeStepUp
+ 
+ __all__ = [
+     "DispatchReport",
+     "EffortRouter",
++    "InspectionError",
+     "Ledger",
+     "LedgerError",
+     "Part",
+@@ -17,5 +19,6 @@
+     "UnsafeStepUp",
+     "canonical_json",
+     "dispatch_ready",
++    "inspect_project",
+     "strict_json_loads",
+ ]
+--- /dev/null
++++ b/fanout_engine/inspection.py
+@@ -0,0 +1,139 @@
++"""Read-only inspection of a project already recorded in the native ledger."""
++from __future__ import annotations
++
++import math
++from typing import Any
++
++from .ledger import Ledger, LedgerError, _STATES
++from .plan import Part, Plan, PlanError, canonical_json, strict_json_loads
++
++
++class InspectionError(LedgerError):
++    """A missing project or inconsistent recorded data prevented inspection."""
++
++    def __init__(self, code: str, message: str) -> None:
++        super().__init__(message)
++        self.code = code
++
++
++def _invalid(message: str) -> InspectionError:
++    return InspectionError("invalid_record", message)
++
++
++def _decode(value: Any, label: str, *, nullable: bool = False) -> Any:
++    if value is None and nullable:
++        return None
++    if not isinstance(value, str):
++        raise _invalid(f"{label} is not stored JSON text")
++    try:
++        result = strict_json_loads(value)
++        canonical_json(result).encode("utf-8")
++        return result
++    except (ValueError, RecursionError) as exc:
++        raise _invalid(f"{label} cannot be decoded as finite UTF-8 JSON") from exc
++
++
++def _read_plan(snapshot: dict[str, Any]) -> Plan:
++    document = _decode(snapshot["plan_json"], "plan")
++    try:
++        checked = Plan.from_dict(document)
++        # from_dict normalizes tags; direct Plan/Part construction need not.
++        # Keep the exact native representation which record_plan persisted.
++        parts = tuple(
++            Part(part.id, part.instruction, part.depends_on,
++                 tuple(raw.get("tags", [])))
++            for part, raw in zip(checked.parts, document["parts"])
++        )
++        plan = Plan(checked.project_id, parts)
++        if canonical_json(document) != canonical_json(plan.to_dict()):
++            raise _invalid("stored plan does not match its native representation")
++    except (PlanError, UnicodeError, RecursionError) as exc:
++        raise _invalid("stored plan is malformed") from exc
++    if plan.project_id != snapshot["project_id"] or plan.digest != snapshot["plan_digest"]:
++        raise _invalid("stored plan identity does not match its recorded digest")
++    return plan
++
++
++def inspect_project(ledger: Ledger, project_id: str) -> dict[str, Any]:
++    """Describe one recorded project without dispatching or changing its state.
++
++    queued_ready_ids is the observed intersection of queued state and completed
++    direct prerequisites. It is not a dispatch reservation, a route/worker check,
++    or a conclusion about external work. Native uncertainty stays uncertainty.
++    """
++    snapshot = ledger.project_snapshot(project_id)
++    if snapshot is None:
++        raise InspectionError("project_not_found", "project is not in the ledger")
++    plan = _read_plan(snapshot)
++    rows: dict[str, dict[str, Any]] = {}
++    expected = {part.id for part in plan.parts}
++    for row in snapshot["parts"]:
++        part_id = row["part_id"]
++        if not isinstance(part_id, str) or part_id in rows or part_id not in expected:
++            raise _invalid("stored parts contain an unexpected or repeated identifier")
++        rows[part_id] = row
++    missing = [part.id for part in plan.parts if part.id not in rows]
++    if missing:
++        raise InspectionError("missing_parts", "stored project is missing parts: " + ", ".join(missing))
++
++    # Validate the complete snapshot before returning any partial report.
++    decoded: dict[str, dict[str, Any]] = {}
++    for part in plan.parts:
++        row = rows[part.id]
++        payload = _decode(row["payload_json"], f"part {part.id} payload")
++        if (row["project_id"] != plan.project_id
++                or row["payload_digest"] != plan.digest
++                or row["idempotency_key"] != plan.idempotency_key(part.id)
++                or canonical_json(payload) != canonical_json(part.to_dict())):
++            raise _invalid(f"part {part.id} does not match its recorded plan")
++        if row["state"] not in _STATES:
++            raise _invalid(f"part {part.id} has an unknown stored state")
++        if any(row[name] is not None and not isinstance(row[name], str)
++               for name in ("worker_id", "task_id", "artifact_ref")):
++            raise _invalid(f"part {part.id} has a malformed native reference")
++        if (not isinstance(row["updated_at"], (int, float))
++                or not math.isfinite(row["updated_at"])):
++            raise _invalid(f"part {part.id} has a malformed update timestamp")
++        decoded[part.id] = {
++            "route": _decode(row["route_json"], f"part {part.id} route", nullable=True),
++            "evidence": _decode(row["evidence_json"], f"part {part.id} evidence", nullable=True),
++        }
++
++    counts = {state: 0 for state in sorted(_STATES)}
++    parts: list[dict[str, Any]] = []
++    ready: list[str] = []
++    blocked: list[str] = []
++    for part in plan.parts:
++        row = rows[part.id]
++        state = row["state"]
++        unmet = [{"id": dependency, "state": rows[dependency]["state"]}
++                 for dependency in part.depends_on
++                 if rows[dependency]["state"] != "completed"]
++        counts[state] += 1
++        if state == "queued":
++            (blocked if unmet else ready).append(part.id)
++        parts.append({
++            **part.to_dict(),
++            "state": state,
++            "idempotency_key": row["idempotency_key"],
++            "worker_id": row["worker_id"],
++            "task_id": row["task_id"],
++            "route": decoded[part.id]["route"],
++            "artifact_ref": row["artifact_ref"],
++            "evidence": decoded[part.id]["evidence"],
++            "updated_at": row["updated_at"],
++            "unmet_dependencies": unmet,
++        })
++    report = {
++        "project_id": plan.project_id,
++        "plan_digest": plan.digest,
++        "state_counts": counts,
++        "queued_ready_ids": ready,
++        "blocked_queued_ids": blocked,
++        "parts": parts,
++    }
++    try:
++        canonical_json(report).encode("utf-8")
++    except (PlanError, UnicodeError, RecursionError) as exc:
++        raise _invalid("stored part values cannot form a finite UTF-8 JSON report") from exc
++    return report
+--- a/fanout_engine/ledger.py
++++ b/fanout_engine/ledger.py
+@@ -83,6 +83,42 @@
+             raise LedgerError("part is not in the ledger")
+         return row
+ 
++    def project_snapshot(self, project_id: str) -> dict[str, Any] | None:
++        """Read one stored project and its parts in a single SQL snapshot.
++
++        JSON columns remain serialized here. The inspection consumer validates
++        them without normalizing recorded identities. Returned rows are detached.
++        """
++        rows = self._db.execute(
++            """
++            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,
++                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,
++                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,
++                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,
++                   NULL AS evidence_json, NULL AS updated_at
++            FROM projects WHERE project_id=?
++            UNION ALL
++            SELECT 1, project_id, NULL, NULL,
++                   part_id, payload_json, payload_digest,
++                   idempotency_key, state, worker_id,
++                   task_id, route_json, artifact_ref, evidence_json, updated_at
++            FROM parts WHERE project_id=?
++            """,
++            (project_id, project_id),
++        ).fetchall()
++        header = next((row for row in rows if row["record_kind"] == 0), None)
++        if header is None:
++            return None
++        fields = tuple(name for name in header.keys()
++                       if name not in ("record_kind", "plan_digest", "plan_json"))
++        return {
++            "project_id": header["project_id"],
++            "plan_digest": header["plan_digest"],
++            "plan_json": header["plan_json"],
++            "parts": [{name: row[name] for name in fields}
++                      for row in rows if row["record_kind"] == 1],
++        }
++
+     def part_state(self, project_id: str, part_id: str) -> str:
+         with self._db:
+             return self._part(self._db, project_id, part_id)["state"]
+--- /dev/null
++++ b/tests/test_inspection.py
+@@ -0,0 +1,276 @@
++import copy
++import json
++import sqlite3
++import sys
++import unittest
++
++from fanout_engine import InspectionError, Ledger, Part, Plan, inspect_project
++
++
++def mixed_plan():
++    return Plan.from_dict({
++        "project": "review-example",
++        "parts": [
++            {"id": "research", "instruction": "Read authored sample references."},
++            {"id": "draft", "instruction": "Prepare authored text."},
++            {"id": "fetch", "instruction": "Retrieve the local fixture material."},
++            {"id": "verify", "instruction": "Check retrieved material.", "depends_on": ["fetch"]},
++            {"id": "benchmark", "instruction": "Evaluate the authored control."},
++            {"id": "signoff", "instruction": "Review evaluation.", "depends_on": ["benchmark"]},
++            {"id": "publish", "instruction": "Prepare a local review artifact.",
++             "depends_on": ["draft", "verify", "signoff"]},
++            {"id": "notes", "instruction": "Prepare fixture notes."},
++        ],
++    })
++
++
++def populate_mixed(ledger):
++    plan = mixed_plan()
++    ledger.record_plan(plan)
++    for name in ("research", "draft", "fetch", "benchmark"):
++        ledger.mark_dispatching(plan.project_id, name, "authored-worker",
++                                {"model": "model-a", "effort": "low"})
++        ledger.mark_running(plan.project_id, name, "authored-task-" + name)
++    ledger.mark_completed(plan.project_id, "research", "authored-artifact:references")
++    evidence = {"source": "authored local fixture", "locator": "fixture:fetch",
++                "finding": "acceptance intentionally unverified in this example"}
++    ledger.mark_outcome_unknown(plan.project_id, "fetch", evidence)
++    ledger.mark_outcome_unknown(plan.project_id, "benchmark",
++                                {**evidence, "locator": "fixture:benchmark"})
++    ledger.reconcile_unknown(
++        plan.project_id, "benchmark", verdict="failed",
++        evidence={**evidence, "locator": "fixture:benchmark",
++                  "finding": "authored failure control"},
++    )
++    return plan
++
++
++class InspectionTests(unittest.TestCase):
++    def receive(self, ledger, project_id, error_code=None):
++        """Exercise the public consumer with writes denied and native rows compared."""
++        before = list(ledger._db.iterdump())
++        statements = []
++        denied = []
++        allowed = {sqlite3.SQLITE_SELECT, sqlite3.SQLITE_READ, sqlite3.SQLITE_FUNCTION}
++
++        def authorize(action, first, second, database, trigger):
++            if action in allowed:
++                return sqlite3.SQLITE_OK
++            denied.append((action, first, second))
++            return sqlite3.SQLITE_DENY
++
++        ledger._db.set_trace_callback(statements.append)
++        ledger._db.set_authorizer(authorize)
++        try:
++            if error_code is None:
++                result = inspect_project(ledger, project_id)
++            else:
++                with self.assertRaises(InspectionError) as caught:
++                    inspect_project(ledger, project_id)
++                self.assertEqual(caught.exception.code, error_code)
++                result = caught.exception
++        finally:
++            ledger._db.set_authorizer(None)
++            ledger._db.set_trace_callback(None)
++        self.assertEqual(denied, [])
++        self.assertEqual(len(statements), 1, statements)
++        self.assertTrue(statements[0].lstrip().upper().startswith("SELECT"))
++        self.assertEqual(list(ledger._db.iterdump()), before)
++        return result
++
++    def test_complete_mixed_project_and_direct_blockers(self):
++        with Ledger() as ledger:
++            plan = populate_mixed(ledger)
++            report = self.receive(ledger, plan.project_id)
++            self.assertEqual(report["project_id"], plan.project_id)
++            self.assertEqual(report["plan_digest"], plan.digest)
++            self.assertEqual([row["id"] for row in report["parts"]],
++                             [part.id for part in plan.parts])
++            self.assertEqual(report["queued_ready_ids"], ["notes"])
++            self.assertEqual(report["blocked_queued_ids"], ["verify", "signoff", "publish"])
++            self.assertEqual(report["state_counts"], {
++                "queued": 4, "dispatching": 0, "running": 1,
++                "outcome_unknown": 1, "completed": 1, "failed": 1,
++            })
++            rows = {row["id"]: row for row in report["parts"]}
++            self.assertEqual(rows["verify"]["unmet_dependencies"],
++                             [{"id": "fetch", "state": "outcome_unknown"}])
++            self.assertEqual(rows["signoff"]["unmet_dependencies"],
++                             [{"id": "benchmark", "state": "failed"}])
++            self.assertEqual(rows["publish"]["unmet_dependencies"], [
++                {"id": "draft", "state": "running"},
++                {"id": "verify", "state": "queued"},
++                {"id": "signoff", "state": "queued"},
++            ])
++            for part in plan.parts:
++                native = ledger.part(plan.project_id, part.id)
++                row = rows[part.id]
++                for key, value in part.to_dict().items():
++                    self.assertEqual(row[key], value)
++                for key in ("state", "idempotency_key", "worker_id", "task_id",
++                            "artifact_ref", "updated_at"):
++                    self.assertEqual(row[key], native[key])
++                self.assertEqual(row["route"], native.get("route"))
++                self.assertEqual(row["evidence"], native.get("evidence"))
++            self.assertEqual(len(ledger.events(plan.project_id)), 13)
++            json.dumps(report, ensure_ascii=False, allow_nan=False).encode("utf-8")
++
++    def test_direct_constructor_tags_and_dependency_order_remain_exact(self):
++        plan = Plan("native-order", (
++            Part("z", "First original item.", tags=("zeta", "alpha", "zeta")),
++            Part("a", "Second original item."),
++            Part("last", "Literal <tag> 東京\nquoted \"text\".",
++                 depends_on=("z", "a"), tags=("second", "first")),
++        ))
++        self.assertNotEqual(Plan.from_dict(plan.to_dict()).digest, plan.digest)
++        with Ledger() as ledger:
++            ledger.record_plan(plan)
++            report = self.receive(ledger, plan.project_id)
++            self.assertEqual(report["plan_digest"], plan.digest)
++            self.assertEqual([row["id"] for row in report["parts"]], ["z", "a", "last"])
++            self.assertEqual(report["parts"][0]["tags"], ["zeta", "alpha", "zeta"])
++            self.assertEqual(report["parts"][2]["depends_on"], ["z", "a"])
++            self.assertEqual(report["parts"][2]["unmet_dependencies"],
++                             [{"id": "z", "state": "queued"}, {"id": "a", "state": "queued"}])
++            self.assertEqual(report["queued_ready_ids"], ["z", "a"])
++
++    def test_detached_snapshots_and_later_native_progress(self):
++        with Ledger() as ledger:
++            plan = populate_mixed(ledger)
++            first = self.receive(ledger, plan.project_id)
++            original = copy.deepcopy(first)
++            first["parts"][2]["evidence"]["finding"] = "caller edit"
++            first["parts"][6]["depends_on"].clear()
++            first["parts"][6]["unmet_dependencies"][0]["state"] = "completed"
++            first["state_counts"]["running"] = 900
++            first["queued_ready_ids"].clear()
++            raw = ledger.project_snapshot(plan.project_id)
++            raw["parts"][0]["state"] = "caller edit"
++            raw["plan_json"] = "{}"
++            self.assertEqual(self.receive(ledger, plan.project_id), original)
++            ledger.mark_completed(plan.project_id, "draft", "authored-artifact:draft")
++            later = self.receive(ledger, plan.project_id)
++            self.assertEqual(later["parts"][1]["state"], "completed")
++            self.assertEqual(later["parts"][6]["unmet_dependencies"], [
++                {"id": "verify", "state": "queued"},
++                {"id": "signoff", "state": "queued"},
++            ])
++            self.assertEqual(original["parts"][1]["state"], "running")
++
++    def test_all_six_states_are_observed_without_recovery_or_reclassification(self):
++        states = ("queued", "dispatching", "running", "outcome_unknown", "completed", "failed")
++        plan = Plan("all-states", tuple(Part(name, "Authored " + name) for name in states))
++        with Ledger() as ledger:
++            ledger.record_plan(plan)
++            for name in states[1:]:
++                ledger.mark_dispatching(plan.project_id, name, "worker", {"opaque": ["kept"]})
++                if name != "dispatching":
++                    ledger.mark_running(plan.project_id, name, "task-" + name)
++            proof = {"source": "fixture", "locator": "fixture:unknown", "finding": "unknown"}
++            ledger.mark_outcome_unknown(plan.project_id, "outcome_unknown", proof)
++            ledger.mark_completed(plan.project_id, "completed", "artifact:complete")
++            ledger.mark_outcome_unknown(plan.project_id, "failed", proof)
++            ledger.reconcile_unknown(plan.project_id, "failed", verdict="failed", evidence=proof)
++            report = self.receive(ledger, plan.project_id)
++            self.assertEqual([row["state"] for row in report["parts"]], list(states))
++            self.assertEqual(report["state_counts"], dict.fromkeys(states, 1))
++            self.assertEqual(report["queued_ready_ids"], ["queued"])
++            self.assertEqual(report["blocked_queued_ids"], [])
++            self.assertIsNone(report["parts"][1]["task_id"])
++            self.assertEqual(report["parts"][1]["state"], "dispatching")
++
++    def test_unknown_project_and_missing_parts_are_distinct(self):
++        with Ledger() as ledger:
++            self.receive(ledger, "absent", "project_not_found")
++            plan = populate_mixed(ledger)
++            ledger._db.execute("DELETE FROM parts WHERE project_id=? AND part_id='fetch'",
++                               (plan.project_id,))
++            error = self.receive(ledger, plan.project_id, "missing_parts")
++            self.assertIn("fetch", str(error))
++            ledger._db.execute("DELETE FROM parts WHERE project_id=?", (plan.project_id,))
++            self.receive(ledger, plan.project_id, "missing_parts")
++
++    def test_malformed_or_changed_stored_plan_refuses_without_partial_report(self):
++        updates = [
++            ("plan_json", "{"),
++            ("plan_json", '{"project":"a","project":"b","parts":[]}'),
++            ("plan_json", '{"project":"wrong","parts":[]}'),
++            ("plan_digest", "different"),
++        ]
++        for column, value in updates:
++            with self.subTest(column=column, value=value), Ledger() as ledger:
++                plan = populate_mixed(ledger)
++                ledger._db.execute("UPDATE projects SET " + column + "=? WHERE project_id=?",
++                                   (value, plan.project_id))
++                self.receive(ledger, plan.project_id, "invalid_record")
++
++    def test_malformed_or_inconsistent_part_rows_refuse_without_write(self):
++        updates = [
++            ("payload_json", "{"),
++            ("payload_json", '{"id":"notes","instruction":"Changed","depends_on":[],"tags":[]}'),
++            ("payload_digest", "different"),
++            ("idempotency_key", "different"),
++            ("route_json", '{"duplicate":1,"duplicate":2}'),
++            ("evidence_json", '{"number":1e999}'),
++            ("worker_id", sqlite3.Binary(b"not text")),
++            ("updated_at", "not a timestamp"),
++            ("updated_at", float("inf")),
++        ]
++        for column, value in updates:
++            with self.subTest(column=column, value=str(value)), Ledger() as ledger:
++                plan = populate_mixed(ledger)
++                ledger._db.execute("UPDATE parts SET " + column
++                                   + "=? WHERE project_id=? AND part_id='notes'",
++                                   (value, plan.project_id))
++                self.receive(ledger, plan.project_id, "invalid_record")
++        with Ledger() as ledger:
++            plan = populate_mixed(ledger)
++            ledger._db.execute(
++                "INSERT INTO parts SELECT project_id,'extra',payload_json,payload_digest,"
++                "idempotency_key,state,worker_id,task_id,route_json,artifact_ref,evidence_json,updated_at "
++                "FROM parts WHERE project_id=? AND part_id='notes'", (plan.project_id,))
++            self.receive(ledger, plan.project_id, "invalid_record")
++        with Ledger() as ledger:
++            plan = populate_mixed(ledger)
++            ledger._db.execute("PRAGMA ignore_check_constraints=ON")
++            ledger._db.execute("UPDATE parts SET state='unrecognized' WHERE part_id='notes'")
++            self.receive(ledger, plan.project_id, "invalid_record")
++
++    def test_configured_integer_conversion_limit_has_the_public_refusal_code(self):
++        limit = getattr(sys, "get_int_max_str_digits", lambda: 0)()
++        if limit == 0:
++            self.skipTest("this interpreter has no active integer conversion limit")
++        stored = '{"stored_integer":' + "9" * (limit + 1) + "}"
++        for column in ("route_json", "evidence_json"):
++            with self.subTest(column=column), Ledger() as ledger:
++                plan = populate_mixed(ledger)
++                ledger._db.execute("UPDATE parts SET " + column
++                                   + "=? WHERE project_id=? AND part_id='notes'",
++                                   (stored, plan.project_id))
++                error = self.receive(ledger, plan.project_id, "invalid_record")
++                self.assertIsInstance(error.__cause__, ValueError)
++
++    def test_native_references_and_additional_evidence_are_preserved_as_data(self):
++        plan = Plan("opaque-data", (Part("sample", "Keep literal text."),))
++        route = {"model": "recorded-only model", "effort": "legacy value", "extra": ["東京", None]}
++        evidence = {"source": "authored fixture", "locator": "opaque://not-opened/<tag>",
++                    "finding": 'Original "finding"\nwith Unicode Ω',
++                    "extra": {"values": [True, 0, None, {"literal": "<script>"}]}}
++        with Ledger() as ledger:
++            ledger.record_plan(plan)
++            ledger.mark_dispatching(plan.project_id, "sample", "worker Ω", route)
++            ledger.mark_running(plan.project_id, "sample", "task <tag>")
++            ledger.mark_completed(plan.project_id, "sample", "artifact://not-opened/東京", evidence)
++            report = self.receive(ledger, plan.project_id)
++            row = report["parts"][0]
++            self.assertEqual(row["route"], route)
++            self.assertEqual(row["evidence"], evidence)
++            self.assertEqual(row["worker_id"], "worker Ω")
++            self.assertEqual(row["task_id"], "task <tag>")
++            self.assertEqual(row["artifact_ref"], "artifact://not-opened/東京")
++            self.assertEqual(report["queued_ready_ids"], [])
++            json.dumps(report, ensure_ascii=False, allow_nan=False).encode("utf-8")
++
++
++if __name__ == "__main__":
++    unittest.main()

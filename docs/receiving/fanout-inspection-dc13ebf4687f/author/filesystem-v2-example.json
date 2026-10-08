@@ -1,0 +1,193 @@
+{
+  "project_id": "inspection-demo",
+  "plan_digest": "f82e1e5f5b988c049a63a534c405aa93b51305d4cae9ca7440d95cdaa01d5bc3",
+  "state_counts": {
+    "completed": 1,
+    "dispatching": 0,
+    "failed": 1,
+    "outcome_unknown": 1,
+    "queued": 4,
+    "running": 1
+  },
+  "queued_ready_ids": [
+    "notes"
+  ],
+  "blocked_queued_ids": [
+    "verify",
+    "signoff",
+    "publish"
+  ],
+  "parts": [
+    {
+      "id": "research",
+      "instruction": "Read authored sample references.",
+      "depends_on": [],
+      "tags": [],
+      "state": "completed",
+      "idempotency_key": "fanout-7820a8ca4cafdb831d007cbb2d06ec20f5da9fe9ff0581f569396cdc4bf7a1b7",
+      "worker_id": "local-worker",
+      "task_id": "local-task-research",
+      "route": {
+        "effort": "low",
+        "model": "model-a"
+      },
+      "artifact_ref": "local-artifact:references",
+      "evidence": null,
+      "updated_at": 1791471880.385396,
+      "unmet_dependencies": []
+    },
+    {
+      "id": "draft",
+      "instruction": "Prepare authored text.",
+      "depends_on": [],
+      "tags": [],
+      "state": "running",
+      "idempotency_key": "fanout-9630a1931d3043b36ab481cd7d708d85e7b7477a9cbba16498b9b54e13f690ae",
+      "worker_id": "local-worker",
+      "task_id": "local-task-draft",
+      "route": {
+        "effort": "low",
+        "model": "model-a"
+      },
+      "artifact_ref": null,
+      "evidence": null,
+      "updated_at": 1791471880.385269,
+      "unmet_dependencies": []
+    },
+    {
+      "id": "fetch",
+      "instruction": "Retrieve local fixture material.",
+      "depends_on": [],
+      "tags": [],
+      "state": "outcome_unknown",
+      "idempotency_key": "fanout-4d738647019122d35ce7b8267709910f5f68b725a1a6a6e50b951a0e42e01088",
+      "worker_id": "local-worker",
+      "task_id": "local-task-fetch",
+      "route": {
+        "effort": "low",
+        "model": "model-a"
+      },
+      "artifact_ref": null,
+      "evidence": {
+        "finding": "acceptance is intentionally unverified in this example",
+        "locator": "fixture:fetch",
+        "source": "authored local example"
+      },
+      "updated_at": 1791471880.385464,
+      "unmet_dependencies": []
+    },
+    {
+      "id": "verify",
+      "instruction": "Check retrieved material.",
+      "depends_on": [
+        "fetch"
+      ],
+      "tags": [],
+      "state": "queued",
+      "idempotency_key": "fanout-e86592337355fbb794796bd1c2fbfde8c213739c04dfdef0c3b74c95a75395e9",
+      "worker_id": null,
+      "task_id": null,
+      "route": null,
+      "artifact_ref": null,
+      "evidence": null,
+      "updated_at": 1791471880.3848033,
+      "unmet_dependencies": [
+        {
+          "id": "fetch",
+          "state": "outcome_unknown"
+        }
+      ]
+    },
+    {
+      "id": "benchmark",
+      "instruction": "Evaluate the authored control.",
+      "depends_on": [],
+      "tags": [],
+      "state": "failed",
+      "idempotency_key": "fanout-28c0003c4b4c02adc43357a288fdf225a615ca3ff2b29f6a4fdaeacc48ad311b",
+      "worker_id": "local-worker",
+      "task_id": "local-task-benchmark",
+      "route": {
+        "effort": "low",
+        "model": "model-a"
+      },
+      "artifact_ref": null,
+      "evidence": {
+        "finding": "authored failure control",
+        "locator": "fixture:benchmark",
+        "source": "authored local example"
+      },
+      "updated_at": 1791471880.3855522,
+      "unmet_dependencies": []
+    },
+    {
+      "id": "signoff",
+      "instruction": "Review evaluation.",
+      "depends_on": [
+        "benchmark"
+      ],
+      "tags": [],
+      "state": "queued",
+      "idempotency_key": "fanout-eed2eca90684604e82478eb8558f7950a1504682768314196830682c760a8ec6",
+      "worker_id": null,
+      "task_id": null,
+      "route": null,
+      "artifact_ref": null,
+      "evidence": null,
+      "updated_at": 1791471880.3848248,
+      "unmet_dependencies": [
+        {
+          "id": "benchmark",
+          "state": "failed"
+        }
+      ]
+    },
+    {
+      "id": "publish",
+      "instruction": "Prepare a local review artifact.",
+      "depends_on": [
+        "draft",
+        "verify",
+        "signoff"
+      ],
+      "tags": [],
+      "state": "queued",
+      "idempotency_key": "fanout-f3a18333ddf00ebe01c911eadc3cffb339326be6433e9ce63647ec7b048b3309",
+      "worker_id": null,
+      "task_id": null,
+      "route": null,
+      "artifact_ref": null,
+      "evidence": null,
+      "updated_at": 1791471880.3848348,
+      "unmet_dependencies": [
+        {
+          "id": "draft",
+          "state": "running"
+        },
+        {
+          "id": "verify",
+          "state": "queued"
+        },
+        {
+          "id": "signoff",
+          "state": "queued"
+        }
+      ]
+    },
+    {
+      "id": "notes",
+      "instruction": "Prepare fixture notes.",
+      "depends_on": [],
+      "tags": [],
+      "state": "queued",
+      "idempotency_key": "fanout-6a2c67fec178d0ebd833d5373b1205830cf9c804be9c3c239247fc926fb4ffe3",
+      "worker_id": null,
+      "task_id": null,
+      "route": null,
+      "artifact_ref": null,
+      "evidence": null,
+      "updated_at": 1791471880.3848605,
+      "unmet_dependencies": []
+    }
+  ]
+}

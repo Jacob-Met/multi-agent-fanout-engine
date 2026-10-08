@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "status": "frozen reference packet; input bytes are all physical",
+  "packet_root": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2",
+  "input_files": 25,
+  "input_bytes": 239262,
+  "files": [
+    {
+      "path": "AUTHOR.md",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/AUTHOR.md",
+      "size": 6069,
+      "sha256": "55cf0f681d5c7d60cb21016996941c161daabd13a8139ebbb49e0db61639378e",
+      "git_blob": "2b2ca3b3eedb01283858be222554432e2e88cd4b"
+    },
+    {
+      "path": "baseline-before.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/baseline-before.json",
+      "size": 2784,
+      "sha256": "925d05215d73d599c252974c5938ed9e2748a8615357ada00ba264859baa7673",
+      "git_blob": "784b6021aab287a4f50214670cca87124fcb70a4"
+    },
+    {
+      "path": "baseline-discovery-receipt.json",
+      "absolute_source_path": "/dev/shm/execution-fanout-discovery-dc13ebf4687f/discovery-receipt.json",
+      "size": 7566,
+      "sha256": "557201a05a56ae346d063e35113569bf447c420e77925f0497746afef75a0a45",
+      "git_blob": "2258b66f7f55ff23eb1d663c517d8d2631459659"
+    },
+    {
+      "path": "candidate.patch",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/candidate.patch",
+      "size": 29721,
+      "sha256": "828e2d91f9f491251b63ee04dd7a665bda8f98a16169ad2785f9910ab8711c4d",
+      "git_blob": "9cb9016b1241d7ecebe3d7877719a57a5a076db4"
+    },
+    {
+      "path": "capacity-observations.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/capacity-observations.json",
+      "size": 4565,
+      "sha256": "b7af39a65701199c6c337ae5c04b26835f54089441c963fca6143f7e0a361698",
+      "git_blob": "afa7ce4a4aeafff06f7ead7f05dfee58475e37f2"
+    },
+    {
+      "path": "disk-reopen-v2.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/disk-reopen-v2.json",
+      "size": 18707,
+      "sha256": "9b1122be9c19adb094b378850a3d13f82b7107da4db839a163aa429efcfda93f",
+      "git_blob": "750dfb73cad4ee256a0940597fdff88ff8604350"
+    },
+    {
+      "path": "disk_reopen.py.source",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/disk_reopen.py.source",
+      "size": 7185,
+      "sha256": "7ff36d60f4b5a2850d39000e2a1b412d41a5e0ac7f34e9bf7efb956425e874b9",
+      "git_blob": "953fba04e892e22aaf84bb8035bee799f9cf24d0"
+    },
+    {
+      "path": "evidence-write-failure.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/evidence-write-failure.json",
+      "size": 1236,
+      "sha256": "68db12b8b7614a0e27f14f1bdde712274741bfb1bad0bd2023b44ca9da2b8d84",
+      "git_blob": "096c04efd869c7eec5dac261dd6df29557dd8527"
+    },
+    {
+      "path": "filesystem-v1-discovery.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/filesystem-v1-discovery.txt",
+      "size": 2462,
+      "sha256": "75b535241926720ffcdcb745e8a47e4b9bd04db272079c6cd4d6d6d41c6c25b6",
+      "git_blob": "b4b21301f710b5e6549f33a24086195d40b13a40"
+    },
+    {
+      "path": "filesystem-v2-discovery.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/filesystem-v2-discovery.txt",
+      "size": 2641,
+      "sha256": "07541be1c360b88e15e1fc43f3f4b4ff4b7f8963c5b36f30f9e26bc7ff349dc7",
+      "git_blob": "16c2e140abddc97c8a43b09d84d2c1551f8bc65b"
+    },
+    {
+      "path": "filesystem-v2-example.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/filesystem-v2-example.json",
+      "size": 5143,
+      "sha256": "3d7a23b4295acae5aa0aa133b0793fb899044a89dc3cf741ee216e96e1bc2b44",
+      "git_blob": "9477588c88e84e8404f1b4427df76362f4d3a686"
+    },
+    {
+      "path": "integer-limit-v1-probe.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/integer-limit-v1-probe.json",
+      "size": 329,
+      "sha256": "30a392ffd291f3f5b33637702036fbf6173bd139aaeea859d9356f5353bcc089",
+      "git_blob": "2c15b5e26ab010a1f1de4109ed3e1b9f40c696c0"
+    },
+    {
+      "path": "integer-limit-v1-regression.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/integer-limit-v1-regression.txt",
+      "size": 11223,
+      "sha256": "83ec365f486dbc724704e64755b00dac8939e0cf0550376f075ecb2988306115",
+      "git_blob": "02b7d965f5a18355704130639f7dc0f239114f54"
+    },
+    {
+      "path": "memory-v1-normal.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/memory-v1-normal.txt",
+      "size": 9822,
+      "sha256": "04887b6c746d92396e6c8acbe81f11bcd6bf60f610534c915188d145905736b1",
+      "git_blob": "38d0a43e1fe2c5a1ffc985f486a7d25aab2d831e"
+    },
+    {
+      "path": "memory-v1-optimized.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/memory-v1-optimized.txt",
+      "size": 9821,
+      "sha256": "c23dd63ee7c7c01077902d908f2cc616fe02e2d15a5df32e1411b9e2fd6428e7",
+      "git_blob": "c2b0bc026e706fdc10fa9bd53949e71a9d40e98d"
+    },
+    {
+      "path": "memory-v2-normal.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/memory-v2-normal.txt",
+      "size": 10012,
+      "sha256": "13b77bb0dc512961114b43fcbc505a297cf610167a1b5030e17055a795b6cf3b",
+      "git_blob": "e6c750c3921cefbdbc531e45ca249b70cdab9ac5"
+    },
+    {
+      "path": "memory-v2-optimized.txt",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/memory-v2-optimized.txt",
+      "size": 10010,
+      "sha256": "2d80afca4dabed562621496112debf44451d687309eef097ac6d65d1427beef3",
+      "git_blob": "1c5367db7ec5c4035dff5a75322f5b3875cc8f93"
+    },
+    {
+      "path": "memory_qualification.py.source",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/memory_qualification.py.source",
+      "size": 76578,
+      "sha256": "d2c99e47260a2796737a64c1f825ee713bec1b6bc72d2c508941f829c231a36b",
+      "git_blob": "31489994d37eab86bd4ab2079c7e115869ff680f"
+    },
+    {
+      "path": "native-tag-order.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/native-tag-order.json",
+      "size": 614,
+      "sha256": "af313f515a50b5eeabda8385deddd33d919dd4256108d18779e5add0e43fce1a",
+      "git_blob": "7a9fb660a3c7756f2115f2e560a12b5634f6768f"
+    },
+    {
+      "path": "receipt.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/receipt.json",
+      "size": 5466,
+      "sha256": "b952e2616af93fed764c482cb8ce9ad4d6739c416e47939899365d263fe58aae",
+      "git_blob": "73d4095f5a26e1064e31de29686b48358c1fcab3"
+    },
+    {
+      "path": "repo-tracker-observation.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/repo-tracker-observation.json",
+      "size": 572,
+      "sha256": "18e4c58a0d9d7589e74f6a9c3d6407c063bdcdbdf9f5773e33714e30f3f5d0ad",
+      "git_blob": "42a3a10adb5724de708d714a675091f85d308f7b"
+    },
+    {
+      "path": "scope-readback.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/scope-readback.json",
+      "size": 6353,
+      "sha256": "d4fbc2c6ffbd3854ff8abf565b0671e2133071a8f9f06dae84c78d02758ca6a6",
+      "git_blob": "ec8c6a48a19e18352afc3e909faa79e4486afd56"
+    },
+    {
+      "path": "source-custody.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/source-custody.json",
+      "size": 1751,
+      "sha256": "4ccd8472f83e02f6197aa74560e8f331af8c9be2492aa94828f7678c038e0c30",
+      "git_blob": "801f275ffd4c9bd8de0ed2f1202db1082dba52d3"
+    },
+    {
+      "path": "source-manifest.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/source-manifest.json",
+      "size": 6602,
+      "sha256": "2291e1fa72dc45c343c6ecec6c47dff1dbc1fcbeb67f523db7268896c0dac7b7",
+      "git_blob": "4df1977f8b39ad686a7962d12c77401a67783958"
+    },
+    {
+      "path": "v1-to-v2.json",
+      "absolute_source_path": "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/v1-to-v2.json",
+      "size": 2030,
+      "sha256": "1c197bf258e824dba54f79c530c8f4ab0b516d8c05b892e5be534a5dd5a1dac8",
+      "git_blob": "0fee7634585b4a6f60d863968003fae526809b07"
+    }
+  ],
+  "allowlist": {
+    "size": 580,
+    "sha256": "e5560792687ba4f17e6ab7d5d1d5245029fa565fc90f5eb094637b5a79551099",
+    "git_blob": "4921c2bf92923069c36822b7334321cf248f4112"
+  },
+  "source_overrides": {
+    "baseline-discovery-receipt.json": "/dev/shm/execution-fanout-discovery-dc13ebf4687f/discovery-receipt.json"
+  },
+  "non_authoritative_paths": [
+    "/dev/shm/fanout-inspection-dc13ebf4687f/evidence-v2/baseline-discovery-receipt.json"
+  ],
+  "carriers_excluded_from_own_input_list": [
+    "PUBLICATION-ALLOWLIST.txt",
+    "PUBLICATION-MANIFEST.json"
+  ],
+  "memory_only_input_files": [],
+  "memory_only_carriers": [
+    "PUBLICATION-ALLOWLIST.txt",
+    "PUBLICATION-MANIFEST.json"
+  ],
+  "assembly_events": {
+    "enospc_harness_copy": {
+      "chunk_id": "8874b2",
+      "wall_time_seconds": 2.699e-05,
+      "exit_code": 1,
+      "original_token_count": 30,
+      "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nOSError: [Errno 28] No space left on device\n"
+    },
+    "harness_completed": {
+      "chunk_id": "4452da",
+      "wall_time_seconds": 2.4997e-05,
+      "exit_code": 0,
+      "original_token_count": 75,
+      "output": "{\"status\": \"complete_exact_harnesses\", \"files\": {\"memory_qualification.py.source\": {\"size\": 76578, \"sha256\": \"d2c99e47260a2796737a64c1f825ee713bec1b6bc72d2c508941f829c231a36b\"}, \"disk_reopen.py.source\": {\"size\": 7185, \"sha256\": \"7ff36d60f4b5a2850d39000e2a1b412d41a5e0ac7f34e9bf7efb956425e874b9\"}}}\n"
+    },
+    "discovery_metadata_guard": {
+      "chunk_id": "18d1b9",
+      "wall_time_seconds": 2.1532e-05,
+      "exit_code": 1,
+      "original_token_count": 32,
+      "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 14, in <module>\nRuntimeError: baseline receipt semantic difference\n"
+    },
+    "attempted_exact_discovery_copy": {
+      "chunk_id": "f90896",
+      "wall_time_seconds": 2.5127e-05,
+      "exit_code": 1,
+      "original_token_count": 30,
+      "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 21, in <module>\nOSError: [Errno 28] No space left on device\n"
+    },
+    "final_handling": "Use the exact original frozen discovery receipt as a reference source. Exclude the interrupted duplicate. All publication inputs remain physical, immutable and hash-bound; only the two small carriers are delivered in memory."
+  },
+  "excluded": [
+    "authored SQLite fixture and state",
+    "historical physical candidate-v1",
+    "transient or cache files",
+    "interrupted duplicate discovery receipt"
+  ],
+  "source": "Final six product files are separate; all 15 final source identities and baseline preconditions are in source-manifest.json."
+}

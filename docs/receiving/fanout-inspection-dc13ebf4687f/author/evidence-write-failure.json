@@ -1,0 +1,25 @@
+{
+  "operation": "exclusive evidence copy, batch 2",
+  "result": {
+    "chunk_id": "8874b2",
+    "wall_time_seconds": 0.00002699,
+    "exit_code": 1,
+    "original_token_count": 30,
+    "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\nOSError: [Errno 28] No space left on device\n"
+  },
+  "observed_partial": {
+    "exists": true,
+    "size": 16384,
+    "sha256": "c3a71ebb3caa9efe5a0e696ca1b22a4af422ab2a97420d10d848aeae2bb0f9c5",
+    "git_blob": "e645c6d05538311bc66f37becfb33c9d023855c4"
+  },
+  "qualified_source_unchanged": true,
+  "handling": "The known authored draft prefix is verified against the exact executed harness before append completion; no source, peer or frozen evidence is removed or overwritten.",
+  "completion": {
+    "chunk_id": "4452da",
+    "wall_time_seconds": 0.000024997,
+    "exit_code": 0,
+    "original_token_count": 75,
+    "output": "{\"status\": \"complete_exact_harnesses\", \"files\": {\"memory_qualification.py.source\": {\"size\": 76578, \"sha256\": \"d2c99e47260a2796737a64c1f825ee713bec1b6bc72d2c508941f829c231a36b\"}, \"disk_reopen.py.source\": {\"size\": 7185, \"sha256\": \"7ff36d60f4b5a2850d39000e2a1b412d41a5e0ac7f34e9bf7efb956425e874b9\"}}}\n"
+  }
+}

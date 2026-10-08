@@ -83,6 +83,42 @@ class Ledger:
             raise LedgerError("part is not in the ledger")
         return row
 
+    def project_snapshot(self, project_id: str) -> dict[str, Any] | None:
+        """Read one stored project and its parts in a single SQL snapshot.
+
+        JSON columns remain serialized here. The inspection consumer validates
+        them without normalizing recorded identities. Returned rows are detached.
+        """
+        rows = self._db.execute(
+            """
+            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,
+                   NULL AS part_id, NULL AS payload_json, NULL AS payload_digest,
+                   NULL AS idempotency_key, NULL AS state, NULL AS worker_id,
+                   NULL AS task_id, NULL AS route_json, NULL AS artifact_ref,
+                   NULL AS evidence_json, NULL AS updated_at
+            FROM projects WHERE project_id=?
+            UNION ALL
+            SELECT 1, project_id, NULL, NULL,
+                   part_id, payload_json, payload_digest,
+                   idempotency_key, state, worker_id,
+                   task_id, route_json, artifact_ref, evidence_json, updated_at
+            FROM parts WHERE project_id=?
+            """,
+            (project_id, project_id),
+        ).fetchall()
+        header = next((row for row in rows if row["record_kind"] == 0), None)
+        if header is None:
+            return None
+        fields = tuple(name for name in header.keys()
+                       if name not in ("record_kind", "plan_digest", "plan_json"))
+        return {
+            "project_id": header["project_id"],
+            "plan_digest": header["plan_digest"],
+            "plan_json": header["plan_json"],
+            "parts": [{name: row[name] for name in fields}
+                      for row in rows if row["record_kind"] == 1],
+        }
+
     def part_state(self, project_id: str, part_id: str) -> str:
         with self._db:
             return self._part(self._db, project_id, part_id)["state"]

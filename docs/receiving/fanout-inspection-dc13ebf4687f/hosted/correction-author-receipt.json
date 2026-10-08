@@ -1,0 +1,378 @@
+{
+  "schema": 1,
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "pull_request": 5,
+  "reviewed_head": "5478d8789503d518f7f24a23823a1872d3b4f7fa",
+  "changed_paths": [
+    "tests/test_inspection.py"
+  ],
+  "runtime_changed": false,
+  "ci_changed": false,
+  "source": {
+    "before": {
+      "bytes": 14960,
+      "sha256": "3e8e4d122c03bd6a8d7521ccd8342ec636bff9d4d4d5486cdaae481aa8d31f4d",
+      "git_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99"
+    },
+    "after": {
+      "bytes": 15063,
+      "sha256": "c5503d98861c2d4496cfce09234e1d2562a5cad7eaf2593390ecbc4a498f4a28",
+      "git_blob": "57fb1e80af400f4b7cfdb0fbac5bae34001f1b9a"
+    },
+    "change": {
+      "repository": "Jacob-Met/multi-agent-fanout-engine",
+      "head": "5478d8789503d518f7f24a23823a1872d3b4f7fa",
+      "path": "tests/test_inspection.py",
+      "old_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99",
+      "before": "            ledger._db.set_authorizer(None)\n",
+      "after": "            # Python 3.10 requires a callable; None only disables it on 3.11+.\n            ledger._db.set_authorizer(lambda *_: sqlite3.SQLITE_OK)\n"
+    }
+  },
+  "actual_failure": {
+    "job_id": 113422504283,
+    "url": "https://github.com/Jacob-Met/multi-agent-fanout-engine/actions/jobs/113422504283",
+    "python": "3.10.22",
+    "selected_lines": [
+      "2026-10-08T16:32:11.6576048Z Successfully set up CPython (3.10.22)",
+      "2026-10-08T16:32:12.2203506Z Ran 18 tests in 0.042s",
+      "2026-10-08T16:32:12.2203868Z FAILED (errors=22)",
+      "2026-10-08T16:32:12.2215383Z ##[error]Process completed with exit code 1."
+    ],
+    "raw_log_preserved": true
+  },
+  "diagnosis": {
+    "primary_docs": "https://docs.python.org/3.11/library/sqlite3.html#sqlite3.Connection.set_authorizer",
+    "source_url": "https://github.com/python/cpython/blob/v3.10.22/Modules/_sqlite/connection.c",
+    "source_blob": "981ffe4d5081a1e12c8c195eb34ceaf12233256e",
+    "statement": "Python3.10.22 registers the supplied authorizer object without a None-disabling branch, invokes it during authorization, and converts callback errors to SQLITE_DENY. Python3.11 documents None support as new. The test's finally block installed None after inspection, so its later iterdump failed on3.10."
+  },
+  "receiving": {
+    "baseline_pin": {
+      "bytes": 14960,
+      "git_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99",
+      "sha256": "3e8e4d122c03bd6a8d7521ccd8342ec636bff9d4d4d5486cdaae481aa8d31f4d"
+    },
+    "blocked_attempts": [],
+    "candidate_pin": {
+      "bytes": 15063,
+      "git_blob": "57fb1e80af400f4b7cfdb0fbac5bae34001f1b9a",
+      "sha256": "c5503d98861c2d4496cfce09234e1d2562a5cad7eaf2593390ecbc4a498f4a28"
+    },
+    "guard_negative_controls": [
+      {
+        "dump_unchanged_after_refusal": true,
+        "legacy_none_model": false,
+        "subsequent_native_record_plan": "queued",
+        "write_refusal": "DatabaseError: not authorized"
+      },
+      {
+        "dump_unchanged_after_refusal": true,
+        "legacy_none_model": true,
+        "subsequent_native_record_plan": "queued",
+        "write_refusal": "DatabaseError: not authorized"
+      }
+    ],
+    "legacy_model": "Only authorizer registration semantics from CPython3.10.22 connection.c; runs on actual local Python3.12.",
+    "native_python_310_executed": false,
+    "observations": {
+      "baseline_legacy_none_witness": {
+        "errors": 1,
+        "failures": 0,
+        "log": "test_complete_mixed_project_and_direct_blockers (baseline_inspection.InspectionTests.test_complete_mixed_project_and_direct_blockers) ... ERROR\n\n======================================================================\nERROR: test_complete_mixed_project_and_direct_blockers (baseline_inspection.InspectionTests.test_complete_mixed_project_and_direct_blockers)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"memory://baseline_inspection/tests/test_inspection.py\", line 84, in test_complete_mixed_project_and_direct_blockers\n  File \"memory://baseline_inspection/tests/test_inspection.py\", line 78, in receive\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/sqlite3/dump.py\", line 32, in _iterdump\n    schema_res = cu.execute(q)\n                 ^^^^^^^^^^^^^\nsqlite3.DatabaseError: not authorized\n\n----------------------------------------------------------------------\nRan 1 test in 0.004s\n\nFAILED (errors=1)\n",
+        "registrations": [
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": false,
+            "is_none": true
+          }
+        ],
+        "skips": 0,
+        "tests": 1
+      },
+      "candidate_legacy_callable_receiving": {
+        "errors": 0,
+        "failures": 0,
+        "log": "test_all_six_states_are_observed_without_recovery_or_reclassification (candidate_inspection.InspectionTests.test_all_six_states_are_observed_without_recovery_or_reclassification) ... ok\ntest_complete_mixed_project_and_direct_blockers (candidate_inspection.InspectionTests.test_complete_mixed_project_and_direct_blockers) ... ok\ntest_configured_integer_conversion_limit_has_the_public_refusal_code (candidate_inspection.InspectionTests.test_configured_integer_conversion_limit_has_the_public_refusal_code) ... ok\ntest_detached_snapshots_and_later_native_progress (candidate_inspection.InspectionTests.test_detached_snapshots_and_later_native_progress) ... ok\ntest_direct_constructor_tags_and_dependency_order_remain_exact (candidate_inspection.InspectionTests.test_direct_constructor_tags_and_dependency_order_remain_exact) ... ok\ntest_malformed_or_changed_stored_plan_refuses_without_partial_report (candidate_inspection.InspectionTests.test_malformed_or_changed_stored_plan_refuses_without_partial_report) ... ok\ntest_malformed_or_inconsistent_part_rows_refuse_without_write (candidate_inspection.InspectionTests.test_malformed_or_inconsistent_part_rows_refuse_without_write) ... ok\ntest_native_references_and_additional_evidence_are_preserved_as_data (candidate_inspection.InspectionTests.test_native_references_and_additional_evidence_are_preserved_as_data) ... ok\ntest_unknown_project_and_missing_parts_are_distinct (candidate_inspection.InspectionTests.test_unknown_project_and_missing_parts_are_distinct) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.049s\n\nOK\n",
+        "registrations": [
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          },
+          {
+            "callable": true,
+            "is_none": false
+          }
+        ],
+        "skips": 0,
+        "tests": 9
+      },
+      "candidate_stock_312_receiving": {
+        "errors": 0,
+        "failures": 0,
+        "log": "test_all_six_states_are_observed_without_recovery_or_reclassification (candidate_inspection.InspectionTests.test_all_six_states_are_observed_without_recovery_or_reclassification) ... ok\ntest_complete_mixed_project_and_direct_blockers (candidate_inspection.InspectionTests.test_complete_mixed_project_and_direct_blockers) ... ok\ntest_configured_integer_conversion_limit_has_the_public_refusal_code (candidate_inspection.InspectionTests.test_configured_integer_conversion_limit_has_the_public_refusal_code) ... ok\ntest_detached_snapshots_and_later_native_progress (candidate_inspection.InspectionTests.test_detached_snapshots_and_later_native_progress) ... ok\ntest_direct_constructor_tags_and_dependency_order_remain_exact (candidate_inspection.InspectionTests.test_direct_constructor_tags_and_dependency_order_remain_exact) ... ok\ntest_malformed_or_changed_stored_plan_refuses_without_partial_report (candidate_inspection.InspectionTests.test_malformed_or_changed_stored_plan_refuses_without_partial_report) ... ok\ntest_malformed_or_inconsistent_part_rows_refuse_without_write (candidate_inspection.InspectionTests.test_malformed_or_inconsistent_part_rows_refuse_without_write) ... ok\ntest_native_references_and_additional_evidence_are_preserved_as_data (candidate_inspection.InspectionTests.test_native_references_and_additional_evidence_are_preserved_as_data) ... ok\ntest_unknown_project_and_missing_parts_are_distinct (candidate_inspection.InspectionTests.test_unknown_project_and_missing_parts_are_distinct) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.044s\n\nOK\n",
+        "registrations": [],
+        "skips": 0,
+        "tests": 9
+      }
+    },
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "remaining_gate": "Actual Python3.10 PR CI after branch update.",
+    "scope": "Only test cleanup changes; runtime and CI bytes unchanged.",
+    "source_pins_after_equal": true,
+    "source_pins_before": {
+      "fanout_engine/__init__.py": {
+        "bytes": 613,
+        "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+      },
+      "fanout_engine/dispatch.py": {
+        "bytes": 3363,
+        "git_blob": "d127a4bb6e9ea772c7c5bc8e93c5f7a5de739f06",
+        "sha256": "120bce01120e4ad224b41fbc970b16be00262ad298bf43350a474037ebe81dcf"
+      },
+      "fanout_engine/inspection.py": {
+        "bytes": 6055,
+        "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+      },
+      "fanout_engine/ledger.py": {
+        "bytes": 13331,
+        "git_blob": "28e8eeafa37a9faceebddff7de1894cc35fe189b",
+        "sha256": "a987f4c53dd8d0ce8961a20a1d9d151d268ce534937410ad09bb17eab3a0511d"
+      },
+      "fanout_engine/plan.py": {
+        "bytes": 6089,
+        "git_blob": "8967c1db75507f564852c66ed913aa55103f6f76",
+        "sha256": "2bede27b5d1ce98836681befc6d5a5aeab822f62282bcc73301b3bbd2037299a"
+      },
+      "fanout_engine/routing.py": {
+        "bytes": 2622,
+        "git_blob": "0e957dcbd79a59b47958eee49a41e776961467d2",
+        "sha256": "b2fd3ec394c069c27594c22557e4d38901836a99d50fec5c77c3e29d51c77e15"
+      },
+      "tests/test_inspection.py": {
+        "bytes": 14960,
+        "git_blob": "7e997f794a92a0e517b7ad7ce3ee7fd862145a99",
+        "sha256": "3e8e4d122c03bd6a8d7521ccd8342ec636bff9d4d4d5486cdaae481aa8d31f4d"
+      }
+    },
+    "sqlite": "3.53.1"
+  },
+  "limitations": [
+    "Actual Python3.10 was not available locally. Only its exact callback-registration behavior is modelled on local3.12.14; the original CI log is real3.10 evidence.",
+    "Actual3.10 PR CI after publication is still required.",
+    "Only this cleanup statement and its explanatory comment change. No inspector/runtime behavior, active guard restrictions, test assertions or CI matrix changes.",
+    "Candidate remains memory-only because scratch and shm were0B at qualification; no partial candidate was written."
+  ]
+}
