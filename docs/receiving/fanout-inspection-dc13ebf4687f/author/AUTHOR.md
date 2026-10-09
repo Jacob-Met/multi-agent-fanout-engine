@@ -6,7 +6,7 @@ This source contribution adds `inspect_project(ledger, project_id)` to the exist
 
 Repository: `Jacob-Met/multi-agent-fanout-engine`, baseline main `d65bde9c59b1d2593a80f6d838c0a40bf6768013`, complete tree `d5e5ad4e316be0b20a50151f8549ac490d3d99de` (12 files). The six changed product paths and all preserved inputs are bound in `source-manifest.json`; `candidate.patch` is the exact baseline-to-final patch. The final candidate is v2. No local source commit or deployed estate adoption is claimed.
 
-[The central scope claim](https://github.com/Jacob-Met/hamon/issues/140#issuecomment-6062467135) records ownership and the lead's actual HTTP 410 project-issue creation failure. No project issue was created. The repository has Issues disabled; its empty issue response is not exhaustive ownership evidence. Our current open-PR read and central claims supplied coordination. The original discovery receipt remains historical and is qualified by this later observation. No repository settings were changed.
+[The central scope claim]([redacted]) records ownership and the lead's actual HTTP 410 project-issue creation failure. No project issue was created. The repository has Issues disabled; its empty issue response is not exhaustive ownership evidence. Our current open-PR read and central claims supplied coordination. The original discovery receipt remains historical and is qualified by this later observation. No repository settings were changed.
 
 ## Decisive comparison
 
