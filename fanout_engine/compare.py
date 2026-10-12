@@ -10,6 +10,7 @@ import sys
 from typing import Any
 
 from .plan import Part, Plan, canonical_json, strict_json_loads
+from .preview import PreviewError, _publish_new_file
 
 MAX_PLAN_BYTES = 1024 * 1024
 MAX_PARTS = 256
@@ -130,6 +131,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--before", type=Path, required=True, help="original authored plan JSON file")
     parser.add_argument("--after", type=Path, required=True, help="revised authored plan JSON file")
+    parser.add_argument("--output", type=Path, help="new report file; otherwise write JSON to stdout")
     args = parser.parse_args(argv)
     try:
         before, before_hash = _read_plan(args.before, "before")
@@ -144,8 +146,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"fanout compare: cannot compare plans: {exc}", file=sys.stderr)
         return 2
     try:
-        _write_stdout(content)
-    except OSError as exc:
+        if args.output is None:
+            _write_stdout(content)
+        else:
+            _publish_new_file(args.output, content)
+    except (OSError, PreviewError) as exc:
         print(f"fanout compare: cannot write report: {exc}", file=sys.stderr)
         return 1
     return 0

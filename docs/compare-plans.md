@@ -56,16 +56,32 @@ native digest and keys. A comparison exposes these consequences; it does not
 choose a new project ID, update stored rows or decide whether work can be
 submitted again.
 
-To keep the JSON in a file, choose a fresh destination:
+To save the JSON, select a new report file:
 
 ```sh
-python -m fanout_engine.compare --before original.json --after revised.json > comparison.json
+python -m fanout_engine.compare --before original.json --after revised.json --output comparison.json
 python -m json.tool comparison.json
 ```
 
-Redirection follows the shell's ordinary file replacement rules. In particular,
-do not redirect output to an input filename. The command itself only opens its
-two input paths for reading.
+The parent directory must already exist. A successful `--output` export writes
+no stdout and contains exactly the normal canonical UTF-8 comparison bytes,
+including both input hashes and the final newline. Both plans and the complete
+report are validated before publication. Input failures retain status 2 and
+create no report.
+
+Existing files, directories and symlinks are preserved, including either input
+and any hard-link or symbolic-link alias. The writer stages complete bytes in
+the output directory and publishes them without replacing a destination that
+another writer creates first. Output failures return status 1. A staging write
+failure exposes no partial report; a cleanup failure after publication can leave
+the complete report present. Filesystems that cannot provide the required hard
+link report an output failure. This uses the same exclusive publication helper
+as the plan preview and retained-ledger inspector.
+
+Without `--output`, the command retains its stdout behavior. Shell redirection
+still follows the shell's ordinary replacement rules, so use the explicit
+`--output` option when saving a comparison. The command opens its two input
+paths only for reading.
 
 ## Read the comparison
 
@@ -136,7 +152,7 @@ opens, named pipes are refused without waiting for a writer.
 | Status | Meaning |
 | --- | --- |
 | `0` | A complete comparison was written and flushed, whether or not differences exist. |
-| `1` | Report output failed; a receiving stream may contain a prefix. |
+| `1` | Report output or file publication failed; a receiving stream may contain a prefix, or a cleanup failure may leave a complete report file. |
 | `2` | Invalid command options, inputs or comparison limits. No comparison is written. |
 
 Diagnostics go to stderr. Ordinary interpreter and operating-system termination
@@ -145,7 +161,7 @@ remain outside these controlled statuses.
 ## Verification
 
 ```sh
-python -B -m unittest discover -s tests -p test_compare_plans.py -v
+python -B -m unittest discover -s tests -p 'test_compare*.py' -v
 python -B -m unittest discover -s tests -v
 ```
 
@@ -154,4 +170,6 @@ derivation, changed project and declaration order, input normalization,
 direct-constructor identity, stale mutable-input refusal, literal filenames,
 unchanged source files, malformed second-input refusal and actual limits.
 Nonblocking FIFO and `/dev/full` controls run where available. The tests use
-authored local data and do not call a remote adapter.
+authored local data and do not call a remote adapter. Export tests also check
+exact stdout/file parity, input and destination preservation, invalid-input
+refusal before publication, and missing output-parent handling.
