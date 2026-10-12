@@ -71,8 +71,18 @@ def dispatch_ready(
             )
             unknown.append(part.id)
             continue
-        task_id = response.get("task_id") if isinstance(response, Mapping) else None
-        if not isinstance(task_id, str) or not task_id.strip():
+        try:
+            task_id = response.get("task_id") if isinstance(response, Mapping) else None
+            valid_task_id = isinstance(task_id, str) and bool(task_id.strip())
+        except Exception as exc:
+            ledger.mark_outcome_unknown(
+                plan.project_id, part.id,
+                {"source": "hub adapter", "locator": key,
+                 "finding": f"submit response raised {type(exc).__name__}; remote acceptance is unverified"},
+            )
+            unknown.append(part.id)
+            continue
+        if not valid_task_id:
             ledger.mark_outcome_unknown(
                 plan.project_id, part.id,
                 {"source": "hub adapter", "locator": key,
