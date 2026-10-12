@@ -65,6 +65,13 @@ caller's lists cannot change the plan payload, digest, or dispatch instructions.
 Declaration and dependency order, repeated direct tags, and the original `Part`
 objects are preserved. `Plan.from_dict` keeps its existing tag normalization.
 
+Routes accept the literal efforts `low`, `medium`, `high`, `xhigh`, `max` and
+`ultra`. Each selected effort must also appear under its model in the caller's
+authorized catalog. Adding `ultra` to a catalog does not select it automatically
+or change the existing step-up rules; configure the desired pool, explicit route
+or step-up route. An adapter remains responsible for matching these labels to
+the provider it uses.
+
 ## Scope
 
 This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
