@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Callable, Mapping, Protocol
 
 from .ledger import Ledger, LedgerError
-from .plan import Part, Plan
+from .plan import Part, Plan, PlanError
 from .routing import EffortRouter, Route
 
 
@@ -32,6 +32,18 @@ def dispatch_ready(
     explicit_routes: Mapping[str, Route] | None = None,
 ) -> DispatchReport:
     """Submit queued, dependency-ready parts once; ambiguous submits are parked."""
+    if type(plan) is Plan and any(type(part) is not Part for part in plan.parts):
+        # Native Plan/Part values are frozen and keep their existing object
+        # identity. Capture historically admitted mutable Part-like sources
+        # before callbacks can change payloads independently of recorded keys.
+        captured = Plan(plan.project_id, tuple(
+            part if type(part) is Part else
+            Part(part.id, part.instruction, part.depends_on, part.tags)
+            for part in plan.parts
+        ))
+        if captured.digest != plan.digest:
+            raise PlanError("Plan has changed since validation")
+        plan = captured
     if explicit_routes is None:
         explicit_routes = {}
     if not isinstance(explicit_routes, Mapping):
