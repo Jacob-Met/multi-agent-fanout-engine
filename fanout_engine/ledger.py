@@ -37,6 +37,7 @@ class Ledger:
             CREATE TABLE IF NOT EXISTS events(
                 seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
                 part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
+            CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
             """
         )
 
