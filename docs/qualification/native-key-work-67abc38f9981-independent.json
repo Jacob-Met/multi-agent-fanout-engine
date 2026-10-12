@@ -1,0 +1,162 @@
+{
+  "schema": "hamon.fanout-native-plan-work.independent-review/1",
+  "reviewer": "estate-67abc38f9981/consumer_delivery",
+  "testPath": "tests/test_native_plan_key_work.py",
+  "testSha256": "86600c4d8631e0fc98e9d2d0ac332efcd2a1a179ac0ddb468be7cda945196b5c",
+  "testBytes": 3300,
+  "accepted": true,
+  "reviewFindings": [
+    "The read observer changes neither native Part type nor id string type, and delegates every attribute access unchanged. The optimized exact-native branch is actually exercised.",
+    "Expected key bytes use public project ID and digest with the documented SHA256 material; no private cache state or timing assertions.",
+    "The 4n bound permits complete linear passes and rejects a fresh per-lookup scan at both 39 and 151 parts.",
+    "Mixed mutable/native inputs are exercised in both authored orders after warming membership. Old-ID refusal, new-ID key, stable native key and exact object identity are checked.",
+    "Original source fails only the work subcases; the withdrawn unconditional-cache prototype fails only the compatibility subcases; the selected owner passes both under regular and optimized Python."
+  ],
+  "phases": [
+    {
+      "label": "current-baseline-normal",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/current-baseline",
+      "planSha256": "363e297426c2512a19a6a059f27aea488e14d61f9ea1a3e76b54b8fb56a50189",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 2062,
+        "sha256": "d4e16a110e479a0019ed9425758f2702b783fac31961a20104e5df9afe2721c9"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... \n  test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=39) ... FAIL\n  test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=151) ... FAIL\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... ok\n\n======================================================================\nFAIL: test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=39)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 40, in test_complete_native_key_passes_have_linear_part_read_work\n    self.assertLessEqual(reads, count * 4)\nAssertionError: 4602 not less than or equal to 156\n\n======================================================================\nFAIL: test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=151)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 40, in test_complete_native_key_passes_have_linear_part_read_work\n    self.assertLessEqual(reads, count * 4)\nAssertionError: 68554 not less than or equal to 604\n\n----------------------------------------------------------------------\nRan 2 tests in 0.010s\n\nFAILED (failures=2)\n"
+    },
+    {
+      "label": "current-baseline-optimized",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/current-baseline",
+      "planSha256": "363e297426c2512a19a6a059f27aea488e14d61f9ea1a3e76b54b8fb56a50189",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 2062,
+        "sha256": "f7640d621cad7dbdd731c1a1e23458cb1a1d73d95f8613e0ad49274efb00a175"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-O",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... \n  test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=39) ... FAIL\n  test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=151) ... FAIL\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... ok\n\n======================================================================\nFAIL: test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=39)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 40, in test_complete_native_key_passes_have_linear_part_read_work\n    self.assertLessEqual(reads, count * 4)\nAssertionError: 4602 not less than or equal to 156\n\n======================================================================\nFAIL: test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) (parts=151)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 40, in test_complete_native_key_passes_have_linear_part_read_work\n    self.assertLessEqual(reads, count * 4)\nAssertionError: 68554 not less than or equal to 604\n\n----------------------------------------------------------------------\nRan 2 tests in 0.011s\n\nFAILED (failures=2)\n"
+    },
+    {
+      "label": "current-candidate-normal",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/current-candidate",
+      "planSha256": "1b2d4a5ed4926c0efcc0f4cb85f8ad73d78a448569cea604a4e28866693a3105",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": false,
+      "returncode": 1,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 2257,
+        "sha256": "2aa788691d07096a4bf4e747d8e48bc20bfeeef79c32755856e3500f8a12a550"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... ok\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... \n  test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=False) ... FAIL\n  test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=True) ... FAIL\n\n======================================================================\nFAIL: test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=False)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 62, in test_native_and_mutable_parts_keep_live_mixed_membership\n    with self.assertRaisesRegex(PlanError, \"^unknown part identifier$\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: PlanError not raised\n\n======================================================================\nFAIL: test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=True)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 62, in test_native_and_mutable_parts_keep_live_mixed_membership\n    with self.assertRaisesRegex(PlanError, \"^unknown part identifier$\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: PlanError not raised\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nFAILED (failures=2)\n"
+    },
+    {
+      "label": "current-candidate-optimized",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/current-candidate",
+      "planSha256": "1b2d4a5ed4926c0efcc0f4cb85f8ad73d78a448569cea604a4e28866693a3105",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": true,
+      "returncode": 1,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 2257,
+        "sha256": "25626e042112bfff9aa57122b338db46473338da23174011f6a53339a3ca426a"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-O",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... ok\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... \n  test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=False) ... FAIL\n  test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=True) ... FAIL\n\n======================================================================\nFAIL: test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=False)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 62, in test_native_and_mutable_parts_keep_live_mixed_membership\n    with self.assertRaisesRegex(PlanError, \"^unknown part identifier$\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: PlanError not raised\n\n======================================================================\nFAIL: test_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) (mutable_first=True)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py\", line 62, in test_native_and_mutable_parts_keep_live_mixed_membership\n    with self.assertRaisesRegex(PlanError, \"^unknown part identifier$\"):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: PlanError not raised\n\n----------------------------------------------------------------------\nRan 2 tests in 0.004s\n\nFAILED (failures=2)\n"
+    },
+    {
+      "label": "owner-composition-normal",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition",
+      "planSha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": false,
+      "returncode": 0,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 412,
+        "sha256": "2021414956487fe0ee10a53f9cc3a07d3177648e2d07a370c95bc9b23bd98c8d"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... ok\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "label": "owner-composition-optimized",
+      "sourceDirectory": "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition",
+      "planSha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "optimized": true,
+      "returncode": 0,
+      "stdout": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "bytes": 412,
+        "sha256": "0097012773f1135aa8b769d7dd844a613e922f6e0d5835adf0665c75cfa49fb4"
+      },
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-O",
+        "/workspace/scratch/67abc38f9981/source_engineering/fanout-identity/owner-composition/tests/test_native_plan_key_work.py",
+        "-v"
+      ],
+      "log": "test_complete_native_key_passes_have_linear_part_read_work (__main__.NativePlanKeyWorkTests.test_complete_native_key_passes_have_linear_part_read_work) ... ok\ntest_native_and_mutable_parts_keep_live_mixed_membership (__main__.NativePlanKeyWorkTests.test_native_and_mutable_parts_keep_live_mixed_membership) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.005s\n\nOK\n"
+    }
+  ],
+  "limits": [
+    "Only the new maintained two-method increment was rerun in this review. Prior complete workflow and native receipts remain separately attributed.",
+    "The test does not establish a wall-clock performance estimate or validate arbitrary future Plan implementations."
+  ]
+}
