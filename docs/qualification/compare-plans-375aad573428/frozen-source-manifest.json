@@ -1,0 +1,33 @@
+{
+  "source_parent": "0b169f9df939350911d76dbda88023fe37ee53bf",
+  "base_tree": "81e082fce5648865c818daa0e4ab44a2c1ff4757",
+  "review_status": "accepted",
+  "branch": "product/compare-plans-375aad573428",
+  "files": [
+    {
+      "path": "fanout_engine/compare.py",
+      "bytes": 6397,
+      "sha256": "c96c941c5b4b65e890745bf2b6f4484d4e7284ad6b3c65b729f80513b6baa0c2",
+      "git_blob": "552fe9a2096e5628b8b57fac03297fc1230cebc8"
+    },
+    {
+      "path": "tests/test_compare_plans.py",
+      "bytes": 11085,
+      "sha256": "e4f30739f52366484e0ab72a11532e9a928b399d1451280c94fc97dfd640ade7",
+      "git_blob": "fe6eaaed50627b249183c22b7c756c5d546e13ad"
+    },
+    {
+      "path": "docs/compare-plans.md",
+      "bytes": 7178,
+      "sha256": "e7ca76209041010f5dac9c8278e9a231a1656ead27b805779a2da00f6a11b2c9",
+      "git_blob": "9da0156ac2f3293c72cc501b1ef0a24e9bfb20b5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8432,
+      "sha256": "c9a05d970d641c4a1bf7ba93eca07b6ed2ed17b193dea8d5effa771e4cc0c116",
+      "git_blob": "3254d922fdcf9fd02a9e736cce2e46a9c94ec26e"
+    }
+  ],
+  "reviewer": "Memory /root/memory"
+}

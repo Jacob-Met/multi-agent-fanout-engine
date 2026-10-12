@@ -1,0 +1,25 @@
+{
+  "source_parent": "0b169f9df939350911d76dbda88023fe37ee53bf",
+  "source_sha256": {
+    "fanout_engine/compare.py": "c96c941c5b4b65e890745bf2b6f4484d4e7284ad6b3c65b729f80513b6baa0c2",
+    "tests/test_compare_plans.py": "e4f30739f52366484e0ab72a11532e9a928b399d1451280c94fc97dfd640ade7",
+    "docs/compare-plans.md": "e7ca76209041010f5dac9c8278e9a231a1656ead27b805779a2da00f6a11b2c9",
+    "README.md": "c9a05d970d641c4a1bf7ba93eca07b6ed2ed17b193dea8d5effa771e4cc0c116"
+  },
+  "native_record_refusal": {
+    "type": "LedgerError",
+    "message": "project already has a different plan"
+  },
+  "cli_returncode": 0,
+  "cli_stdout_bytes": 1663,
+  "cli_stderr": "",
+  "checks": {
+    "added_review": true,
+    "instruction_change": true,
+    "retained_keys_rotate": true,
+    "database_unchanged": true,
+    "retained_plan_unchanged": true
+  },
+  "report_sha256": "050dfbb067b7d9c99c0032b5fca0338843fff375b95fecc9945b3f741fa5b803",
+  "retained_database_sha256": "0b02e35d568c8081c95728539291469b1b65fdc49e9f31c9b94ccf3bee992fd2"
+}
