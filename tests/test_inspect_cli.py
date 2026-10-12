@@ -20,7 +20,8 @@ class InspectCliTests(unittest.TestCase):
         self.directory = tempfile.TemporaryDirectory()
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
-        self.database = self.root / "ledger #?&=% café.sqlite3"
+        punctuation = "#&=%" if os.name == "nt" else "#?&=%"
+        self.database = self.root / f"ledger {punctuation} café.sqlite3"
         self.plan = Plan("retained", (
             Part("complete", "Accepted source.", tags=("source", "source")),
             Part("running", "Work still in progress."),
