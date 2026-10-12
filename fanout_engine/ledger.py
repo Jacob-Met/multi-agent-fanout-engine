@@ -20,26 +20,30 @@ class LedgerError(RuntimeError):
 class Ledger:
     def __init__(self, database: str = ":memory:") -> None:
         self._db = sqlite3.connect(database, timeout=10, isolation_level=None)
-        self._db.row_factory = sqlite3.Row
-        self._db.execute("PRAGMA foreign_keys=ON")
-        self._db.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS projects(
-                project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
-            CREATE TABLE IF NOT EXISTS parts(
-                project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
-                payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
-                state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
-                worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
-                evidence_json TEXT, updated_at REAL NOT NULL,
-                PRIMARY KEY(project_id,part_id),
-                FOREIGN KEY(project_id) REFERENCES projects(project_id));
-            CREATE TABLE IF NOT EXISTS events(
-                seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
-                part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
-            CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
-            """
-        )
+        try:
+            self._db.row_factory = sqlite3.Row
+            self._db.execute("PRAGMA foreign_keys=ON")
+            self._db.executescript(
+                """
+                CREATE TABLE IF NOT EXISTS projects(
+                    project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS parts(
+                    project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
+                    payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
+                    state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
+                    worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
+                    evidence_json TEXT, updated_at REAL NOT NULL,
+                    PRIMARY KEY(project_id,part_id),
+                    FOREIGN KEY(project_id) REFERENCES projects(project_id));
+                CREATE TABLE IF NOT EXISTS events(
+                    seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
+                    part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
+                CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
+                """
+            )
+        except BaseException:
+            self._db.close()
+            raise
 
     @classmethod
     def open_readonly(cls, database: str | Path) -> "Ledger":
