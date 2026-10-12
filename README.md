@@ -59,6 +59,12 @@ with Ledger(":memory:") as ledger:
 
 `hub` must implement `submit(part, *, route, worker_id, idempotency_key)` and return a non-empty `task_id` after acceptance. If it cannot prove whether a request was accepted, raise an exception: the part is recorded as unknown and is not submitted again.
 
+Direct `Part` and `Plan` construction accepts tuples or lists for `depends_on`,
+`tags`, and `parts`, and snapshots these collections to tuples. Later edits to a
+caller's lists cannot change the plan payload, digest, or dispatch instructions.
+Declaration and dependency order, repeated direct tags, and the original `Part`
+objects are preserved. `Plan.from_dict` keeps its existing tag normalization.
+
 ## Scope
 
 This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
