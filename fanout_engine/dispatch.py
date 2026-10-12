@@ -45,7 +45,7 @@ def dispatch_ready(
             if ledger.part_state(plan.project_id, part.id) == "queued":
                 not_ready.append(part.id)
             continue
-        if part.id not in ledger.dispatchable_ids(plan.project_id):
+        if ledger.part_state(plan.project_id, part.id) != "queued":
             continue
         worker_id = worker_for(part)
         route = router.route_for(part.id, explicit_routes.get(part.id))
