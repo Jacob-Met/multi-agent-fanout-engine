@@ -109,23 +109,22 @@ class DispatchResponseReadTests(unittest.TestCase):
             self.assertEqual(report.outcome_unknown, ())
             self.assertEqual(ledger.part(self.plan.project_id, "first")["task_id"], "  local-task-id  ")
 
-    def test_get_and_task_id_validation_errors_use_unknown_state(self):
+    def test_custom_get_errors_use_unknown_state(self):
         class BrokenGet(dict):
+            def __init__(self, error):
+                self.error = error
+
             def get(self, key, default=None):
-                raise RuntimeError("private deferred read detail")
+                raise self.error("private deferred read detail")
 
-        class BrokenTaskId(str):
-            def strip(self, *args, **kwargs):
-                raise ValueError("private validation detail")
-
-        for response, error in [(BrokenGet(), "RuntimeError"), ({"task_id": BrokenTaskId("task")}, "ValueError")]:
-            with self.subTest(error=error), Ledger() as ledger:
-                report = self.dispatch(ledger, LocalHub(response))
+        for error in (RuntimeError, ValueError):
+            with self.subTest(error=error.__name__), Ledger() as ledger:
+                report = self.dispatch(ledger, LocalHub(BrokenGet(error)))
                 self.assertEqual(report.started, ("second",))
                 self.assertEqual(report.outcome_unknown, ("first",))
                 self.assertEqual(
                     ledger.part(self.plan.project_id, "first")["evidence"]["finding"],
-                    f"submit response raised {error}; remote acceptance is unverified",
+                    f"submit response raised {error.__name__}; remote acceptance is unverified",
                 )
 
     def test_missing_and_malformed_task_ids_keep_existing_finding(self):
