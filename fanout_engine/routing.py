@@ -68,7 +68,9 @@ class EffortRouter:
         output_received: bool = False,
         effect_started: bool = False,
     ) -> Route:
-        if not refusal_before_output or output_received or effect_started:
+        """Return a fallback only for literal Boolean eligibility observations."""
+        if (refusal_before_output is not True
+                or output_received is not False or effect_started is not False):
             raise UnsafeStepUp("step-up is unsafe after output or an effect")
         if self.step_up is None or self.step_up == current:
             raise UnsafeStepUp("no distinct authorized step-up route is configured")
