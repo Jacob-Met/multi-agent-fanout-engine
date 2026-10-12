@@ -140,3 +140,16 @@ It opens only an existing database, validates the complete retained project and
 writes the native JSON report. Missing or malformed databases are not created or
 initialized. [The existing-ledger guide](docs/inspect-ledger.md) explains status
 codes, literal path handling, Python use and the read-only/WAL boundary.
+
+## Compare a revised plan before recording it
+
+```sh
+python -m fanout_engine.compare --before original.json --after revised.json
+```
+
+The comparison shows complete native identities, exact part edits, additions,
+removals, declaration-order changes and before/after idempotency keys. This makes
+it visible when an edit changes the keys of otherwise unchanged parts. It reads
+the two authored files and leaves retained state untouched. See the
+[complete plan-comparison example](docs/compare-plans.md) for the report fields,
+native Python helper and input limits.
