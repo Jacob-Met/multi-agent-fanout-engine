@@ -129,3 +129,14 @@ and queued work, then prints the report without an adapter. Only `notes` is queu
 and dependency-ready; `verify`, `signoff` and `publish` show their different
 unfinished prerequisites. This reference workflow does not claim production
 worker capacity or installed estate integration.
+
+For a project already stored on disk, use the read-only CLI directly:
+
+```sh
+python -m fanout_engine.inspect --database "work/dispatch.sqlite3" --project sample
+```
+
+It opens only an existing database, validates the complete retained project and
+writes the native JSON report. Missing or malformed databases are not created or
+initialized. [The existing-ledger guide](docs/inspect-ledger.md) explains status
+codes, literal path handling, Python use and the read-only/WAL boundary.

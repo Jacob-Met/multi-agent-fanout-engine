@@ -1,0 +1,59 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "sqlite": "3.53.1",
+  "parent": "0317b4bc80638a8e952857aa5966b0e20d1fab72",
+  "source_sha256": {
+    "README.md": "bbcbab2b259447d1eb3395d84075992124d40c7979a529041e743900abc24c5b",
+    "fanout_engine/ledger.py": "3ff1caaff8957291ba14c4dd02cbcd26146e422db95adcca606718357792122a",
+    "fanout_engine/inspect.py": "83c3f11be76640c3d074ababefa6d2380d9c6489beac0235e88c341a5c86ca2f",
+    "tests/test_inspect_cli.py": "f22c2e47a996658b5c43873d866d0804208ea53a2e794b9f56d42fc259d5b3f6",
+    "docs/inspect-ledger.md": "5ffe58975c320d9f10154160dc1d7f604664da962ea848ac8d6b6eceeaabca5e",
+    "examples/create_retained_ledger.py": "78112c6c96fbf222779298fce9d67defd0b003f20f8f2e4519f8409ddaacce39"
+  },
+  "results": [
+    {
+      "label": "create",
+      "returncode": 0,
+      "database_before": null,
+      "database_after": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "stdout_bytes": 116,
+      "stderr": ""
+    },
+    {
+      "label": "inspect_cli",
+      "returncode": 0,
+      "database_before": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "database_after": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "stdout_bytes": 3540,
+      "stderr": ""
+    },
+    {
+      "label": "inspect_api",
+      "returncode": 0,
+      "database_before": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "database_after": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "stdout_bytes": 3540,
+      "stderr": ""
+    },
+    {
+      "label": "create_existing",
+      "returncode": 2,
+      "database_before": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "database_after": "f26b4047bba2878d7c37f680a59e46e03fb7a85d96b52292b6f329e29b42bbff",
+      "stdout_bytes": 0,
+      "stderr": "sample ledger: [Errno 17] File exists: '/workspace/scratch/0d581b491497/receiving-inspect-ledger/sample.sqlite3'\n"
+    },
+    {
+      "label": "closed_pipe",
+      "returncode": 1,
+      "stderr": "fanout inspect: cannot write report: [Errno 32] Broken pipe\n"
+    }
+  ],
+  "expected_ready_ids": [
+    "notes"
+  ],
+  "expected_blocked_ids": [
+    "publish"
+  ],
+  "native_report_match": true
+}

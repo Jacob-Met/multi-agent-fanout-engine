@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 import json
+from pathlib import Path
 import sqlite3
 import time
 from typing import Any, Iterator
@@ -38,6 +39,23 @@ class Ledger:
                 part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
             """
         )
+
+    @classmethod
+    def open_readonly(cls, database: str | Path) -> "Ledger":
+        """Open an existing regular SQLite file without initializing its schema.
+
+        The path is a filesystem name, not a caller-supplied SQLite URI. Ordinary
+        SQLite locking and WAL visibility apply; no immutable snapshot is assumed.
+        """
+        path = Path(database).absolute()
+        if not path.is_file():
+            raise LedgerError("database must be an existing regular file")
+        ledger = cls.__new__(cls)
+        ledger._db = sqlite3.connect(
+            path.as_uri() + "?mode=ro", uri=True, timeout=10, isolation_level=None,
+        )
+        ledger._db.row_factory = sqlite3.Row
+        return ledger
 
     @contextmanager
     def _transaction(self) -> Iterator[sqlite3.Connection]:
