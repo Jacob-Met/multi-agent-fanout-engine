@@ -6,6 +6,7 @@ its current state:
 ```sh
 python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample
 python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample --part verify
+python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample --output new-history.json
 ```
 
 The command requires Python 3.10+ and this package. Run it from the repository
@@ -16,7 +17,8 @@ or initialize a missing, empty or incompatible database.
 
 ## What the timeline contains
 
-Successful stdout is canonical UTF-8 JSON followed by one newline:
+Successful output is canonical UTF-8 JSON followed by one newline, either
+on stdout or in the explicitly selected new `--output` file:
 
 | Field | Meaning |
 | --- | --- |
@@ -63,6 +65,15 @@ events reconstruct those states. Use the existing current-state inspector for
 that separate observation. Both commands can observe later commits on later
 invocations.
 
+With `--output`, the CLI validates and encodes the complete report before
+creating a temporary file beside the requested destination. It flushes and
+syncs that file, then publishes it with an exclusive hard link: an existing
+file, directory or symlink destination is never replaced. An absent parent or
+failed publication returns status 1, leaves the existing destination intact,
+and may leave a staging file if cleanup itself fails. Without `--output`,
+stdout behavior is unchanged. This is a new-file delivery operation, not a
+crash-durable multi-file transaction.
+
 The CLI performs no database-content writes. Normal SQLite locking and committed
 WAL visibility apply, and uncommitted changes from another connection are not
 included. SQLite may update shared-memory bookkeeping as described in the
@@ -91,13 +102,14 @@ ordinary database errors propagate to Python callers.
 | Status | Meaning |
 | --- | --- |
 | `0` | The complete selected report was written and flushed. |
-| `1` | Report output failed; the receiving stream may contain a prefix. |
+| `1` | Report output failed; stdout may contain a prefix, or file publication failed. |
 | `2` | Invalid options, unreadable/incompatible database, or invalid retained records. No report is written. |
 | `3` | The exact project or part is absent. No report is written. |
 
-Diagnostics go to stderr. Shell redirection follows the shell's ordinary
-replacement rules; choose a fresh filename if saving a report. Interpreter and
-operating-system termination remain outside these controlled statuses.
+Diagnostics go to stderr. Use `--output` for exclusive new-file publication
+instead of shell redirection, whose ordinary rules may replace a file.
+Interpreter and operating-system termination remain outside these controlled
+statuses.
 
 The existing example creator provides a complete local input:
 
@@ -105,6 +117,7 @@ The existing example creator provides a complete local input:
 python examples/create_retained_ledger.py sample.sqlite3
 python -m fanout_engine.history --database sample.sqlite3 --project sample
 python -m fanout_engine.history --database sample.sqlite3 --project sample --part verify
+python -m fanout_engine.history --database sample.sqlite3 --project sample --output new-history.json
 ```
 
 The creator refuses an existing destination. Its references and event findings
