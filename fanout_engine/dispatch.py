@@ -32,14 +32,23 @@ def dispatch_ready(
     explicit_routes: Mapping[str, Route] | None = None,
 ) -> DispatchReport:
     """Submit queued, dependency-ready parts once; ambiguous submits are parked."""
+    if explicit_routes is None:
+        explicit_routes = {}
+    if not isinstance(explicit_routes, Mapping):
+        raise ValueError("explicit_routes must map part identifiers to Routes")
+    explicit_routes = dict(explicit_routes)
+    known = {part.id for part in plan.parts}
+    if any(not isinstance(key, str) or key not in known for key in explicit_routes):
+        raise ValueError("explicit_routes contains an unknown part identifier")
+    if any(not isinstance(route, Route) for route in explicit_routes.values()):
+        raise ValueError("every explicit route must be a native Route")
+
     ledger.record_plan(plan)
     completed = ledger.completed_ids(plan.project_id)
     ready = {part.id for part in plan.ready_parts(completed)}
     started: list[str] = []
     unknown: list[str] = []
     not_ready: list[str] = []
-    explicit_routes = explicit_routes or {}
-
     for part in plan.parts:
         if part.id not in ready:
             if ledger.part_state(plan.project_id, part.id) == "queued":
