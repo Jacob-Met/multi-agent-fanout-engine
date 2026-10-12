@@ -65,8 +65,35 @@ python -m fanout_engine.inspect --database "work/dispatch.sqlite3" --project sam
 python -m json.tool report.json
 ```
 
-Shell redirection follows the shell's normal file replacement rules. The command
-does not create an output file itself. Prefer a fresh report filename.
+Shell redirection follows the shell's normal file replacement rules.
+
+To publish the same complete report to a new file with existing destinations
+protected, use `--output`:
+
+```sh
+python -m fanout_engine.inspect --database "work/dispatch.sqlite3" --project sample \
+  --output sample-inspection.json
+```
+
+The parent directory must already exist. A successful file export writes no
+stdout, and its bytes equal the normal canonical UTF-8 stdout report, including
+the final newline. The complete native report is validated before publication.
+Missing projects retain status 3; other read/validation failures retain status 2
+and create no report.
+
+Existing files, directories and symlinks are preserved, including a destination
+that aliases the selected ledger. The writer stages complete bytes in the output
+directory and publishes them without replacing a destination created by another
+writer. Output failures return status 1. A staging write failure removes the
+temporary file without exposing a partial report; a reported cleanup failure
+after publication can leave the complete report present. This is the same
+create-only publication behavior used by the plan preview command.
+
+Run the file-export consumer tests with:
+
+```sh
+python -m unittest discover -s tests -p test_inspect_export.py -v
+```
 
 ## Read-only scope and active writers
 
