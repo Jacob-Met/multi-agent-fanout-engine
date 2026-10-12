@@ -127,23 +127,24 @@ class Plan:
         return {"project": self.project_id, "parts": [part.to_dict() for part in self.parts]}
 
     def _check_acyclic(self) -> None:
-        graph = {part.id: part.depends_on for part in self.parts}
-        visiting: set[str] = set()
-        visited: set[str] = set()
-
-        def visit(node: str) -> None:
-            if node in visiting:
-                raise PlanError("dependency graph contains a cycle")
-            if node in visited:
-                return
-            visiting.add(node)
-            for parent in graph[node]:
-                visit(parent)
-            visiting.remove(node)
-            visited.add(node)
-
-        for node in graph:
-            visit(node)
+        remaining = {part.id: len(part.depends_on) for part in self.parts}
+        dependents: dict[str, list[str]] = {part.id: [] for part in self.parts}
+        for part in self.parts:
+            for parent in part.depends_on:
+                dependents[parent].append(part.id)
+        ready = [part_id for part_id, count in remaining.items() if count == 0]
+        visited = 0
+        # Walk the graph without consuming Python stack frames for each edge.
+        # This validation does not reorder the authored parts or dependencies.
+        while ready:
+            part_id = ready.pop()
+            visited += 1
+            for dependent in dependents[part_id]:
+                remaining[dependent] -= 1
+                if remaining[dependent] == 0:
+                    ready.append(dependent)
+        if visited != len(self.parts):
+            raise PlanError("dependency graph contains a cycle")
 
     def ready_parts(self, completed: Iterable[str] = ()) -> tuple[Part, ...]:
         done = set(completed)

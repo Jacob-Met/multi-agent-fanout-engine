@@ -27,6 +27,13 @@ python examples/demo.py
 
 The tests use an in-memory SQLite ledger and a local fake adapter. The demo is also local. **No production worker capacity, external dispatch volume, or benchmark scale is claimed by this repository.**
 
+Dependency validation uses an iterative graph walk, so a valid native plan is not
+rejected solely because its dependency chain exceeds Python's recursion limit.
+Validation preserves authored part and dependency order, digests and idempotency
+keys. Tests also reopen a temporary SQLite ledger and dispatch one ready part of
+a deep plan through a local adapter. The preview consumer's separate 256-part
+limit still applies.
+
 ## Minimal integration shape
 
 ```python
