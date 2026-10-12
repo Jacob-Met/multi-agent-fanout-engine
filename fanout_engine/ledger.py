@@ -140,7 +140,13 @@ class Ledger:
 
     def part_state(self, project_id: str, part_id: str) -> str:
         with self._db:
-            return self._part(self._db, project_id, part_id)["state"]
+            row = self._db.execute(
+                "SELECT state FROM parts WHERE project_id=? AND part_id=?",
+                (project_id, part_id),
+            ).fetchone()
+            if row is None:
+                raise LedgerError("part is not in the ledger")
+            return row["state"]
 
     def part(self, project_id: str, part_id: str) -> dict[str, Any]:
         with self._db:
