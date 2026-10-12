@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from functools import cached_property
 import hashlib
 import json
 import math
@@ -167,7 +168,20 @@ class Plan:
 
     def idempotency_key(self, part_id: str) -> str:
         _identifier(part_id, "part identifier")
-        if part_id not in {part.id for part in self.parts}:
+        part_ids = self._part_ids
+        if part_ids is None:
+            # Keep live membership for historically accepted mutable Part-like
+            # objects. Only the native immutable shape is cached.
+            part_ids = {part.id for part in self.parts}
+        if part_id not in part_ids:
             raise PlanError("unknown part identifier")
         material = f"{self.project_id}\0{self.digest}\0{part_id}".encode("utf-8")
         return "fanout-" + hashlib.sha256(material).hexdigest()
+
+    @cached_property
+    def _part_ids(self) -> frozenset[str] | None:
+        if type(self.parts) is not tuple or any(
+            type(part) is not Part or type(part.id) is not str for part in self.parts
+        ):
+            return None
+        return frozenset(part.id for part in self.parts)
