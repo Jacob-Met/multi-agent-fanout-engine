@@ -1,0 +1,1353 @@
+{
+  "source": "/workspace/scratch/3163ad952d45/root_review/candidate",
+  "python": "3.12.14",
+  "sqlite": "3.53.1",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "external_provider_calls": 0,
+  "cases": {
+    "mixed_callback_two_waves": {
+      "snapshot": {
+        "project_id": "mixed",
+        "plan_digest": "1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388",
+        "state_counts": {
+          "completed": 2,
+          "dispatching": 1,
+          "failed": 1,
+          "outcome_unknown": 1,
+          "queued": 0,
+          "running": 4
+        },
+        "queued_ready_ids": [],
+        "blocked_queued_ids": [],
+        "parts": [
+          {
+            "id": "starter",
+            "instruction": "Local first task",
+            "depends_on": [],
+            "tags": [],
+            "state": "completed",
+            "idempotency_key": "fanout-c0cc9e7b08624d5f577a6fb5f8ce2535316486b4193830a2b4d20b8c0bec57fc",
+            "worker_id": "worker-starter",
+            "task_id": "accepted-starter",
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": "artifact://starter",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "sibling",
+            "instruction": "Changed by adapter before its turn",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-5b34092daa64eb737c7a6b10732f946cdf271000530e2b88e25cd81e687fba67",
+            "worker_id": "external-local",
+            "task_id": "external-sibling",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "failed",
+            "instruction": "Retained failed task",
+            "depends_on": [],
+            "tags": [],
+            "state": "failed",
+            "idempotency_key": "fanout-396c46516d53d7cb60450e8ffc1eaa64631b57a11947323ed733068a3455516f",
+            "worker_id": "external-local",
+            "task_id": "external-failed",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "unknown",
+            "instruction": "Retained unknown task",
+            "depends_on": [],
+            "tags": [],
+            "state": "outcome_unknown",
+            "idempotency_key": "fanout-b92a867c3d3af6f9c799b358e986b0ad9b7bdffc30a93ba7baa6195fc5eb13db",
+            "worker_id": "external-local",
+            "task_id": "external-unknown",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "running",
+            "instruction": "Retained accepted task",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-a3ba24f912d68dfa53815e68a150a6cabcf2fc455c0f76889f4581d213ae7b7a",
+            "worker_id": "external-local",
+            "task_id": "external-running",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "dispatching",
+            "instruction": "Retained in-flight task",
+            "depends_on": [],
+            "tags": [],
+            "state": "dispatching",
+            "idempotency_key": "fanout-dccf2d36affdb988ab4b3f7d3253a2e9891ad921004abda9ab8aebae440b59df",
+            "worker_id": "external-local",
+            "task_id": null,
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "completed",
+            "instruction": "Retained completion",
+            "depends_on": [],
+            "tags": [],
+            "state": "completed",
+            "idempotency_key": "fanout-ece3c24d3c241af4197c2c2cc65f33bedd91f1a866ac8c6c0c639b7e7bfa737f",
+            "worker_id": "external-local",
+            "task_id": "external-completed",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": "artifact://local-completed",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "afterStarter",
+            "instruction": "Next-call readiness",
+            "depends_on": [
+              "starter"
+            ],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-45a557c765ccfcd7e886b3c5c0047247b3e303771e2b1d55119f941264726caa",
+            "worker_id": "worker-afterStarter",
+            "task_id": "accepted-afterStarter",
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "afterCompleted",
+            "instruction": "Initially ready dependency",
+            "depends_on": [
+              "completed"
+            ],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-7cc0fc03d9b6be2fe82933975598a7392882fa72557d358221a82323fa2babc0",
+            "worker_id": "worker-afterCompleted",
+            "task_id": "accepted-afterCompleted",
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          }
+        ]
+      },
+      "events": [
+        {
+          "seq": 1,
+          "project_id": "mixed",
+          "part_id": null,
+          "event": "plan_recorded",
+          "detail_json": "{\"part_count\":9,\"plan_digest\":\"1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388\"}",
+          "detail": {
+            "part_count": 9,
+            "plan_digest": "1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388"
+          }
+        },
+        {
+          "seq": 2,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 3,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-failed\"}",
+          "detail": {
+            "task_id": "external-failed"
+          }
+        },
+        {
+          "seq": 4,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 5,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-unknown\"}",
+          "detail": {
+            "task_id": "external-unknown"
+          }
+        },
+        {
+          "seq": 6,
+          "project_id": "mixed",
+          "part_id": "running",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 7,
+          "project_id": "mixed",
+          "part_id": "running",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-running\"}",
+          "detail": {
+            "task_id": "external-running"
+          }
+        },
+        {
+          "seq": 8,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 9,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-completed\"}",
+          "detail": {
+            "task_id": "external-completed"
+          }
+        },
+        {
+          "seq": 10,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "outcome_unknown",
+          "detail_json": "{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}",
+          "detail": {
+            "finding": "authored outcome",
+            "locator": "fixture-only",
+            "source": "local fixture"
+          }
+        },
+        {
+          "seq": 11,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "outcome_unknown",
+          "detail_json": "{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}",
+          "detail": {
+            "finding": "authored outcome",
+            "locator": "fixture-only",
+            "source": "local fixture"
+          }
+        },
+        {
+          "seq": 12,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "reconciled",
+          "detail_json": "{\"artifact_ref\":null,\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"},\"verdict\":\"failed\"}",
+          "detail": {
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "verdict": "failed"
+          }
+        },
+        {
+          "seq": 13,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "completed",
+          "detail_json": "{\"artifact_ref\":\"artifact://local-completed\",\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}}",
+          "detail": {
+            "artifact_ref": "artifact://local-completed",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            }
+          }
+        },
+        {
+          "seq": 14,
+          "project_id": "mixed",
+          "part_id": "dispatching",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 15,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"worker-starter\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "worker-starter"
+          }
+        },
+        {
+          "seq": 16,
+          "project_id": "mixed",
+          "part_id": "sibling",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 17,
+          "project_id": "mixed",
+          "part_id": "sibling",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-sibling\"}",
+          "detail": {
+            "task_id": "external-sibling"
+          }
+        },
+        {
+          "seq": 18,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-starter\"}",
+          "detail": {
+            "task_id": "accepted-starter"
+          }
+        },
+        {
+          "seq": 19,
+          "project_id": "mixed",
+          "part_id": "afterCompleted",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"medium\",\"model\":\"local-b\"},\"worker_id\":\"worker-afterCompleted\"}",
+          "detail": {
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "worker_id": "worker-afterCompleted"
+          }
+        },
+        {
+          "seq": 20,
+          "project_id": "mixed",
+          "part_id": "afterCompleted",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-afterCompleted\"}",
+          "detail": {
+            "task_id": "accepted-afterCompleted"
+          }
+        },
+        {
+          "seq": 21,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "completed",
+          "detail_json": "{\"artifact_ref\":\"artifact://starter\",\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}}",
+          "detail": {
+            "artifact_ref": "artifact://starter",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            }
+          }
+        },
+        {
+          "seq": 22,
+          "project_id": "mixed",
+          "part_id": "afterStarter",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"medium\",\"model\":\"local-b\"},\"worker_id\":\"worker-afterStarter\"}",
+          "detail": {
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "worker_id": "worker-afterStarter"
+          }
+        },
+        {
+          "seq": 23,
+          "project_id": "mixed",
+          "part_id": "afterStarter",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-afterStarter\"}",
+          "detail": {
+            "task_id": "accepted-afterStarter"
+          }
+        }
+      ],
+      "calls": [
+        [
+          "starter",
+          {
+            "model": "local-a",
+            "effort": "low"
+          },
+          "worker-starter",
+          "fanout-c0cc9e7b08624d5f577a6fb5f8ce2535316486b4193830a2b4d20b8c0bec57fc"
+        ],
+        [
+          "afterCompleted",
+          {
+            "model": "local-b",
+            "effort": "medium"
+          },
+          "worker-afterCompleted",
+          "fanout-7cc0fc03d9b6be2fe82933975598a7392882fa72557d358221a82323fa2babc0"
+        ],
+        [
+          "afterStarter",
+          {
+            "model": "local-b",
+            "effort": "medium"
+          },
+          "worker-afterStarter",
+          "fanout-45a557c765ccfcd7e886b3c5c0047247b3e303771e2b1d55119f941264726caa"
+        ]
+      ],
+      "reports": [
+        {
+          "started": [
+            "starter",
+            "afterCompleted"
+          ],
+          "outcome_unknown": [],
+          "not_ready": [
+            "afterStarter"
+          ]
+        },
+        {
+          "started": [
+            "afterStarter"
+          ],
+          "outcome_unknown": [],
+          "not_ready": []
+        }
+      ]
+    },
+    "reopened_no_replay": {
+      "snapshot": {
+        "project_id": "mixed",
+        "plan_digest": "1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388",
+        "state_counts": {
+          "completed": 2,
+          "dispatching": 1,
+          "failed": 1,
+          "outcome_unknown": 1,
+          "queued": 0,
+          "running": 4
+        },
+        "queued_ready_ids": [],
+        "blocked_queued_ids": [],
+        "parts": [
+          {
+            "id": "starter",
+            "instruction": "Local first task",
+            "depends_on": [],
+            "tags": [],
+            "state": "completed",
+            "idempotency_key": "fanout-c0cc9e7b08624d5f577a6fb5f8ce2535316486b4193830a2b4d20b8c0bec57fc",
+            "worker_id": "worker-starter",
+            "task_id": "accepted-starter",
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": "artifact://starter",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "sibling",
+            "instruction": "Changed by adapter before its turn",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-5b34092daa64eb737c7a6b10732f946cdf271000530e2b88e25cd81e687fba67",
+            "worker_id": "external-local",
+            "task_id": "external-sibling",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "failed",
+            "instruction": "Retained failed task",
+            "depends_on": [],
+            "tags": [],
+            "state": "failed",
+            "idempotency_key": "fanout-396c46516d53d7cb60450e8ffc1eaa64631b57a11947323ed733068a3455516f",
+            "worker_id": "external-local",
+            "task_id": "external-failed",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "unknown",
+            "instruction": "Retained unknown task",
+            "depends_on": [],
+            "tags": [],
+            "state": "outcome_unknown",
+            "idempotency_key": "fanout-b92a867c3d3af6f9c799b358e986b0ad9b7bdffc30a93ba7baa6195fc5eb13db",
+            "worker_id": "external-local",
+            "task_id": "external-unknown",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "running",
+            "instruction": "Retained accepted task",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-a3ba24f912d68dfa53815e68a150a6cabcf2fc455c0f76889f4581d213ae7b7a",
+            "worker_id": "external-local",
+            "task_id": "external-running",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "dispatching",
+            "instruction": "Retained in-flight task",
+            "depends_on": [],
+            "tags": [],
+            "state": "dispatching",
+            "idempotency_key": "fanout-dccf2d36affdb988ab4b3f7d3253a2e9891ad921004abda9ab8aebae440b59df",
+            "worker_id": "external-local",
+            "task_id": null,
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "completed",
+            "instruction": "Retained completion",
+            "depends_on": [],
+            "tags": [],
+            "state": "completed",
+            "idempotency_key": "fanout-ece3c24d3c241af4197c2c2cc65f33bedd91f1a866ac8c6c0c639b7e7bfa737f",
+            "worker_id": "external-local",
+            "task_id": "external-completed",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": "artifact://local-completed",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "afterStarter",
+            "instruction": "Next-call readiness",
+            "depends_on": [
+              "starter"
+            ],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-45a557c765ccfcd7e886b3c5c0047247b3e303771e2b1d55119f941264726caa",
+            "worker_id": "worker-afterStarter",
+            "task_id": "accepted-afterStarter",
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "afterCompleted",
+            "instruction": "Initially ready dependency",
+            "depends_on": [
+              "completed"
+            ],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-7cc0fc03d9b6be2fe82933975598a7392882fa72557d358221a82323fa2babc0",
+            "worker_id": "worker-afterCompleted",
+            "task_id": "accepted-afterCompleted",
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          }
+        ]
+      },
+      "events": [
+        {
+          "seq": 1,
+          "project_id": "mixed",
+          "part_id": null,
+          "event": "plan_recorded",
+          "detail_json": "{\"part_count\":9,\"plan_digest\":\"1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388\"}",
+          "detail": {
+            "part_count": 9,
+            "plan_digest": "1f35aef5e2d9c82ee8fbaba31d74c7eaa6085e87fd2627886c8aa96388959388"
+          }
+        },
+        {
+          "seq": 2,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 3,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-failed\"}",
+          "detail": {
+            "task_id": "external-failed"
+          }
+        },
+        {
+          "seq": 4,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 5,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-unknown\"}",
+          "detail": {
+            "task_id": "external-unknown"
+          }
+        },
+        {
+          "seq": 6,
+          "project_id": "mixed",
+          "part_id": "running",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 7,
+          "project_id": "mixed",
+          "part_id": "running",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-running\"}",
+          "detail": {
+            "task_id": "external-running"
+          }
+        },
+        {
+          "seq": 8,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 9,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-completed\"}",
+          "detail": {
+            "task_id": "external-completed"
+          }
+        },
+        {
+          "seq": 10,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "outcome_unknown",
+          "detail_json": "{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}",
+          "detail": {
+            "finding": "authored outcome",
+            "locator": "fixture-only",
+            "source": "local fixture"
+          }
+        },
+        {
+          "seq": 11,
+          "project_id": "mixed",
+          "part_id": "unknown",
+          "event": "outcome_unknown",
+          "detail_json": "{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}",
+          "detail": {
+            "finding": "authored outcome",
+            "locator": "fixture-only",
+            "source": "local fixture"
+          }
+        },
+        {
+          "seq": 12,
+          "project_id": "mixed",
+          "part_id": "failed",
+          "event": "reconciled",
+          "detail_json": "{\"artifact_ref\":null,\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"},\"verdict\":\"failed\"}",
+          "detail": {
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            },
+            "verdict": "failed"
+          }
+        },
+        {
+          "seq": 13,
+          "project_id": "mixed",
+          "part_id": "completed",
+          "event": "completed",
+          "detail_json": "{\"artifact_ref\":\"artifact://local-completed\",\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}}",
+          "detail": {
+            "artifact_ref": "artifact://local-completed",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            }
+          }
+        },
+        {
+          "seq": 14,
+          "project_id": "mixed",
+          "part_id": "dispatching",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 15,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"worker-starter\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "worker-starter"
+          }
+        },
+        {
+          "seq": 16,
+          "project_id": "mixed",
+          "part_id": "sibling",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 17,
+          "project_id": "mixed",
+          "part_id": "sibling",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-sibling\"}",
+          "detail": {
+            "task_id": "external-sibling"
+          }
+        },
+        {
+          "seq": 18,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-starter\"}",
+          "detail": {
+            "task_id": "accepted-starter"
+          }
+        },
+        {
+          "seq": 19,
+          "project_id": "mixed",
+          "part_id": "afterCompleted",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"medium\",\"model\":\"local-b\"},\"worker_id\":\"worker-afterCompleted\"}",
+          "detail": {
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "worker_id": "worker-afterCompleted"
+          }
+        },
+        {
+          "seq": 20,
+          "project_id": "mixed",
+          "part_id": "afterCompleted",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-afterCompleted\"}",
+          "detail": {
+            "task_id": "accepted-afterCompleted"
+          }
+        },
+        {
+          "seq": 21,
+          "project_id": "mixed",
+          "part_id": "starter",
+          "event": "completed",
+          "detail_json": "{\"artifact_ref\":\"artifact://starter\",\"evidence\":{\"finding\":\"authored outcome\",\"locator\":\"fixture-only\",\"source\":\"local fixture\"}}",
+          "detail": {
+            "artifact_ref": "artifact://starter",
+            "evidence": {
+              "finding": "authored outcome",
+              "locator": "fixture-only",
+              "source": "local fixture"
+            }
+          }
+        },
+        {
+          "seq": 22,
+          "project_id": "mixed",
+          "part_id": "afterStarter",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"medium\",\"model\":\"local-b\"},\"worker_id\":\"worker-afterStarter\"}",
+          "detail": {
+            "route": {
+              "effort": "medium",
+              "model": "local-b"
+            },
+            "worker_id": "worker-afterStarter"
+          }
+        },
+        {
+          "seq": 23,
+          "project_id": "mixed",
+          "part_id": "afterStarter",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-afterStarter\"}",
+          "detail": {
+            "task_id": "accepted-afterStarter"
+          }
+        }
+      ],
+      "calls": [
+        [
+          "starter",
+          {
+            "model": "local-a",
+            "effort": "low"
+          },
+          "worker-starter",
+          "fanout-c0cc9e7b08624d5f577a6fb5f8ce2535316486b4193830a2b4d20b8c0bec57fc"
+        ],
+        [
+          "afterCompleted",
+          {
+            "model": "local-b",
+            "effort": "medium"
+          },
+          "worker-afterCompleted",
+          "fanout-7cc0fc03d9b6be2fe82933975598a7392882fa72557d358221a82323fa2babc0"
+        ],
+        [
+          "afterStarter",
+          {
+            "model": "local-b",
+            "effort": "medium"
+          },
+          "worker-afterStarter",
+          "fanout-45a557c765ccfcd7e886b3c5c0047247b3e303771e2b1d55119f941264726caa"
+        ]
+      ],
+      "reports": [
+        {
+          "started": [],
+          "outcome_unknown": [],
+          "not_ready": []
+        }
+      ]
+    },
+    "ambiguous_callback": {
+      "snapshot": {
+        "project_id": "ambiguous",
+        "plan_digest": "ecbc78906b5e74aebf3ee928eb8970fe8382a11c564cf55ac0d5fd1a18f42c24",
+        "state_counts": {
+          "completed": 0,
+          "dispatching": 0,
+          "failed": 0,
+          "outcome_unknown": 1,
+          "queued": 0,
+          "running": 2
+        },
+        "queued_ready_ids": [],
+        "blocked_queued_ids": [],
+        "parts": [
+          {
+            "id": "alpha",
+            "instruction": "Raises after a local side effect",
+            "depends_on": [],
+            "tags": [],
+            "state": "outcome_unknown",
+            "idempotency_key": "fanout-9a047e8e2550d7a35f30073b539f08fd47c74a1c9b80cc81d87e389191321a17",
+            "worker_id": "local",
+            "task_id": null,
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": {
+              "finding": "submit raised TimeoutError; remote acceptance is unverified",
+              "locator": "fanout-9a047e8e2550d7a35f30073b539f08fd47c74a1c9b80cc81d87e389191321a17",
+              "source": "hub adapter"
+            },
+            "unmet_dependencies": []
+          },
+          {
+            "id": "beta",
+            "instruction": "Accepted by that local side effect",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-5508c877189db904acc374c95e8b7b2000959a92295fe37a15c9d396f25feb0d",
+            "worker_id": "external-local",
+            "task_id": "external-beta",
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          },
+          {
+            "id": "gamma",
+            "instruction": "Independent remaining task",
+            "depends_on": [],
+            "tags": [],
+            "state": "running",
+            "idempotency_key": "fanout-4e1ab009e591b8de7fdfe63ad14cc3f541f96c4a3bbbbd3e7e2e3f107c7ee12c",
+            "worker_id": "local",
+            "task_id": "accepted-gamma",
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "artifact_ref": null,
+            "evidence": null,
+            "unmet_dependencies": []
+          }
+        ]
+      },
+      "events": [
+        {
+          "seq": 1,
+          "project_id": "ambiguous",
+          "part_id": null,
+          "event": "plan_recorded",
+          "detail_json": "{\"part_count\":3,\"plan_digest\":\"ecbc78906b5e74aebf3ee928eb8970fe8382a11c564cf55ac0d5fd1a18f42c24\"}",
+          "detail": {
+            "part_count": 3,
+            "plan_digest": "ecbc78906b5e74aebf3ee928eb8970fe8382a11c564cf55ac0d5fd1a18f42c24"
+          }
+        },
+        {
+          "seq": 2,
+          "project_id": "ambiguous",
+          "part_id": "alpha",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"local\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "local"
+          }
+        },
+        {
+          "seq": 3,
+          "project_id": "ambiguous",
+          "part_id": "beta",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-a\"},\"worker_id\":\"external-local\"}",
+          "detail": {
+            "route": {
+              "effort": "high",
+              "model": "local-a"
+            },
+            "worker_id": "external-local"
+          }
+        },
+        {
+          "seq": 4,
+          "project_id": "ambiguous",
+          "part_id": "beta",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"external-beta\"}",
+          "detail": {
+            "task_id": "external-beta"
+          }
+        },
+        {
+          "seq": 5,
+          "project_id": "ambiguous",
+          "part_id": "alpha",
+          "event": "outcome_unknown",
+          "detail_json": "{\"finding\":\"submit raised TimeoutError; remote acceptance is unverified\",\"locator\":\"fanout-9a047e8e2550d7a35f30073b539f08fd47c74a1c9b80cc81d87e389191321a17\",\"source\":\"hub adapter\"}",
+          "detail": {
+            "finding": "submit raised TimeoutError; remote acceptance is unverified",
+            "locator": "fanout-9a047e8e2550d7a35f30073b539f08fd47c74a1c9b80cc81d87e389191321a17",
+            "source": "hub adapter"
+          }
+        },
+        {
+          "seq": 6,
+          "project_id": "ambiguous",
+          "part_id": "gamma",
+          "event": "dispatch_started",
+          "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"local-a\"},\"worker_id\":\"local\"}",
+          "detail": {
+            "route": {
+              "effort": "low",
+              "model": "local-a"
+            },
+            "worker_id": "local"
+          }
+        },
+        {
+          "seq": 7,
+          "project_id": "ambiguous",
+          "part_id": "gamma",
+          "event": "dispatch_accepted",
+          "detail_json": "{\"task_id\":\"accepted-gamma\"}",
+          "detail": {
+            "task_id": "accepted-gamma"
+          }
+        }
+      ],
+      "calls": [
+        [
+          "alpha",
+          {
+            "model": "local-a",
+            "effort": "low"
+          },
+          "local",
+          "fanout-9a047e8e2550d7a35f30073b539f08fd47c74a1c9b80cc81d87e389191321a17"
+        ],
+        [
+          "gamma",
+          {
+            "model": "local-a",
+            "effort": "low"
+          },
+          "local",
+          "fanout-4e1ab009e591b8de7fdfe63ad14cc3f541f96c4a3bbbbd3e7e2e3f107c7ee12c"
+        ]
+      ],
+      "reports": [
+        {
+          "started": [
+            "gamma"
+          ],
+          "outcome_unknown": [
+            "alpha"
+          ],
+          "not_ready": []
+        }
+      ]
+    }
+  },
+  "cases_sha256": "df20dbe2a2effd43b5ddcb91c4517e982e8e35e6c5d44d4350de07ce105eb9bc",
+  "query_shape": {
+    "queued_set_selects": 0,
+    "indexed_part_selects": 148
+  },
+  "benchmarks": [
+    {
+      "storage": "memory",
+      "parts": 64,
+      "registration": "first",
+      "seconds": [
+        0.004681817998061888,
+        0.004970613001205493,
+        0.005583685997407883
+      ],
+      "median_seconds": 0.004970613001205493,
+      "consumer_sha256": "bc4430f572c0b0ddd4ba8c9fe23b9d158fa5b2ac113f55069e31351d23f66eb9"
+    },
+    {
+      "storage": "memory",
+      "parts": 64,
+      "registration": "pre_recorded",
+      "seconds": [
+        0.004358662001322955,
+        0.0035233349990448914,
+        0.0027995450000162236
+      ],
+      "median_seconds": 0.0035233349990448914,
+      "consumer_sha256": "bc4430f572c0b0ddd4ba8c9fe23b9d158fa5b2ac113f55069e31351d23f66eb9"
+    },
+    {
+      "storage": "memory",
+      "parts": 512,
+      "registration": "first",
+      "seconds": [
+        0.043955512999673374,
+        0.03709617700224044,
+        0.04432997699768748
+      ],
+      "median_seconds": 0.043955512999673374,
+      "consumer_sha256": "d47e066d97d2ba8cbb8b74ee5e90b279a6542d1cc2e4561a56687431a601b464"
+    },
+    {
+      "storage": "memory",
+      "parts": 512,
+      "registration": "pre_recorded",
+      "seconds": [
+        0.03409903499414213,
+        0.04210967000108212,
+        0.0405670670006657
+      ],
+      "median_seconds": 0.0405670670006657,
+      "consumer_sha256": "d47e066d97d2ba8cbb8b74ee5e90b279a6542d1cc2e4561a56687431a601b464"
+    },
+    {
+      "storage": "disk",
+      "parts": 64,
+      "registration": "first",
+      "seconds": [
+        0.04301255400059745,
+        0.035642828996060416,
+        0.03512416900048265
+      ],
+      "median_seconds": 0.035642828996060416,
+      "consumer_sha256": "bc4430f572c0b0ddd4ba8c9fe23b9d158fa5b2ac113f55069e31351d23f66eb9"
+    },
+    {
+      "storage": "disk",
+      "parts": 64,
+      "registration": "pre_recorded",
+      "seconds": [
+        0.028919297001266386,
+        0.03225091299827909,
+        0.028847998997662216
+      ],
+      "median_seconds": 0.028919297001266386,
+      "consumer_sha256": "bc4430f572c0b0ddd4ba8c9fe23b9d158fa5b2ac113f55069e31351d23f66eb9"
+    },
+    {
+      "storage": "disk",
+      "parts": 512,
+      "registration": "first",
+      "seconds": [
+        0.15458591299830005,
+        0.10727865999797359,
+        0.10785526200197637
+      ],
+      "median_seconds": 0.10785526200197637,
+      "consumer_sha256": "d47e066d97d2ba8cbb8b74ee5e90b279a6542d1cc2e4561a56687431a601b464"
+    },
+    {
+      "storage": "disk",
+      "parts": 512,
+      "registration": "pre_recorded",
+      "seconds": [
+        0.09392137500253739,
+        0.13461634000123013,
+        0.11804735099576646
+      ],
+      "median_seconds": 0.11804735099576646,
+      "consumer_sha256": "d47e066d97d2ba8cbb8b74ee5e90b279a6542d1cc2e4561a56687431a601b464"
+    }
+  ],
+  "limits": [
+    "Synthetic local adapters only; no remote dispatch or production throughput measured.",
+    "Timings include full dispatch_ready; source import and Ledger construction are outside the timer.",
+    "Disk uses temporary SQLite with the native default journal and synchronous settings.",
+    "Shared-host timing is descriptive, not a universal speed guarantee."
+  ]
+}
