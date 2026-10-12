@@ -10,6 +10,7 @@ import sys
 from .inspection import InspectionError, inspect_project
 from .ledger import Ledger, LedgerError
 from .plan import canonical_json
+from .preview import PreviewError, _publish_new_file
 
 
 def _write_stdout(content: bytes) -> None:
@@ -34,6 +35,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("--database", type=Path, required=True, help="existing SQLite ledger file")
     parser.add_argument("--project", required=True, help="exact recorded project identifier")
+    parser.add_argument("--output", type=Path, help="new report file; otherwise write JSON to stdout")
     args = parser.parse_args(argv)
     try:
         with Ledger.open_readonly(args.database) as ledger:
@@ -47,8 +49,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"fanout inspect: cannot read ledger: {exc}", file=sys.stderr)
         return 2
     try:
-        _write_stdout(content)
-    except OSError as exc:
+        if args.output is None:
+            _write_stdout(content)
+        else:
+            _publish_new_file(args.output, content)
+    except (OSError, PreviewError) as exc:
         print(f"fanout inspect: cannot write report: {exc}", file=sys.stderr)
         return 1
     return 0
