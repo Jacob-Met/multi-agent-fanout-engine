@@ -14,9 +14,13 @@ For the standard Plan class containing these objects, dispatch captures their
 native fields into immutable Parts before recording the plan or invoking
 callbacks. It checks that
 the captured plan digest still equals the original validated digest. If the
-source has changed, it raises `PlanError` before ledger rows/events, worker
+source has changed, it raises `LedgerError` before ledger rows/events, worker
 selection, route selection or Hub calls occur. The original objects remain
 unchanged by the dispatcher.
+
+The digest-mismatch error matches ledger identity admission. Invalid captured
+fields still fail native Plan validation. This keeps the same refusal when
+the dispatcher is used with the ledger's own plan-capture implementation.
 
 Construct a new Plan when you intend to submit edited content. If its project
 identifier is already retained with a different plan digest, the existing

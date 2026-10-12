@@ -4,7 +4,7 @@ import unittest
 from unittest.mock import patch
 
 from fanout_engine import (
-    EffortRouter, Ledger, Part, Plan, PlanError, Route, dispatch_ready,
+    EffortRouter, Ledger, LedgerError, Part, Plan, Route, dispatch_ready,
     inspect_project,
 )
 
@@ -68,7 +68,7 @@ class DispatchPlanSnapshotTests(unittest.TestCase):
                 workers = []
                 hub = RecordingHub()
                 with patch.object(self.router, "route_for", wraps=self.router.route_for) as route:
-                    with self.assertRaisesRegex(PlanError, "changed since validation"):
+                    with self.assertRaisesRegex(LedgerError, "changed since validation"):
                         self.dispatch(plan, ledger, hub,
                                       lambda part: workers.append(part.id) or "local-worker")
                     route.assert_not_called()
@@ -120,7 +120,7 @@ class DispatchPlanSnapshotTests(unittest.TestCase):
             self.assertEqual([call["part"] for call in hub.calls], original["parts"][:2])
             before = copy.deepcopy(ledger.project_snapshot(plan.project_id))
             events = ledger.events(plan.project_id)
-            with self.assertRaisesRegex(PlanError, "changed since validation"):
+            with self.assertRaisesRegex(LedgerError, "changed since validation"):
                 self.dispatch(plan, ledger, hub)
             self.assertEqual(ledger.project_snapshot(plan.project_id), before)
             self.assertEqual(ledger.events(plan.project_id), events)

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Callable, Mapping, Protocol
 
 from .ledger import Ledger, LedgerError
-from .plan import Part, Plan, PlanError
+from .plan import Part, Plan
 from .routing import EffortRouter, Route
 
 
@@ -42,7 +42,7 @@ def dispatch_ready(
             for part in plan.parts
         ))
         if captured.digest != plan.digest:
-            raise PlanError("Plan has changed since validation")
+            raise LedgerError("plan has changed since validation")
         plan = captured
     if explicit_routes is None:
         explicit_routes = {}
