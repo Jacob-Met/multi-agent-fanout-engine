@@ -1,0 +1,58 @@
+{
+  "receiver": "HAMON Product /root/product",
+  "portable_driver_sha256": "769f050dfe7c2bf800f90059b63898aa3c17cf2807729cc1b78133aed84afa55",
+  "original_driver_sha256": "567b1537d08004a375984af31564e98d87868ee7eef622c04307f0538d392b55",
+  "adaptation": "Only SOURCE and MANIFEST assignments replaced by explicit argparse paths; review logic byte-identical",
+  "fresh_checkout_copy": true,
+  "checkout_path_contains_spaces": true,
+  "unrelated_working_directory": true,
+  "replay_result_equal_independent_portable_receipt": true,
+  "result": {
+    "reviewer": "Memory /root/memory",
+    "candidate_sha256": "c96c941c5b4b65e890745bf2b6f4484d4e7284ad6b3c65b729f80513b6baa0c2",
+    "python": "3.12.14",
+    "optimized": false,
+    "api_plan_pairs": 6,
+    "native_digest_and_keys": "independently derived",
+    "direct_tag_order_preserved": true,
+    "input_detachment": true,
+    "part_limit_boundary": "256 accepted; 257 refused",
+    "cli_cases": [
+      {
+        "case": "native-normalization",
+        "exit": 0,
+        "stdout_bytes": 918
+      },
+      {
+        "case": "exact-1MiB",
+        "exit": 0,
+        "stdout_bytes": 918
+      },
+      {
+        "case": "one-byte-over",
+        "exit": 2,
+        "stdout_bytes": 0
+      },
+      {
+        "case": "excessive-nesting",
+        "exit": 2,
+        "stdout_bytes": 0
+      },
+      {
+        "case": "lone-surrogate",
+        "exit": 2,
+        "stdout_bytes": 0
+      },
+      {
+        "case": "duplicate-key",
+        "exit": 2,
+        "stdout_bytes": 0
+      }
+    ],
+    "separate_cwd_received": true,
+    "consumer_files_unchanged": true,
+    "all_four_frozen_files_unchanged": true,
+    "findings": [],
+    "result": "accepted"
+  }
+}

@@ -65,9 +65,30 @@ sentinel bytes and directory membership remain unchanged. The four reviewed
 source hashes match before and after the receiver.
 
 The archived driver's `SOURCE` and `MANIFEST` assignments name the original
-workspace paths. For a manual replay, point those two assignments to the desired
-checkout and this directory's `frozen-source-manifest.json`. The archived script
-and receipts are retained unchanged as the actual review record.
+workspace paths. Its script and receipts remain unchanged as the actual review
+record. Memory also supplied `independent/portable_compare_review.py`: its only
+change replaces those two assignments with explicit command-line paths. The
+review logic is byte-identical. The original frozen manifest is included above.
+
+From the checkout root, replay the portable copy with:
+
+```sh
+python -B docs/qualification/compare-plans-375aad573428/independent/portable_compare_review.py \
+  --source-root . \
+  --manifest docs/qualification/compare-plans-375aad573428/frozen-source-manifest.json
+```
+
+Memory's actual normal-mode portable receipt is `independent/portable-normal.json`.
+Product independently verified the exact path-only transformation and replayed
+that copy against a fresh checkout directory containing spaces, from an unrelated
+working directory. Its result equals Memory's portable receipt.
+`portable-receiving.json` records this bounded packaging check and both driver
+hashes. It adds no new semantic test cases. The four frozen product files and the
+original normal/optimized review records remain unchanged.
+
+The runtime source was published in commit
+`c47a2ca3b813cf7597a33163224b4d05c1ff2e43` through PR #24. The portable receiver
+is a subsequent evidence-only addition to that PR.
 
 ## Limits
 
