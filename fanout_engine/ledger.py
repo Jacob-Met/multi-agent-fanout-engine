@@ -44,7 +44,7 @@ class Ledger:
         self._db.execute("BEGIN IMMEDIATE")
         try:
             yield self._db
-        except Exception:
+        except BaseException:
             self._db.rollback()
             raise
         else:
