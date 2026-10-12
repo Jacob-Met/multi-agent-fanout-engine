@@ -1,0 +1,20 @@
+{
+  "scope": "authored-local-fixture",
+  "files": [
+    {
+      "path": "files/component-a.txt",
+      "bytes": 104,
+      "sha256": "819c8fd2ab66ca03d272aeb9717738b9354021b948f817d53061356c95649ea6"
+    },
+    {
+      "path": "files/owner-notes.md",
+      "bytes": 171,
+      "sha256": "965be098d9eb5c31704dde6d6b9044b391dc76b36f44ad602e0635658bfdb36e"
+    },
+    {
+      "path": "files/receive-contract.json",
+      "bytes": 172,
+      "sha256": "420d60fd42e2688a5790855fcae894a841a351e429ea8622bfa2972dc297ef55"
+    }
+  ]
+}

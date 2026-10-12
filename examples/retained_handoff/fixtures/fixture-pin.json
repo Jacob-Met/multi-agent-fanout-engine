@@ -1,0 +1,35 @@
+{
+  "scope": "authored-local-fixture",
+  "files": [
+    {
+      "path": "expected-files.json",
+      "bytes": 527,
+      "sha256": "0a75e25e569c77e54ad9a9b482aab54a3fb5e786c8f8dd367d09a5d4948ce707"
+    },
+    {
+      "path": "files/component-a.txt",
+      "bytes": 104,
+      "sha256": "819c8fd2ab66ca03d272aeb9717738b9354021b948f817d53061356c95649ea6"
+    },
+    {
+      "path": "files/owner-notes.md",
+      "bytes": 171,
+      "sha256": "965be098d9eb5c31704dde6d6b9044b391dc76b36f44ad602e0635658bfdb36e"
+    },
+    {
+      "path": "files/receive-contract.json",
+      "bytes": 172,
+      "sha256": "420d60fd42e2688a5790855fcae894a841a351e429ea8622bfa2972dc297ef55"
+    },
+    {
+      "path": "plan.json",
+      "bytes": 1174,
+      "sha256": "888d78fcdf39217f87fd93ad54cf31ae833423a22d1c1f6632becf6451e8d22f"
+    },
+    {
+      "path": "routes.json",
+      "bytes": 267,
+      "sha256": "d421f5e5886d1a1fea9c50b862d311e882a66b23fb11c1ec5e359f926349ee22"
+    }
+  ]
+}

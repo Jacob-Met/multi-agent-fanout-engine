@@ -1,0 +1,20 @@
+{
+  "catalog": {
+    "fixture-local": [
+      "low",
+      "ultra"
+    ]
+  },
+  "pool": [
+    {
+      "model": "fixture-local",
+      "effort": "low"
+    }
+  ],
+  "explicit_routes": {
+    "audit": {
+      "model": "fixture-local",
+      "effort": "ultra"
+    }
+  }
+}
