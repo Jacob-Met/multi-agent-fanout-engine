@@ -80,6 +80,14 @@ or change the existing step-up rules; configure the desired pool, explicit route
 or step-up route. An adapter remains responsible for matching these labels to
 the provider it uses.
 
+## Integration guides
+
+| Guide | Contract covered |
+|---|---|
+| [Per-call route overrides](docs/dispatch-overrides.md) | Exact part IDs, captured override mappings and route-authorization timing |
+| [Unreadable acknowledgements](docs/dispatch-response-read.md) | Unknown outcomes after response-read failures and the reconciliation boundary |
+| [Transaction cleanup](docs/transaction-rollback.md) | Rollback after body or commit errors, caller-owned transactions and external-effect limits |
+
 ## Scope
 
 This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
@@ -93,6 +101,21 @@ python -m fanout_engine.preview --plan plan.json --routes routes.json
 ~~~
 
 The command validates the entire request and writes deterministic JSON to stdout. An optional --output new-preview.json saves a new file without replacing an existing destination. [The plan preview guide](docs/plan-preview.md) provides complete input examples, the report contract, native Python helper, consumer limits and file-delivery behavior. Initial dependency readiness is separate from stored dispatch eligibility; this preview performs no dispatch or provider operation.
+
+## Discover saved projects
+
+Find the exact project IDs in an existing ledger before selecting one for
+inspection:
+
+~~~sh
+python -m fanout_engine.projects --database "work/dispatch.sqlite3"
+~~~
+
+The catalog validates each saved plan and reports its native digest and authored
+part count in project-ID order. Use a returned `project_id` unchanged with
+`--project` in the inspection or history command. The
+[project catalog guide](docs/project-catalog.md) explains the Python helper,
+exclusive new-file output and the boundary between saved plans and runtime state.
 
 ## Inspect a retained project
 
