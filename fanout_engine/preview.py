@@ -63,6 +63,14 @@ def preview_plan(
     if any(not isinstance(value, Route) for value in explicit.values()):
         raise PreviewError("every explicit route must be a native Route")
 
+    # Router configuration can change after construction. As with each selected
+    # route, validate the captured step-up before presenting it in the report.
+    step_up = router.step_up
+    if step_up is not None:
+        if not isinstance(step_up, Route):
+            raise PreviewError("configured step-up must be a native Route")
+        router._validate(step_up)
+
     routes = []
     for part in plan.parts:
         route = router.route_for(part.id, explicit.get(part.id))
@@ -81,7 +89,7 @@ def preview_plan(
         ],
         "routes": routes,
         "configured_step_up": (
-            _route_document(router.step_up) if router.step_up is not None else None
+            _route_document(step_up) if step_up is not None else None
         ),
     }
     _serialize(report)

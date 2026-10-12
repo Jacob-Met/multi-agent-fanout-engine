@@ -115,7 +115,7 @@ print(report["dependency_ready_without_completions"])
 
 The helper accepts an actual native Plan, an actual native EffortRouter and an optional mapping of part IDs to native Route objects. It preserves the identity of an already-constructed Plan instead of reparsing or normalizing it. Its detached JSON-compatible result excludes CLI input hashes because the helper did not read files.
 
-The helper does not accept completed IDs or stored-state fields. Configured routes for blocked parts are still validated, and unknown explicit IDs are errors. It does not call the router's step-up method.
+The helper does not accept completed IDs or stored-state fields. Configured routes for blocked parts are still validated, and unknown explicit IDs are errors. It captures and revalidates the currently configured step-up against the router's catalog, including replacements made after construction. Invalid replacement types raise a validation error. It does not call the router's step-up method or decide whether a step-up is eligible.
 
 ## Bounds and file delivery
 
