@@ -1,0 +1,26 @@
+{
+  "source_parent": "ae23e21d10c61b22397378a6974db6992e6c1806",
+  "base_tree": "61a2b24d4cf0c3ad7b04be92f8216083beb3f0a9",
+  "branch": "product/subplan-375aad573428",
+  "review_status": "frozen awaiting independent review",
+  "files": [
+    {
+      "path": "fanout_engine/subplan.py",
+      "bytes": 5678,
+      "sha256": "4a0910c55f214d2dc09264a5e92352b4ed00a20eca32ff5551852000cbf1751a",
+      "git_blob": "a9a55dcaea11f51b35fcb88925fe3a5e5687487d"
+    },
+    {
+      "path": "tests/test_subplan.py",
+      "bytes": 13375,
+      "sha256": "fc97602706796d1749227d9fa40f68f109490b59a015fca8d87224b1c63ff4b1",
+      "git_blob": "ee91cb66640dc6b831b3d981312413b6c8cc0df7"
+    },
+    {
+      "path": "docs/subplan.md",
+      "bytes": 7913,
+      "sha256": "dcbc42259b75a0dc2385019d562fb8c717a4debeb211969527f9334af29da927",
+      "git_blob": "061bae68e380a2e86946dc071580fdea98669617"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "original": {
+    "root": "/workspace/scratch/375aad573428/product/fanout-subplan",
+    "dependencies": {
+      "fanout_engine/plan.py": "363e297426c2512a19a6a059f27aea488e14d61f9ea1a3e76b54b8fb56a50189",
+      "fanout_engine/ledger.py": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+      "fanout_engine/preview.py": "ee546965e5c95f165ad798e374847cc04f399afc067dfc1b62b06cc0edcf4029"
+    }
+  },
+  "current": {
+    "root": "/workspace/scratch/375aad573428/product/fanout-subplan-current",
+    "dependencies": {
+      "fanout_engine/plan.py": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "fanout_engine/ledger.py": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+      "fanout_engine/preview.py": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    }
+  }
+}

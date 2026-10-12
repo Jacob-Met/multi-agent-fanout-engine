@@ -1,0 +1,204 @@
+{
+  "source_parent": "77217a07a76e8ee6554ffe11808b1bdcbaf680ee",
+  "source_tree": "a2e9d90f2491dd42706309f798b84d00603c0ec4",
+  "local_snapshot_parent": "221a518b5fbb2e5e8cd58ca167a084b496c878fa",
+  "local_snapshot_head": "c727608b647d1293508cf9a7e80df10bb3c5ba0d",
+  "local_ancestry": "Synthetic received checkout, not a published GitHub commit",
+  "frozen_files": [
+    {
+      "path": "fanout_engine/subplan.py",
+      "bytes": 5678,
+      "sha256": "4a0910c55f214d2dc09264a5e92352b4ed00a20eca32ff5551852000cbf1751a",
+      "git_blob": "a9a55dcaea11f51b35fcb88925fe3a5e5687487d"
+    },
+    {
+      "path": "tests/test_subplan.py",
+      "bytes": 13375,
+      "sha256": "fc97602706796d1749227d9fa40f68f109490b59a015fca8d87224b1c63ff4b1",
+      "git_blob": "ee91cb66640dc6b831b3d981312413b6c8cc0df7"
+    },
+    {
+      "path": "docs/subplan.md",
+      "bytes": 7913,
+      "sha256": "dcbc42259b75a0dc2385019d562fb8c717a4debeb211969527f9334af29da927",
+      "git_blob": "061bae68e380a2e86946dc071580fdea98669617"
+    }
+  ],
+  "source_root": "/workspace/scratch/375aad573428/product/fanout-subplan-current",
+  "validation": "accepted current-source composition",
+  "frozen_product_files_unchanged": true,
+  "native_current_files_exact": 38,
+  "received_source_blobs": [
+    {
+      "path": "README.md",
+      "git_blob": "3254d922fdcf9fd02a9e736cce2e46a9c94ec26e"
+    },
+    {
+      "path": "docs/compare-plans.md",
+      "git_blob": "9da0156ac2f3293c72cc501b1ef0a24e9bfb20b5"
+    },
+    {
+      "path": "docs/dispatch-overrides.md",
+      "git_blob": "742bfec7f24f6fea5afc04540adaf4f4f3f9b8fb"
+    },
+    {
+      "path": "docs/dispatch-response-read.md",
+      "git_blob": "0057562cb0fdd01cb30113ec8646cd666079e9f2"
+    },
+    {
+      "path": "docs/inspect-ledger.md",
+      "git_blob": "7d4f2c98a451f67ef4639c4780a0c7eb91e12ac1"
+    },
+    {
+      "path": "docs/plan-preview.md",
+      "git_blob": "d5070c7eb1ff9b6ac3eea87418e4d7c4342bbc31"
+    },
+    {
+      "path": "docs/transaction-rollback.md",
+      "git_blob": "4a2cfb388da3ad630e93f2855b0343a5cb90cc17"
+    },
+    {
+      "path": "fanout_engine/__init__.py",
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8"
+    },
+    {
+      "path": "fanout_engine/compare.py",
+      "git_blob": "552fe9a2096e5628b8b57fac03297fc1230cebc8"
+    },
+    {
+      "path": "fanout_engine/dispatch.py",
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c"
+    },
+    {
+      "path": "fanout_engine/inspect.py",
+      "git_blob": "f35206948db2bd651dad022cecdc1dc8c6c122fd"
+    },
+    {
+      "path": "fanout_engine/inspection.py",
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34"
+    },
+    {
+      "path": "fanout_engine/ledger.py",
+      "git_blob": "df0f3c6e1fa37546ec48129b515317cabb530619"
+    },
+    {
+      "path": "fanout_engine/plan.py",
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82"
+    },
+    {
+      "path": "fanout_engine/preview.py",
+      "git_blob": "3af98db006853a19f60506322f7e450ce3685cfc"
+    },
+    {
+      "path": "fanout_engine/routing.py",
+      "git_blob": "b2efabebd636fae647b511bdc2944e8fec150363"
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "24aee72bfc0f9fed624ed240215ba6205b3d1248"
+    },
+    {
+      "path": "tests/test_compare_plans.py",
+      "git_blob": "fe6eaaed50627b249183c22b7c756c5d546e13ad"
+    },
+    {
+      "path": "tests/test_constructor_snapshots.py",
+      "git_blob": "28a7c5f4ff9ccfa484019828f342b3fcc2200335"
+    },
+    {
+      "path": "tests/test_deep_plans.py",
+      "git_blob": "06461b74dfaf733b9aab6240cdb7d52831ef8bad"
+    },
+    {
+      "path": "tests/test_dispatch.py",
+      "git_blob": "a138baed2644160b999719f888cb97e288d31ff3"
+    },
+    {
+      "path": "tests/test_dispatch_eligibility.py",
+      "git_blob": "bf6ecc354cb129aa82b16083e355c7b56390d700"
+    },
+    {
+      "path": "tests/test_dispatch_overrides.py",
+      "git_blob": "239caf85d7b6681bc10a1b1d33e85cd9983a2967"
+    },
+    {
+      "path": "tests/test_dispatch_response_read.py",
+      "git_blob": "b3bf0c31ef1cdea9a1089a22d085bab2ff4339ba"
+    },
+    {
+      "path": "tests/test_dispatch_string_receipts.py",
+      "git_blob": "4b062dac0076c009cb7c7c7ecfde44601dfbe54b"
+    },
+    {
+      "path": "tests/test_dispatch_unicode_receipts.py",
+      "git_blob": "932276cfed775015c8d20b5e14ddd52357e4ae78"
+    },
+    {
+      "path": "tests/test_inspect_cli.py",
+      "git_blob": "54601281d2368754ad8644c3e9e8a2ec536ededb"
+    },
+    {
+      "path": "tests/test_inspection.py",
+      "git_blob": "57fb1e80af400f4b7cfdb0fbac5bae34001f1b9a"
+    },
+    {
+      "path": "tests/test_ledger_interruptions.py",
+      "git_blob": "634c717337bb1886cffb18a3b7e665d0cfda5fdd"
+    },
+    {
+      "path": "tests/test_plan.py",
+      "git_blob": "ec1cc812bb02b506ea8e346f10179080627a9fee"
+    },
+    {
+      "path": "tests/test_plan_key_identity.py",
+      "git_blob": "e2bdcd09da22369bfd1813c99cc0dbc5e27035ea"
+    },
+    {
+      "path": "tests/test_pool_revalidation.py",
+      "git_blob": "c6a788b151cb9d45c51c36175772f7f49f67c614"
+    },
+    {
+      "path": "tests/test_preview.py",
+      "git_blob": "53fbf3777bc0bcd2b0cad553158124de8dd58a32"
+    },
+    {
+      "path": "tests/test_preview_step_up.py",
+      "git_blob": "f6120402fba7de245614667a2ac9892839bb5d2c"
+    },
+    {
+      "path": "tests/test_routing.py",
+      "git_blob": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998"
+    },
+    {
+      "path": "tests/test_selected_route_receiving.py",
+      "git_blob": "773ae7b847f4bff6f68f5c5915d373db4f1bdc65"
+    },
+    {
+      "path": "tests/test_strict_json_finite_numbers.py",
+      "git_blob": "2d0af4a8e3fcd28a5ea76a86f1e65dd3c1f60abf"
+    },
+    {
+      "path": "tests/test_transaction_rollback.py",
+      "git_blob": "21ce4647eded93cd616b0da0c7307a0e713542a9"
+    }
+  ],
+  "maintained_suite": [
+    {
+      "mode": "normal",
+      "tests": 151,
+      "seconds": 5.58,
+      "stderr": "subplan-current-normal.stderr",
+      "stderr_sha256": "802e6ae8b98f2f84db054564941a9e2247f045a1080fa4b0b2b5c30423e3ed2d",
+      "exit_code": 0
+    },
+    {
+      "mode": "optimized",
+      "tests": 151,
+      "seconds": 8.407,
+      "stderr": "subplan-current-optimized.stderr",
+      "stderr_sha256": "1e28017d91a78803ab0a24a631b19a738b20c12876a000a9275f6b7cfb39718b",
+      "exit_code": 0
+    }
+  ],
+  "scope": "One composed-source gate for newer native Plan, preview and dispatch dependencies. Three product files unchanged; no extra semantic test cases."
+}

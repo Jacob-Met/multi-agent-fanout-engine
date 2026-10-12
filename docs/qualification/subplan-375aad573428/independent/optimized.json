@@ -1,0 +1,46 @@
+{
+  "reviewer": "Memory /root/memory",
+  "python": "3.12.14",
+  "optimized": true,
+  "candidate_sha256": "4a0910c55f214d2dc09264a5e92352b4ed00a20eca32ff5551852000cbf1751a",
+  "matrix_oracle_courses": 32,
+  "exact_native_fields_and_declaration_order": true,
+  "detached_parts": true,
+  "independent_digest_and_keys": true,
+  "native_preview_ready": [
+    "seed"
+  ],
+  "existing_completed_source_preserved": true,
+  "new_project_states": "all queued",
+  "real_sqlite_reopen_unchanged": true,
+  "cli_courses": [
+    {
+      "course": "complete-native-plan",
+      "exit": 0,
+      "bytes": 361
+    },
+    {
+      "course": "duplicate-selection",
+      "exit": 2,
+      "bytes": 0
+    },
+    {
+      "course": "unknown-selection",
+      "exit": 2,
+      "bytes": 0
+    },
+    {
+      "course": "same-project",
+      "exit": 2,
+      "bytes": 0
+    },
+    {
+      "course": "malformed-unselected-source",
+      "exit": 2,
+      "bytes": 0
+    }
+  ],
+  "frozen_three_files_unchanged": true,
+  "findings": [],
+  "result": "accepted"
+}

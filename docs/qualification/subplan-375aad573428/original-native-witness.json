@@ -1,0 +1,74 @@
+{
+  "source_parent": "ae23e21d10c61b22397378a6974db6992e6c1806",
+  "source_plan_sha256": "363e297426c2512a19a6a059f27aea488e14d61f9ea1a3e76b54b8fb56a50189",
+  "original": {
+    "project": "Whole",
+    "parts": [
+      {
+        "id": "publish",
+        "instruction": "Publish the approved result.",
+        "depends_on": [
+          "review"
+        ],
+        "tags": []
+      },
+      {
+        "id": "unused",
+        "instruction": "An unrelated deliverable.",
+        "depends_on": [],
+        "tags": []
+      },
+      {
+        "id": "research",
+        "instruction": "Read the source.",
+        "depends_on": [],
+        "tags": []
+      },
+      {
+        "id": "review",
+        "instruction": "Review the draft.",
+        "depends_on": [
+          "research"
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "naive_part_only_refusal": "a dependency references an unknown part",
+  "manual_complete_native_plan": {
+    "project": "Selected",
+    "parts": [
+      {
+        "id": "publish",
+        "instruction": "Publish the approved result.",
+        "depends_on": [
+          "review"
+        ],
+        "tags": []
+      },
+      {
+        "id": "research",
+        "instruction": "Read the source.",
+        "depends_on": [],
+        "tags": []
+      },
+      {
+        "id": "review",
+        "instruction": "Review the draft.",
+        "depends_on": [
+          "research"
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "manual_part_order": [
+    "publish",
+    "research",
+    "review"
+  ],
+  "manual_ready_ids": [
+    "research"
+  ],
+  "scope": "Absent dependency-closure producer; original Plan admission is working as intended"
+}

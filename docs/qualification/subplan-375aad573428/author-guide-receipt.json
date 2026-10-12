@@ -1,0 +1,47 @@
+{
+  "source_parent": "ae23e21d10c61b22397378a6974db6992e6c1806",
+  "subplan_source_sha256": "4a0910c55f214d2dc09264a5e92352b4ed00a20eca32ff5551852000cbf1751a",
+  "guide_sha256": "dcbc42259b75a0dc2385019d562fb8c717a4debeb211969527f9334af29da927",
+  "guide_examples_received_exactly": true,
+  "producer_exit": 0,
+  "native_plan_bytes": 292,
+  "native_plan_sha256": "6549b3fbb503d2f2f04d14a514579c64e638040252388b82d5da2e6e1c58992d",
+  "part_order": [
+    "publish",
+    "research",
+    "review"
+  ],
+  "native_preview_exit": 0,
+  "initially_ready": [
+    "research"
+  ],
+  "published_comparison_source_commit": "c47a2ca3b813cf7597a33163224b4d05c1ff2e43",
+  "published_comparison_source_sha256": "c96c941c5b4b65e890745bf2b6f4484d4e7284ad6b3c65b729f80513b6baa0c2",
+  "comparison_exit": 0,
+  "removed_ids": [
+    "unrelated"
+  ],
+  "retained_payload_changes": [],
+  "all_key_rows_changed": true,
+  "native_record_reopen_and_inspect": true,
+  "original_project_rows_unchanged": true,
+  "source_bytes_unchanged": true,
+  "readonly_database_bytes_unchanged": true,
+  "full_suite": {
+    "normal": {
+      "methods": 112,
+      "seconds": 4.93,
+      "result": "passed"
+    },
+    "optimized": {
+      "methods": 112,
+      "seconds": 17.625,
+      "result": "passed"
+    }
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "linux"
+  },
+  "limits": "Authored fictional local source and SQLite fixtures only; no live adapter, installed adoption or cross-platform runtime claim"
+}
