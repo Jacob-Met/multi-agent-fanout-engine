@@ -80,6 +80,14 @@ or change the existing step-up rules; configure the desired pool, explicit route
 or step-up route. An adapter remains responsible for matching these labels to
 the provider it uses.
 
+## Integration guides
+
+| Guide | Contract covered |
+|---|---|
+| [Per-call route overrides](docs/dispatch-overrides.md) | Exact part IDs, captured override mappings and route-authorization timing |
+| [Unreadable acknowledgements](docs/dispatch-response-read.md) | Unknown outcomes after response-read failures and the reconciliation boundary |
+| [Transaction cleanup](docs/transaction-rollback.md) | Rollback after body or commit errors, caller-owned transactions and external-effect limits |
+
 ## Scope
 
 This is a reference core, not a turnkey agent, scheduler, or deployment package. It contains no credentials, provider-specific model list, private routing policy, or live service endpoint. An integration should enforce its own authorization, rate limits, storage policy, and evidence requirements before connecting an adapter.
