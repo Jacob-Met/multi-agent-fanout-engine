@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 import hashlib
 import json
+import math
 import re
 from typing import Any, Iterable
 
@@ -38,8 +39,17 @@ def strict_json_loads(text: str) -> Any:
     def invalid_constant(_: str) -> Any:
         raise PlanError("non-finite JSON number")
 
+    def finite_float(value: str) -> float:
+        number = float(value)
+        if not math.isfinite(number):
+            raise PlanError("non-finite JSON number")
+        return number
+
     try:
-        return json.loads(text, object_pairs_hook=object_pairs, parse_constant=invalid_constant)
+        return json.loads(
+            text, object_pairs_hook=object_pairs,
+            parse_constant=invalid_constant, parse_float=finite_float,
+        )
     except PlanError:
         raise
     except (TypeError, json.JSONDecodeError) as exc:
@@ -59,6 +69,10 @@ class Part:
     depends_on: tuple[str, ...] = ()
     tags: tuple[str, ...] = ()
 
+    def __post_init__(self) -> None:
+        object.__setattr__(self, "depends_on", tuple(self.depends_on))
+        object.__setattr__(self, "tags", tuple(self.tags))
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "id": self.id,
@@ -75,6 +89,7 @@ class Plan:
     digest: str = field(init=False)
 
     def __post_init__(self) -> None:
+        object.__setattr__(self, "parts", tuple(self.parts))
         _identifier(self.project_id, "project identifier")
         if not self.parts:
             raise PlanError("a plan must contain at least one part")
