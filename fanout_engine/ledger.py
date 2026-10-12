@@ -138,6 +138,38 @@ class Ledger:
                       for row in rows if row["record_kind"] == 1],
         }
 
+    def project_event_snapshot(self, project_id: str) -> dict[str, Any] | None:
+        """Read the stored plan and its ordered event history in one snapshot.
+
+        Keep JSON columns serialized for the history consumer to validate. This
+        read neither opens nor commits a caller's transaction.
+        """
+        rows = self._db.execute(
+            """
+            SELECT 0 AS record_kind, project_id, plan_digest, plan_json,
+                   NULL AS seq, NULL AS part_id, NULL AS event,
+                   NULL AS detail_json, NULL AS at
+            FROM projects WHERE project_id=?
+            UNION ALL
+            SELECT 1, project_id, NULL, NULL,
+                   seq, part_id, event, detail_json, at
+            FROM events WHERE project_id=?
+            ORDER BY record_kind, seq
+            """,
+            (project_id, project_id),
+        ).fetchall()
+        header = next((row for row in rows if row["record_kind"] == 0), None)
+        if header is None:
+            return None
+        fields = ("seq", "project_id", "part_id", "event", "detail_json", "at")
+        return {
+            "project_id": header["project_id"],
+            "plan_digest": header["plan_digest"],
+            "plan_json": header["plan_json"],
+            "events": [{name: row[name] for name in fields}
+                       for row in rows if row["record_kind"] == 1],
+        }
+
     def part_state(self, project_id: str, part_id: str) -> str:
         with self._db:
             return self._part(self._db, project_id, part_id)["state"]

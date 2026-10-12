@@ -140,3 +140,20 @@ It opens only an existing database, validates the complete retained project and
 writes the native JSON report. Missing or malformed databases are not created or
 initialized. [The existing-ledger guide](docs/inspect-ledger.md) explains status
 codes, literal path handling, Python use and the read-only/WAL boundary.
+
+## Inspect the recorded event timeline
+
+Review the events retained before a part reached its current state:
+
+```sh
+python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample
+python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample --part verify
+```
+
+The read-only command preserves recording sequence, event names, timestamps and
+both exact stored JSON details and their parsed values. It validates the complete
+captured project history before an optional exact part filter. A known part with
+no events has an empty timeline; an unknown part is reported distinctly. The
+[history guide](docs/inspect-history.md) explains the report, Python helper and
+local example. Events remain recorded evidence; the command performs no dispatch,
+recovery or reconciliation.
