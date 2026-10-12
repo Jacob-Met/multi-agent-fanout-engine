@@ -59,6 +59,14 @@ with Ledger(":memory:") as ledger:
 
 `hub` must implement `submit(part, *, route, worker_id, idempotency_key)` and return a non-empty `task_id` after acceptance. If it cannot prove whether a request was accepted, raise an exception: the part is recorded as unknown and is not submitted again.
 
+When a running task has a verified terminal failure, record it with
+`ledger.mark_failed(project_id, part_id, evidence)`. Required evidence retains
+its source, locator and finding alongside the original task/worker/route identity.
+The failed part is not replayed, and its unfinished dependents stay queued.
+[Task results](docs/task-results.md) describes the direct transition and the
+separate unknown-outcome reconciliation path. `python examples/failure_flow.py`
+demonstrates it with one real authored local child failure and no remote service.
+
 Direct `Part` and `Plan` construction accepts tuples or lists for `depends_on`,
 `tags`, and `parts`, and snapshots these collections to tuples. Later edits to a
 caller's lists cannot change the plan payload, digest, or dispatch instructions.
