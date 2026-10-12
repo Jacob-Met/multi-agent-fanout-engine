@@ -217,6 +217,17 @@ class Ledger:
                        (artifact_ref, encoded, time.time(), project_id, part_id))
             self._event(db, project_id, part_id, "completed", {"artifact_ref": artifact_ref, "evidence": evidence or {}})
 
+    def mark_failed(self, project_id: str, part_id: str, evidence: dict[str, str]) -> None:
+        """Record a verified terminal failure of an accepted running task."""
+        self._validate_evidence(evidence)
+        with self._transaction() as db:
+            row = self._part(db, project_id, part_id)
+            if row["state"] != "running":
+                raise LedgerError("only running work may fail directly")
+            db.execute("UPDATE parts SET state='failed',evidence_json=?,updated_at=? WHERE project_id=? AND part_id=?",
+                       (canonical_json(evidence), time.time(), project_id, part_id))
+            self._event(db, project_id, part_id, "failed", evidence)
+
     def reconcile_unknown(self, project_id: str, part_id: str, *, verdict: str,
                           evidence: dict[str, str], artifact_ref: str | None = None) -> None:
         if verdict not in ("completed", "failed"):
