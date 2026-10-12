@@ -1,7 +1,7 @@
 # Record a plan with a consistent identity
 
-`Ledger.record_plan(plan)` captures the plan with native `Part` and `Plan`
-constructors before opening a write transaction. Its captured digest must equal
+`Ledger.record_plan(plan)` captures a standard `Plan` with native `Part` and
+`Plan` constructors before opening a write transaction. Its captured digest must equal
 the identity produced when the supplied plan was validated. The project JSON,
 part payloads and idempotency keys are then recorded from that same capture.
 
@@ -29,8 +29,14 @@ that project already has another recorded plan. An intentional source edit
 therefore needs a newly constructed Plan and the existing project-identity
 rules still apply.
 
+Custom `Plan` subclasses retain their existing serialization and idempotency-key
+methods. The native capture applies only to the standard `Plan` class; a custom
+implementation remains responsible for its own identity and mutable-input
+contract. Converting a subclass to a standard Plan could silently replace its
+key namespace or discard a valid custom document order.
+
 Because `dispatch_ready` calls `record_plan` before selecting workers or
-submitting parts, an already-stale input is refused before those callbacks.
+submitting parts, an already-stale standard Plan is refused before those callbacks.
 This change concerns ledger admission and the data recorded from its capture.
 It does not change callback behavior after `record_plan` returns or repair
 previously inconsistent stored projects; the native inspector continues to
@@ -46,4 +52,5 @@ python -m unittest discover -s tests -v
 The focused course checks disk reopening and exact native identity, edited
 sources before new and repeated records, invalid captured fields, caller edits
 during a real SQLite transaction, unchanged retained database bytes, and stale
-entry through the dispatcher with a local test-only adapter.
+entry through the dispatcher with a local test-only adapter. Compatibility
+controls reopen custom key namespaces and custom document order from disk.

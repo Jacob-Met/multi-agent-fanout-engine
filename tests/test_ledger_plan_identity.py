@@ -73,6 +73,47 @@ class LedgerPlanIdentityTests(unittest.TestCase):
         self.assertIs(plan.parts[0], source)
         self.assertEqual(plan.to_dict(), document)
 
+    def test_custom_plan_identity_keys_remain_exact_after_reopen(self):
+        class NamespacedPlan(Plan):
+            def idempotency_key(self, part_id):
+                return "custom-" + super().idempotency_key(part_id)
+
+        plan = NamespacedPlan("custom-keys", (Part("one", "Preserve the adapter namespace."),))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.sqlite3"
+            with Ledger(str(path)) as ledger:
+                self.assertTrue(ledger.record_plan(plan))
+                events = ledger.events(plan.project_id)
+                self.assertFalse(ledger.record_plan(plan))
+                self.assertEqual(ledger.events(plan.project_id), events)
+            with Ledger.open_readonly(path) as ledger:
+                self.assertEqual(ledger.idempotency_key(plan.project_id, "one"),
+                                 plan.idempotency_key("one"))
+                self.assertEqual(json.loads(ledger.project_snapshot(plan.project_id)["plan_json"]),
+                                 plan.to_dict())
+
+    def test_custom_plan_document_order_keeps_its_validated_digest(self):
+        class ReversedDocumentPlan(Plan):
+            def to_dict(self):
+                document = super().to_dict()
+                document["parts"].reverse()
+                return document
+
+        plan = ReversedDocumentPlan("custom-document", (
+            Part("left", "Read the left source."), Part("right", "Read the right source."),
+        ))
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "ledger.sqlite3"
+            with Ledger(str(path)) as ledger:
+                self.assertTrue(ledger.record_plan(plan))
+                self.assertFalse(ledger.record_plan(plan))
+            with Ledger.open_readonly(path) as ledger:
+                report = inspect_project(ledger, plan.project_id)
+                self.assertEqual(report["plan_digest"], plan.digest)
+                self.assertEqual([part["id"] for part in report["parts"]], ["right", "left"])
+                for part in report["parts"]:
+                    self.assertEqual(part["idempotency_key"], plan.idempotency_key(part["id"]))
+
     def test_edited_plan_is_refused_before_first_write_transaction(self):
         for label, edit in valid_edits().items():
             with self.subTest(edit=label), Ledger(":memory:") as ledger:
