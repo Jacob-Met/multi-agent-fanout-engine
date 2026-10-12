@@ -131,19 +131,26 @@ class Plan:
         visiting: set[str] = set()
         visited: set[str] = set()
 
-        def visit(node: str) -> None:
-            if node in visiting:
-                raise PlanError("dependency graph contains a cycle")
-            if node in visited:
-                return
-            visiting.add(node)
-            for parent in graph[node]:
-                visit(parent)
-            visiting.remove(node)
-            visited.add(node)
-
         for node in graph:
-            visit(node)
+            if node in visited:
+                continue
+            visiting.add(node)
+            # Keep deep dependency paths off the Python call stack.
+            stack = [(node, iter(graph[node]))]
+            while stack:
+                current, parents = stack[-1]
+                try:
+                    parent = next(parents)
+                except StopIteration:
+                    visiting.remove(current)
+                    visited.add(current)
+                    stack.pop()
+                    continue
+                if parent in visiting:
+                    raise PlanError("dependency graph contains a cycle")
+                if parent not in visited:
+                    visiting.add(parent)
+                    stack.append((parent, iter(graph[parent])))
 
     def ready_parts(self, completed: Iterable[str] = ()) -> tuple[Part, ...]:
         done = set(completed)
