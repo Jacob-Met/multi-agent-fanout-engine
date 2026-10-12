@@ -1,0 +1,29 @@
+{
+  "python": "3.12.14",
+  "courses": [
+    {
+      "event": "plan_recorded",
+      "signal_propagated": true,
+      "snapshot_unchanged_after_public_read_and_reopen": true,
+      "events_unchanged_after_reopen": true
+    },
+    {
+      "event": "dispatch_started",
+      "signal_propagated": true,
+      "snapshot_unchanged_after_public_read_and_reopen": true,
+      "events_unchanged_after_reopen": true
+    },
+    {
+      "event": "dispatch_accepted",
+      "signal_propagated": true,
+      "snapshot_unchanged_after_public_read_and_reopen": true,
+      "events_unchanged_after_reopen": true
+    },
+    {
+      "event": "completed",
+      "signal_propagated": true,
+      "snapshot_unchanged_after_public_read_and_reopen": true,
+      "events_unchanged_after_reopen": true
+    }
+  ]
+}
