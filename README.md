@@ -153,3 +153,20 @@ it visible when an edit changes the keys of otherwise unchanged parts. It reads
 the two authored files and leaves retained state untouched. See the
 [complete plan-comparison example](docs/compare-plans.md) for the report fields,
 native Python helper and input limits.
+
+## Inspect the recorded event timeline
+
+Review the events retained before a part reached its current state:
+
+```sh
+python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample
+python -m fanout_engine.history --database "work/dispatch.sqlite3" --project sample --part verify
+```
+
+The read-only command preserves recording sequence, event names, timestamps and
+both exact stored JSON details and their parsed values. It validates the complete
+captured project history before an optional exact part filter. A known part with
+no events has an empty timeline; an unknown part is reported distinctly. The
+[history guide](docs/inspect-history.md) explains the report, Python helper and
+local example. Events remain recorded evidence; the command performs no dispatch,
+recovery or reconciliation.
