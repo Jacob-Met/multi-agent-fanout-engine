@@ -103,6 +103,19 @@ class Ledger:
             raise LedgerError("part is not in the ledger")
         return row
 
+    def project_catalog_snapshot(self) -> list[dict[str, Any]]:
+        """Read all recorded plan headers in one ordered SQL snapshot.
+
+        This read does not open, commit or roll back a caller's transaction.
+        The catalog consumer validates the retained plans before projecting
+        their identifiers, digests and authored part counts.
+        """
+        rows = self._db.execute(
+            "SELECT project_id,plan_digest,plan_json FROM projects "
+            "ORDER BY project_id COLLATE BINARY"
+        ).fetchall()
+        return [dict(row) for row in rows]
+
     def project_snapshot(self, project_id: str) -> dict[str, Any] | None:
         """Read one stored project and its parts in a single SQL snapshot.
 
