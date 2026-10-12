@@ -52,16 +52,16 @@ def preview_plan(
         raise PreviewError("preview requires a native Plan and EffortRouter")
     if len(plan.parts) > MAX_PARTS:
         raise PreviewError("preview supports at most 256 parts")
-    # Capture direct-constructor semantics without from_dict's normalization.
-    # Historically admitted Part-like objects can change after validation; a
-    # preview must never attach the old identity to their edited payload.
-    captured = Plan(plan.project_id, tuple(
-        Part(part.id, part.instruction, part.depends_on, part.tags)
-        for part in plan.parts
-    ))
-    if captured.digest != plan.digest:
-        raise PreviewError("Plan has changed since validation")
-    plan = captured
+    if type(plan) is Plan:
+        # Capture native fields without from_dict's normalization. Custom Plan
+        # subclasses retain their own readiness and identity methods.
+        captured = Plan(plan.project_id, tuple(
+            Part(part.id, part.instruction, part.depends_on, part.tags)
+            for part in plan.parts
+        ))
+        if captured.digest != plan.digest:
+            raise PreviewError("Plan has changed since validation")
+        plan = captured
     if explicit_routes is None:
         explicit_routes = {}
     if not isinstance(explicit_routes, Mapping):

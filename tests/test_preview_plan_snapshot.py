@@ -96,6 +96,19 @@ class PreviewPlanSnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(PreviewError, "changed since validation"):
             preview_plan(plan, router)
 
+    def test_plan_subclass_keeps_its_existing_readiness_behavior(self):
+        class RestrictedPlan(Plan):
+            def ready_parts(self, completed=()):
+                return ()
+
+        plan = RestrictedPlan("custom-readiness", (Part("one", "Custom plan."),))
+        router = EffortRouter({"model-a": ("low",)}, pool=(Route("model-a", "low"),))
+        report = preview_plan(plan, router)
+        self.assertEqual(report["dependency_ready_without_completions"], [])
+        self.assertEqual(report["plan"], plan.to_dict())
+        self.assertEqual(report["plan_digest"], plan.digest)
+        self.assertEqual(report["routes"][0]["idempotency_key"], plan.idempotency_key("one"))
+
 
 if __name__ == "__main__":
     unittest.main()

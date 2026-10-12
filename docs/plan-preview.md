@@ -113,7 +113,9 @@ print(report["plan_digest"])
 print(report["dependency_ready_without_completions"])
 ~~~
 
-The helper accepts an actual native Plan, an actual native EffortRouter and an optional mapping of part IDs to native Route objects. It captures the already-constructed Plan's native fields without reparsing or normalizing them, preserving declaration order, dependency order and repeated tags. If a mutable Part-like object has changed since Plan validation, the helper refuses the request before selecting any routes; construct a new Plan to review the edited content. Changes to the original objects during route selection cannot rewrite the captured report. Its detached JSON-compatible result excludes CLI input hashes because the helper did not read files.
+The helper accepts an actual native Plan, an actual native EffortRouter and an optional mapping of part IDs to native Route objects. For the standard Plan class, it captures the already-constructed native fields without reparsing or normalizing them, preserving declaration order, dependency order and repeated tags. If a mutable Part-like object has changed since validation, the helper refuses the request before selecting any routes; construct a new Plan to review the edited content. Changes to the original objects during route selection cannot rewrite the captured report.
+
+Custom Plan subclasses retain their existing readiness and identity methods; they do not use this capture path. The detached JSON-compatible result excludes CLI input hashes because the helper did not read files.
 
 The helper does not accept completed IDs or stored-state fields. Configured routes for blocked parts are still validated, and unknown explicit IDs are errors. It captures and revalidates the currently configured step-up against the router's catalog, including replacements made after construction. Invalid replacement types raise a validation error. It does not call the router's step-up method or decide whether a step-up is eligible.
 
