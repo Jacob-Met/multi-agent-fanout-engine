@@ -76,7 +76,7 @@ def dispatch_ready(
             valid_task_id = isinstance(task_id, str) and bool(task_id.strip())
             if valid_task_id:
                 try:
-                    task_id.encode("utf-8")
+                    str.encode(task_id, "utf-8")
                 except UnicodeEncodeError:
                     # An identifier SQLite cannot retain is not a usable receipt.
                     valid_task_id = False
