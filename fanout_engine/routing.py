@@ -6,7 +6,7 @@ import hashlib
 import re
 from typing import Iterable, Mapping
 
-_EFFORTS = {"low", "medium", "high", "xhigh", "max"}
+_EFFORTS = {"low", "medium", "high", "xhigh", "max", "ultra"}
 _MODEL = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}\Z")
 
 
