@@ -62,11 +62,12 @@ class Ledger:
         self._db.execute("BEGIN IMMEDIATE")
         try:
             yield self._db
+            self._db.commit()
         except BaseException:
+            # Cancellation and a failed COMMIT must not leave pending writes
+            # that a later connection-context read could accidentally commit.
             self._db.rollback()
             raise
-        else:
-            self._db.commit()
 
     def _event(self, db: sqlite3.Connection, project_id: str, part_id: str | None,
                event: str, detail: dict[str, Any]) -> None:
