@@ -56,16 +56,24 @@ native digest and keys. A comparison exposes these consequences; it does not
 choose a new project ID, update stored rows or decide whether work can be
 submitted again.
 
-To keep the JSON in a file, choose a fresh destination:
+To save the JSON safely, select a new output file:
 
 ```sh
-python -m fanout_engine.compare --before original.json --after revised.json > comparison.json
+python -m fanout_engine.compare --before original.json --after revised.json --output comparison.json
 python -m json.tool comparison.json
 ```
 
-Redirection follows the shell's ordinary file replacement rules. In particular,
-do not redirect output to an input filename. The command itself only opens its
-two input paths for reading.
+The `--output` path must not already exist; an existing file, directory,
+symlink or either input path is refused instead of overwritten. Both input
+files are validated and the entire JSON report is encoded before the output
+is published. The CLI stages the complete bytes beside the destination,
+flushes and syncs them, then uses an exclusive hard link to publish a new
+file. Existing files and input bytes are left intact even when publication
+fails. A failed cleanup may leave a staging file; this is not a general
+crash-durability or multi-file transaction guarantee. Without `--output`,
+the original stdout behavior remains unchanged. Shell `>` redirection
+continues to follow ordinary replacement rules and should not be used for
+exclusive publication.
 
 ## Read the comparison
 
