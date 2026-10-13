@@ -102,6 +102,21 @@ python -m fanout_engine.preview --plan plan.json --routes routes.json
 
 The command validates the entire request and writes deterministic JSON to stdout. An optional --output new-preview.json saves a new file without replacing an existing destination. [The plan preview guide](docs/plan-preview.md) provides complete input examples, the report contract, native Python helper, consumer limits and file-delivery behavior. Initial dependency readiness is separate from stored dispatch eligibility; this preview performs no dispatch or provider operation.
 
+## Discover saved projects
+
+Find the exact project IDs in an existing ledger before selecting one for
+inspection:
+
+~~~sh
+python -m fanout_engine.projects --database "work/dispatch.sqlite3"
+~~~
+
+The catalog validates each saved plan and reports its native digest and authored
+part count in project-ID order. Use a returned `project_id` unchanged with
+`--project` in the inspection or history command. The
+[project catalog guide](docs/project-catalog.md) explains the Python helper,
+exclusive new-file output and the boundary between saved plans and runtime state.
+
 ## Inspect a retained project
 
 Before deciding what to dispatch or reconcile, inspect a project already recorded
