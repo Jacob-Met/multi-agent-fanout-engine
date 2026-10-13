@@ -1,0 +1,19 @@
+test_custom_plan_keeps_readiness_serialization_and_key_methods (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_custom_plan_keeps_readiness_serialization_and_key_methods) ... ok
+test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) ... ok
+test_route_mapping_callback_cannot_change_the_captured_plan (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_route_mapping_callback_cannot_change_the_captured_plan) ... ok
+test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) ... ok
+test_unchanged_native_fields_keep_order_keys_and_state (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_unchanged_native_fields_keep_order_keys_and_state) ... ok
+test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) ... ok
+test_custom_plan_document_order_keeps_its_validated_digest (test_ledger_plan_identity.LedgerPlanIdentityTests.test_custom_plan_document_order_keeps_its_validated_digest) ... ok
+test_custom_plan_identity_keys_remain_exact_after_reopen (test_ledger_plan_identity.LedgerPlanIdentityTests.test_custom_plan_identity_keys_remain_exact_after_reopen) ... ok
+test_edit_during_native_persistence_cannot_change_captured_part_rows (test_ledger_plan_identity.LedgerPlanIdentityTests.test_edit_during_native_persistence_cannot_change_captured_part_rows) ... ok
+test_edited_plan_is_refused_before_first_write_transaction (test_ledger_plan_identity.LedgerPlanIdentityTests.test_edited_plan_is_refused_before_first_write_transaction) ... ok
+test_edited_rerecord_preserves_the_retained_project_and_database (test_ledger_plan_identity.LedgerPlanIdentityTests.test_edited_rerecord_preserves_the_retained_project_and_database) ... ok
+test_invalid_changed_source_never_creates_a_project (test_ledger_plan_identity.LedgerPlanIdentityTests.test_invalid_changed_source_never_creates_a_project) ... ok
+test_stale_dispatch_entry_never_calls_worker_or_hub (test_ledger_plan_identity.LedgerPlanIdentityTests.test_stale_dispatch_entry_never_calls_worker_or_hub) ... ok
+test_unchanged_capture_reopens_with_exact_native_identity (test_ledger_plan_identity.LedgerPlanIdentityTests.test_unchanged_capture_reopens_with_exact_native_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.043s
+
+OK
