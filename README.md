@@ -308,6 +308,17 @@ Python 3.11+, an explicit epoch and a new output directory outside the source.
 See [the offline wheel build guide](docs/offline-wheel-build.md) for the five-file
 receipt, source identity boundary and fresh-environment installation.
 
+
+## Installed ThinkPad saved readers
+
+On the verified ThinkPad user account, `hamon-fanout-read` provides the accepted
+`projects`, `inspect`, `history` and `review` readers from a pinned private
+installation. Every reader requires an explicit existing `--database` path;
+there is no default live ledger. The [installed reader guide](docs/receiving/thinkpad-readers-c4c3dc26dd94/README.md)
+provides the fictional sample, exact source and wheel identities, observed native
+receiving, offline HTML opening and guarded withdrawal instructions. This is a
+specific received installation, not a new package-wide console entry point.
+
 ## Compare saved inspection reports
 
 Use `python -B -m fanout_engine.compare_inspections --first first-inspection.json --second second-inspection.json --output saved-comparison.json`
