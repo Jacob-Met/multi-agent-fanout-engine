@@ -1,0 +1,100 @@
+{
+  "schema": "fanout-task-id-receiving-utility-qualification-v1",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "scope": "Bounded source stager and receiver publication with two frozen behavioral observers. Production repair stays with PR47; no corrected-owner positive receiving result.",
+  "owner": {
+    "pr": 47,
+    "head": "d3aed88cc89fd91e6c8f28755f003bf72f14e6aa",
+    "review_url": "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/47#issuecomment-6135091175"
+  },
+  "source_files": [
+    {
+      "path": "stage_source.py",
+      "bytes": 6087,
+      "sha256": "a80afcad57e9924de4d031bc72c7627a7d0b37419833e2fd0fdbcb365ce383ae"
+    },
+    {
+      "path": "receive_task_id_fix.py",
+      "bytes": 8132,
+      "sha256": "9220f2ab41c460d212971aeee95dc5d06f70a8ed768c9bbca92fb6870cc20ce6"
+    },
+    {
+      "path": "reproduce_task_id_strip.py",
+      "bytes": 6731,
+      "sha256": "c074e8df6dbcd1d2944128de8e73db0c62e9971bd0c848cb545dc45468f2c404"
+    },
+    {
+      "path": "review_task_id_truthiness.py",
+      "bytes": 5532,
+      "sha256": "bdd83c6dd8001a0bc20e9092574e436ec050efd9f2a19a9ab1b18a0dc10671b2"
+    }
+  ],
+  "proof_files": [
+    {
+      "path": "proof/task-id-source-stager-review.json",
+      "bytes": 3435,
+      "sha256": "b20b1c0b10a637f380c2dee92c761562ae64738ee7a959276df903b7f9bbd8ef"
+    },
+    {
+      "path": "proof/task-id-gate-timeout-review.json",
+      "bytes": 1089,
+      "sha256": "c23e09bb6e9f7640708b864371f1717014e7cccc27354c1fc866cfa592ebe79e"
+    }
+  ],
+  "historical_observations": [
+    {
+      "commit": "dca36bef09f39a2b339cc116051b5784619f71ee",
+      "tree": "8e28ee92cd7e03fbaa211dbff69ecfe65d4924ce",
+      "scope": "Four strip and four truthiness cases. Local Python3.12 and native ThinkPad Python3.14.4/SQLite3.46.1 case outcomes agree.",
+      "strip_violations": [
+        "overridden-blank",
+        "overridden-valid"
+      ],
+      "raw_truthiness_cases_match": false,
+      "native_string_controls_match": true,
+      "positive_source_qualification": false,
+      "strip_native_archive": {
+        "file": "fanout-task-id-strip-native-baseline-dca36.tar.gz",
+        "bytes": 80755,
+        "sha256": "e2a03eca5d476f38114a5cfa3b3ed86ce8a3c33f8ada8e2f630f62be89114a50"
+      },
+      "truthiness_native_outer_receipt_sha256": "97073fcac2affdf445eef30b0ccb4b122d0638a287a62a56cec18723a1951793"
+    },
+    {
+      "commit": "d3aed88cc89fd91e6c8f28755f003bf72f14e6aa",
+      "scope": "Independent source worker executed frozen observers on exact PR47 six-module closure; prior gate evaluator applied preserved observations without replay.",
+      "all_strip_cases_match": true,
+      "raw_truthiness_cases_match": false,
+      "native_string_controls_match": true,
+      "outer_evaluator_failed_checks": [
+        "all_truthiness_workflows",
+        "no_truthiness_hooks",
+        "no_dispatch_exception"
+      ],
+      "positive_source_qualification": false
+    }
+  ],
+  "utility_verification": {
+    "stager": {
+      "sha256": "a80afcad57e9924de4d031bc72c7627a7d0b37419833e2fd0fdbcb365ce383ae",
+      "actual_commit": "0317b4bc80638a8e952857aa5966b0e20d1fab72",
+      "tree": "35dc556c1309b394c6f864fd5aaa6f7e7fcc0b22",
+      "staged_manifest_sha256": "c5302a59c38e18733b195fd29e373879e28fc6808a9568903baa0b7400a79ae7",
+      "checks_passed": 9,
+      "scope": "Actual Git-object staging from a checkout with different working dispatch.py; exact six-leaf parity with prior native baseline; existing output and abbreviated pin refused. AST scope covers relative intra-package imports only.",
+      "independent_source_review": "Accepted by source_improvement at the exact helper SHA; no additional stage tests requested."
+    },
+    "receiver": {
+      "sha256": "9220f2ab41c460d212971aeee95dc5d06f70a8ed768c9bbca92fb6870cc20ce6",
+      "prior_gate_preserved_sha256": "125608bcc994fddce78c56f1fa88337fa7df27830f2d1e24276c07b4e0fc4089",
+      "change": "Catch TimeoutExpired, preserve partial byte outputs and failure record, stop before a second observer. Normal evaluator unchanged.",
+      "controlled_timeout_checks_passed": 10,
+      "adapter_workload_run_for_timeout_check": false,
+      "independent_source_review": "Accepted by source_improvement at the exact helper SHA."
+    }
+  },
+  "corrected_owner_candidate_receiving": "Pending an independently reviewed immutable source pin; earlier observations remain unchanged.",
+  "provider_calls": false,
+  "estate_service_binding": false,
+  "production_source_changed": false
+}
