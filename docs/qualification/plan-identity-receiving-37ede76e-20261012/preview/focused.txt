@@ -1,0 +1,9 @@
+test_changed_valid_source_is_refused_before_route_selection (test_preview_plan_identity.PreviewPlanIdentityTests.test_changed_valid_source_is_refused_before_route_selection) ... ok
+test_invalid_changed_source_is_refused_before_route_selection (test_preview_plan_identity.PreviewPlanIdentityTests.test_invalid_changed_source_is_refused_before_route_selection) ... ok
+test_route_callback_cannot_mix_new_text_with_captured_identity (test_preview_plan_identity.PreviewPlanIdentityTests.test_route_callback_cannot_mix_new_text_with_captured_identity) ... ok
+test_stable_mixed_plan_preserves_exact_identity_and_is_detached (test_preview_plan_identity.PreviewPlanIdentityTests.test_stable_mixed_plan_preserves_exact_identity_and_is_detached) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK

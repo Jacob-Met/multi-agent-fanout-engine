@@ -1,0 +1,202 @@
+test_custom_plan_keeps_readiness_serialization_and_key_methods (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_custom_plan_keeps_readiness_serialization_and_key_methods) ... ok
+test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) ... 
+  test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) (phase='hub') ... ERROR
+  test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) (phase='timeout') ... ERROR
+test_route_mapping_callback_cannot_change_the_captured_plan (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_route_mapping_callback_cannot_change_the_captured_plan) ... ERROR
+test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) ... 
+  test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) (recorded=False) ... FAIL
+  test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) (recorded=True) ... FAIL
+test_unchanged_native_fields_keep_order_keys_and_state (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_unchanged_native_fields_keep_order_keys_and_state) ... ok
+test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) ... 
+  test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='worker') ... ERROR
+  test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='router') ... ERROR
+  test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='receipt') ... ERROR
+
+======================================================================
+ERROR: test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) (phase='hub')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 100, in dispatch_ready
+    ledger.mark_running(plan.project_id, part.id, task_id)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 217, in mark_running
+    row = self._part(db, project_id, part_id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 194, in test_hub_callback_preserves_accepted_and_unknown_identity
+    self.run_callback_case(phase)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 103, in dispatch_ready
+    ledger.mark_outcome_unknown(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        plan.project_id, part.id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        {"source": "ledger", "locator": key,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "finding": "remote acceptance was returned but local state could not be advanced"},
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 229, in mark_outcome_unknown
+    row = self._part(db, project_id, part_id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+======================================================================
+ERROR: test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) (phase='timeout')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 65, in dispatch_ready
+    response = hub.submit(part, route=route, worker_id=worker_id, idempotency_key=key)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 86, in submit
+    raise TimeoutError("test-only acceptance ambiguity")
+TimeoutError: test-only acceptance ambiguity
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 194, in test_hub_callback_preserves_accepted_and_unknown_identity
+    self.run_callback_case(phase)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 67, in dispatch_ready
+    ledger.mark_outcome_unknown(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        plan.project_id, part.id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        {"source": "hub adapter", "locator": key,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "finding": f"submit raised {type(exc).__name__}; remote acceptance is unverified"},
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 229, in mark_outcome_unknown
+    row = self._part(db, project_id, part_id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+======================================================================
+ERROR: test_route_mapping_callback_cannot_change_the_captured_plan (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_route_mapping_callback_cannot_change_the_captured_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 197, in test_route_mapping_callback_cannot_change_the_captured_plan
+    self.run_callback_case("routes")
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 42, in dispatch_ready
+    raise ValueError("explicit_routes contains an unknown part identifier")
+ValueError: explicit_routes contains an unknown part identifier
+
+======================================================================
+ERROR: test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='worker')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 189, in test_worker_router_and_receipt_callbacks_use_captured_parts
+    self.run_callback_case(phase)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 61, in dispatch_ready
+    key = ledger.idempotency_key(plan.project_id, part.id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 189, in idempotency_key
+    return self._part(self._db, project_id, part_id)["idempotency_key"]
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+======================================================================
+ERROR: test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='router')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 189, in test_worker_router_and_receipt_callbacks_use_captured_parts
+    self.run_callback_case(phase)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 61, in dispatch_ready
+    key = ledger.idempotency_key(plan.project_id, part.id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 189, in idempotency_key
+    return self._part(self._db, project_id, part_id)["idempotency_key"]
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+======================================================================
+ERROR: test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) (phase='receipt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 100, in dispatch_ready
+    ledger.mark_running(plan.project_id, part.id, task_id)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 217, in mark_running
+    row = self._part(db, project_id, part_id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 189, in test_worker_router_and_receipt_callbacks_use_captured_parts
+    self.run_callback_case(phase)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 140, in run_callback_case
+    report = dispatch_ready(plan, ledger, hub, router, worker_for=worker_for,
+                            explicit_routes=routes)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/dispatch.py", line 103, in dispatch_ready
+    ledger.mark_outcome_unknown(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        plan.project_id, part.id,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+        {"source": "ledger", "locator": key,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "finding": "remote acceptance was returned but local state could not be advanced"},
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 229, in mark_outcome_unknown
+    row = self._part(db, project_id, part_id)
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/fanout_engine/ledger.py", line 103, in _part
+    raise LedgerError("part is not in the ledger")
+fanout_engine.ledger.LedgerError: part is not in the ledger
+
+======================================================================
+FAIL: test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) (recorded=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 216, in test_stale_entry_is_refused_without_workers_routes_or_writes
+    with self.assertRaisesRegex(LedgerError, "changed since validation"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: LedgerError not raised
+
+======================================================================
+FAIL: test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) (recorded=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e/tests/test_dispatch_plan_identity.py", line 216, in test_stale_entry_is_refused_without_workers_routes_or_writes
+    with self.assertRaisesRegex(LedgerError, "changed since validation"):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: LedgerError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.044s
+
+FAILED (failures=2, errors=6)

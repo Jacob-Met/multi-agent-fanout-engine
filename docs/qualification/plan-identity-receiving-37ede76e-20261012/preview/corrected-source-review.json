@@ -1,0 +1,18 @@
+{
+  "ast_matches_after_guard_removal": true,
+  "custom_combined_methods_report_matches_original": true,
+  "first_draft_custom_witness": "PreviewError: Plan has changed since validation",
+  "independent_native_methods": 4,
+  "limit": "Corrected-source review, combined subclass control, and four existing independent native methods; no new whole-suite claim.",
+  "log_sha256": "f96b62c625989831c997bc5ed0ede045437f00f72f913b06a33a116ac2586a45",
+  "native_exit_code": 0,
+  "observed_utc": "2026-10-12T23:59:59.618425+00:00",
+  "only_product_ast_change": "standard Plan type guard around the previously approved capture",
+  "prior_approved_source": "20be9f145dbf6cc7de458e1a2db30c7955139bb5",
+  "schema": "fanout.preview.corrected-source-review.v1",
+  "source_blob": "71dabb931a1adafd7ff449b53d3a1223e08e290d",
+  "source_commit": "02ab6b6705705b9738a0f7d6601dee0d35b9efc7",
+  "source_sha256": "a4cd8ef979b14a427c32621f3d2bbd830b749c7a76986e66d14c02a250781e39",
+  "working_source_preserved": true,
+  "working_status": ""
+}

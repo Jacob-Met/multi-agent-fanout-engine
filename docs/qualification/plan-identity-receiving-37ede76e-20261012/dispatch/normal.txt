@@ -1,0 +1,11 @@
+test_custom_plan_keeps_readiness_serialization_and_key_methods (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_custom_plan_keeps_readiness_serialization_and_key_methods) ... ok
+test_hub_callback_preserves_accepted_and_unknown_identity (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_hub_callback_preserves_accepted_and_unknown_identity) ... ok
+test_route_mapping_callback_cannot_change_the_captured_plan (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_route_mapping_callback_cannot_change_the_captured_plan) ... ok
+test_stale_entry_is_refused_without_workers_routes_or_writes (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_stale_entry_is_refused_without_workers_routes_or_writes) ... ok
+test_unchanged_native_fields_keep_order_keys_and_state (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_unchanged_native_fields_keep_order_keys_and_state) ... ok
+test_worker_router_and_receipt_callbacks_use_captured_parts (test_dispatch_plan_identity.DispatchPlanIdentityTests.test_worker_router_and_receipt_callbacks_use_captured_parts) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.103s
+
+OK
