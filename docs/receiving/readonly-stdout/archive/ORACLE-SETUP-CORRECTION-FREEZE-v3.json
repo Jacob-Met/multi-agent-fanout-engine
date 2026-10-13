@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-13T11:20:38.448111+00:00",
+  "phase": "After original setup failure, before any actual CLI or candidate intake",
+  "originalSetupReceipt": {
+    "bytes": 8475,
+    "sha256": "1e0dd1dd78665ea7ee82c94ba8e98cec3a33ca9ad0b0c6ae058fb209007e8258",
+    "error": "PlanError: invalid project identifier",
+    "commands": 0,
+    "qualification": "Oracle fixture error, not product stdout evidence"
+  },
+  "changes": "Expectation project and plan.project become ASCII receiver-output; instruction Unicode stays. Helper changes only adjacent expectation filename v1 to v2; all case logic remains v2. Unexecuted v1 and incomplete original-v2 are preserved.",
+  "files": {
+    "receive-readonly-stdout-v3.py": {
+      "bytes": 7809,
+      "sha256": "9ba96dcffd71f824b8f41ef36f3dd5520338a240abc5296c6c93e4b3262d61b0"
+    },
+    "stdout-expectations-v2.json": {
+      "bytes": 2332,
+      "sha256": "ae9c28bd0c6529cc78c8adb3db30851be4d730945549d759bb2257256f1e3988"
+    }
+  }
+}

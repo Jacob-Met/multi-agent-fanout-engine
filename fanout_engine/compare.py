@@ -132,6 +132,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--before", type=Path, required=True, help="original authored plan JSON file")
     parser.add_argument("--after", type=Path, required=True, help="revised authored plan JSON file")
     parser.add_argument("--output", type=Path, help="new report file; otherwise write JSON to stdout")
+    parser.add_argument("--format", choices=("json", "html"), default="json",
+                        help="report format; default: json")
     args = parser.parse_args(argv)
     try:
         before, before_hash = _read_plan(args.before, "before")
@@ -139,6 +141,9 @@ def main(argv: list[str] | None = None) -> int:
         report = compare_plans(before, after)
         report["input_sha256"] = {"before": before_hash, "after": after_hash}
         content = _serialize(report)
+        if args.format == "html":
+            from .compare_html import render_comparison
+            content = render_comparison(report, content)
     except RecursionError:
         print("fanout compare: input nesting exceeds comparison limits", file=sys.stderr)
         return 2

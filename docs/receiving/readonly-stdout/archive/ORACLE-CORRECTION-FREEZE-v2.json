@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-13T11:16:56.176840+00:00",
+  "phase": "Pre-execution original-first v2 correction; no original/candidate run or candidate source intake",
+  "originalHelper": {
+    "name": "receive-readonly-stdout-v1.py",
+    "bytes": 7794,
+    "sha256": "61abcf5ae17103ea67d7148d2ff3e539597f79eda9ca7404199ee10bf937a48f"
+  },
+  "correctedHelper": {
+    "name": "receive-readonly-stdout-v2.py",
+    "bytes": 7809,
+    "sha256": "9bb47d63f710b5b380631ccf60c0084cd398a1306234810e7acb1f847590aff1"
+  },
+  "correction": "Only expected history event names change from plan_recorded/dispatching/running/completed to primary Ledger's plan_recorded/dispatch_started/dispatch_accepted/completed. V1 remains unexecuted. Public repair contract and every source input unchanged.",
+  "primaryLedgerGit": "938a5e68a7b33b01a4219356c6894614b95fb0b5",
+  "expectations": {
+    "name": "stdout-expectations-v1.json",
+    "bytes": 2340,
+    "sha256": "f07cbb5ba99b0e48821cf119877cc349a95fc4617eba52b1fc0fb740f1c7b1fd"
+  }
+}
