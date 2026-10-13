@@ -1,0 +1,157 @@
+{
+  "initial_harness_failure": {
+    "correction": "The initial receiver incorrectly expected failed-event detail to wrap evidence. The existing event stores evidence directly. Only that receiver expectation changed; source stayed exact. The initial fixture and streams remain retained.",
+    "result": {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-I",
+        "-B",
+        "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py",
+        "--source",
+        "/dev/hamon-fanout-04eb01aa6f9e/current-candidate",
+        "--out",
+        "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-1"
+      ],
+      "returncode": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 170, in run\n    history[\"events\"][-1][\"detail\"][\"evidence\"] == accepted, \"history evidence mismatch\")\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nKeyError: 'evidence'\n",
+      "stdout": ""
+    },
+    "source_sha256": "42bd6575dc6a23bac6178811c4f8e63d9e75b71092b0d47846a0f3176d805150"
+  },
+  "occupied_refusal": {
+    "all_prior_file_bytes_unchanged": true,
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 81, in run\n    output.mkdir(mode=0o700)  # Exclusive; never reuse an existing receiving directory.\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2'\n",
+    "stdout": ""
+  },
+  "receiving": {
+    "commands": [
+      {
+        "arguments": [
+          "--database",
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3"
+        ],
+        "module": "projects",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f32814932685eb98b6df14c12da841728b23e0b62a91ca600f10cb5c95ac55bb"
+      },
+      {
+        "arguments": [
+          "--database",
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3",
+          "--project",
+          "evidence-receiving"
+        ],
+        "module": "inspect",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3f93a8a43f95fc2af389f830887bc5379c45e48becf69b23c1f879b05cb548cd"
+      },
+      {
+        "arguments": [
+          "--database",
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3",
+          "--project",
+          "evidence-receiving"
+        ],
+        "module": "history",
+        "returncode": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "12119f63a57269c9166d7cc043917db3a79cd4390f19b61811442cdf5d1930f9"
+      }
+    ],
+    "consumer_contract": "Literal evidence retained in state and history; dependent stays queued",
+    "controls": [
+      {
+        "control": "blank_literal",
+        "database_bytes_unchanged": true,
+        "diagnostic": "evidence needs non-empty source, locator, and finding",
+        "result": "LedgerError",
+        "sql_statements": 0
+      },
+      {
+        "control": "surrogate_literal",
+        "database_bytes_unchanged": true,
+        "diagnostic": "evidence needs UTF-8 source, locator, and finding",
+        "result": "LedgerError",
+        "sql_statements": 0
+      }
+    ],
+    "database_read_windows_unchanged": true,
+    "database_sha256": "e9acda3f266b2ea6b68372ce75f2268691e049206c4c13582af8c3cf51e3fd04",
+    "finding": "  verified caf\u00e9 \u6771\u4eac  ",
+    "plan_digest": "31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "result": "PASS",
+    "schema": "fanout.evidence-cli-receiving/1",
+    "source_commit": "9b8265a56727e085b99a691e925cc4cfcafb57a7",
+    "source_files": {
+      "fanout_engine/__init__.py": {
+        "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+      },
+      "fanout_engine/compare.py": {
+        "git_blob": "fb478246d94d6dfab6671910a641f86eab60d78c",
+        "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+      },
+      "fanout_engine/dispatch.py": {
+        "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+      },
+      "fanout_engine/history.py": {
+        "git_blob": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+      },
+      "fanout_engine/inspect.py": {
+        "git_blob": "827b5760a0a95bd7960b084708225ebd478e3ff3",
+        "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273"
+      },
+      "fanout_engine/inspection.py": {
+        "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+      },
+      "fanout_engine/ledger.py": {
+        "git_blob": "7007a3cedccd83410c9ebc592c393000a6013c0b",
+        "sha256": "a9043803fbe0894803f4a94ecad0cbdfd82d17cfab3d0a63383c224eabf53232"
+      },
+      "fanout_engine/plan.py": {
+        "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+      },
+      "fanout_engine/preview.py": {
+        "git_blob": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+      },
+      "fanout_engine/projects.py": {
+        "git_blob": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+      },
+      "fanout_engine/routing.py": {
+        "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+      }
+    },
+    "source_unchanged": true,
+    "sqlite": "3.53.1"
+  },
+  "schema": "fanout.evidence-cli-qualification/1",
+  "script_sha256": "6860e7f50124cbda13ad56baa337bd10434fc65c676198dabeba9fed79d3d0ae",
+  "source_commit": "9b8265a56727e085b99a691e925cc4cfcafb57a7",
+  "streams": {
+    "history.stderr": "",
+    "history.stdout": "{\"events\":[{\"at\":1791866986.4005034,\"detail\":{\"part_count\":2,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\"},\"detail_json\":\"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\\\"}\",\"event\":\"plan_recorded\",\"part_id\":null,\"project_id\":\"evidence-receiving\",\"seq\":1},{\"at\":1791866986.4007173,\"detail\":{\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"worker_id\":\"local-receiver\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"low\\\",\\\"model\\\":\\\"fixture\\\"},\\\"worker_id\\\":\\\"local-receiver\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":2},{\"at\":1791866986.4008267,\"detail\":{\"task_id\":\"owned-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"owned-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":3},{\"at\":1791866986.4013515,\"detail\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"detail_json\":\"{\\\"extra\\\":\\\"retained supplementary detail\\\",\\\"finding\\\":\\\"  verified caf\u00e9 \u6771\u4eac  \\\",\\\"locator\\\":\\\"fixture://receiving/work\\\",\\\"source\\\":\\\"owned local fixture\\\"}\",\"event\":\"failed\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":4}],\"part_id\":null,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"schema_version\":1}\n",
+    "inspect.stderr": "",
+    "inspect.stdout": "{\"blocked_queued_ids\":[\"dependent\"],\"parts\":[{\"artifact_ref\":null,\"depends_on\":[],\"evidence\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"id\":\"work\",\"idempotency_key\":\"fanout-85528519a0d117dc6fe424e9d290ec427618781c8c219df8096624b87bd46c5a\",\"instruction\":\"Owned local receiving fixture.\",\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"state\":\"failed\",\"tags\":[],\"task_id\":\"owned-task\",\"unmet_dependencies\":[],\"updated_at\":1791866986.4012778,\"worker_id\":\"local-receiver\"},{\"artifact_ref\":null,\"depends_on\":[\"work\"],\"evidence\":null,\"id\":\"dependent\",\"idempotency_key\":\"fanout-f2614f2375036cf3744595e555639ca546adfee8fe14ad19a065ee68bceeaa37\",\"instruction\":\"Wait for work.\",\"route\":null,\"state\":\"queued\",\"tags\":[],\"task_id\":null,\"unmet_dependencies\":[{\"id\":\"work\",\"state\":\"failed\"}],\"updated_at\":1791866986.4004848,\"worker_id\":null}],\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"queued_ready_ids\":[],\"state_counts\":{\"completed\":0,\"dispatching\":0,\"failed\":1,\"outcome_unknown\":0,\"queued\":1,\"running\":0}}\n",
+    "projects.stderr": "",
+    "projects.stdout": "{\"project_count\":1,\"projects\":[{\"part_count\":2,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\"}],\"schema_version\":1}\n"
+  },
+  "wrong_source": {
+    "author_check_note": "The first author-side summary over-specified ledger.py as the first mismatching file. The unchanged baseline correctly refused earlier at inspect.py. The raw process stream is unchanged and no output directory was created; no rerun was needed.",
+    "output_not_created": true,
+    "returncode": 1,
+    "source_pin_refusal": true,
+    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 80, in run\n    before = snapshot(source)\n             ^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 70, in snapshot\n    require(blob == entry[\"blob\"], \"source blob mismatch: \" + entry[\"path\"])\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 61, in require\n    raise RuntimeError(message)\nRuntimeError: source blob mismatch: fanout_engine/inspect.py\n",
+    "stdout": ""
+  }
+}
