@@ -11,7 +11,7 @@ import sys
 import tempfile
 from typing import Any
 
-from .plan import Plan, canonical_json, strict_json_loads
+from .plan import Part, Plan, canonical_json, strict_json_loads
 from .routing import EffortRouter, Route
 
 MAX_PLAN_BYTES = 1024 * 1024
@@ -52,6 +52,16 @@ def preview_plan(
         raise PreviewError("preview requires a native Plan and EffortRouter")
     if len(plan.parts) > MAX_PARTS:
         raise PreviewError("preview supports at most 256 parts")
+    if type(plan) is Plan:
+        # Capture native fields without from_dict's normalization. Custom Plan
+        # subclasses retain their own readiness and identity methods.
+        captured = Plan(plan.project_id, tuple(
+            Part(part.id, part.instruction, part.depends_on, part.tags)
+            for part in plan.parts
+        ))
+        if captured.digest != plan.digest:
+            raise PreviewError("Plan has changed since validation")
+        plan = captured
     if explicit_routes is None:
         explicit_routes = {}
     if not isinstance(explicit_routes, Mapping):
