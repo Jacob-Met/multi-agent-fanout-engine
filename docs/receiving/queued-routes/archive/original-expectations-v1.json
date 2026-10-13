@@ -1,0 +1,67 @@
+{
+  "schema": "hamon.queued-route-preview.original-expectations.v1",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "commit": "9fe49691944cacf666e1c37f526c0d26fc1a4ee1",
+  "scope": "Original-only native controls before candidate intake; no product defect claim.",
+  "project": "receiver-queued-routes",
+  "partOrder": [
+    "zulu",
+    "unknown",
+    "done",
+    "alpha",
+    "blocked_unknown",
+    "running",
+    "blocked_running",
+    "failed",
+    "blocked_failed",
+    "dispatching",
+    "blocked_dispatching",
+    "blocked_queued"
+  ],
+  "initialDependencyReady": [
+    "unknown",
+    "done",
+    "alpha",
+    "running",
+    "failed",
+    "dispatching"
+  ],
+  "retainedQueuedReady": [
+    "zulu",
+    "alpha"
+  ],
+  "retainedBlockedQueued": [
+    "blocked_unknown",
+    "blocked_running",
+    "blocked_failed",
+    "blocked_dispatching",
+    "blocked_queued"
+  ],
+  "stateCounts": {
+    "completed": 1,
+    "dispatching": 1,
+    "failed": 1,
+    "outcome_unknown": 1,
+    "queued": 7,
+    "running": 1
+  },
+  "chosenRoutes": {
+    "zulu": {
+      "model": "model-b",
+      "effort": "max"
+    },
+    "alpha": {
+      "model": "model-a",
+      "effort": "low"
+    }
+  },
+  "checks": [
+    "Native current inspector preserves full authored order and mixed-state counts.",
+    "Current inspector identifies queued plus complete direct prerequisites, in authored order.",
+    "Original authored-plan preview reports six initial roots, distinct from retained readiness.",
+    "Current router preview preserves exact explicit zulu and deterministic alpha pool route.",
+    "Proposed queued_routes CLI module is absent; this is expected new capability absence.",
+    "Original source and input plan/routes/SQLite bytes and metadata remain unchanged during CLI controls.",
+    "Every owned CLI child exits naturally without signal, bounded supervision or remaining process group."
+  ]
+}

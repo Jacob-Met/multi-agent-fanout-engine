@@ -1,0 +1,214 @@
+{
+  "schema": "fanout.project-catalog.qualification.v1",
+  "source": {
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "base_commit": "dca36bef09f39a2b339cc116051b5784619f71ee",
+    "base_tree": "8e28ee92cd7e03fbaa211dbff69ecfe65d4924ce",
+    "reviewed_candidate_commit": "999d1a3a528669ca6a4b0a62aeb8dd5ab9b1c61c",
+    "reviewed_candidate_tree": "ade813bb4affc767942aefc89769574830cd92fd",
+    "files": {
+      "docs/project-catalog.md": {
+        "bytes": 4799,
+        "git_sha": "39b026676832bdaad8bf13c7d0106c83129af5b0",
+        "sha256": "a4c343ec6af42a486a660a8ccd42f03cef497ceaa3821c9c7ee32918caabbb63"
+      },
+      "fanout_engine/ledger.py": {
+        "bytes": 16961,
+        "git_sha": "a16acf0b17681ba43d15c42fdb04ec9ec8e1caa3",
+        "sha256": "559f3e290676a4de2762bc89b134ca791731b961226da00734aca1263b8bb216"
+      },
+      "fanout_engine/projects.py": {
+        "bytes": 2390,
+        "git_sha": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+      },
+      "tests/test_projects.py": {
+        "bytes": 12463,
+        "git_sha": "5e3d229acb9e6a32698faa285d43be49e03c2665",
+        "sha256": "6888fd82f91b2396f8426eb5a1fa3b252898aa949a36013960105f08840a56e8"
+      }
+    }
+  },
+  "scope": {
+    "base_leaves": 171,
+    "candidate_leaves": 174,
+    "changed": [
+      "fanout_engine/ledger.py"
+    ],
+    "added": [
+      "docs/project-catalog.md",
+      "fanout_engine/projects.py",
+      "tests/test_projects.py"
+    ],
+    "preserved": 170,
+    "existing_ledger_methods_byte_exact_after_removing_insertion": true,
+    "insertion_bytes": 578
+  },
+  "original_missing_capability": {
+    "baseline_commit": "dca36bef09f39a2b339cc116051b5784619f71ee",
+    "execution": "CPython with exact source loaded from memory; real SQLite :memory:",
+    "known_project_inspection": "Alpha",
+    "ledger_project_catalog_snapshot_present": false,
+    "native_projects_module_present": false,
+    "verified_source_files": 12
+  },
+  "author_linux": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "ordinary_file_projection": {
+      "files": 57,
+      "git_blob_manifest": {
+        ".github/workflows/test.yml": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+        "README.md": "247179b27e573d3a84bf985fd6f778af81f4b03d",
+        "docs/compare-plans.md": "9da0156ac2f3293c72cc501b1ef0a24e9bfb20b5",
+        "docs/dispatch-overrides.md": "742bfec7f24f6fea5afc04540adaf4f4f3f9b8fb",
+        "docs/dispatch-response-read.md": "0057562cb0fdd01cb30113ec8646cd666079e9f2",
+        "docs/inspect-history.md": "eb1b0b4c9443b24e73362606c09f2eb65cc03e58",
+        "docs/inspect-ledger.md": "eb265913a48421ec93278d578c35f97e7b926bce",
+        "docs/plan-preview.md": "d5070c7eb1ff9b6ac3eea87418e4d7c4342bbc31",
+        "docs/step-up-observations.md": "3e55d5a54ed81f27de583ad8c250b01c9c47f3e4",
+        "docs/task-results.md": "0d8dcfb8a0628c283958265259870647c1f5e8da",
+        "docs/transaction-rollback.md": "4a2cfb388da3ad630e93f2855b0343a5cb90cc17",
+        "examples/create_retained_ledger.py": "21086620ab67870c6d4a0922b7ac469ef1ffeb9d",
+        "examples/demo.py": "ba9663fc6bb2aadf276b9fa2ce7093518e9be9c7",
+        "examples/failure_flow.py": "8e9d9ef7d5bc874c91364432a89840b0b508d3d3",
+        "examples/inspect_plan.py": "82390cacd20d4d0e26a3ca73da9044306ac65e16",
+        "fanout_engine/__init__.py": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "fanout_engine/compare.py": "552fe9a2096e5628b8b57fac03297fc1230cebc8",
+        "fanout_engine/dispatch.py": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "fanout_engine/history.py": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "fanout_engine/inspect.py": "07ccaace152531f5c188907ba45d03cd48b67552",
+        "fanout_engine/inspection.py": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "fanout_engine/ledger.py": "92707378ebd914097927fc12d5c3a9dfad84b30c",
+        "fanout_engine/plan.py": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "fanout_engine/preview.py": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "fanout_engine/routing.py": "436a9f014caf69960fce67de28c062a431805b99",
+        "pyproject.toml": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "tests/fixtures/event_history_before_project_index.sql": "f505259feddb89fcf3f88d21dd11b0aa41befdda",
+        "tests/test_compare_plans.py": "fe6eaaed50627b249183c22b7c756c5d546e13ad",
+        "tests/test_constructor_snapshots.py": "28a7c5f4ff9ccfa484019828f342b3fcc2200335",
+        "tests/test_deep_plans.py": "06461b74dfaf733b9aab6240cdb7d52831ef8bad",
+        "tests/test_direct_failure.py": "c100f210349ec4be5062dfeb65da7589fd7cac88",
+        "tests/test_dispatch.py": "a138baed2644160b999719f888cb97e288d31ff3",
+        "tests/test_dispatch_eligibility.py": "bf6ecc354cb129aa82b16083e355c7b56390d700",
+        "tests/test_dispatch_overrides.py": "239caf85d7b6681bc10a1b1d33e85cd9983a2967",
+        "tests/test_dispatch_response_read.py": "b3bf0c31ef1cdea9a1089a22d085bab2ff4339ba",
+        "tests/test_dispatch_string_receipts.py": "4b062dac0076c009cb7c7c7ecfde44601dfbe54b",
+        "tests/test_dispatch_unicode_receipts.py": "932276cfed775015c8d20b5e14ddd52357e4ae78",
+        "tests/test_event_history_lookup.py": "6184eded91d63b7f7ba6c8b5d3038ece24404f10",
+        "tests/test_history.py": "01033365bfa666f7d53db196afbcfc2eb50f34ca",
+        "tests/test_inspect_cli.py": "6a1e2399be10ee45facb47a7275823cb5a2e9be4",
+        "tests/test_inspect_export.py": "409a0afb2a97f001d42c3da5fddcef5cc3bca4a7",
+        "tests/test_inspection.py": "57fb1e80af400f4b7cfdb0fbac5bae34001f1b9a",
+        "tests/test_ledger_interruptions.py": "634c717337bb1886cffb18a3b7e665d0cfda5fdd",
+        "tests/test_native_plan_key_work.py": "1ac4a85b567d9596e3a05bda85ecbc173818f83f",
+        "tests/test_plan.py": "ec1cc812bb02b506ea8e346f10179080627a9fee",
+        "tests/test_plan_key_identity.py": "e2bdcd09da22369bfd1813c99cc0dbc5e27035ea",
+        "tests/test_pool_revalidation.py": "c6a788b151cb9d45c51c36175772f7f49f67c614",
+        "tests/test_preview.py": "53fbf3777bc0bcd2b0cad553158124de8dd58a32",
+        "tests/test_preview_step_up.py": "f6120402fba7de245614667a2ac9892839bb5d2c",
+        "tests/test_routing.py": "c5c219d8fdd04b082cb7ded3188a3f8fdfc78998",
+        "tests/test_selected_route_receiving.py": "773ae7b847f4bff6f68f5c5915d373db4f1bdc65",
+        "tests/test_step_up_observations.py": "20c2bafc319e186657770e526979f817b1be3fb5",
+        "tests/test_strict_json_finite_numbers.py": "2d0af4a8e3fcd28a5ea76a86f1e65dd3c1f60abf",
+        "tests/test_transaction_rollback.py": "21ce4647eded93cd616b0da0c7307a0e713542a9",
+        "tests/test_ultra_routing.py": "6044608cd33fd045eb42dc71bf766727b39abb87",
+        "tools/benchmark_event_history.py": "6c0d610550dd616b252fdb862310e40db32a327c",
+        "tools/benchmark_plan_keys.py": "3f1e55d01d302a49d0c78390d8c489e5219bafbf"
+      }
+    },
+    "results": {
+      "baseline_full": {
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 179 tests in 6.866s\n\nOK\n"
+      },
+      "candidate_full": {
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 190 tests in 7.522s\n\nOK\n"
+      },
+      "candidate_focused_normal": {
+        "exit_code": 0,
+        "output": "test_bad_inputs_never_publish_a_partial_catalog (test_projects.ProjectCatalogCliTests.test_bad_inputs_never_publish_a_partial_catalog) ... ok\ntest_empty_ledger_and_strict_cli_options (test_projects.ProjectCatalogCliTests.test_empty_ledger_and_strict_cli_options) ... ok\ntest_new_file_export_and_occupied_destinations (test_projects.ProjectCatalogCliTests.test_new_file_export_and_occupied_destinations) ... ok\ntest_readonly_catalog_sees_only_committed_wal_changes (test_projects.ProjectCatalogCliTests.test_readonly_catalog_sees_only_committed_wal_changes) ... ok\ntest_real_cli_catalog_then_known_project_inspection (test_projects.ProjectCatalogCliTests.test_real_cli_catalog_then_known_project_inspection) ... ok\ntest_catalog_does_not_complete_a_callers_transaction (test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 1.048s\n\nOK\n"
+      },
+      "candidate_focused_optimized": {
+        "exit_code": 0,
+        "output": "ok\ntest_empty_ledger_and_strict_cli_options (test_projects.ProjectCatalogCliTests.test_empty_ledger_and_strict_cli_options) ... ok\ntest_new_file_export_and_occupied_destinations (test_projects.ProjectCatalogCliTests.test_new_file_export_and_occupied_destinations) ... ok\ntest_readonly_catalog_sees_only_committed_wal_changes (test_projects.ProjectCatalogCliTests.test_readonly_catalog_sees_only_committed_wal_changes) ... ok\ntest_real_cli_catalog_then_known_project_inspection (test_projects.ProjectCatalogCliTests.test_real_cli_catalog_then_known_project_inspection) ... ok\ntest_catalog_does_not_complete_a_callers_transaction (test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 3.999s\n\nOK\n",
+        "output_scope": "final output since initial yield; total 11 tests reported"
+      }
+    },
+    "earlier_memory_api_tests": {
+      "normal": {
+        "exit_code": 0,
+        "output": "test_catalog_does_not_complete_a_callers_transaction (tests.test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (tests.test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (tests.test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (tests.test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (tests.test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (tests.test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.008s\n\nOK\n\n{\"errors\": 0, \"failures\": 0, \"optimization\": 0, \"scope\": \"six maintained API tests; real SQLite :memory:; exact sources loaded from memory\", \"skips\": 0, \"tests_run\": 6}\n"
+      },
+      "optimized": {
+        "exit_code": 0,
+        "output": "test_catalog_does_not_complete_a_callers_transaction (tests.test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (tests.test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (tests.test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (tests.test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (tests.test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (tests.test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.005s\n\nOK\n\n{\"errors\": 0, \"failures\": 0, \"optimization\": 1, \"scope\": \"six maintained API tests; real SQLite :memory:; exact sources loaded from memory\", \"skips\": 0, \"tests_run\": 6}\n"
+      }
+    }
+  },
+  "independent_macos": {
+    "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "existing_ledger_ast_preserved": true,
+    "results": {
+      "baseline_full": {
+        "exit_code": 0,
+        "seconds": 7.89,
+        "tail": "ansition_commit_preserves_state_and_can_retry) ... ok\ntest_generator_exit_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_generator_exit_does_not_leak_plan_writes) ... ok\ntest_keyboard_interrupt_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_keyboard_interrupt_does_not_leak_plan_writes) ... ok\ntest_ordinary_body_failure_still_rolls_back (test_transaction_rollback.TransactionRollbackTests.test_ordinary_body_failure_still_rolls_back) ... ok\ntest_successful_lifecycle_remains_durable_and_idempotent (test_transaction_rollback.TransactionRollbackTests.test_successful_lifecycle_remains_durable_and_idempotent) ... ok\ntest_system_exit_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_system_exit_does_not_leak_plan_writes) ... ok\ntest_authorized_ultra_pool_and_explicit_routes_retain_the_literal_effort (test_ultra_routing.UltraRoutingTests.test_authorized_ultra_pool_and_explicit_routes_retain_the_literal_effort) ... ok\ntest_dispatch_retains_ultra_in_sqlite_without_replaying_an_unknown_submit (test_ultra_routing.UltraRoutingTests.test_dispatch_retains_ultra_in_sqlite_without_replaying_an_unknown_submit) ... ok\ntest_existing_efforts_and_exact_spelling_remain_unchanged (test_ultra_routing.UltraRoutingTests.test_existing_efforts_and_exact_spelling_remain_unchanged) ... ok\ntest_preview_cli_saves_ultra_metadata_and_refuses_an_unauthorized_catalog (test_ultra_routing.UltraRoutingTests.test_preview_cli_saves_ultra_metadata_and_refuses_an_unauthorized_catalog) ... ok\ntest_ultra_step_up_keeps_the_existing_refusal_boundary (test_ultra_routing.UltraRoutingTests.test_ultra_step_up_keeps_the_existing_refusal_boundary) ... ok\ntest_ultra_still_requires_authorization_for_that_model (test_ultra_routing.UltraRoutingTests.test_ultra_still_requires_authorization_for_that_model) ... ok\n\n----------------------------------------------------------------------\nRan 179 tests in 7.709s\n\nOK (skipped=4)\n"
+      },
+      "candidate_focused": {
+        "exit_code": 0,
+        "seconds": 1.09,
+        "tail": "test_bad_inputs_never_publish_a_partial_catalog (test_projects.ProjectCatalogCliTests.test_bad_inputs_never_publish_a_partial_catalog) ... ok\ntest_empty_ledger_and_strict_cli_options (test_projects.ProjectCatalogCliTests.test_empty_ledger_and_strict_cli_options) ... ok\ntest_new_file_export_and_occupied_destinations (test_projects.ProjectCatalogCliTests.test_new_file_export_and_occupied_destinations) ... ok\ntest_readonly_catalog_sees_only_committed_wal_changes (test_projects.ProjectCatalogCliTests.test_readonly_catalog_sees_only_committed_wal_changes) ... ok\ntest_real_cli_catalog_then_known_project_inspection (test_projects.ProjectCatalogCliTests.test_real_cli_catalog_then_known_project_inspection) ... ok\ntest_catalog_does_not_complete_a_callers_transaction (test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 1.016s\n\nOK\n"
+      },
+      "candidate_optimized_focused": {
+        "exit_code": 0,
+        "seconds": 1.3,
+        "tail": "test_bad_inputs_never_publish_a_partial_catalog (test_projects.ProjectCatalogCliTests.test_bad_inputs_never_publish_a_partial_catalog) ... ok\ntest_empty_ledger_and_strict_cli_options (test_projects.ProjectCatalogCliTests.test_empty_ledger_and_strict_cli_options) ... ok\ntest_new_file_export_and_occupied_destinations (test_projects.ProjectCatalogCliTests.test_new_file_export_and_occupied_destinations) ... ok\ntest_readonly_catalog_sees_only_committed_wal_changes (test_projects.ProjectCatalogCliTests.test_readonly_catalog_sees_only_committed_wal_changes) ... ok\ntest_real_cli_catalog_then_known_project_inspection (test_projects.ProjectCatalogCliTests.test_real_cli_catalog_then_known_project_inspection) ... ok\ntest_catalog_does_not_complete_a_callers_transaction (test_projects.ProjectCatalogTests.test_catalog_does_not_complete_a_callers_transaction) ... ok\ntest_catalog_projects_plans_without_reading_runtime_rows (test_projects.ProjectCatalogTests.test_catalog_projects_plans_without_reading_runtime_rows) ... ok\ntest_database_errors_propagate_from_native_api (test_projects.ProjectCatalogTests.test_database_errors_propagate_from_native_api) ... ok\ntest_empty_and_sorted_catalog_matches_native_plan_identities (test_projects.ProjectCatalogTests.test_empty_and_sorted_catalog_matches_native_plan_identities) ... ok\ntest_invalid_later_plan_refuses_complete_catalog (test_projects.ProjectCatalogTests.test_invalid_later_plan_refuses_complete_catalog) ... ok\ntest_one_snapshot_and_detached_results (test_projects.ProjectCatalogTests.test_one_snapshot_and_detached_results) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 1.215s\n\nOK\n"
+      },
+      "candidate_full": {
+        "exit_code": 0,
+        "seconds": 8.62,
+        "tail": "ansition_commit_preserves_state_and_can_retry) ... ok\ntest_generator_exit_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_generator_exit_does_not_leak_plan_writes) ... ok\ntest_keyboard_interrupt_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_keyboard_interrupt_does_not_leak_plan_writes) ... ok\ntest_ordinary_body_failure_still_rolls_back (test_transaction_rollback.TransactionRollbackTests.test_ordinary_body_failure_still_rolls_back) ... ok\ntest_successful_lifecycle_remains_durable_and_idempotent (test_transaction_rollback.TransactionRollbackTests.test_successful_lifecycle_remains_durable_and_idempotent) ... ok\ntest_system_exit_does_not_leak_plan_writes (test_transaction_rollback.TransactionRollbackTests.test_system_exit_does_not_leak_plan_writes) ... ok\ntest_authorized_ultra_pool_and_explicit_routes_retain_the_literal_effort (test_ultra_routing.UltraRoutingTests.test_authorized_ultra_pool_and_explicit_routes_retain_the_literal_effort) ... ok\ntest_dispatch_retains_ultra_in_sqlite_without_replaying_an_unknown_submit (test_ultra_routing.UltraRoutingTests.test_dispatch_retains_ultra_in_sqlite_without_replaying_an_unknown_submit) ... ok\ntest_existing_efforts_and_exact_spelling_remain_unchanged (test_ultra_routing.UltraRoutingTests.test_existing_efforts_and_exact_spelling_remain_unchanged) ... ok\ntest_preview_cli_saves_ultra_metadata_and_refuses_an_unauthorized_catalog (test_ultra_routing.UltraRoutingTests.test_preview_cli_saves_ultra_metadata_and_refuses_an_unauthorized_catalog) ... ok\ntest_ultra_step_up_keeps_the_existing_refusal_boundary (test_ultra_routing.UltraRoutingTests.test_ultra_step_up_keeps_the_existing_refusal_boundary) ... ok\ntest_ultra_still_requires_authorization_for_that_model (test_ultra_routing.UltraRoutingTests.test_ultra_still_requires_authorization_for_that_model) ... ok\n\n----------------------------------------------------------------------\nRan 190 tests in 8.440s\n\nOK (skipped=4)\n"
+      }
+    },
+    "unchanged_skip_reason": "Four existing /dev/full cases are skipped on macOS; baseline and candidate have the same skips.",
+    "separate_cli_handoff": {
+      "schema": "hamon.fanout.independent-handoff.v1",
+      "candidate": "999d1a3a528669ca6a4b0a62aeb8dd5ab9b1c61c",
+      "consumer": "Mac.lan CPython3.13.7 actual module CLI",
+      "project_ids": [
+        "alpha-receiving",
+        "zulu-receiving"
+      ],
+      "selected_id": "alpha-receiving",
+      "plan_digest": "37b25a186b63ac6079fffabac030fefa8f712327a09d228547ea06c6ed1446f6",
+      "authored_part_count": 2,
+      "queued_ready_ids": [
+        "read"
+      ],
+      "blocked_queued_ids": [
+        "review"
+      ],
+      "database_sha256_before": "98bffa01f1fb3ecf0f06197990a4bb179df1acbfc69a342a59739a599f88bfa4",
+      "database_sha256_after": "98bffa01f1fb3ecf0f06197990a4bb179df1acbfc69a342a59739a599f88bfa4",
+      "database_unchanged": true,
+      "stdout_json_valid": true,
+      "stderr_empty": true,
+      "source_tracked_diff": "",
+      "source_commit": "999d1a3a528669ca6a4b0a62aeb8dd5ab9b1c61c"
+    }
+  },
+  "independent_static_review": {
+    "reviewer": "shared_delivery",
+    "disposition": "ACCEPT for isolated review-branch publication",
+    "candidate": "999d1a3a528669ca6a4b0a62aeb8dd5ab9b1c61c",
+    "findings": "Complete tree preserves all 170 unrelated parent leaves and modes. Removing the 578-byte snapshot insertion reproduces the complete original ledger. Source, all 11 tests, guide and actual plan/read-only/output dependencies were reviewed. Guide accurately states authored-part counts, runtime/event validation limits, all-plan refusal, transaction and WAL behavior, and exclusive-output failure limits. No blocking source or guide defect found."
+  },
+  "limits": [
+    "Local SQLite and authored data receiving; no provider, remote worker dispatch, or installed estate integration claim.",
+    "Catalog validates retained plans and their identities. Runtime part rows and events require the existing detailed inspectors.",
+    "Initial local capacity failure required in-memory source receiving; later Linux ordinary-file receiving and independent native macOS receiving completed.",
+    "This evidence does not request a default-branch update, release, installation, or hosted Actions execution."
+  ]
+}

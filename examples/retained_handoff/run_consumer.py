@@ -182,13 +182,53 @@ def capture(label):
     require(audit_history == [event for event in history if event["part_id"] == "audit"], "Part history filter mismatch")
     native, command = native_cli(label + "-inspect", ["fanout_engine.inspect", "--database", str(DB), "--project", plan.project_id])
     require(native == state, "Native inspection CLI/API disagree")
+    queued, queued_command = native_cli(label + "-queued-routes", [
+        "fanout_engine.queued_routes", "--database", str(DB), "--project", plan.project_id,
+        "--routes", str(FIXTURE / "routes.json")])
+    require(queued["schema_version"] == 1, "Unexpected queued-route report schema")
+    for key in ("project_id", "plan_digest", "state_counts", "queued_ready_ids", "blocked_queued_ids"):
+        require(queued[key] == state[key], "Queued-route inspection mismatch: " + key)
+    require(queued["routing_input_sha256"] == sha((FIXTURE / "routes.json").read_bytes()),
+            "Queued-route input digest mismatch")
+    require(queued["parts"] == [
+        {"id": part["id"], "state": part["state"], "unmet_dependencies": part["unmet_dependencies"]}
+        for part in state["parts"]], "Queued-route retained state context mismatch")
+    stored = {part["id"]: part for part in state["parts"]}
+    expected_routes = [
+        {"part_id": part_id, "route": asdict(router.route_for(part_id, overrides.get(part_id))),
+         "route_source": "explicit" if part_id in overrides else "pool",
+         "idempotency_key": stored[part_id]["idempotency_key"]}
+        for part_id in state["queued_ready_ids"]]
+    require(queued["routes"] == expected_routes, "Queued-route selection or stored key mismatch")
+    require(queued["configured_step_up"] is None, "Unexpected fixture step-up route")
+    blockers, blocker_command = native_cli(label + "-blockers", [
+        "fanout_engine.blockers", "--database", str(DB), "--project", plan.project_id])
+    require(label in ("initial", "unknown", "held", "final"), "Unknown retained capture")
+    frontier_ids = ["audit", "summary"] if label == "initial" else (
+        [] if label == "final" else ["audit"])
+    expected_blockers = {
+        "schema_version": 1, "project_id": plan.project_id, "plan_digest": plan.digest,
+        "queued_ready_ids": state["queued_ready_ids"],
+        "blocked_queued": [] if label == "final" else [{
+            "id": "handoff", "direct_unmet_ids": frontier_ids, "frontier_ids": frontier_ids}],
+        "frontier": [{"id": part_id, "state": stored[part_id]["state"],
+                      "worker_id": stored[part_id]["worker_id"],
+                      "task_id": stored[part_id]["task_id"], "blocked_queued_ids": ["handoff"]}
+                     for part_id in frontier_ids],
+    }
+    require(blockers == expected_blockers, "Blocker report differs from the retained fixture phase")
     require(sha(DB.read_bytes()) == before, "Read-only receiving changed database bytes")
     save_new(OUTPUT / (label + "-state.json"), state)
     save_new(OUTPUT / (label + "-history.json"), history)
     save_new(OUTPUT / (label + "-audit-history.json"), audit_history)
     return state, history, {"event_count": len(history), "database_sha256": before,
                             "all_persisted_events_read": True, "database_bytes_unchanged_by_readers": True,
-                            "inspection_command": command}
+                            "inspection_command": command, "queued_route_command": queued_command,
+                            "queued_route_report": label + "-queued-routes.stdout.json",
+                            "queued_route_ready_ids": queued["queued_ready_ids"],
+                            "blocker_command": blocker_command,
+                            "blocker_report": label + "-blockers.stdout.json",
+                            "blocker_frontier_ids": frontier_ids}
 
 
 def stage_start():
@@ -282,6 +322,10 @@ if args.phase == "all":
                "audit_replays": 0, "final_history_events": len(load(OUTPUT / "final-history.json")),
                "provider_calls": 0, "remote_worker_calls": 0,
                "retained_database": "retained.sqlite3", "handoff_artifact": "artifacts/handoff.json",
+               "queued_route_reports": [label + "-queued-routes.stdout.json"
+                                       for label in ("initial", "unknown", "held", "final")],
+               "blocker_reports": [label + "-blockers.stdout.json"
+                                   for label in ("initial", "unknown", "held", "final")],
                "qualification": "The local adapter computes file products synchronously. Ultra is an explicitly authorized native route label here; no model inference or provider-effort behavior was exercised."}
     save_new(OUTPUT / "receipt.json", summary)
     print(json.dumps(summary, indent=2))

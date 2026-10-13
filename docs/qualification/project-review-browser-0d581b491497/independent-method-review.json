@@ -1,0 +1,23 @@
+{
+  "candidate_or_donor_tests_read_by_reviewer": false,
+  "coverage_limits": [
+    "The v1 state-in-body check proves state labels, not visible numerical counts. Exact downloaded/native-object JSON proves underlying values but not the human-readable summary. A separate screenshot or bounded DOM review must compare the six frozen counts and displayed ready/blocked IDs before claiming those visual summaries are correct.",
+    "The pageerror handler follows the first page only. Relocated-page validation covers equal text and offline reopening; do not claim a second-page error monitor was attached.",
+    "Narrow viewport dimensions/screenshot are an observation, not automatic responsive-layout acceptance.",
+    "File inventories compare files and their bytes, not new empty directories.",
+    "The existing v1 native PID was already admitted when feedback arrived. Preserve v1 bytes/results, identify any supplemental visual/DOM receiving separately, and do not relabel v1 coverage."
+  ],
+  "decision": "ACCEPT_FOR_STATED_NATIVE_RECEIVING_WITH_EXPLICIT_COVERAGE_LIMITS",
+  "findings": [
+    "The authored database uses unchanged parent ledger/inspection APIs and separately checks literal six-state counts, ready/blocked IDs and ordered failed/unknown unmet dependencies before freezing native expected JSON.",
+    "Nine actual CLI invocations cover normal/-O equality, occupied output, database/sidecar refusal, absent project, late malformed row, corrected valid source and help. The original source/input inventories are compared at completion.",
+    "Browser method uses an installed explicit Chromium-family executable and isolated offline context. It checks literal Unicode/control text and markup, native object equality after keyboard opening every disclosure, linked declaration order and fragment navigation, actual exact JSON download and relocated standalone reopening.",
+    "No script/document HTTP claim is explicitly limited to observed document context; system-wide browser network isolation is not established. Native runtime/results and screenshot visual assessment remain pending."
+  ],
+  "freeze_sha256": "edf50157f18bf8cdbf46dbe6780b2b19ad03da9b0c367488cdf881374572302e",
+  "oracle_files_rehashed": 8,
+  "receiver_sha256": "08691a78840b622f5c9ed1e70646a060d73e81ff07101e66d139971c2defce15",
+  "recorded_at_utc": "2026-10-13T07:43:24.905338+00:00",
+  "reviewer": "team 0d581b491497 / consumer_worker",
+  "schema": "hamon-blind-receiver-method-review-v1"
+}

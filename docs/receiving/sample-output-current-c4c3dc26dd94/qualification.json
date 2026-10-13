@@ -1,0 +1,370 @@
+{
+  "repo": "Jacob-Met/multi-agent-fanout-engine",
+  "base": "72d35642b0f9c9882e2211a7c6284fb76566de58",
+  "owner_head": "1464ec5b2195b14ebb44016720bbd2dc4ab1fc8c",
+  "claim": 6150214300,
+  "source_blob": "0e0bc5d8ea3790ce4bb5028cbe3b1725fcedb21a",
+  "test_blob": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
+  "guide_blob": "73812585677f5623e77d1cd8ea95664d20465f92",
+  "archive": {
+    "bytes": 41226,
+    "sha256": "e09023a300c0863b6fa4424124bea86dfff9ab8cf8d98e41e8c75bf94252a4a5",
+    "git": "e75f5d2b675b4e67605434930388f4521b900ade"
+  },
+  "qualification": {
+    "base": "72d35642b0f9c9882e2211a7c6284fb76566de58",
+    "owner_head": "1464ec5b2195b14ebb44016720bbd2dc4ab1fc8c",
+    "venue": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "source_scope": "seven current runtime source files plus unchanged owner test and guide; no full checkout, Windows/native or installed qualification",
+    "receipts": [
+      {
+        "name": "original",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-S",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_sample_creator_output.py",
+          "-v"
+        ],
+        "cwd": "/dev/estate-sources-fanout62-c4c3dc26dd94/original",
+        "pid": 5,
+        "exit": 1,
+        "reaped": true,
+        "timed_out": false,
+        "seconds": 0.7383875929954229,
+        "before": {
+          "examples/create_retained_ledger.py": {
+            "bytes": 2455,
+            "sha256": "78112c6c96fbf222779298fce9d67defd0b003f20f8f2e4519f8409ddaacce39",
+            "git": "21086620ab67870c6d4a0922b7ac469ef1ffeb9d",
+            "inode": 19,
+            "mode": 33188,
+            "mtime_ns": 1791909383537717800
+          },
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 21,
+            "mode": 33188,
+            "mtime_ns": 1791909383537790000
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 22,
+            "mode": 33188,
+            "mtime_ns": 1791909383537833000
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 23,
+            "mode": 33188,
+            "mtime_ns": 1791909383537875200
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 24,
+            "mode": 33188,
+            "mtime_ns": 1791909383537924600
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 25,
+            "mode": 33188,
+            "mtime_ns": 1791909383537984300
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 26,
+            "mode": 33188,
+            "mtime_ns": 1791909383538022000
+          },
+          "tests/test_sample_creator_output.py": {
+            "bytes": 4153,
+            "sha256": "ab1d710233715d61f87fc41348e713741d0e9518f06ad03d19dbcbe2265645e9",
+            "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
+            "inode": 28,
+            "mode": 33188,
+            "mtime_ns": 1791909383538061000
+          },
+          "docs/sample-creator-output.md": {
+            "bytes": 3279,
+            "sha256": "80687a47b88c74564d8fb230dd2553cbf8d01bdd4897da3dfaf20e9e35648937",
+            "git": "73812585677f5623e77d1cd8ea95664d20465f92",
+            "inode": 30,
+            "mode": 33188,
+            "mtime_ns": 1791909383538100200
+          }
+        },
+        "after": {
+          "examples/create_retained_ledger.py": {
+            "bytes": 2455,
+            "sha256": "78112c6c96fbf222779298fce9d67defd0b003f20f8f2e4519f8409ddaacce39",
+            "git": "21086620ab67870c6d4a0922b7ac469ef1ffeb9d",
+            "inode": 19,
+            "mode": 33188,
+            "mtime_ns": 1791909383537717800
+          },
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 21,
+            "mode": 33188,
+            "mtime_ns": 1791909383537790000
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 22,
+            "mode": 33188,
+            "mtime_ns": 1791909383537833000
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 23,
+            "mode": 33188,
+            "mtime_ns": 1791909383537875200
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 24,
+            "mode": 33188,
+            "mtime_ns": 1791909383537924600
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 25,
+            "mode": 33188,
+            "mtime_ns": 1791909383537984300
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 26,
+            "mode": 33188,
+            "mtime_ns": 1791909383538022000
+          },
+          "tests/test_sample_creator_output.py": {
+            "bytes": 4153,
+            "sha256": "ab1d710233715d61f87fc41348e713741d0e9518f06ad03d19dbcbe2265645e9",
+            "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
+            "inode": 28,
+            "mode": 33188,
+            "mtime_ns": 1791909383538061000
+          },
+          "docs/sample-creator-output.md": {
+            "bytes": 3279,
+            "sha256": "80687a47b88c74564d8fb230dd2553cbf8d01bdd4897da3dfaf20e9e35648937",
+            "git": "73812585677f5623e77d1cd8ea95664d20465f92",
+            "inode": 30,
+            "mode": 33188,
+            "mtime_ns": 1791909383538100200
+          }
+        },
+        "source_identities_unchanged": true,
+        "stdout": "",
+        "stderr": "test_ascii_and_encodable_cp1252_paths_stay_literal (test_sample_creator_output.SampleCreatorOutputTests.test_ascii_and_encodable_cp1252_paths_stay_literal) ... ok\ntest_configured_output_error_handlers_keep_their_normal_behavior (test_sample_creator_output.SampleCreatorOutputTests.test_configured_output_error_handlers_keep_their_normal_behavior) ... ok\ntest_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) ... \n  test_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) (errors='strict') ... FAIL\n  test_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) (errors='surrogateescape') ... FAIL\ntest_existing_unicode_database_is_refused_without_changing_bytes (test_sample_creator_output.SampleCreatorOutputTests.test_existing_unicode_database_is_refused_without_changing_bytes) ... ok\ntest_missing_unicode_parent_is_refused_without_creating_it (test_sample_creator_output.SampleCreatorOutputTests.test_missing_unicode_parent_is_refused_without_creating_it) ... ok\ntest_utf8_output_keeps_the_literal_unicode_path (test_sample_creator_output.SampleCreatorOutputTests.test_utf8_output_keeps_the_literal_unicode_path) ... ok\n\n======================================================================\nFAIL: test_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) (errors='strict')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/tests/test_sample_creator_output.py\", line 59, in test_cp1252_success_escapes_only_unrepresentable_characters\n    self.assert_created(name, f\"cp1252:{errors}\", displayed, \"cp1252\")\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/tests/test_sample_creator_output.py\", line 32, in assert_created\n    self.assertEqual(result.returncode, 0, result.stderr)\nAssertionError: 1 != 0 : b'Traceback (most recent call last):\\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/examples/create_retained_ledger.py\", line 57, in <module>\\n    raise SystemExit(main())\\n                     ^^^^^^\\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/examples/create_retained_ledger.py\", line 52, in main\\n    print(f\"Created authored sample project \\'sample\\' in {args.database}\")\\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/encodings/cp1252.py\", line 19, in encode\\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nUnicodeEncodeError: \\'charmap\\' codec can\\'t encode character \\'\\\\u03a9\\' in position 56: character maps to <undefined>\\n'\n\n======================================================================\nFAIL: test_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) (errors='surrogateescape')\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/tests/test_sample_creator_output.py\", line 59, in test_cp1252_success_escapes_only_unrepresentable_characters\n    self.assert_created(name, f\"cp1252:{errors}\", displayed, \"cp1252\")\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/tests/test_sample_creator_output.py\", line 32, in assert_created\n    self.assertEqual(result.returncode, 0, result.stderr)\nAssertionError: 1 != 0 : b'Traceback (most recent call last):\\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/examples/create_retained_ledger.py\", line 57, in <module>\\n    raise SystemExit(main())\\n                     ^^^^^^\\n  File \"/dev/estate-sources-fanout62-c4c3dc26dd94/original/examples/create_retained_ledger.py\", line 52, in main\\n    print(f\"Created authored sample project \\'sample\\' in {args.database}\")\\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/encodings/cp1252.py\", line 19, in encode\\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nUnicodeEncodeError: \\'charmap\\' codec can\\'t encode character \\'\\\\u03a9\\' in position 65: character maps to <undefined>\\n'\n\n----------------------------------------------------------------------\nRan 6 tests in 0.669s\n\nFAILED (failures=2)\n"
+      },
+      {
+        "name": "candidate",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-S",
+          "-B",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_sample_creator_output.py",
+          "-v"
+        ],
+        "cwd": "/dev/estate-sources-fanout62-c4c3dc26dd94/candidate",
+        "pid": 16,
+        "exit": 0,
+        "reaped": true,
+        "timed_out": false,
+        "seconds": 0.6618129550042795,
+        "before": {
+          "examples/create_retained_ledger.py": {
+            "bytes": 2728,
+            "sha256": "a462e47cdb5c7b4656e75f61cf297238b17de4575153acd61e1534f74f18aac1",
+            "git": "0e0bc5d8ea3790ce4bb5028cbe3b1725fcedb21a",
+            "inode": 179,
+            "mode": 33188,
+            "mtime_ns": 1791909384276917800
+          },
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 181,
+            "mode": 33188,
+            "mtime_ns": 1791909384277095200
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 182,
+            "mode": 33188,
+            "mtime_ns": 1791909384277271000
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 183,
+            "mode": 33188,
+            "mtime_ns": 1791909384277330700
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 184,
+            "mode": 33188,
+            "mtime_ns": 1791909384277481000
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 185,
+            "mode": 33188,
+            "mtime_ns": 1791909384277714700
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 186,
+            "mode": 33188,
+            "mtime_ns": 1791909384277856500
+          },
+          "tests/test_sample_creator_output.py": {
+            "bytes": 4153,
+            "sha256": "ab1d710233715d61f87fc41348e713741d0e9518f06ad03d19dbcbe2265645e9",
+            "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
+            "inode": 188,
+            "mode": 33188,
+            "mtime_ns": 1791909384278025700
+          },
+          "docs/sample-creator-output.md": {
+            "bytes": 3279,
+            "sha256": "80687a47b88c74564d8fb230dd2553cbf8d01bdd4897da3dfaf20e9e35648937",
+            "git": "73812585677f5623e77d1cd8ea95664d20465f92",
+            "inode": 190,
+            "mode": 33188,
+            "mtime_ns": 1791909384278239500
+          }
+        },
+        "after": {
+          "examples/create_retained_ledger.py": {
+            "bytes": 2728,
+            "sha256": "a462e47cdb5c7b4656e75f61cf297238b17de4575153acd61e1534f74f18aac1",
+            "git": "0e0bc5d8ea3790ce4bb5028cbe3b1725fcedb21a",
+            "inode": 179,
+            "mode": 33188,
+            "mtime_ns": 1791909384276917800
+          },
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 181,
+            "mode": 33188,
+            "mtime_ns": 1791909384277095200
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 182,
+            "mode": 33188,
+            "mtime_ns": 1791909384277271000
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 183,
+            "mode": 33188,
+            "mtime_ns": 1791909384277330700
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 184,
+            "mode": 33188,
+            "mtime_ns": 1791909384277481000
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 185,
+            "mode": 33188,
+            "mtime_ns": 1791909384277714700
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 186,
+            "mode": 33188,
+            "mtime_ns": 1791909384277856500
+          },
+          "tests/test_sample_creator_output.py": {
+            "bytes": 4153,
+            "sha256": "ab1d710233715d61f87fc41348e713741d0e9518f06ad03d19dbcbe2265645e9",
+            "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
+            "inode": 188,
+            "mode": 33188,
+            "mtime_ns": 1791909384278025700
+          },
+          "docs/sample-creator-output.md": {
+            "bytes": 3279,
+            "sha256": "80687a47b88c74564d8fb230dd2553cbf8d01bdd4897da3dfaf20e9e35648937",
+            "git": "73812585677f5623e77d1cd8ea95664d20465f92",
+            "inode": 190,
+            "mode": 33188,
+            "mtime_ns": 1791909384278239500
+          }
+        },
+        "source_identities_unchanged": true,
+        "stdout": "",
+        "stderr": "test_ascii_and_encodable_cp1252_paths_stay_literal (test_sample_creator_output.SampleCreatorOutputTests.test_ascii_and_encodable_cp1252_paths_stay_literal) ... ok\ntest_configured_output_error_handlers_keep_their_normal_behavior (test_sample_creator_output.SampleCreatorOutputTests.test_configured_output_error_handlers_keep_their_normal_behavior) ... ok\ntest_cp1252_success_escapes_only_unrepresentable_characters (test_sample_creator_output.SampleCreatorOutputTests.test_cp1252_success_escapes_only_unrepresentable_characters) ... ok\ntest_existing_unicode_database_is_refused_without_changing_bytes (test_sample_creator_output.SampleCreatorOutputTests.test_existing_unicode_database_is_refused_without_changing_bytes) ... ok\ntest_missing_unicode_parent_is_refused_without_creating_it (test_sample_creator_output.SampleCreatorOutputTests.test_missing_unicode_parent_is_refused_without_creating_it) ... ok\ntest_utf8_output_keeps_the_literal_unicode_path (test_sample_creator_output.SampleCreatorOutputTests.test_utf8_output_keeps_the_literal_unicode_path) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.592s\n\nOK\n"
+      }
+    ],
+    "qualified": true
+  }
+}

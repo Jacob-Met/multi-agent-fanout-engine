@@ -1,0 +1,739 @@
+{
+  "schema": 2,
+  "scope": "Browser-only continuation after a documented v1 receiver presentation assumption.",
+  "original_v1_preserved": true,
+  "expectation_changes": false,
+  "expected_profile": {
+    "bytes": 4678,
+    "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+  },
+  "html_before": {
+    "bytes": 27922,
+    "sha256": "be6e94f8df739b64eca41174fcdb4aa76877ba286317d22cbc5f4b9ac9d9c05e"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "browser": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "checks": [
+    {
+      "name": "visible complete native counts",
+      "passed": true,
+      "detail": {
+        "completed": 1,
+        "dispatching": 1,
+        "failed": 1,
+        "outcome_unknown": 1,
+        "queued": 3,
+        "running": 1
+      }
+    },
+    {
+      "name": "visible ready IDs",
+      "passed": true,
+      "detail": [
+        "z_ready",
+        "c_ready_child"
+      ]
+    },
+    {
+      "name": "visible blocked IDs",
+      "passed": true,
+      "detail": [
+        "a_blocked"
+      ]
+    },
+    {
+      "name": "no script elements",
+      "passed": true
+    },
+    {
+      "name": "no external links",
+      "passed": true
+    },
+    {
+      "name": "one authored part article each",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible tags: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible route: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: z_ready",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: z_ready",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible tags: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible route: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible tags: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible route: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: m_complete",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: m_complete",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible tags: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible route: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: b_failed",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: b_failed",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible tags: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible route: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible tags: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible route: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: r_running",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: r_running",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible tags: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible route: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "article identity/order: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible tags: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible depends_on: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible unmet_dependencies: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible worker_id: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible task_id: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible route: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible artifact_ref: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible evidence: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible updated_at: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "visible idempotency_key: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "linked table retains authored order",
+      "passed": true
+    },
+    {
+      "name": "full-object disclosure count",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: z_ready",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: z_ready",
+      "passed": true
+    },
+    {
+      "name": "full native object: z_ready",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "full native object: a_blocked",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: m_complete",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: m_complete",
+      "passed": true
+    },
+    {
+      "name": "full native object: m_complete",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: b_failed",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: b_failed",
+      "passed": true
+    },
+    {
+      "name": "full native object: b_failed",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "full native object: u_unknown",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: r_running",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: r_running",
+      "passed": true
+    },
+    {
+      "name": "full native object: r_running",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "full native object: d_dispatching",
+      "passed": true
+    },
+    {
+      "name": "initial disclosure closed: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "keyboard disclosure open: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "full native object: c_ready_child",
+      "passed": true
+    },
+    {
+      "name": "native fragment navigation",
+      "passed": true
+    },
+    {
+      "name": "browser-downloaded native bytes exact",
+      "passed": true
+    },
+    {
+      "name": "relocated offline page text identical",
+      "passed": true
+    },
+    {
+      "name": "no document HTTP requests",
+      "passed": true
+    },
+    {
+      "name": "no errors on either observed page",
+      "passed": true
+    }
+  ],
+  "requests": [
+    "file:///C:/Users/jacob/hamon-receiving/fanout-review-0d581b491497-20261013/receiving/received%20%23%20%25%20%CE%BB.html",
+    "edge://downloads-hub/",
+    "edge://downloads-hub/downloads-hub-app.css",
+    "edge://downloads-hub/edge-hub-toolbar.css",
+    "edge://downloads-hub/downloads-list.css",
+    "edge://downloads-hub/download-item.css",
+    "edge://downloads-hub/text.styles.css",
+    "edge://downloads-hub/button.styles.css",
+    "edge://downloads-hub/text-input.styles.css",
+    "edge://downloads-hub/link.styles.css",
+    "edge://downloads-hub/progress-bar.styles.css",
+    "edge://downloads-hub/downloads-header.css",
+    "edge://downloads-hub/edge-hub-header.css",
+    "edge://downloads-hub/mai-button.css",
+    "edge://downloads-hub/mai-text-input.css",
+    "edge://downloads-hub/mai-message-bar.css",
+    "edge://downloads-hub/mai-text.css",
+    "edge://downloads-hub/download-group.css",
+    "edge://downloads-hub/mai-link.css",
+    "edge://downloads-hub/mai-progress-bar.css",
+    "edge://downloads-hub/downloads-modal-dialog.css",
+    "edge://downloads-hub/mai-menu-list.css",
+    "edge://downloads-hub/mai-menu-item.css",
+    "edge://fileicon/?path=C%3A%5CUsers%5Cjacob%5CAppData%5CLocal%5CTemp%5Cplaywright-artifacts-D37Vuh%5C8b44eac5-f181-40db-bd2a-2b64495f3ec8",
+    "edge://downloads-hub/icons.svg",
+    "edge://resources/js/edge-color-change-listener.js",
+    "edge://downloads-hub/hub.js",
+    "edge://downloads-hub/icons.svg",
+    "edge://downloads-hub/icons.svg",
+    "edge://downloads-hub/chunk-KX6LTVLU.js",
+    "edge://resources/js/edge-error-reporting.js",
+    "edge://resources/js/load_time_data.js",
+    "edge://resources/js/assert.js",
+    "edge://downloads-hub/icons.svg",
+    "edge://resources/js/edge_color_change_listener_browser_proxy-2FITRY4R.js",
+    "edge://downloads-hub/edge_downloads.mojom-webui.js",
+    "edge://resources/js/edge_color_change_listener.mojom-webui.js",
+    "edge://resources/mojo/mojo/public/js/bindings.js",
+    "edge://resources/mojo/mojo_browser_proxy.js",
+    "edge://resources/mojo/mojo/public/mojom/base/string16.mojom-webui.js",
+    "edge://resources/mojo/url/mojom/url.mojom-webui.js",
+    "edge://resources/mojo/mojo/public/mojom/base/big_buffer.mojom-webui.js",
+    "edge://resources/mojo/mojo/public/mojom/base/string16.mojom-converters.js",
+    "edge://resources/mojo/mojo/public/mojom/base/string16_converter.js",
+    "edge://resources/mojo/url/mojom/url.mojom-converters.js",
+    "edge://resources/mojo/url/mojom/url_converter.js",
+    "edge://downloads-hub/edge_downloads_btr.mojom-webui.js",
+    "edge://downloads-hub/icons.svg",
+    "edge://downloads-hub/icons.svg",
+    "file:///C:/Users/jacob/hamon-receiving/fanout-review-0d581b491497-20261013/receiving/received%20%23%20%25%20%CE%BB.html",
+    "file:///C:/Users/jacob/hamon-receiving/fanout-review-0d581b491497-20261013/browser-v2/relocated%20%23%20%25%20%E9%9B%AA/standalone.html"
+  ],
+  "page_errors": [],
+  "accepted": true,
+  "browser_version": "154.0.4258.37",
+  "narrow_observation": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "source_before": {
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "bytes": 6671,
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 17553,
+      "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/projects.py": {
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+    },
+    "fanout_engine/review.py": {
+      "bytes": 8720,
+      "sha256": "c388dfb97122bb1ec549a2eba4645bdfaa2fa085bfc13d1e1a2d3a4f401a5c61"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "source_after": {
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "bytes": 6671,
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 17553,
+      "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/projects.py": {
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+    },
+    "fanout_engine/review.py": {
+      "bytes": 8720,
+      "sha256": "c388dfb97122bb1ec549a2eba4645bdfaa2fa085bfc13d1e1a2d3a4f401a5c61"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "oracle_before": {
+    "authored # % \u03bb.sqlite3": {
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    "expectations.json": {
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    "expected.json": {
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    "plan.json": {
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    }
+  },
+  "oracle_after": {
+    "authored # % \u03bb.sqlite3": {
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    "expectations.json": {
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    "expected.json": {
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    "plan.json": {
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    }
+  },
+  "html_after": {
+    "bytes": 27922,
+    "sha256": "be6e94f8df739b64eca41174fcdb4aa76877ba286317d22cbc5f4b9ac9d9c05e"
+  },
+  "source_unchanged": true,
+  "oracle_unchanged": true,
+  "html_unchanged": true,
+  "passed_checks": 125,
+  "failed_checks": 0
+}
