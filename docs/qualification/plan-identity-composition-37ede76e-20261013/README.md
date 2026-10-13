@@ -1,7 +1,7 @@
 # Combined plan identity receiving
 
 This isolated integration candidate combines the already reviewed preview,
-ledger admission/persistence and dispatcher capture increments on actual main
+ledger admission/persistence and dispatcher capture increments on pinned main
 `23daeba5b97ea87733f95bae19b45525e40ae95c`. Root retains the main-branch
 integration decision. The source owners retain PR44 and PR49; PR48 remains the
 separate ready ledger contribution.
@@ -15,7 +15,7 @@ It has the same tree and ordered parents as native tested commit
 
 | Parent | Exact commit |
 | --- | --- |
-| Current main | `23daeba5b97ea87733f95bae19b45525e40ae95c` |
+| Main at source composition | `23daeba5b97ea87733f95bae19b45525e40ae95c` |
 | Corrected preview PR44 | `02ab6b6705705b9738a0f7d6601dee0d35b9efc7` |
 | Ready ledger PR48 | `762ed069d7949f7a302db36a349ace17a3e0325f` |
 | Dispatcher PR49 plus independent receiving | `c38f66f047cd0749dd80a450cd63014b8ac45b0f` |
@@ -35,7 +35,7 @@ matches the parsed admission embedded in the original executed receipt.
 The merge resolves without source conflicts. All 27 changed paths are exactly
 the union of the three reviewed increments and the independent dispatcher
 test/receiving files. Every reviewed production, test, guide and retained
-evidence blob keeps its identity. The remaining current-main leaves stay
+evidence blob keeps its identity. The remaining pinned-main leaves stay
 unchanged.
 
 ## Actual native combined receiving
@@ -69,6 +69,38 @@ All tracked source/test/evidence bytes stayed exact. CLI child processes left
 untracked Python bytecode in the isolated checkout; none is included in this
 branch.
 
+## Independent review and workflow demo
+
+The independent static reviewer accepted exact qualification commit
+`da12e1b9b88dad28dc5b5409b85d3d3019e2fe3a`, tree
+`7bd39e71496fcab4c37aa42950b7db1b8504c0c5`, and the source merge above.
+All 27 explicit static checks passed. The review reconstructed the complete
+205-file source tree from the 27-path contribution union, preserved all 178
+unrelated leaves of the pinned main, and checked that the older preview and
+ledger contributions overwrite no later edits in that pinned main. It also
+inspected the retained native counts and their limits without executing those
+courses again.
+
+The existing workflow's local demo step, `python3 -B examples/demo.py`, then
+exited 0 with the expected dependency behavior:
+
+```text
+accepted research on worker-a at model-a/low
+started: research
+waiting on prerequisites: write
+```
+
+The demo used the same source tree and preserved all 205 tracked files.
+Its local adapter performs no provider or installed-worker calls. This is a
+native run of the workflow's demo command; it is not a GitHub Actions result.
+
+This evidence-only follow-up changes this README and adds the two receipts
+below. The reviewed production, tests, guides and all prior raw evidence remain
+unchanged. Main subsequently advanced to
+`c86113dd09ff17d0c606b390b693caddb967f8b1` with PR52's worker-identity
+repair. The acceptance and runtime results in this directory qualify the pinned
+source above; composition with that later main requires a distinct source gate.
+
 ## Retained receiving bytes
 
 | File | Bytes | SHA-256 |
@@ -78,8 +110,10 @@ branch.
 | [complete-normal.stdout.txt](complete-normal.stdout.txt) | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 | [identity-optimized.stderr.txt](identity-optimized.stderr.txt) | 4586 | `8cdfc283c10c48171d88eddcea99cb8a0b6c245246cb2a8d1e5b5d98bf9a96fc` |
 | [identity-optimized.stdout.txt](identity-optimized.stdout.txt) | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| [independent-composition-review.json](independent-composition-review.json) | 18507 | `bdda89a163f21f990b1b9ef9a3e89cfe90bb8e0bcae99cd1ff3e4f05de2574d3` |
+| [workflow-demo.json](workflow-demo.json) | 1305 | `2d83e759e408df9966f8df468caf811a8ed0af5b8a64d8a7be953f3eea3023ca` |
 
-The JSON retains complete commands, runtime, source/parent/tree identity,
+The original receiving JSON retains complete commands, runtime, source/parent/tree identity,
 all 205 watched SHA-256 values, raw stream identities and actual exit codes.
 Absolute native paths describe the original executed course.
 
