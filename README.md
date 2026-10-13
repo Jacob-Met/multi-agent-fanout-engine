@@ -292,3 +292,10 @@ preserving native order and state. It reads the existing validated project
 snapshot without dispatching or changing it. The
 [blocker guide](docs/inspect-blockers.md) defines the completed and in-flight
 cutoffs, Python helper, report fields and create-only export.
+
+## Create a queued ledger from a saved plan
+
+Use `python -m fanout_engine.create_ledger --plan plan.json --database new-work.sqlite3`
+to record a parsed authored Plan in a new SQLite file. Every part starts queued;
+no work is dispatched. The [new-ledger guide](docs/create-plan-ledger.md) covers
+native identity, sidecar guards, exact receipts and publication/output failures.
