@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from contextlib import closing
 from dataclasses import asdict
 import hashlib
 import json
@@ -175,7 +176,7 @@ def capture(label):
         state = inspect_project(ledger, plan.project_id)
         history = ledger.events(plan.project_id)
         audit_history = ledger.events(plan.project_id, "audit")
-    with sqlite3.connect(DB.as_uri() + "?mode=ro", uri=True) as sql:
+    with closing(sqlite3.connect(DB.as_uri() + "?mode=ro", uri=True)) as sql, sql:
         rows = sql.execute("SELECT seq,part_id,event,detail_json FROM events WHERE project_id=? ORDER BY seq", (plan.project_id,)).fetchall()
     require([(event["seq"], event["part_id"], event["event"], event["detail_json"]) for event in history] == rows,
             "History API did not return every persisted event exactly")

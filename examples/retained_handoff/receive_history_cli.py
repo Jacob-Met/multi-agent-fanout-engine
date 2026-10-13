@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Read the retained workflow through the maintained history CLI without mutation."""
 import argparse
+from contextlib import closing
 import hashlib
 import json
 import os
@@ -33,7 +34,7 @@ receipt = json.loads((run / "receipt.json").read_text())
 require(receipt["status"] == "completed" and receipt["source"] == pin, "Completed receiving/source binding mismatch")
 db = run / "retained.sqlite3"
 before = digest(db)
-with sqlite3.connect(db.as_uri() + "?mode=ro", uri=True) as connection:
+with closing(sqlite3.connect(db.as_uri() + "?mode=ro", uri=True)) as connection, connection:
     connection.row_factory = sqlite3.Row
     rows = connection.execute("SELECT * FROM events WHERE project_id=? ORDER BY seq", (receipt["project_id"],)).fetchall()
     all_events = [{**dict(row), "detail": json.loads(row["detail_json"])} for row in rows]
