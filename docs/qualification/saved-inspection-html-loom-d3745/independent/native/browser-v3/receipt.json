@@ -1,0 +1,88 @@
+{
+  "accepted": false,
+  "after": {
+    "typed-oracle.json": {
+      "bytes": 1830,
+      "mode": 436,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3"
+    },
+    "typed.html": {
+      "bytes": 12871,
+      "mode": 436,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7"
+    }
+  },
+  "before": {
+    "typed-oracle.json": {
+      "bytes": 1830,
+      "mode": 436,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3"
+    },
+    "typed.html": {
+      "bytes": 12871,
+      "mode": 436,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7"
+    }
+  },
+  "browser_console_errors": [],
+  "checks": [
+    {
+      "actual": "hamon-thinkpad",
+      "expected": "hamon-thinkpad",
+      "name": "host",
+      "passed": true
+    },
+    {
+      "actual": [
+        "jacob",
+        1000,
+        "/home/jacob"
+      ],
+      "expected": [
+        "jacob",
+        1000,
+        "/home/jacob"
+      ],
+      "name": "account",
+      "passed": true
+    },
+    {
+      "actual": 12871,
+      "expected": 12871,
+      "name": "typed.html bytes",
+      "passed": true
+    },
+    {
+      "actual": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "expected": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "name": "typed.html sha256",
+      "passed": true
+    },
+    {
+      "actual": 1830,
+      "expected": 1830,
+      "name": "typed-oracle.json bytes",
+      "passed": true
+    },
+    {
+      "actual": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "expected": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "name": "typed-oracle.json sha256",
+      "passed": true
+    },
+    {
+      "actual": false,
+      "expected": false,
+      "name": "fresh browser profile",
+      "passed": true
+    }
+  ],
+  "closed_safely": true,
+  "error": "Traceback (most recent call last):\n  File \"/home/jacob/hamon/receiving/root-d3745-fanout-html/receive-browser-v3.py\", line 27, in <module>\n    with sync_playwright() as pw:\n         ~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3/dist-packages/playwright/sync_api/_context_manager.py\", line 79, in __enter__\n    playwright = self._playwright\n                 ^^^^^^^^^^^^^^^^\nAttributeError: 'PlaywrightContextManager' object has no attribute '_playwright'\n",
+  "finished": "2026-10-13T20:31:31.535985+00:00",
+  "owned_profile_removed": true,
+  "page_errors": [],
+  "requests": [],
+  "schema": "hamon.root.fanout-inspection-html-browser.v1",
+  "started": "2026-10-13T20:31:31.458001+00:00"
+}

@@ -1,0 +1,315 @@
+{
+  "schema": "hamon.root.fanout-inspection-html-browser.v5",
+  "started": "2026-10-13T20:40:45.901Z",
+  "pid": 286135,
+  "runtime": "v22.22.1",
+  "accepted": false,
+  "checks": [
+    {
+      "name": "host",
+      "actual": "hamon-thinkpad",
+      "expected": "hamon-thinkpad",
+      "passed": true
+    },
+    {
+      "name": "account",
+      "actual": [
+        "jacob",
+        1000,
+        "/home/jacob"
+      ],
+      "expected": [
+        "jacob",
+        1000,
+        "/home/jacob"
+      ],
+      "passed": true
+    },
+    {
+      "name": "typed.html bytes",
+      "actual": 12871,
+      "expected": 12871,
+      "passed": true
+    },
+    {
+      "name": "typed.html sha256",
+      "actual": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "expected": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "passed": true
+    },
+    {
+      "name": "typed-oracle.json bytes",
+      "actual": 1830,
+      "expected": 1830,
+      "passed": true
+    },
+    {
+      "name": "typed-oracle.json sha256",
+      "actual": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "expected": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "passed": true
+    },
+    {
+      "name": "fresh browser profile",
+      "actual": false,
+      "expected": false,
+      "passed": true
+    },
+    {
+      "name": "verified Puppeteer version",
+      "actual": "25.12.0",
+      "expected": "25.12.0",
+      "passed": true
+    },
+    {
+      "name": "file origin",
+      "actual": "file:///home/jacob/hamon/receiving/root-d3745-fanout-html/inputs/typed.html",
+      "expected": "file:///home/jacob/hamon/receiving/root-d3745-fanout-html/inputs/typed.html",
+      "passed": true
+    },
+    {
+      "name": "no active/external embedding",
+      "actual": 0,
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "first label visible",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "second label visible",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "saved data scope visible",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "first complete raw identity visible",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "second complete raw identity visible",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible nullable",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible ready",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible accepted",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible count",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible offset",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible outcome_unknown",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "typed content visible blocked",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "desktop no page overflow",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "one native download",
+      "actual": 1,
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "name": "actual downloaded original JSON",
+      "actual": "eyJjaGFuZ2VkX3BhcnRfaWRzIjpbImludmVudG9yeTwmPiIsImF1ZGl0IFwizqlcIiIsImhhbmRvZmYiXSwiZmlyc3QiOnsiZG9jdW1lbnQiOnsibnVsbGFibGUiOm51bGwsInBhcnRzIjpbeyJhY2NlcHRlZCI6ZmFsc2UsImNvdW50IjoxLCJpZCI6ImludmVudG9yeTwmPiIsInN0YXRlIjoiY29tcGxldGUifSx7ImlkIjoiYXVkaXQgXCLOqVwiIiwic3RhdGUiOiJvdXRjb21lX3Vua25vd24iLCJ0YXNrX3JlZiI6bnVsbH0seyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOi0wLjAsInN0YXRlIjoiYmxvY2tlZCJ9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOnRydWV9LCJpbnB1dF9ieXRlcyI6NDI1LCJpbnB1dF9zaGEyNTYiOiIzZWZiNGMyYjcxYjUxZDc0YjZlNDMxMjA4ZmFiNzJiNjE2ZmIwZTZhOGVmODE0YTQ0NGJmOTNkZGI2NTE5ZTVlIn0sInBhcnRfY2hhbmdlcyI6W3siZmllbGRzIjpbeyJmaWVsZCI6ImFjY2VwdGVkIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOmZhbHNlfSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjowfX0seyJmaWVsZCI6ImNvdW50IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjF9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjEuMH19XSwicGFydF9pZCI6ImludmVudG9yeTwmPiJ9LHsiZmllbGRzIjpbeyJmaWVsZCI6InN0YXRlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJvdXRjb21lX3Vua25vd24ifSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiY29tcGxldGUifX1dLCJwYXJ0X2lkIjoiYXVkaXQgXCLOqVwiIn0seyJmaWVsZHMiOlt7ImZpZWxkIjoib2Zmc2V0IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOi0wLjB9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjAuMH19LHsiZmllbGQiOiJzdGF0ZSIsImZpcnN0Ijp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiYmxvY2tlZCJ9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJyZWFkeSJ9fV0sInBhcnRfaWQiOiJoYW5kb2ZmIn1dLCJwYXJ0X29yZGVyX2NoYW5nZWQiOnRydWUsInNhbWVfaW5wdXRfYnl0ZXMiOmZhbHNlLCJzYW1lX3NhdmVkX3ZhbHVlcyI6ZmFsc2UsInNhdmVkX2RhdGFfb25seSI6dHJ1ZSwic2NoZW1hIjoiZmFub3V0LnNhdmVkLWluc3BlY3Rpb24tY29tcGFyaXNvbi8xIiwic2Vjb25kIjp7ImRvY3VtZW50Ijp7InBhcnRzIjpbeyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOjAuMCwic3RhdGUiOiJyZWFkeSJ9LHsiYWNjZXB0ZWQiOjAsImNvdW50IjoxLjAsImlkIjoiaW52ZW50b3J5PCY+Iiwic3RhdGUiOiJjb21wbGV0ZSJ9LHsiaWQiOiJhdWRpdCBcIs6pXCIiLCJzdGF0ZSI6ImNvbXBsZXRlIiwidGFza19yZWYiOm51bGx9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOjF9LCJpbnB1dF9ieXRlcyI6MzkwLCJpbnB1dF9zaGEyNTYiOiIyZWI2YjUzNzEwMWZkOTBkNWU3NmU2MDJjOThjNTBiNDVhODc2YTY5MDJkM2Q1ZDY3ZDY2NDkzMGVmMThjNTMyIn0sInRvcF9sZXZlbF9jaGFuZ2VzIjpbeyJmaWVsZCI6Im51bGxhYmxlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOm51bGx9LCJzZWNvbmQiOnsicHJlc2VudCI6ZmFsc2V9fSx7ImZpZWxkIjoicmVhZHkiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6dHJ1ZX0sInNlY29uZCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6MX19XX0K",
+      "expected": "eyJjaGFuZ2VkX3BhcnRfaWRzIjpbImludmVudG9yeTwmPiIsImF1ZGl0IFwizqlcIiIsImhhbmRvZmYiXSwiZmlyc3QiOnsiZG9jdW1lbnQiOnsibnVsbGFibGUiOm51bGwsInBhcnRzIjpbeyJhY2NlcHRlZCI6ZmFsc2UsImNvdW50IjoxLCJpZCI6ImludmVudG9yeTwmPiIsInN0YXRlIjoiY29tcGxldGUifSx7ImlkIjoiYXVkaXQgXCLOqVwiIiwic3RhdGUiOiJvdXRjb21lX3Vua25vd24iLCJ0YXNrX3JlZiI6bnVsbH0seyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOi0wLjAsInN0YXRlIjoiYmxvY2tlZCJ9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOnRydWV9LCJpbnB1dF9ieXRlcyI6NDI1LCJpbnB1dF9zaGEyNTYiOiIzZWZiNGMyYjcxYjUxZDc0YjZlNDMxMjA4ZmFiNzJiNjE2ZmIwZTZhOGVmODE0YTQ0NGJmOTNkZGI2NTE5ZTVlIn0sInBhcnRfY2hhbmdlcyI6W3siZmllbGRzIjpbeyJmaWVsZCI6ImFjY2VwdGVkIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOmZhbHNlfSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjowfX0seyJmaWVsZCI6ImNvdW50IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjF9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjEuMH19XSwicGFydF9pZCI6ImludmVudG9yeTwmPiJ9LHsiZmllbGRzIjpbeyJmaWVsZCI6InN0YXRlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJvdXRjb21lX3Vua25vd24ifSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiY29tcGxldGUifX1dLCJwYXJ0X2lkIjoiYXVkaXQgXCLOqVwiIn0seyJmaWVsZHMiOlt7ImZpZWxkIjoib2Zmc2V0IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOi0wLjB9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjAuMH19LHsiZmllbGQiOiJzdGF0ZSIsImZpcnN0Ijp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiYmxvY2tlZCJ9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJyZWFkeSJ9fV0sInBhcnRfaWQiOiJoYW5kb2ZmIn1dLCJwYXJ0X29yZGVyX2NoYW5nZWQiOnRydWUsInNhbWVfaW5wdXRfYnl0ZXMiOmZhbHNlLCJzYW1lX3NhdmVkX3ZhbHVlcyI6ZmFsc2UsInNhdmVkX2RhdGFfb25seSI6dHJ1ZSwic2NoZW1hIjoiZmFub3V0LnNhdmVkLWluc3BlY3Rpb24tY29tcGFyaXNvbi8xIiwic2Vjb25kIjp7ImRvY3VtZW50Ijp7InBhcnRzIjpbeyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOjAuMCwic3RhdGUiOiJyZWFkeSJ9LHsiYWNjZXB0ZWQiOjAsImNvdW50IjoxLjAsImlkIjoiaW52ZW50b3J5PCY+Iiwic3RhdGUiOiJjb21wbGV0ZSJ9LHsiaWQiOiJhdWRpdCBcIs6pXCIiLCJzdGF0ZSI6ImNvbXBsZXRlIiwidGFza19yZWYiOm51bGx9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOjF9LCJpbnB1dF9ieXRlcyI6MzkwLCJpbnB1dF9zaGEyNTYiOiIyZWI2YjUzNzEwMWZkOTBkNWU3NmU2MDJjOThjNTBiNDVhODc2YTY5MDJkM2Q1ZDY3ZDY2NDkzMGVmMThjNTMyIn0sInRvcF9sZXZlbF9jaGFuZ2VzIjpbeyJmaWVsZCI6Im51bGxhYmxlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOm51bGx9LCJzZWNvbmQiOnsicHJlc2VudCI6ZmFsc2V9fSx7ImZpZWxkIjoicmVhZHkiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6dHJ1ZX0sInNlY29uZCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6MX19XX0K",
+      "passed": true
+    },
+    {
+      "name": "download completes without partial file",
+      "actual": [],
+      "expected": [],
+      "passed": true
+    },
+    {
+      "name": "narrow no page overflow",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "download remains reachable",
+      "actual": true,
+      "expected": true,
+      "passed": true
+    },
+    {
+      "name": "page exceptions",
+      "actual": [],
+      "expected": [],
+      "passed": true
+    },
+    {
+      "name": "browser console errors",
+      "actual": [],
+      "expected": [],
+      "passed": true
+    },
+    {
+      "name": "no page external requests",
+      "actual": [
+        "data:font/woff2;base64,d09GMgABAAAAAAScAAsAAAAACfAAAARNAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAhBIRCAqGMIRJATYCJAMsCxgABCAFhF4HaBsuCMgehXEsLOlXaXd7sgbPQ172fjLwdhYFM92mABaiTuRVdO5/mx9I5UJiJom3phLRQw/TSF2M/vo25+pNyWkNws81NrUDAAf0QOdfcf7nmPEyBPZtCbbZEDuosskKZG922ZhBenh05qcSXktf6s3Oy9dAkWsyDzMoM5QTKcwKNjFayUPSREGFhUMrdE8MJsH052qGcYNO3pbEaYIBoDTItIKGAqhDdKHRD0kkKg6QGSCWEfueTNr3P6OvYaIbDH/8ULEAbjQtUt+hT/qmX/SH/twwMLDqN4jxzXjy4PHtltSA6lINqkpRd7N7onVBP20y7YBWyDIHFEBjqKBFMmECfQcTZtD3MmEB/SATVtCPM2ED/TQTdtCfS0/pEsN4ySin3r8q8xHE+0D0XMg8gJi4YrNpNv3qetXuDyeo6OBNZrq5gi7ouC1zcmB2Fd+FewIhcUIfszpF1hzXhrmMCwxaznRyZjig6Y2W7+bBn2DL8fJu/2oHbWc6X80+LUTXcVzv8O3IOy4qKVyFw/DHaMtfzNQEi5gbFT/EDpiofbpkYq2dQui6WcpfxrVBEJ/KxbLA4ZroZoVx+iE+QeTIiI7oKuoUIk/a1ekEOoNFjozm0suYYUelq13/88K1c3PTH9O9Q0d5LZbu7+J2aT7XP23KyQs+34WTU7r8d/k0l6dLl98Dn+/BSUZc7U0mm7FqhSMO9EHV/j5FB4qYX4aXNaKwz/4RRfAWsW8xGW+hvr8PTAf6IP9mRpkDwwv7QFz9HRuOeGWfd8rkyYsWTVy4vpG/pgVNWzBx0aTeIgeq58XFVfZXVduwuOq51a77aT0XLVw4v1PBFjRsQzO+tVeVp3KIwqfKbd6sdjzGvFSuPMquGpMT29lkrhwbE5uz6cGHhIETB06oUk+6tHLJgfnu/3nVnJzYxiXNjQNjYqsu+vCgYKDla5uUOzTNDZg46eCBd3d3gSk9Kz/bFiv8hvOzCT5eqyjBGerT+EiG/JGqwbC+UQ6Bv9bmKGWMj8Yn+fPVRJxKBGqTFXQyM9DhHSlvEHmLVxyYjY/Fdd3hACfLyP3VVZLvVR7B0pxSsGIBqHhwT5sSMOMkRG0BJhpsWMkEO24KwE0pqp3tIYTWCIjJjuBiGNTKTj8JoBLKAn4TmPFnj9oywZwFGx4egp1g3oObeLHdwUO2pFcYTITZCa2c1GQbNg6RCsu9bpikThhAWnLaBi3LM8+5VbMU6rUn30owOC83ULcfBlClb5BBre46BinaWRal85SUvlCbUx1Nbyj2HWCxBTkEgWScQKzsTioJW0IanAYRZqET4mZLSKU2JABII9np01lQ7lOt3srtM1KAeqgQPhYJSMCZJRuAukRZB1CF35gB1MJBr4ilIPZchNyIlDkpRt+3s96cz9K8XKQvCdZfcqWxgtLoXZ2AoKAyVSRRxSRmsYjVOriP089q3z6gdMjE5KI7kzumWzpnAwAAAA=="
+      ],
+      "expected": [],
+      "passed": false
+    }
+  ],
+  "requests": [
+    "data:font/woff2;base64,d09GMgABAAAAAAScAAsAAAAACfAAAARNAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAhBIRCAqGMIRJATYCJAMsCxgABCAFhF4HaBsuCMgehXEsLOlXaXd7sgbPQ172fjLwdhYFM92mABaiTuRVdO5/mx9I5UJiJom3phLRQw/TSF2M/vo25+pNyWkNws81NrUDAAf0QOdfcf7nmPEyBPZtCbbZEDuosskKZG922ZhBenh05qcSXktf6s3Oy9dAkWsyDzMoM5QTKcwKNjFayUPSREGFhUMrdE8MJsH052qGcYNO3pbEaYIBoDTItIKGAqhDdKHRD0kkKg6QGSCWEfueTNr3P6OvYaIbDH/8ULEAbjQtUt+hT/qmX/SH/twwMLDqN4jxzXjy4PHtltSA6lINqkpRd7N7onVBP20y7YBWyDIHFEBjqKBFMmECfQcTZtD3MmEB/SATVtCPM2ED/TQTdtCfS0/pEsN4ySin3r8q8xHE+0D0XMg8gJi4YrNpNv3qetXuDyeo6OBNZrq5gi7ouC1zcmB2Fd+FewIhcUIfszpF1hzXhrmMCwxaznRyZjig6Y2W7+bBn2DL8fJu/2oHbWc6X80+LUTXcVzv8O3IOy4qKVyFw/DHaMtfzNQEi5gbFT/EDpiofbpkYq2dQui6WcpfxrVBEJ/KxbLA4ZroZoVx+iE+QeTIiI7oKuoUIk/a1ekEOoNFjozm0suYYUelq13/88K1c3PTH9O9Q0d5LZbu7+J2aT7XP23KyQs+34WTU7r8d/k0l6dLl98Dn+/BSUZc7U0mm7FqhSMO9EHV/j5FB4qYX4aXNaKwz/4RRfAWsW8xGW+hvr8PTAf6IP9mRpkDwwv7QFz9HRuOeGWfd8rkyYsWTVy4vpG/pgVNWzBx0aTeIgeq58XFVfZXVduwuOq51a77aT0XLVw4v1PBFjRsQzO+tVeVp3KIwqfKbd6sdjzGvFSuPMquGpMT29lkrhwbE5uz6cGHhIETB06oUk+6tHLJgfnu/3nVnJzYxiXNjQNjYqsu+vCgYKDla5uUOzTNDZg46eCBd3d3gSk9Kz/bFiv8hvOzCT5eqyjBGerT+EiG/JGqwbC+UQ6Bv9bmKGWMj8Yn+fPVRJxKBGqTFXQyM9DhHSlvEHmLVxyYjY/Fdd3hACfLyP3VVZLvVR7B0pxSsGIBqHhwT5sSMOMkRG0BJhpsWMkEO24KwE0pqp3tIYTWCIjJjuBiGNTKTj8JoBLKAn4TmPFnj9oywZwFGx4egp1g3oObeLHdwUO2pFcYTITZCa2c1GQbNg6RCsu9bpikThhAWnLaBi3LM8+5VbMU6rUn30owOC83ULcfBlClb5BBre46BinaWRal85SUvlCbUx1Nbyj2HWCxBTkEgWScQKzsTioJW0IanAYRZqET4mZLSKU2JABII9np01lQ7lOt3srtM1KAeqgQPhYJSMCZJRuAukRZB1CF35gB1MJBr4ilIPZchNyIlDkpRt+3s96cz9K8XKQvCdZfcqWxgtLoXZ2AoKAyVSRRxSRmsYjVOriP089q3z6gdMjE5KI7kzumWzpnAwAAAA==",
+    "data:application/json;base64,eyJjaGFuZ2VkX3BhcnRfaWRzIjpbImludmVudG9yeTwmPiIsImF1ZGl0IFwizqlcIiIsImhhbmRvZmYiXSwiZmlyc3QiOnsiZG9jdW1lbnQiOnsibnVsbGFibGUiOm51bGwsInBhcnRzIjpbeyJhY2NlcHRlZCI6ZmFsc2UsImNvdW50IjoxLCJpZCI6ImludmVudG9yeTwmPiIsInN0YXRlIjoiY29tcGxldGUifSx7ImlkIjoiYXVkaXQgXCLOqVwiIiwic3RhdGUiOiJvdXRjb21lX3Vua25vd24iLCJ0YXNrX3JlZiI6bnVsbH0seyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOi0wLjAsInN0YXRlIjoiYmxvY2tlZCJ9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOnRydWV9LCJpbnB1dF9ieXRlcyI6NDI1LCJpbnB1dF9zaGEyNTYiOiIzZWZiNGMyYjcxYjUxZDc0YjZlNDMxMjA4ZmFiNzJiNjE2ZmIwZTZhOGVmODE0YTQ0NGJmOTNkZGI2NTE5ZTVlIn0sInBhcnRfY2hhbmdlcyI6W3siZmllbGRzIjpbeyJmaWVsZCI6ImFjY2VwdGVkIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOmZhbHNlfSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjowfX0seyJmaWVsZCI6ImNvdW50IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjF9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjEuMH19XSwicGFydF9pZCI6ImludmVudG9yeTwmPiJ9LHsiZmllbGRzIjpbeyJmaWVsZCI6InN0YXRlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJvdXRjb21lX3Vua25vd24ifSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiY29tcGxldGUifX1dLCJwYXJ0X2lkIjoiYXVkaXQgXCLOqVwiIn0seyJmaWVsZHMiOlt7ImZpZWxkIjoib2Zmc2V0IiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOi0wLjB9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjAuMH19LHsiZmllbGQiOiJzdGF0ZSIsImZpcnN0Ijp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiYmxvY2tlZCJ9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJyZWFkeSJ9fV0sInBhcnRfaWQiOiJoYW5kb2ZmIn1dLCJwYXJ0X29yZGVyX2NoYW5nZWQiOnRydWUsInNhbWVfaW5wdXRfYnl0ZXMiOmZhbHNlLCJzYW1lX3NhdmVkX3ZhbHVlcyI6ZmFsc2UsInNhdmVkX2RhdGFfb25seSI6dHJ1ZSwic2NoZW1hIjoiZmFub3V0LnNhdmVkLWluc3BlY3Rpb24tY29tcGFyaXNvbi8xIiwic2Vjb25kIjp7ImRvY3VtZW50Ijp7InBhcnRzIjpbeyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOjAuMCwic3RhdGUiOiJyZWFkeSJ9LHsiYWNjZXB0ZWQiOjAsImNvdW50IjoxLjAsImlkIjoiaW52ZW50b3J5PCY+Iiwic3RhdGUiOiJjb21wbGV0ZSJ9LHsiaWQiOiJhdWRpdCBcIs6pXCIiLCJzdGF0ZSI6ImNvbXBsZXRlIiwidGFza19yZWYiOm51bGx9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOjF9LCJpbnB1dF9ieXRlcyI6MzkwLCJpbnB1dF9zaGEyNTYiOiIyZWI2YjUzNzEwMWZkOTBkNWU3NmU2MDJjOThjNTBiNDVhODc2YTY5MDJkM2Q1ZDY3ZDY2NDkzMGVmMThjNTMyIn0sInRvcF9sZXZlbF9jaGFuZ2VzIjpbeyJmaWVsZCI6Im51bGxhYmxlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOm51bGx9LCJzZWNvbmQiOnsicHJlc2VudCI6ZmFsc2V9fSx7ImZpZWxkIjoicmVhZHkiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6dHJ1ZX0sInNlY29uZCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6MX19XX0K"
+  ],
+  "page_errors": [],
+  "browser_console_errors": [],
+  "scope": "Same frozen file-origin display/download observations, adapted after candidate exposure from broken installed Python Playwright to the independently verified native Firefox/Puppeteer route. Original failed v3 history retained; no renderer/CLI rerun.",
+  "before": {
+    "typed.html": {
+      "bytes": 12871,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "mode": 436
+    },
+    "typed-oracle.json": {
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "mode": 436
+    }
+  },
+  "puppeteer_version": "25.12.0",
+  "browser_pid": 286158,
+  "browser_version": "firefox/157.0",
+  "desktop_body_text": "FANOUT · SAVED DATA\nSaved inspection comparison\n\nRead the literal differences between two saved documents. First and second name the supplied files; their order does not establish chronology.\n\nThese are saved claims. This comparison does not authenticate their origin or declared plan digest, validate a native plan, resolve uncertainty, or authorize dispatch, retry or reconciliation.\n\nDownload exact comparison JSON\n\nThe download contains both complete documents, exact input identities and the original canonical comparison with its final newline. The page is offline and does not update itself.\n\nAt a glance\nSame input bytes\nfalse\nSame saved values\nfalse\nPart order changed\ntrue\nChanged part IDs\n[\n  \"inventory<&>\",\n  \"audit \\\"Ω\\\"\",\n  \"handoff\"\n]\n\nChanged parts follow the first document’s order. A pure part-order change can have no changed fields.\n\nCaptured input identities\nRaw bytes and declared project relationship\nField\tFirst\tSecond\n\n\"Input bytes\"\n\t\n425\n\t\n390\n\n\n\"Input SHA-256\"\n\t\n\"3efb4c2b71b51d74b6e431208fab72b616fb0e6a8ef814a444bf93ddb6519e5e\"\n\t\n\"2eb6b537101fd90d5e76e602c98c50b45a876a6902d3d5d67d664930ef18c532\"\n\n\n\"Declared project ID\"\n\t\n\"handoff <&> Ω\"\n\t\n\"handoff <&> Ω\"\n\n\n\"Declared plan digest\"\n\t\n\"opaque-declared-digest\"\n\t\n\"opaque-declared-digest\"\nChanged fields\n\nEach side shows its complete JSON envelope. {\"present\": false} means absent; a present value of null is different. JSON notation also preserves booleans, integer/float forms, signed floating zero and array order.\n\nMarkup is literal text. Control and directional formatting characters are shown as JSON escapes; ordinary Unicode stays readable. The exact download is unchanged by this display treatment.\n\nTop-level fields\nTop-level differences\nField\tFirst\tSecond\n\n\"nullable\"\n\t\n{\n  \"present\": true,\n  \"value\": null\n}\n\t\n{\n  \"present\": false\n}\n\n\n\"ready\"\n\t\n{\n  \"present\": true,\n  \"value\": true\n}\n\t\n{\n  \"present\": true,\n  \"value\": 1\n}\nPart fields\nPart \"inventory<&>\"\nField\tFirst\tSecond\n\n\"accepted\"\n\t\n{\n  \"present\": true,\n  \"value\": false\n}\n\t\n{\n  \"present\": true,\n  \"value\": 0\n}\n\n\n\"count\"\n\t\n{\n  \"present\": true,\n  \"value\": 1\n}\n\t\n{\n  \"present\": true,\n  \"value\": 1.0\n}\nPart \"audit \\\"Ω\\\"\"\nField\tFirst\tSecond\n\n\"state\"\n\t\n{\n  \"present\": true,\n  \"value\": \"outcome_unknown\"\n}\n\t\n{\n  \"present\": true,\n  \"value\": \"complete\"\n}\nPart \"handoff\"\nField\tFirst\tSecond\n\n\"offset\"\n\t\n{\n  \"present\": true,\n  \"value\": -0.0\n}\n\t\n{\n  \"present\": true,\n  \"value\": 0.0\n}\n\n\n\"state\"\n\t\n{\n  \"present\": true,\n  \"value\": \"blocked\"\n}\n\t\n{\n  \"present\": true,\n  \"value\": \"ready\"\n}\nComplete saved documents\n\nThese are the complete parsed values, including fields outside the comparison’s structural admission. Expand either document to read it.\n\nFirst complete saved document\n{\n  \"nullable\": null,\n  \"parts\": [\n    {\n      \"accepted\": false,\n      \"count\": 1,\n      \"id\": \"inventory<&>\",\n      \"state\": \"complete\"\n    },\n    {\n      \"id\": \"audit \\\"Ω\\\"\",\n      \"state\": \"outcome_unknown\",\n      \"task_ref\": null\n    },\n    {\n      \"id\": \"handoff\",\n      \"offset\": -0.0,\n      \"state\": \"blocked\"\n    }\n  ],\n  \"plan_digest\": \"opaque-declared-digest\",\n  \"project_id\": \"handoff <&> Ω\",\n  \"ready\": true\n}\nSecond complete saved document\n{\n  \"parts\": [\n    {\n      \"id\": \"handoff\",\n      \"offset\": 0.0,\n      \"state\": \"ready\"\n    },\n    {\n      \"accepted\": 0,\n      \"count\": 1.0,\n      \"id\": \"inventory<&>\",\n      \"state\": \"complete\"\n    },\n    {\n      \"id\": \"audit \\\"Ω\\\"\",\n      \"state\": \"complete\",\n      \"task_ref\": null\n    }\n  ],\n  \"plan_digest\": \"opaque-declared-digest\",\n  \"project_id\": \"handoff <&> Ω\",\n  \"ready\": 1\n}",
+  "download": {
+    "path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/downloads/saved-inspection-comparison.json",
+    "bytes": 1830,
+    "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+    "mode": 436
+  },
+  "narrow_scroll_containers": [
+    {
+      "tag": "THEAD",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "hidden"
+    },
+    {
+      "tag": "TR",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "visible"
+    },
+    {
+      "tag": "THEAD",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "hidden"
+    },
+    {
+      "tag": "TR",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "visible"
+    },
+    {
+      "tag": "THEAD",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "hidden"
+    },
+    {
+      "tag": "TR",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "visible"
+    },
+    {
+      "tag": "THEAD",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "hidden"
+    },
+    {
+      "tag": "TR",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "visible"
+    },
+    {
+      "tag": "THEAD",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "hidden"
+    },
+    {
+      "tag": "TR",
+      "width": 1,
+      "scrollWidth": 26,
+      "overflow": "visible"
+    }
+  ],
+  "narrow_body_text": "FANOUT · SAVED DATA\nSaved inspection comparison\n\nRead the literal differences between two saved documents. First and second name the supplied files; their order does not establish chronology.\n\nThese are saved claims. This comparison does not authenticate their origin or declared plan digest, validate a native plan, resolve uncertainty, or authorize dispatch, retry or reconciliation.\n\nDownload exact comparison JSON\n\nThe download contains both complete documents, exact input identities and the original canonical comparison with its final newline. The page is offline and does not update itself.\n\nAt a glance\nSame input bytes\nfalse\nSame saved values\nfalse\nPart order changed\ntrue\nChanged part IDs\n[\n  \"inventory<&>\",\n  \"audit \\\"Ω\\\"\",\n  \"handoff\"\n]\n\nChanged parts follow the first document’s order. A pure part-order change can have no changed fields.\n\nCaptured input identities\nRaw bytes and declared project relationship\nField\nFirst\nSecond\n\"Input bytes\"\n425\n390\n\"Input SHA-256\"\n\"3efb4c2b71b51d74b6e431208fab72b616fb0e6a8ef814a444bf93ddb6519e5e\"\n\"2eb6b537101fd90d5e76e602c98c50b45a876a6902d3d5d67d664930ef18c532\"\n\"Declared project ID\"\n\"handoff <&> Ω\"\n\"handoff <&> Ω\"\n\"Declared plan digest\"\n\"opaque-declared-digest\"\n\"opaque-declared-digest\"\nChanged fields\n\nEach side shows its complete JSON envelope. {\"present\": false} means absent; a present value of null is different. JSON notation also preserves booleans, integer/float forms, signed floating zero and array order.\n\nMarkup is literal text. Control and directional formatting characters are shown as JSON escapes; ordinary Unicode stays readable. The exact download is unchanged by this display treatment.\n\nTop-level fields\nTop-level differences\nField\nFirst\nSecond\n\"nullable\"\n{\n  \"present\": true,\n  \"value\": null\n}\n{\n  \"present\": false\n}\n\"ready\"\n{\n  \"present\": true,\n  \"value\": true\n}\n{\n  \"present\": true,\n  \"value\": 1\n}\nPart fields\nPart \"inventory<&>\"\nField\nFirst\nSecond\n\"accepted\"\n{\n  \"present\": true,\n  \"value\": false\n}\n{\n  \"present\": true,\n  \"value\": 0\n}\n\"count\"\n{\n  \"present\": true,\n  \"value\": 1\n}\n{\n  \"present\": true,\n  \"value\": 1.0\n}\nPart \"audit \\\"Ω\\\"\"\nField\nFirst\nSecond\n\"state\"\n{\n  \"present\": true,\n  \"value\": \"outcome_unknown\"\n}\n{\n  \"present\": true,\n  \"value\": \"complete\"\n}\nPart \"handoff\"\nField\nFirst\nSecond\n\"offset\"\n{\n  \"present\": true,\n  \"value\": -0.0\n}\n{\n  \"present\": true,\n  \"value\": 0.0\n}\n\"state\"\n{\n  \"present\": true,\n  \"value\": \"blocked\"\n}\n{\n  \"present\": true,\n  \"value\": \"ready\"\n}\nComplete saved documents\n\nThese are the complete parsed values, including fields outside the comparison’s structural admission. Expand either document to read it.\n\nFirst complete saved document\n{\n  \"nullable\": null,\n  \"parts\": [\n    {\n      \"accepted\": false,\n      \"count\": 1,\n      \"id\": \"inventory<&>\",\n      \"state\": \"complete\"\n    },\n    {\n      \"id\": \"audit \\\"Ω\\\"\",\n      \"state\": \"outcome_unknown\",\n      \"task_ref\": null\n    },\n    {\n      \"id\": \"handoff\",\n      \"offset\": -0.0,\n      \"state\": \"blocked\"\n    }\n  ],\n  \"plan_digest\": \"opaque-declared-digest\",\n  \"project_id\": \"handoff <&> Ω\",\n  \"ready\": true\n}\nSecond complete saved document\n{\n  \"parts\": [\n    {\n      \"id\": \"handoff\",\n      \"offset\": 0.0,\n      \"state\": \"ready\"\n    },\n    {\n      \"accepted\": 0,\n      \"count\": 1.0,\n      \"id\": \"inventory<&>\",\n      \"state\": \"complete\"\n    },\n    {\n      \"id\": \"audit \\\"Ω\\\"\",\n      \"state\": \"complete\",\n      \"task_ref\": null\n    }\n  ],\n  \"plan_digest\": \"opaque-declared-digest\",\n  \"project_id\": \"handoff <&> Ω\",\n  \"ready\": 1\n}",
+  "error": "AssertionError [ERR_ASSERTION]: no page external requests\n+ actual - expected\n\n+ [\n+   'data:font/woff2;base64,d09GMgABAAAAAAScAAsAAAAACfAAAARNAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAAhBIRCAqGMIRJATYCJAMsCxgABCAFhF4HaBsuCMgehXEsLOlXaXd7sgbPQ172fjLwdhYFM92mABaiTuRVdO5/mx9I5UJiJom3phLRQw/TSF2M/vo25+pNyWkNws81NrUDAAf0QOdfcf7nmPEyBPZtCbbZEDuosskKZG922ZhBenh05qcSXktf6s3Oy9dAkWsyDzMoM5QTKcwKNjFayUPSREGFhUMrdE8MJsH052qGcYNO3pbEaYIBoDTItIKGAqhDdKHRD0kkKg6QGSCWEfueTNr3P6OvYaIbDH/8ULEAbjQtUt+hT/qmX/SH/twwMLDqN4jxzXjy4PHtltSA6lINqkpRd7N7onVBP20y7YBWyDIHFEBjqKBFMmECfQcTZtD3MmEB/SATVtCPM2ED/TQTdtCfS0/pEsN4ySin3r8q8xHE+0D0XMg8gJi4YrNpNv3qetXuDyeo6OBNZrq5gi7ouC1zcmB2Fd+FewIhcUIfszpF1hzXhrmMCwxaznRyZjig6Y2W7+bBn2DL8fJu/2oHbWc6X80+LUTXcVzv8O3IOy4qKVyFw/DHaMtfzNQEi5gbFT/EDpiofbpkYq2dQui6WcpfxrVBEJ/KxbLA4ZroZoVx+iE+QeTIiI7oKuoUIk/a1ekEOoNFjozm0suYYUelq13/88K1c3PTH9O9Q0d5LZbu7+J2aT7XP23KyQs+34WTU7r8d/k0l6dLl98Dn+/BSUZc7U0mm7FqhSMO9EHV/j5FB4qYX4aXNaKwz/4RRfAWsW8xGW+hvr8PTAf6IP9mRpkDwwv7QFz9HRuOeGWfd8rkyYsWTVy4vpG/pgVNWzBx0aTeIgeq58XFVfZXVduwuOq51a77aT0XLVw4v1PBFjRsQzO+tVeVp3KIwqfKbd6sdjzGvFSuPMquGpMT29lkrhwbE5uz6cGHhIETB06oUk+6tHLJgfnu/3nVnJzYxiXNjQNjYqsu+vCgYKDla5uUOzTNDZg46eCBd3d3gSk9Kz/bFiv8hvOzCT5eqyjBGerT+EiG/JGqwbC+UQ6Bv9bmKGWMj8Yn+fPVRJxKBGqTFXQyM9DhHSlvEHmLVxyYjY/Fdd3hACfLyP3VVZLvVR7B0pxSsGIBqHhwT5sSMOMkRG0BJhpsWMkEO24KwE0pqp3tIYTWCIjJjuBiGNTKTj8JoBLKAn4TmPFnj9oywZwFGx4egp1g3oObeLHdwUO2pFcYTITZCa2c1GQbNg6RCsu9bpikThhAWnLaBi3LM8+5VbMU6rUn30owOC83ULcfBlClb5BBre46BinaWRal85SUvlCbUx1Nbyj2HWCxBTkEgWScQKzsTioJW0IanAYRZqET4mZLSKU2JABII9np01lQ7lOt3srtM1KAeqgQPhYJSMCZJRuAukRZB1CF35gB1MJBr4ilIPZchNyIlDkpRt+3s96cz9K8XKQvCdZfcqWxgtLoXZ2AoKAyVSRRxSRmsYjVOriP089q3z6gdMjE5KI7kzumWzpnAwAAAA=='\n+ ]\n- []\n\n    at check (/home/jacob/hamon/receiving/root-d3745-fanout-html/receive-browser-v5.cjs:12:144)\n    at run (/home/jacob/hamon/receiving/root-d3745-fanout-html/receive-browser-v5.cjs:77:2)\n    at async /home/jacob/hamon/receiving/root-d3745-fanout-html/receive-browser-v5.cjs:86:6",
+  "final_browser_exit": 0,
+  "final_browser_signal": null,
+  "after": {
+    "typed.html": {
+      "bytes": 12871,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "mode": 436
+    },
+    "typed-oracle.json": {
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "mode": 436
+    }
+  },
+  "closed_safely": true,
+  "owned_profile_removed": true,
+  "finished": "2026-10-13T20:40:49.971Z"
+}

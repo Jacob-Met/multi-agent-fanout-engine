@@ -1,0 +1,12 @@
+test_complete_typed_envelopes_documents_and_order_preserved (test_compare_inspections_html.SavedInspectionHTMLTests.test_complete_typed_envelopes_documents_and_order_preserved) ... ok
+test_default_explicit_json_and_html_download_stdout_file_identity (test_compare_inspections_html.SavedInspectionHTMLTests.test_default_explicit_json_and_html_download_stdout_file_identity) ... ok
+test_existing_input_dangling_and_missing_parent_outputs_refused (test_compare_inspections_html.SavedInspectionHTMLTests.test_existing_input_dangling_and_missing_parent_outputs_refused) ... ok
+test_html_stdout_failure_uses_existing_output_exit (test_compare_inspections_html.SavedInspectionHTMLTests.test_html_stdout_failure_uses_existing_output_exit) ... ok
+test_literal_escaping_passive_page_and_readable_unicode (test_compare_inspections_html.SavedInspectionHTMLTests.test_literal_escaping_passive_page_and_readable_unicode) ... ok
+test_native_admission_and_html_size_bound_precede_publication (test_compare_inspections_html.SavedInspectionHTMLTests.test_native_admission_and_html_size_bound_precede_publication) ... ok
+test_order_only_identical_and_empty_parts_have_distinct_summary (test_compare_inspections_html.SavedInspectionHTMLTests.test_order_only_identical_and_empty_parts_have_distinct_summary) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 12.140s
+
+OK

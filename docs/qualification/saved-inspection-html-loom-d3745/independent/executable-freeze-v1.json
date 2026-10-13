@@ -1,0 +1,35 @@
+{
+  "schema": "hamon.root.fanout-html-executable-freeze.v1",
+  "utc": "2026-10-13T20:17:49.569639+00:00",
+  "candidate_exposed": false,
+  "files": [
+    {
+      "path": "criteria-v1.json",
+      "bytes": 2625,
+      "sha256": "15fd055e40188fb14fca8380d66578dadf928f6f2365c4cc8276eae74ec886bf"
+    },
+    {
+      "path": "prepare-original-v1.py",
+      "bytes": 4198,
+      "sha256": "360cf2a56f331c50a2c637ce540357e7f2c4bea7fc3bb5edf33927d5e96ef670"
+    },
+    {
+      "path": "original-oracles.json",
+      "bytes": 5184,
+      "sha256": "575df1f53d2c8473eba322448d123dedd8a2c4c0c9a8fd419d53d7a6bf619e2a"
+    },
+    {
+      "path": "receive-cli-v1.py",
+      "bytes": 7619,
+      "sha256": "a1790cfa957be50e16b4e1560e88f1ee56f668e126df24becd87287520455e09"
+    },
+    {
+      "path": "receive-browser-v1.py",
+      "bytes": 5870,
+      "sha256": "3da0d5802cde0e29ae0447da02fa9d89c92f8fa11df599df7c05ac871c04a593"
+    }
+  ],
+  "original_oracles": "Two independent authored typed/order-only pairs admitted by exact baseline module closure; two original CLI exits0; no candidate course yet.",
+  "browser": "Verified ThinkPad jacob UID1000, Python3.14.4, Playwright1.55, absolute installed Chromium153.0.8010.47; no browser launched by preflight.",
+  "limits": "Candidate bytes will be admitted only after this freeze. Complete original raw JSON oracles retained. Actual browser screenshots require separate visual review."
+}

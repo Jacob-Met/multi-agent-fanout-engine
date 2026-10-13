@@ -1,0 +1,13 @@
+{
+  "schema": "hamon.root.fanout-html-browser-adaptation.v4",
+  "utc": "2026-10-13T20:38:24.909511+00:00",
+  "candidate_exposed": true,
+  "reason": "Native Playwright startup failed before browser launch: installed Python1.55 wrapper lacks /usr/share/nodejs/playwright/cli.js. Original PID278299 collectedexit1; seven preflight checks and exact inputs preserved, no page/request/download, original browser-v3 receipt unchanged.",
+  "change": "Same fixed file-origin display/download predicates through already verified Node22.22.1/Puppeteer25.12.0/Firefox157 route used by Forge; explicit browser process exit observation added. Existing HTML12871B/80f208b9 and nativeJSON1830B/49623ea4 unchanged; no CLI rerun.",
+  "driver": {
+    "path": "receive-browser-v4.cjs",
+    "bytes": 8896,
+    "sha256": "068c22655ecc82136f8a2dc03ba19a356e4044c346fb2db1fcfda3a987c21338"
+  },
+  "limits": "Post-exposure environment adaptation; original independent criteria/pre-exposure driver history stays separate. Native browser execution and manual visual gate are pending."
+}

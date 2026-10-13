@@ -1,0 +1,45 @@
+{
+  "schema": "hamon.forge.fanout-saved-comparison-html-source-review.v1",
+  "utc": "2026-10-13 20:36:32 UTC",
+  "accepted": true,
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "received_base": "a64d8e08bd9db201931ab105caa848e06d5668b2",
+  "received_tree": "4103fb660411f1b1519c38c7fe3491ca3fd8bf57",
+  "source_files": [
+    {
+      "path": "fanout_engine/compare_inspections.py",
+      "bytes": 7203,
+      "sha256": "a2e3a1f0a2128d5ec19c031e4e34539dca7af06fa1a68b60e1a02fd6d55bbb3f",
+      "git_blob": "c9077a3737f8a1dc61037bd260d8ffd280f324c7"
+    },
+    {
+      "path": "fanout_engine/compare_inspections_html.py",
+      "bytes": 9255,
+      "sha256": "3234000ee108e8883f767b3f2f897e82c78703ce4b29f639a32fbfbddfa5ce77",
+      "git_blob": "1f07e2849e50a3c477f5855c8bb56ca65b0be271"
+    },
+    {
+      "path": "tests/test_compare_inspections_html.py",
+      "bytes": 10759,
+      "sha256": "3dd00937c22a3c54b9cad375703d0a806bed69ff037abc8eb828d9075e2ddc94",
+      "git_blob": "0d87ff6ed0ed48ce814f03af31b2e63f56b70627"
+    },
+    {
+      "path": "docs/compare-inspections.md",
+      "bytes": 10423,
+      "sha256": "245cb5ae7f4bf2b76d58820e967292ced1d8ef1242c023884a0399b2d50e9f2d",
+      "git_blob": "4b03b9864280f3bb836961b0edd38b1a6bdc517a"
+    }
+  ],
+  "method": "Read complete four candidate bodies, public contract, complete narrow CLI diff, unchanged publisher/stdout helper, original metadata and author receipt/eight streams. Independently fetched original comparator and preview blobs and matched complete local bytes. Rehashed all four candidate and eleven original pins; inverse of the two CLI edits recovers original exact bytes; guide is append-only; nine remaining selected original leaves including old tests/workflow stay exact.",
+  "findings": [
+    "Existing compare_inspections, admission, typed canonical comparison and 8 MiB native serialization remain unchanged. Default and explicit JSON use the same report and serialized bytes; HTML imports/rendering occur only for explicit --format html.",
+    "Every dynamic rendered value uses JSON notation followed by display-only directional/control escaping and HTML escaping. Captions contain fixed text or escaped part IDs; no unescaped caller value enters tags, attributes or CSS. Complete present/absent envelopes, bool/int/float/signed-zero distinctions and both documents remain visible.",
+    "Page has fixed passive markup/CSS, no script/form/external-resource behavior. Base64 attribute is derived solely from the complete native_json bytes supplied by the admitted CLI, retaining exact comparison plus LF. Renderer trusts this admitted report/payload pair; it is not a separate input validator.",
+    "Determinism follows fixed markup, sorted JSON object rendering and unchanged native ordered comparison rows. Complete HTML is encoded and checked against32 MiB before invoking the unchanged exclusive hard-link publisher.",
+    "Occupied/input/dangling/missing-parent paths use the original publisher and output statuses. A late staging cleanup failure may leave a complete published destination; failed stdout may leave a prefix. Guide states both limits honestly; no transactional/power-loss guarantee added.",
+    "Seven focused methods meaningfully cover exact JSON/default/HTML payload identity, typed envelopes, passive escaping, ordering, admission/HTML bound and occupied/output failures. Optimized parent explicitly propagates -O into CLI children. Retained author streams show17 normal (10 inherited+7 new),7 optimized and two worked CLI outputs; no tests were rerun by this reviewer."
+  ],
+  "limits": "Read-only source/design and retained-author-evidence review only. Root owns independent actual CLI/browser receiving, including its separately preserved no-launch Playwright environment failure and versioned dependency adaptation. No browser, source payload, product test, live ledger, provider, full-tree or ref operation performed for this review. Current-main preservation remains the later publication gate.",
+  "blocking_findings": []
+}

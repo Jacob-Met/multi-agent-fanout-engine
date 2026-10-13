@@ -1,0 +1,23 @@
+{
+  "schema": "hamon.root.fanout-html-executable-freeze.v2",
+  "utc": "2026-10-13T20:20:05.995325+00:00",
+  "candidate_exposed": false,
+  "prior": "executable-freeze-v1.json",
+  "files": [
+    {
+      "path": "receive-cli-v2.py",
+      "bytes": 7759,
+      "sha256": "42a4c3149dc4ab86e544e53e1f1f0c5960a12c6681db535536064b4271568f84"
+    },
+    {
+      "path": "receive-browser-v2.py",
+      "bytes": 6153,
+      "sha256": "1987488da5fd136457d2df3e1a0c302a6594511902672859708b6989eb980ffa"
+    }
+  ],
+  "changes": [
+    "CLI timeout kills/reaps only its own child before outcome checks.",
+    "Browser marks uncertain closure as failure and retains its owned profile if context closure is not established."
+  ],
+  "unchanged": "Public criteria, original fixtures/oracles and all actual acceptance cases; no v1 or v2 candidate/browser course executed yet."
+}

@@ -1,0 +1,101 @@
+{
+  "accepted": true,
+  "closed_pids_observed_in_native_audit": {
+    "278299": true,
+    "286068": true,
+    "286135": true,
+    "286158": true
+  },
+  "files": [
+    {
+      "bytes": 2650,
+      "git_blob": "229c2cb88d37fffbd4cd7f5a5236f5a34dca2953",
+      "mirror_identity": {
+        "bytes": 2650,
+        "git_blob": "229c2cb88d37fffbd4cd7f5a5236f5a34dca2953",
+        "mode": 436,
+        "sha256": "4734b0244351037280f759efe29b2cba97378a0014174863b5e09647ff736060"
+      },
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v3/receipt.json",
+      "mode": 436,
+      "path": "browser-v3/receipt.json",
+      "sha256": "4734b0244351037280f759efe29b2cba97378a0014174863b5e09647ff736060",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v3/receipt.json"
+    },
+    {
+      "bytes": 27620,
+      "git_blob": "d1a30801dc86e1497755b6c8d9518e972870c28d",
+      "mirror_identity": {
+        "bytes": 27620,
+        "git_blob": "d1a30801dc86e1497755b6c8d9518e972870c28d",
+        "mode": 436,
+        "sha256": "9814c091204a29b1387529c8bd3b796945ec60014773d525738b8c228aea6dfa"
+      },
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/receipt.json",
+      "mode": 436,
+      "path": "browser-v5/receipt.json",
+      "sha256": "9814c091204a29b1387529c8bd3b796945ec60014773d525738b8c228aea6dfa",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/receipt.json"
+    },
+    {
+      "bytes": 426183,
+      "git_blob": "ca0995bed08fac50b2b143a362ed71f45eabba96",
+      "mirror_identity": {
+        "bytes": 426183,
+        "git_blob": "ca0995bed08fac50b2b143a362ed71f45eabba96",
+        "mode": 436,
+        "sha256": "00ae4411be52c95f73ab73a057c2f0bbe4aa486fba02d5609e1a62d32257982a"
+      },
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/desktop.png",
+      "mode": 436,
+      "path": "browser-v5/desktop.png",
+      "sha256": "00ae4411be52c95f73ab73a057c2f0bbe4aa486fba02d5609e1a62d32257982a",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/desktop.png"
+    },
+    {
+      "bytes": 413594,
+      "git_blob": "12ef73dd7dfee19a6789e7933bbfe0213f0ee258",
+      "mirror_identity": {
+        "bytes": 413594,
+        "git_blob": "12ef73dd7dfee19a6789e7933bbfe0213f0ee258",
+        "mode": 436,
+        "sha256": "06185832a1d2e41ef4c725185619e5525923678f27ecd68a93e901ab5cd433b2"
+      },
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/narrow.png",
+      "mode": 436,
+      "path": "browser-v5/narrow.png",
+      "sha256": "06185832a1d2e41ef4c725185619e5525923678f27ecd68a93e901ab5cd433b2",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/narrow.png"
+    },
+    {
+      "bytes": 1830,
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "mirror_identity": {
+        "bytes": 1830,
+        "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+        "mode": 436,
+        "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3"
+      },
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/downloads/saved-inspection-comparison.json",
+      "mode": 436,
+      "path": "browser-v5/downloads/saved-inspection-comparison.json",
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/downloads/saved-inspection-comparison.json"
+    }
+  ],
+  "method": "Native read-only Python lstat/read-bytes/hash audit PID292333 completed0, followed by connector read_file for both raw PNG image blocks, both JSON receipts and the actual saved JSON. Text connector terminal newline omission was restored only after full native bytes/SHA/Git agreement. Every cloud full byte string and copied numeric mode equals its independently observed native identity. No extraction, renderer, CLI or browser rerun.",
+  "png_dimensions": {
+    "desktop.png": [
+      1428,
+      4173
+    ],
+    "narrow.png": [
+      378,
+      8999
+    ]
+  },
+  "post_transfer_native_rehash": "A final additional read-only source/input/profile recheck was not executed: connector refused because hamon-thinkpad was offline. No retry. This does not assert a later native namespace observation; the completed initial native audit and immutable receipt supply stated scope.",
+  "schema": "hamon.forge.fanout-native-mirror.v1",
+  "scope": "Exact custody copy only; original browser attempts remain failed.",
+  "utc": "2026-10-13T20:52:59.103757+00:00"
+}

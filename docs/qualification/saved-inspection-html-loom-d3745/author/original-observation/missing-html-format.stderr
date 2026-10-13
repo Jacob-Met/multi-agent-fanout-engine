@@ -1,0 +1,3 @@
+usage: compare_inspections.py [-h] --first FIRST --second SECOND
+                              [--output OUTPUT]
+compare_inspections.py: error: unrecognized arguments: --format html

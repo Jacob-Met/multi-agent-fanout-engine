@@ -1,0 +1,33 @@
+{
+  "schema": "hamon.root.fanout-html.visual-review.v1",
+  "candidate_freeze_sha256": "3f8d9bf2e6b5c4f42f9636a5707aebece705528acb6f8eaa10dd35271c8e6acb",
+  "html": {
+    "bytes": 12871,
+    "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7"
+  },
+  "original_browser_receipt": {
+    "bytes": 27620,
+    "sha256": "9814c091204a29b1387529c8bd3b796945ec60014773d525738b8c228aea6dfa"
+  },
+  "method": "Root viewed the two original native screenshots via RDC read_file and read the complete actual desktop body text; no image modification, rerendering or browser rerun. Root also read the frozen renderer responsive CSS after observing the narrow failure.",
+  "desktop": {
+    "accepted": true,
+    "findings": [
+      "Complete First/Second identity hashes,425/390 bytes and declared project/plan are visible.",
+      "All seven changed fields display the exact14 original typed/present envelopes: null/absent, true/1, false/0,1/1.0,outcome_unknown/complete,-0.0/0.0,blocked/ready.",
+      "Both complete expanded documents preserve their own part order and unchanged task_ref:null. Literal markup/Unicode labels, saved-claims warning and original download remain legible."
+    ]
+  },
+  "narrow": {
+    "accepted": false,
+    "viewport_width": 390,
+    "findings": [
+      "Original narrow image shows table caption text in extremely narrow vertical strips, extending the page and impairing reading. Passing document overflow and link visibility checks did not establish useful table layout.",
+      "Original CSS changes table/tbody/tr/th/td to display:block in the640px media query while leaving caption in its table-caption layout. This is consistent with the observed problem; no patched candidate or verified correction exists."
+    ]
+  },
+  "acceptance": false,
+  "decision": "Do not publish this candidate as a usable responsive product. Preserve code-specific original CLI/browser evidence and source history. Another owner has already published equivalent PR97; review its actual narrow screenshot and other evidence separately, choosing one canonical implementation. None of our test results qualify PR97.",
+  "runtime_history": "Original Python Playwright v3 failed before browser launch due missing distro driver; subsequent post-exposure Firefox/Puppeteer v5 closed with exit1 after its request allowlist rejected an inline data font. The immutable original failed receipt remains unchanged; separate Forge network reassessment does not override failed visual acceptance.",
+  "no_rerun": true
+}

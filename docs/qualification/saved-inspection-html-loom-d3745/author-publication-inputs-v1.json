@@ -1,0 +1,272 @@
+{
+  "files": [
+    {
+      "bytes": 3088,
+      "git_blob": "42239b1111abe3407f3fb2709e4b7a35dca55bd5",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/PUBLIC-CONTRACT.md",
+      "sha256": "60865af25cac5a5985a157b4d3f97b619f95a740a421e85e1fcb558bec0515b7",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/PUBLIC-CONTRACT.md"
+    },
+    {
+      "bytes": 3512,
+      "git_blob": "6412b001e871111c31631c7bf8921eb20dcab218",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-source.json",
+      "sha256": "bf281488c98b471a0730539566de5fb1ae6fa8d3e4b815173c95015345b46011",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-source.json"
+    },
+    {
+      "bytes": 8062,
+      "git_blob": "2fe1c058b6a588159e9c85fe55caccf15ef0ac99",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/prepare-original-v1.py",
+      "sha256": "fc2b87e679ed71e5b4f4078782f83c053f6e85c7e8ffa8b624d8eb276a59ea51",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/prepare-original-v1.py"
+    },
+    {
+      "bytes": 3678,
+      "git_blob": "41279a9140946372eeedc9d83d41d3db1ad7efab",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-freeze-v1.json",
+      "sha256": "a01691ca2e64aa378ede524586944deef05e968747f0cdcc1f4f49bd13863c66",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-freeze-v1.json"
+    },
+    {
+      "bytes": 9549,
+      "git_blob": "9f6ec18fdee89b5dd52cdcb6e69c2476ea5b2f36",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-observation/receipt.json",
+      "sha256": "b4a4f4dc6bedf9599cd57775d76ba83b8e00be8eb4fd1de5d30fd977fe7c466b",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-observation/receipt.json"
+    },
+    {
+      "bytes": 2800,
+      "git_blob": "aa927f8197b0ccb9337b44afc170d688a21a8dc6",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-observation/default-json.stdout",
+      "sha256": "6ccb4dc336ab7b6e8e2ae0fc5808d899450832562949453d3c7c485e28224ecd",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-observation/default-json.stdout"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-observation/default-json.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-observation/default-json.stderr"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-observation/missing-html-format.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-observation/missing-html-format.stdout"
+    },
+    {
+      "bytes": 182,
+      "git_blob": "7fdf9df8a9e3bc8e74952c14732cfe15ae9dba18",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/original-observation/missing-html-format.stderr",
+      "sha256": "e6901b74af9ed56347afe0dce4b06a896b3e16bc612bdcd85bd12a34a9b3f222",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/original-observation/missing-html-format.stderr"
+    },
+    {
+      "bytes": 575,
+      "git_blob": "7a4682c54cef3c6a559e5817d769c71a5db155fd",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/first.json",
+      "sha256": "9915e50815bb27d00d183ad2d7ae06b0ec78acfdb816be1497a928dbc7722acc",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/first.json"
+    },
+    {
+      "bytes": 817,
+      "git_blob": "93cc2ec038151db29e53357314daed500f1da8bf",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/second.json",
+      "sha256": "9975d01e7b9c32f45e572a706908ce67663f0e4bb0d4887283280fcac89d4235",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/second.json"
+    },
+    {
+      "bytes": 575,
+      "git_blob": "54a1348a131ee766be92372ed42d8492d4f26a5d",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/order-only.json",
+      "sha256": "7a5f03dc4f27b3ddff62a1e9c486afe40fb9731946846bd0cffe3671e2377f82",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/order-only.json"
+    },
+    {
+      "bytes": 38,
+      "git_blob": "e5d4e86fe9286ee395aed25e11305accda1d4100",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/occupied.html",
+      "sha256": "7f5a2ede2342388052f67c060b2628060d73423b202167a455a7d9deaa2b3f89",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/occupied.html"
+    },
+    {
+      "bytes": 1472,
+      "git_blob": "263c42fc52212719274aab2b2b5e9b0ca0181ba0",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/expectations.json",
+      "sha256": "b3f57a205e77bf192a203b12ab45f7f295fc2a778048496a7664e552233b8a79",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/expectations.json"
+    },
+    {
+      "bytes": 2800,
+      "git_blob": "aa927f8197b0ccb9337b44afc170d688a21a8dc6",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/fixtures/expected-comparison.json",
+      "sha256": "6ccb4dc336ab7b6e8e2ae0fc5808d899450832562949453d3c7c485e28224ecd",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/fixtures/expected-comparison.json"
+    },
+    {
+      "bytes": 3852,
+      "git_blob": "865a2b3b2e13d0d3014a53f53258e47d0f5fabb1",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/qualify-author-v1.py",
+      "sha256": "4f61004e8d6d94546daa2a68234075522fbfb69db8e7e1f565b21a7bb270880d",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/qualify-author-v1.py"
+    },
+    {
+      "bytes": 12488,
+      "git_blob": "fb91053a3eca6b6cdb8a63369e28ef2b7835bbf9",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/freeze.json",
+      "sha256": "6870be70d7473d5668fa6f43119538e956a51534205e0df12f2a93dd82a62a2a",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/freeze.json"
+    },
+    {
+      "bytes": 23384,
+      "git_blob": "5b8c5e581522536aa42ad6e4c44c03b06375b3a4",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/receipt.json",
+      "sha256": "41a2ea576751ae0ce9c19d6999f2b0218ed468a78702b4ca05985b26d75323cf",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/receipt.json"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/normal.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/normal.stdout"
+    },
+    {
+      "bytes": 3083,
+      "git_blob": "bdbfdc33a0afdaec57602271813b3c11c781f013",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/normal.stderr",
+      "sha256": "bb7b154566c4d459689cbb6d58c649dc94aa41ec56b268b31f8ae6e2d7419923",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/normal.stderr"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/optimized.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/optimized.stdout"
+    },
+    {
+      "bytes": 1393,
+      "git_blob": "984e642b0ce2a0740fafd364669d107915ac1319",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/optimized.stderr",
+      "sha256": "329ffa5c313896a2ee909bf4502e0f80d8cbeecfb81199b986c108d7939c5678",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/optimized.stderr"
+    },
+    {
+      "bytes": 2800,
+      "git_blob": "aa927f8197b0ccb9337b44afc170d688a21a8dc6",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/worked-json.stdout",
+      "sha256": "6ccb4dc336ab7b6e8e2ae0fc5808d899450832562949453d3c7c485e28224ecd",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/worked-json.stdout"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/worked-json.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/worked-json.stderr"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/worked-html.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/worked-html.stdout"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/worked-html.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/worked-html.stderr"
+    },
+    {
+      "bytes": 15605,
+      "git_blob": "9a2297bd53f3f88e15a5c98cc203d764e9aefa27",
+      "mode": "100644",
+      "native_mode": "0o600",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/author-v1/worked-comparison.html",
+      "sha256": "ec9c9554201914fe3ca761a9189b6fba621c9aeb7e970924ce387571f5cc0f6b",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/author-v1/worked-comparison.html"
+    },
+    {
+      "bytes": 2363,
+      "git_blob": "7099037098676e4ac70dde320db84c31607b1782",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/candidate-freeze-v1.json",
+      "sha256": "3f8d9bf2e6b5c4f42f9636a5707aebece705528acb6f8eaa10dd35271c8e6acb",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate-freeze-v1.json"
+    },
+    {
+      "bytes": 25547,
+      "git_blob": "461b09794f3e3691643acd0f8d0151f3be16163b",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/qualification/saved-inspection-html-loom-d3745/author/source-delta-v1.patch",
+      "sha256": "95561c38a0c26beadc27373d6ea24686e49b565618d6e2c64380107804b7a5f1",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/source-delta-v1.patch"
+    }
+  ],
+  "notes": [
+    "Original29 authored payloads are byte-preserved. Destination aliases add author/ only; embedded historical paths and raw receipts remain unchanged.",
+    "Native file modes are retained as annotations; repository evidence files are explicitly Git100644.",
+    "Independent root receiving remains a separate original descriptor, not reconstructed here."
+  ],
+  "prefix": "docs/qualification/saved-inspection-html-loom-d3745/",
+  "schema": "hamon.loom.saved-inspection-html-author-publication.v1"
+}

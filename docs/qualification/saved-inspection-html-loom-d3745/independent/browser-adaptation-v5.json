@@ -1,0 +1,12 @@
+{
+  "schema": "hamon.root.fanout-html-browser-adaptation.v5",
+  "utc": "2026-10-13T20:40:07.293197+00:00",
+  "candidate_exposed": true,
+  "prior": "browser-adaptation-v4.json",
+  "driver": {
+    "path": "receive-browser-v5.cjs",
+    "bytes": 9071,
+    "sha256": "70604667c8832e4ff45eca04baf1724614210c586af6f2b733121c26951a6e42"
+  },
+  "changes": "Forge full adaptation review found own profile/tmp cleanup refusal could bypass final receipt. Wrap that cleanup only, retain failure/recovery paths and always proceed to receipt writing. Output directory/schema version adjusted; predicates/inputs and v4 remain unchanged. Neither v4 nor v5 executed yet."
+}

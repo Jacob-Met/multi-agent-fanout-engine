@@ -1,0 +1,23 @@
+{
+  "project_id": "handoff <&> Ω",
+  "plan_digest": "different-declaration",
+  "ready": 1,
+  "parts": [
+    {
+      "id": "handoff",
+      "state": "ready",
+      "offset": 0.0
+    },
+    {
+      "id": "inventory<&>",
+      "state": "complete",
+      "count": 1.0,
+      "accepted": 0
+    },
+    {
+      "id": "audit \"Ω\"",
+      "state": "complete",
+      "task_ref": null
+    }
+  ]
+}

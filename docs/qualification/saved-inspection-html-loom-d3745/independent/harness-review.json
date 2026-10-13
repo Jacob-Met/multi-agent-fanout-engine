@@ -1,0 +1,91 @@
+{
+  "schema": "hamon.anvil.fanout-saved-html-harness-review.v1",
+  "accepted": true,
+  "reviewer": "Anvil",
+  "utc": "2026-10-13T20:24:19.812244+00:00",
+  "candidate_exposed_to_reviewer": false,
+  "scope": "Independent complete criteria/CLI/browser source and literal original-oracle review, with final mechanical version-delta/identity checks. No driver, candidate, product or browser execution by this reviewer.",
+  "reviewed_files": [
+    {
+      "path": "criteria-v1.json",
+      "bytes": 2625,
+      "sha256": "15fd055e40188fb14fca8380d66578dadf928f6f2365c4cc8276eae74ec886bf",
+      "git_blob": "c51342a9ec89f38c7e91b074898097a8799b1331"
+    },
+    {
+      "path": "receive-cli-v1.py",
+      "bytes": 7619,
+      "sha256": "a1790cfa957be50e16b4e1560e88f1ee56f668e126df24becd87287520455e09",
+      "git_blob": "7a5fbf9d52ea75bb887a565ee5fe319c939ded07"
+    },
+    {
+      "path": "receive-browser-v1.py",
+      "bytes": 5870,
+      "sha256": "3da0d5802cde0e29ae0447da02fa9d89c92f8fa11df599df7c05ac871c04a593",
+      "git_blob": "97182c6123268189a8e28bcb44dda6426b41c424"
+    },
+    {
+      "path": "receive-cli-v2.py",
+      "bytes": 7759,
+      "sha256": "42a4c3149dc4ab86e544e53e1f1f0c5960a12c6681db535536064b4271568f84",
+      "git_blob": "42a13c45a9c211fd848ace88e2942a0409bf9256"
+    },
+    {
+      "path": "receive-browser-v2.py",
+      "bytes": 6153,
+      "sha256": "1987488da5fd136457d2df3e1a0c302a6594511902672859708b6989eb980ffa",
+      "git_blob": "0cd434bac98db8532dfd766ec73e50d1c25babfd"
+    },
+    {
+      "path": "receive-browser-v3.py",
+      "bytes": 6157,
+      "sha256": "8c9b53555a3119162e4b10463aad17dc59c72ae0e2cc71c4d9274ccc7b0e779b",
+      "git_blob": "1c7cd28f833bb8d146f6f9d6119fe5c81829b0a4"
+    },
+    {
+      "path": "executable-freeze-v1.json",
+      "bytes": 1423,
+      "sha256": "d89ea4eeb98516565c10c4a88207ee720f0f123c91ea28280cdd443a95066518",
+      "git_blob": "8c742831895ecbb3014ff9a3e311447ec8d947ee"
+    },
+    {
+      "path": "executable-freeze-v2.json",
+      "bytes": 858,
+      "sha256": "2af5073db0ac1435ebd4f4cd38345a7e6ce1b4979c5aae48b27eccc4ffe64db6",
+      "git_blob": "32d4f05dd5076d02a63708afc68f69b318312b52"
+    },
+    {
+      "path": "executable-freeze-v3.json",
+      "bytes": 1036,
+      "sha256": "865a9491c0bd3b968cc3d4857e49a570436823acc039990d1769e3f72ec0f107",
+      "git_blob": "af9138d81cc4ec8f63a30316a49490b0f8c67ed5"
+    },
+    {
+      "path": "fixtures/typed-oracle.json",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a"
+    },
+    {
+      "path": "fixtures/order-oracle.json",
+      "bytes": 1038,
+      "sha256": "c3237a6793227bde334235f4e708ca7e971a1bee7860afd3d25baf4d75856b3d",
+      "git_blob": "4962a02da5047fc17bd30c962c201804d8468a55"
+    }
+  ],
+  "findings": [
+    "Exact unchanged original JSON is used for default and explicit JSON modes and both embedded and actual downloaded report bytes, including final LF.",
+    "The typed fixture covers missing versus null, boolean versus integer, integer versus float, signed zero, literal Unicode/markup identifiers, seven changed fields and complete first/second documents. The separate order-only oracle retains no field changes but records order and saved-value differences.",
+    "Occupied-output and selected-input destinations must refuse; malformed declared identity must refuse before new output. Watched fixture/original/candidate source preservation is independently recorded.",
+    "CLI v2 kills and reaps its own timed-out child while retaining raw streams and the failed outcome. No additional execution was required for this source review.",
+    "Browser v2 retains its owned profile and marks failure when context closure is uncertain; only a confirmed closed context permits its own profile cleanup.",
+    "Browser v3 corrects the one concrete layout-observation defect: an empty boolean open attribute is already open. It now expands only details whose open attribute is None. The sole other v2-to-v3 change is the output directory version.",
+    "Actual file-origin desktop/narrow observations, saved-data labels, identities and exact JSON download are coherent. The driver avoids imposing a particular value table or pre/code structure."
+  ],
+  "manual_visual_gate": "Root must independently compare the retained full body/fragments and both actual viewport screenshots with all seven typed differences and complete first/second documents, including local scrolling or wrapping. Token checks alone do not establish visible value completeness. This review accepts the receiving harness, not a future HTML result.",
+  "history": "Original v1 and v2 files/freezes remain retained. Final executable-freeze-v3 explicitly states no candidate/browser course has run; its executed_versions field lists the versions selected for the future course, not an execution result.",
+  "limits": [
+    "This is authored saved-data input, not a live operational chronology or provider/Ledger workflow.",
+    "Candidate source review, actual executions, native browser environment admission and publication custody remain separate gates."
+  ]
+}

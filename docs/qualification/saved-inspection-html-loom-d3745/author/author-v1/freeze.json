@@ -1,0 +1,380 @@
+{
+  "base_commit": "a64d8e08bd9db201931ab105caa848e06d5668b2",
+  "inputs": [
+    {
+      "bytes": 3088,
+      "mode": "0o644",
+      "mtime_ns": 1791920602170498615,
+      "path": "PUBLIC-CONTRACT.md",
+      "sha256": "60865af25cac5a5985a157b4d3f97b619f95a740a421e85e1fcb558bec0515b7"
+    },
+    {
+      "bytes": 574,
+      "mode": "0o644",
+      "mtime_ns": 1791920602169436861,
+      "path": "candidate/.github/workflows/test.yml",
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634"
+    },
+    {
+      "bytes": 10423,
+      "mode": "0o644",
+      "mtime_ns": 1791921542517697115,
+      "path": "candidate/docs/compare-inspections.md",
+      "sha256": "245cb5ae7f4bf2b76d58820e967292ced1d8ef1242c023884a0399b2d50e9f2d"
+    },
+    {
+      "bytes": 613,
+      "mode": "0o644",
+      "mtime_ns": 1791920602153980219,
+      "path": "candidate/fanout_engine/__init__.py",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    {
+      "bytes": 7203,
+      "mode": "0o644",
+      "mtime_ns": 1791921362804880807,
+      "path": "candidate/fanout_engine/compare_inspections.py",
+      "sha256": "a2e3a1f0a2128d5ec19c031e4e34539dca7af06fa1a68b60e1a02fd6d55bbb3f"
+    },
+    {
+      "bytes": 9255,
+      "mode": "0o644",
+      "mtime_ns": 1791921273325135786,
+      "path": "candidate/fanout_engine/compare_inspections_html.py",
+      "sha256": "3234000ee108e8883f767b3f2f897e82c78703ce4b29f639a32fbfbddfa5ce77"
+    },
+    {
+      "bytes": 4599,
+      "mode": "0o644",
+      "mtime_ns": 1791920602154782621,
+      "path": "candidate/fanout_engine/dispatch.py",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    {
+      "bytes": 6055,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159016888,
+      "path": "candidate/fanout_engine/inspection.py",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    {
+      "bytes": 19340,
+      "mode": "0o644",
+      "mtime_ns": 1791920602158906365,
+      "path": "candidate/fanout_engine/ledger.py",
+      "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a"
+    },
+    {
+      "bytes": 7513,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159072498,
+      "path": "candidate/fanout_engine/plan.py",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    {
+      "bytes": 9462,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161207872,
+      "path": "candidate/fanout_engine/preview.py",
+      "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5"
+    },
+    {
+      "bytes": 2818,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159818083,
+      "path": "candidate/fanout_engine/routing.py",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    },
+    {
+      "bytes": 11307,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161397543,
+      "path": "candidate/tests/test_compare_inspections.py",
+      "sha256": "1f8d0e99f4c864d3bf349b2815534b88928165e4dc14d5655fbac6ddd0708e06"
+    },
+    {
+      "bytes": 10759,
+      "mode": "0o644",
+      "mtime_ns": 1791921363044869395,
+      "path": "candidate/tests/test_compare_inspections_html.py",
+      "sha256": "3dd00937c22a3c54b9cad375703d0a806bed69ff037abc8eb828d9075e2ddc94"
+    },
+    {
+      "bytes": 1472,
+      "mode": "0o644",
+      "mtime_ns": 1791921107670422742,
+      "path": "fixtures/expectations.json",
+      "sha256": "b3f57a205e77bf192a203b12ab45f7f295fc2a778048496a7664e552233b8a79"
+    },
+    {
+      "bytes": 2800,
+      "mode": "0o644",
+      "mtime_ns": 1791921107670353737,
+      "path": "fixtures/expected-comparison.json",
+      "sha256": "6ccb4dc336ab7b6e8e2ae0fc5808d899450832562949453d3c7c485e28224ecd"
+    },
+    {
+      "bytes": 575,
+      "mode": "0o644",
+      "mtime_ns": 1791921107669538050,
+      "path": "fixtures/first.json",
+      "sha256": "9915e50815bb27d00d183ad2d7ae06b0ec78acfdb816be1497a928dbc7722acc"
+    },
+    {
+      "bytes": 38,
+      "mode": "0o644",
+      "mtime_ns": 1791921107670117882,
+      "path": "fixtures/occupied.html",
+      "sha256": "7f5a2ede2342388052f67c060b2628060d73423b202167a455a7d9deaa2b3f89"
+    },
+    {
+      "bytes": 575,
+      "mode": "0o644",
+      "mtime_ns": 1791921107670073799,
+      "path": "fixtures/order-only.json",
+      "sha256": "7a5f03dc4f27b3ddff62a1e9c486afe40fb9731946846bd0cffe3671e2377f82"
+    },
+    {
+      "bytes": 817,
+      "mode": "0o644",
+      "mtime_ns": 1791921107669721061,
+      "path": "fixtures/second.json",
+      "sha256": "9975d01e7b9c32f45e572a706908ce67663f0e4bb0d4887283280fcac89d4235"
+    },
+    {
+      "bytes": 574,
+      "mode": "0o644",
+      "mtime_ns": 1791920602169436861,
+      "path": "original/.github/workflows/test.yml",
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634"
+    },
+    {
+      "bytes": 7169,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161450301,
+      "path": "original/docs/compare-inspections.md",
+      "sha256": "bfed98f527a5afed2a506e2dc007197ea3d31902a98002f150b461deec26df05"
+    },
+    {
+      "bytes": 613,
+      "mode": "0o644",
+      "mtime_ns": 1791920602153980219,
+      "path": "original/fanout_engine/__init__.py",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    {
+      "bytes": 6867,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161323908,
+      "path": "original/fanout_engine/compare_inspections.py",
+      "sha256": "97ce5cadedbfcb935515dee4acdf7d1fb04a7a25c8e8b802b2b6138c820d31a4"
+    },
+    {
+      "bytes": 4599,
+      "mode": "0o644",
+      "mtime_ns": 1791920602154782621,
+      "path": "original/fanout_engine/dispatch.py",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    {
+      "bytes": 6055,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159016888,
+      "path": "original/fanout_engine/inspection.py",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    {
+      "bytes": 19340,
+      "mode": "0o644",
+      "mtime_ns": 1791920602158906365,
+      "path": "original/fanout_engine/ledger.py",
+      "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a"
+    },
+    {
+      "bytes": 7513,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159072498,
+      "path": "original/fanout_engine/plan.py",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    {
+      "bytes": 9462,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161207872,
+      "path": "original/fanout_engine/preview.py",
+      "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5"
+    },
+    {
+      "bytes": 2818,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159818083,
+      "path": "original/fanout_engine/routing.py",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    },
+    {
+      "bytes": 11307,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161397543,
+      "path": "original/tests/test_compare_inspections.py",
+      "sha256": "1f8d0e99f4c864d3bf349b2815534b88928165e4dc14d5655fbac6ddd0708e06"
+    },
+    {
+      "bytes": 3678,
+      "mode": "0o644",
+      "mtime_ns": 1791921107680484209,
+      "path": "original-freeze-v1.json",
+      "sha256": "a01691ca2e64aa378ede524586944deef05e968747f0cdcc1f4f49bd13863c66"
+    },
+    {
+      "bytes": 0,
+      "mode": "0o644",
+      "mtime_ns": 1791921107792411979,
+      "path": "original-observation/default-json.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 2800,
+      "mode": "0o644",
+      "mtime_ns": 1791921107792411979,
+      "path": "original-observation/default-json.stdout",
+      "sha256": "6ccb4dc336ab7b6e8e2ae0fc5808d899450832562949453d3c7c485e28224ecd"
+    },
+    {
+      "bytes": 182,
+      "mode": "0o644",
+      "mtime_ns": 1791921108023421644,
+      "path": "original-observation/missing-html-format.stderr",
+      "sha256": "e6901b74af9ed56347afe0dce4b06a896b3e16bc612bdcd85bd12a34a9b3f222"
+    },
+    {
+      "bytes": 0,
+      "mode": "0o644",
+      "mtime_ns": 1791921108016995124,
+      "path": "original-observation/missing-html-format.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 9549,
+      "mode": "0o644",
+      "mtime_ns": 1791921108028724021,
+      "path": "original-observation/receipt.json",
+      "sha256": "b4a4f4dc6bedf9599cd57775d76ba83b8e00be8eb4fd1de5d30fd977fe7c466b"
+    },
+    {
+      "bytes": 3512,
+      "mode": "0o644",
+      "mtime_ns": 1791920602170429119,
+      "path": "original-source.json",
+      "sha256": "bf281488c98b471a0730539566de5fb1ae6fa8d3e4b815173c95015345b46011"
+    },
+    {
+      "bytes": 8062,
+      "mode": "0o644",
+      "mtime_ns": 1791921107241032012,
+      "path": "prepare-original-v1.py",
+      "sha256": "fc2b87e679ed71e5b4f4078782f83c053f6e85c7e8ffa8b624d8eb276a59ea51"
+    },
+    {
+      "bytes": 3852,
+      "mode": "0o644",
+      "mtime_ns": 1791921542864316677,
+      "path": "qualify-author-v1.py",
+      "sha256": "4f61004e8d6d94546daa2a68234075522fbfb69db8e7e1f565b21a7bb270880d"
+    }
+  ],
+  "schema": "hamon.loom.saved-inspection-html-author-freeze.v1",
+  "sources": [
+    {
+      "bytes": 574,
+      "mode": "0o644",
+      "mtime_ns": 1791920602169436861,
+      "path": "candidate/.github/workflows/test.yml",
+      "sha256": "33b927d2be3c15620e4078738317a62fda7f28ac7c5a370dd501b7c324ed4634"
+    },
+    {
+      "bytes": 10423,
+      "mode": "0o644",
+      "mtime_ns": 1791921542517697115,
+      "path": "candidate/docs/compare-inspections.md",
+      "sha256": "245cb5ae7f4bf2b76d58820e967292ced1d8ef1242c023884a0399b2d50e9f2d"
+    },
+    {
+      "bytes": 613,
+      "mode": "0o644",
+      "mtime_ns": 1791920602153980219,
+      "path": "candidate/fanout_engine/__init__.py",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    {
+      "bytes": 7203,
+      "mode": "0o644",
+      "mtime_ns": 1791921362804880807,
+      "path": "candidate/fanout_engine/compare_inspections.py",
+      "sha256": "a2e3a1f0a2128d5ec19c031e4e34539dca7af06fa1a68b60e1a02fd6d55bbb3f"
+    },
+    {
+      "bytes": 9255,
+      "mode": "0o644",
+      "mtime_ns": 1791921273325135786,
+      "path": "candidate/fanout_engine/compare_inspections_html.py",
+      "sha256": "3234000ee108e8883f767b3f2f897e82c78703ce4b29f639a32fbfbddfa5ce77"
+    },
+    {
+      "bytes": 4599,
+      "mode": "0o644",
+      "mtime_ns": 1791920602154782621,
+      "path": "candidate/fanout_engine/dispatch.py",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    {
+      "bytes": 6055,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159016888,
+      "path": "candidate/fanout_engine/inspection.py",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    {
+      "bytes": 19340,
+      "mode": "0o644",
+      "mtime_ns": 1791920602158906365,
+      "path": "candidate/fanout_engine/ledger.py",
+      "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a"
+    },
+    {
+      "bytes": 7513,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159072498,
+      "path": "candidate/fanout_engine/plan.py",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    {
+      "bytes": 9462,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161207872,
+      "path": "candidate/fanout_engine/preview.py",
+      "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5"
+    },
+    {
+      "bytes": 2818,
+      "mode": "0o644",
+      "mtime_ns": 1791920602159818083,
+      "path": "candidate/fanout_engine/routing.py",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    },
+    {
+      "bytes": 11307,
+      "mode": "0o644",
+      "mtime_ns": 1791920602161397543,
+      "path": "candidate/tests/test_compare_inspections.py",
+      "sha256": "1f8d0e99f4c864d3bf349b2815534b88928165e4dc14d5655fbac6ddd0708e06"
+    },
+    {
+      "bytes": 10759,
+      "mode": "0o644",
+      "mtime_ns": 1791921363044869395,
+      "path": "candidate/tests/test_compare_inspections_html.py",
+      "sha256": "3dd00937c22a3c54b9cad375703d0a806bed69ff037abc8eb828d9075e2ddc94"
+    }
+  ],
+  "utc": "2026-10-13T19:59:03.385783+00:00"
+}

@@ -1,0 +1,550 @@
+{
+  "schema": "hamon.root.fanout-html.independent-history-inputs.v1",
+  "prefix": "docs/qualification/saved-inspection-html-loom-d3745/independent/",
+  "files": [
+    {
+      "path": "README-independent-history.md",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/README-independent-history.md",
+      "mode": "100644",
+      "bytes": 3224,
+      "sha256": "08e0454c621c6fefa1277e8dd92a763b8761af6b20f8c97f56c13082b0d29a05",
+      "git_blob": "0d4de74522c6fb9047d34980389b31412c0a0e18",
+      "native_mode": 420
+    },
+    {
+      "path": "seal-independent-history-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/seal-independent-history-v1.py",
+      "mode": "100644",
+      "bytes": 4467,
+      "sha256": "9bf4aa3bd437a44d0b856d15bcc68cf4bef1425f1dc8b00a51417f3830ba7d33",
+      "git_blob": "643ece231f4a4f795c4da8a5b8670468783e2d61",
+      "native_mode": 420
+    },
+    {
+      "path": "criteria-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/criteria-v1.json",
+      "mode": "100644",
+      "bytes": 2625,
+      "sha256": "15fd055e40188fb14fca8380d66578dadf928f6f2365c4cc8276eae74ec886bf",
+      "git_blob": "c51342a9ec89f38c7e91b074898097a8799b1331",
+      "native_mode": 420
+    },
+    {
+      "path": "prepare-original-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/prepare-original-v1.py",
+      "mode": "100644",
+      "bytes": 4198,
+      "sha256": "360cf2a56f331c50a2c637ce540357e7f2c4bea7fc3bb5edf33927d5e96ef670",
+      "git_blob": "94769b4e5e5e5c0c14a9829f5ea7b5febf0add79",
+      "native_mode": 420
+    },
+    {
+      "path": "original-oracles.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/original-oracles.json",
+      "mode": "100644",
+      "bytes": 5184,
+      "sha256": "575df1f53d2c8473eba322448d123dedd8a2c4c0c9a8fd419d53d7a6bf619e2a",
+      "git_blob": "e28acdcbbc43ad12d5c34460193aa491171aa5c2",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/first.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/first.json",
+      "mode": "100644",
+      "bytes": 425,
+      "sha256": "3efb4c2b71b51d74b6e431208fab72b616fb0e6a8ef814a444bf93ddb6519e5e",
+      "git_blob": "94ddc09f16f1c0fbea2049e8c47cd5d8c207d274",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/second.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/second.json",
+      "mode": "100644",
+      "bytes": 390,
+      "sha256": "2eb6b537101fd90d5e76e602c98c50b45a876a6902d3d5d67d664930ef18c532",
+      "git_blob": "18267206dc12eebbe7634e0a834c406ab6648d14",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/order-only.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/order-only.json",
+      "mode": "100644",
+      "bytes": 425,
+      "sha256": "ccaf4cab2a55f03504a2778d4efb17109d1a54826ff675e33dd9a2e2f1239670",
+      "git_blob": "b5fc4212d2a02aa4a08b6efd6bebfce60ec01fb3",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/mismatched.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/mismatched.json",
+      "mode": "100644",
+      "bytes": 389,
+      "sha256": "25424fbe1a1bf8dc77eab329c1505face094e2056fef02c34135cfee77536410",
+      "git_blob": "b16002a1ab09d7a44ae32937b44d788bc3f01bbb",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/typed-oracle.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/typed-oracle.json",
+      "mode": "100644",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/typed-oracle.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/typed-oracle.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/order-oracle.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/order-oracle.json",
+      "mode": "100644",
+      "bytes": 1038,
+      "sha256": "c3237a6793227bde334235f4e708ca7e971a1bee7860afd3d25baf4d75856b3d",
+      "git_blob": "4962a02da5047fc17bd30c962c201804d8468a55",
+      "native_mode": 420
+    },
+    {
+      "path": "fixtures/order-oracle.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/order-oracle.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-cli-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-cli-v1.py",
+      "mode": "100644",
+      "bytes": 7619,
+      "sha256": "a1790cfa957be50e16b4e1560e88f1ee56f668e126df24becd87287520455e09",
+      "git_blob": "7a5fbf9d52ea75bb887a565ee5fe319c939ded07",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-cli-v2.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-cli-v2.py",
+      "mode": "100644",
+      "bytes": 7759,
+      "sha256": "42a4c3149dc4ab86e544e53e1f1f0c5960a12c6681db535536064b4271568f84",
+      "git_blob": "42a13c45a9c211fd848ace88e2942a0409bf9256",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-browser-v1.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-browser-v1.py",
+      "mode": "100644",
+      "bytes": 5870,
+      "sha256": "3da0d5802cde0e29ae0447da02fa9d89c92f8fa11df599df7c05ac871c04a593",
+      "git_blob": "97182c6123268189a8e28bcb44dda6426b41c424",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-browser-v2.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-browser-v2.py",
+      "mode": "100644",
+      "bytes": 6153,
+      "sha256": "1987488da5fd136457d2df3e1a0c302a6594511902672859708b6989eb980ffa",
+      "git_blob": "0cd434bac98db8532dfd766ec73e50d1c25babfd",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-browser-v3.py",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-browser-v3.py",
+      "mode": "100644",
+      "bytes": 6157,
+      "sha256": "8c9b53555a3119162e4b10463aad17dc59c72ae0e2cc71c4d9274ccc7b0e779b",
+      "git_blob": "1c7cd28f833bb8d146f6f9d6119fe5c81829b0a4",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-browser-v4.cjs",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-browser-v4.cjs",
+      "mode": "100644",
+      "bytes": 8896,
+      "sha256": "068c22655ecc82136f8a2dc03ba19a356e4044c346fb2db1fcfda3a987c21338",
+      "git_blob": "1a467126fde84143e56aea1861785bbc975b4f4e",
+      "native_mode": 420
+    },
+    {
+      "path": "receive-browser-v5.cjs",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/receive-browser-v5.cjs",
+      "mode": "100644",
+      "bytes": 9071,
+      "sha256": "70604667c8832e4ff45eca04baf1724614210c586af6f2b733121c26951a6e42",
+      "git_blob": "8a24af2bd2235d4a78d6f974c8bdafae6adcd1c9",
+      "native_mode": 420
+    },
+    {
+      "path": "executable-freeze-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/executable-freeze-v1.json",
+      "mode": "100644",
+      "bytes": 1423,
+      "sha256": "d89ea4eeb98516565c10c4a88207ee720f0f123c91ea28280cdd443a95066518",
+      "git_blob": "8c742831895ecbb3014ff9a3e311447ec8d947ee",
+      "native_mode": 420
+    },
+    {
+      "path": "executable-freeze-v2.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/executable-freeze-v2.json",
+      "mode": "100644",
+      "bytes": 858,
+      "sha256": "2af5073db0ac1435ebd4f4cd38345a7e6ce1b4979c5aae48b27eccc4ffe64db6",
+      "git_blob": "32d4f05dd5076d02a63708afc68f69b318312b52",
+      "native_mode": 420
+    },
+    {
+      "path": "executable-freeze-v3.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/executable-freeze-v3.json",
+      "mode": "100644",
+      "bytes": 1036,
+      "sha256": "865a9491c0bd3b968cc3d4857e49a570436823acc039990d1769e3f72ec0f107",
+      "git_blob": "af9138d81cc4ec8f63a30316a49490b0f8c67ed5",
+      "native_mode": 420
+    },
+    {
+      "path": "browser-adaptation-v4.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/browser-adaptation-v4.json",
+      "mode": "100644",
+      "bytes": 1060,
+      "sha256": "106e2e314873d979732aeea4fdb8d911d76393d83545f04af4aaa38620aba781",
+      "git_blob": "4973e3403e21d4fc11e3c60ee4555f7311c7dcb8",
+      "native_mode": 420
+    },
+    {
+      "path": "browser-adaptation-v5.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/browser-adaptation-v5.json",
+      "mode": "100644",
+      "bytes": 656,
+      "sha256": "6d7be9b32f266f7084dff4f98f4d0bcde6173114d56b8f72f287335f4f73c539",
+      "git_blob": "835c0b66ac9070fc13454d6626d5ed65c3f6ce1b",
+      "native_mode": 420
+    },
+    {
+      "path": "candidate-spec.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/candidate-spec.json",
+      "mode": "100644",
+      "bytes": 2363,
+      "sha256": "3f8d9bf2e6b5c4f42f9636a5707aebece705528acb6f8eaa10dd35271c8e6acb",
+      "git_blob": "7099037098676e4ac70dde320db84c31607b1782",
+      "native_mode": 420
+    },
+    {
+      "path": "harness-review.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/harness-review.json",
+      "mode": "100644",
+      "bytes": 5192,
+      "sha256": "aaf095c54e59ce5941a300b793b7b52c01809626d110083f1641bb3317138ed7",
+      "git_blob": "37953927de44d03dcbad0d36206ed1b74e26ac5d",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/receipt.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/receipt.json",
+      "mode": "100644",
+      "bytes": 91568,
+      "sha256": "17a232370385af81d43579bc42ea704d827aeabc8967083f1b9e0c6d55f203f1",
+      "git_blob": "b387d3d8f52ee3b1f0c7ec41f260eed967392562",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/typed.html",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/typed.html",
+      "mode": "100644",
+      "bytes": 12871,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "git_blob": "f47731c0886d5d06bdc4dec1cdbd458b9a1d6f18",
+      "native_mode": 384
+    },
+    {
+      "path": "course-v2/order.html",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/order.html",
+      "mode": "100644",
+      "bytes": 9224,
+      "sha256": "38a80d0dbd799af30cbeaeaa9e173dbe2600a64940b4805d734081f9cb180027",
+      "git_blob": "9bf0c1d575f88785c5699bbeeb628bb12ac1f558",
+      "native_mode": 420
+    },
+    {
+      "path": "visual-review-v1.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/visual-review-v1.json",
+      "mode": "100644",
+      "bytes": 2529,
+      "sha256": "1b680a17ea9c6747878f83ddcee96dbb143b1ed13e3ad4cec00e700cbf188548",
+      "git_blob": "df6024b00d73983a4a17ee68ec71f7f95651d0b0",
+      "native_mode": 420
+    },
+    {
+      "path": "forge-adaptation-review.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/forge-adaptation-review.json",
+      "mode": "100644",
+      "bytes": 3114,
+      "sha256": "e5eae9bad41ee70d9375b0e1e89c555eabc22d81480a426f4a59af9959288434",
+      "git_blob": "5c612d26ffb39e6d4e9fb32c7842d78f1d81717a",
+      "native_mode": 420
+    },
+    {
+      "path": "forge-result-reassessment.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/forge-result-reassessment.json",
+      "mode": "100644",
+      "bytes": 4820,
+      "sha256": "f6ccda8b4fb9451e370fe7a5831612725ab7854bf2e5e3be84c1b074bdaf24e3",
+      "git_blob": "605e0edbc180a2e1644090ffd9016da03efe5015",
+      "native_mode": 420
+    },
+    {
+      "path": "forge-mirror-receipt.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/forge-mirror-receipt.json",
+      "mode": "100644",
+      "bytes": 4670,
+      "sha256": "fece9787a3e419be970346ac8b2f828ade36e92f6771de5f92eaea899e4296cb",
+      "git_blob": "bf1688a0591791b027365c5a6e32b5640d749faa",
+      "native_mode": 420
+    },
+    {
+      "path": "browser-initial-tool-result-v3.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/browser-initial-tool-result-v3.json",
+      "mode": "100644",
+      "bytes": 2866,
+      "sha256": "e86f98aa7c769bea5f3fc06d3ce2ea073bde5cbccf5037fda08e36e1927bb1c4",
+      "git_blob": "e554703e907391316cff89ed53519d435e144ab2",
+      "native_mode": 420
+    },
+    {
+      "path": "browser-initial-tool-result-v5.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/browser-initial-tool-result-v5.json",
+      "mode": "100644",
+      "bytes": 361,
+      "sha256": "8d5c538519287747d38de06fa63031a9aa4c2a9c86c8f63d206ed373e46ca7e1",
+      "git_blob": "658e39c93298266bc3e353e370a055972d9a44a2",
+      "native_mode": 420
+    },
+    {
+      "path": "browser-final-tool-result-v5.json",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/browser-final-tool-result-v5.json",
+      "mode": "100644",
+      "bytes": 2409,
+      "sha256": "c7beb959e7c1514d5c82804b54fbfa36ef6bdaeb692433836177a7c7362b66ab",
+      "git_blob": "78fc04cc2cdbbbdfa843f2f34e091bd40e5f372b",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/default-json.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/default-json.stdout",
+      "mode": "100644",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/default-json.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/default-json.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/explicit-json.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/explicit-json.stdout",
+      "mode": "100644",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/explicit-json.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/explicit-json.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/typed-html.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/typed-html.stdout",
+      "mode": "100644",
+      "bytes": 12871,
+      "sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+      "git_blob": "f47731c0886d5d06bdc4dec1cdbd458b9a1d6f18",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/typed-html.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/typed-html.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/typed-file.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/typed-file.stdout",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/typed-file.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/typed-file.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/occupied-output.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/occupied-output.stdout",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/occupied-output.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/occupied-output.stderr",
+      "mode": "100644",
+      "bytes": 90,
+      "sha256": "4fe86dc9813d23726daf075ea569874b526ee1b8701dd25f2f3a234d2e34bfc4",
+      "git_blob": "50255af5b834c8d5ef7e3372fa566b5345be4b7f",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/input-output.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/input-output.stdout",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/input-output.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/input-output.stderr",
+      "mode": "100644",
+      "bytes": 90,
+      "sha256": "4fe86dc9813d23726daf075ea569874b526ee1b8701dd25f2f3a234d2e34bfc4",
+      "git_blob": "50255af5b834c8d5ef7e3372fa566b5345be4b7f",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/mismatched.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/mismatched.stdout",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/mismatched.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/mismatched.stderr",
+      "mode": "100644",
+      "bytes": 101,
+      "sha256": "3ef6f8aee5260435880009af029de75728a86c2de972af8db2c4015733cf488a",
+      "git_blob": "11d3fb8a9f9f811cf667876d9eefe58c0d3f0ff8",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/order-only.stdout",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/order-only.stdout",
+      "mode": "100644",
+      "bytes": 9224,
+      "sha256": "38a80d0dbd799af30cbeaeaa9e173dbe2600a64940b4805d734081f9cb180027",
+      "git_blob": "9bf0c1d575f88785c5699bbeeb628bb12ac1f558",
+      "native_mode": 420
+    },
+    {
+      "path": "course-v2/order-only.stderr",
+      "source_path": "/workspace/scratch/d3745ea0f44f/root-fanout-html/course-v2/order-only.stderr",
+      "mode": "100644",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "native_mode": 420
+    },
+    {
+      "path": "native/browser-v3/receipt.json",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v3/receipt.json",
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v3/receipt.json",
+      "mode": "100644",
+      "bytes": 2650,
+      "sha256": "4734b0244351037280f759efe29b2cba97378a0014174863b5e09647ff736060",
+      "git_blob": "229c2cb88d37fffbd4cd7f5a5236f5a34dca2953",
+      "native_mode": 436
+    },
+    {
+      "path": "native/browser-v5/receipt.json",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/receipt.json",
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/receipt.json",
+      "mode": "100644",
+      "bytes": 27620,
+      "sha256": "9814c091204a29b1387529c8bd3b796945ec60014773d525738b8c228aea6dfa",
+      "git_blob": "d1a30801dc86e1497755b6c8d9518e972870c28d",
+      "native_mode": 436
+    },
+    {
+      "path": "native/browser-v5/desktop.png",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/desktop.png",
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/desktop.png",
+      "mode": "100644",
+      "bytes": 426183,
+      "sha256": "00ae4411be52c95f73ab73a057c2f0bbe4aa486fba02d5609e1a62d32257982a",
+      "git_blob": "ca0995bed08fac50b2b143a362ed71f45eabba96",
+      "native_mode": 436
+    },
+    {
+      "path": "native/browser-v5/narrow.png",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/narrow.png",
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/narrow.png",
+      "mode": "100644",
+      "bytes": 413594,
+      "sha256": "06185832a1d2e41ef4c725185619e5525923678f27ecd68a93e901ab5cd433b2",
+      "git_blob": "12ef73dd7dfee19a6789e7933bbfe0213f0ee258",
+      "native_mode": 436
+    },
+    {
+      "path": "native/browser-v5/downloads/saved-inspection-comparison.json",
+      "source_path": "/home/jacob/hamon/receiving/root-d3745-fanout-html/browser-v5/downloads/saved-inspection-comparison.json",
+      "mirror_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/browser-v5/downloads/saved-inspection-comparison.json",
+      "mode": "100644",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "native_mode": 436
+    },
+    {
+      "path": "native/native-identities.json",
+      "source_path": "/dev/shm/forge-d3745-fanout-html-review/native-mirror/native-identities.json",
+      "mode": "100644",
+      "bytes": 1872,
+      "sha256": "294a52822e1f2cad511922fdbf291a4e5225022cfc10a196e20e6fe3cd0850e4",
+      "git_blob": "ecd9d3ae62fb52b02939db619bd1c74c1f7e5bef",
+      "native_mode": 420
+    }
+  ],
+  "scope": "Code-specific original independent receiving history for the archived Loom candidate.32/32 CLI checks passed; original v3 and v5 browser attempts failed; desktop semantic review passed; actual narrow visual gate failed. This descriptor authorizes only the explicit unchanged listed evidence and is not current product acceptance or PR97 qualification.",
+  "history": [
+    "Candidate-free criteria/original oracles and three executable freezes preceded candidate exposure. V4/v5 environment adaptations followed exposure and preserve failed v3.",
+    "Original tool-result JSON captures are connector reports preserved after execution, not separately captured native stdout/stderr files.",
+    "Native source_path and0664 modes are retained; mirror_path identifies exact custody copies. Git mode100644 expresses nonexecutable regular content.",
+    "Raw browser requests are unchanged; separate reassessment distinguishes inline font request from external network without changing original acceptance:false.",
+    "Original candidate/runtime bodies are bound by candidate-spec and original-oracles and retained separately in the author archive; none of these results qualify another source."
+  ]
+}

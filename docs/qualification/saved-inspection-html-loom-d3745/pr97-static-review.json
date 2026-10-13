@@ -1,0 +1,42 @@
+{
+  "schema": "hamon.loom.fanout-pr97-static-overlap-audit.v1",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "source_commit": "fdc6e364ff74c17b92b9ca242b95a6a175050139",
+  "tree": "c7febdbc704b92973ff82cf0b19973ebf618cac5",
+  "parent": "639038bb09a14b54109efd2df2e699a22484a815",
+  "parent_tree": "fbb6e1317c2b733539f36335d89fdc6ad39be351",
+  "parent_leaves": 319,
+  "head_leaves": 321,
+  "selected": [
+    {
+      "path": "docs/compare-inspections.md",
+      "mode": "100644",
+      "blob": "5bc782b06c26655692fc7f618a198d4feb240a37",
+      "status": "modified"
+    },
+    {
+      "path": "fanout_engine/compare_inspections.py",
+      "mode": "100644",
+      "blob": "0c19318d482ee19540ee99e967567358cc96ae72",
+      "status": "modified"
+    },
+    {
+      "path": "fanout_engine/compare_inspections_html.py",
+      "mode": "100644",
+      "blob": "85e5da95f5278c57063ff73899848ae3b3edf5b6",
+      "status": "added"
+    },
+    {
+      "path": "tests/test_compare_inspections_html.py",
+      "mode": "100644",
+      "blob": "d2beb0cf6ad94f65e1c3c18a6109bdf1fc237873",
+      "status": "added"
+    }
+  ],
+  "unrelated_leaves_preserved": 317,
+  "source_review": "Full four bodies and original comparator read. Only _parser/main changed in existing CLI AST; native API/default serializer/publisher remain exact. No implementation-contract blocker found.",
+  "behavior_evidence_scope": "Other team PR body reports18 maintained methods/26 native supplemental checks and two actual same-run pages. Full raw receiving and eventual browser evidence have been requested and are not yet independently verified by this audit.",
+  "recommendation": "Prefer this already-published compatible implementation as the single canonical source after its independent native/browser evidence is received; do not publish the alternate four production files or relabel alternate runtime results.",
+  "coordination_comment": 6154802755,
+  "limitations": "Read-only source/tree comparison only; no product/browser/test replay, no commit/ref/source mutation."
+}

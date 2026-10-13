@@ -1,0 +1,23 @@
+{
+  "schema": "hamon.root.fanout-html-executable-freeze.v3",
+  "utc": "2026-10-13T20:21:57.341553+00:00",
+  "candidate_exposed": false,
+  "prior": [
+    "executable-freeze-v1.json",
+    "executable-freeze-v2.json"
+  ],
+  "executed_versions": [
+    {
+      "path": "receive-cli-v2.py",
+      "bytes": 7759,
+      "sha256": "42a4c3149dc4ab86e544e53e1f1f0c5960a12c6681db535536064b4271568f84"
+    },
+    {
+      "path": "receive-browser-v3.py",
+      "bytes": 6157,
+      "sha256": "8c9b53555a3119162e4b10463aad17dc59c72ae0e2cc71c4d9274ccc7b0e779b"
+    }
+  ],
+  "change": "Anvil full candidate-blind review found HTML boolean open attribute can be empty; expand only when attribute is None, preserving already-open sections. All other acceptance cases and fixtures unchanged. No candidate/browser course has run.",
+  "visual_gate": "Root must read full recorded body/fragments and actual two viewport screenshots against all typed changes and complete parsed documents; token checks alone do not establish visible semantic completeness."
+}

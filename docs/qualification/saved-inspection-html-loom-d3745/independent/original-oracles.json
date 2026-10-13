@@ -1,0 +1,159 @@
+{
+  "schema": "hamon.root.fanout-html-original-oracles.v1",
+  "candidate_exposed": false,
+  "time": "2026-10-13T19:53:24.343541+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source": [
+    {
+      "bytes": 613,
+      "expected_bytes": 613,
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/__init__.py",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    {
+      "bytes": 4599,
+      "expected_bytes": 4599,
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/dispatch.py",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    {
+      "bytes": 19340,
+      "expected_bytes": 19340,
+      "git_blob": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/ledger.py",
+      "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a"
+    },
+    {
+      "bytes": 6055,
+      "expected_bytes": 6055,
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/inspection.py",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    {
+      "bytes": 7513,
+      "expected_bytes": 7513,
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/plan.py",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    {
+      "bytes": 2818,
+      "expected_bytes": 2818,
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/routing.py",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    },
+    {
+      "bytes": 9462,
+      "expected_bytes": 9462,
+      "git_blob": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/preview.py",
+      "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5"
+    },
+    {
+      "bytes": 6867,
+      "expected_bytes": 6867,
+      "git_blob": "d0cee2336eec6bdb87b05877af70c0d30dea0b8c",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/compare_inspections.py",
+      "sha256": "97ce5cadedbfcb935515dee4acdf7d1fb04a7a25c8e8b802b2b6138c820d31a4"
+    }
+  ],
+  "commands": [
+    {
+      "label": "typed",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.compare_inspections",
+        "--first",
+        "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/first.json",
+        "--second",
+        "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/second.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3",
+      "stdout_bytes": 1830,
+      "stderr_bytes": 0
+    },
+    {
+      "label": "order",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.compare_inspections",
+        "--first",
+        "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/first.json",
+        "--second",
+        "/workspace/scratch/d3745ea0f44f/root-fanout-html/fixtures/order-only.json"
+      ],
+      "exit": 0,
+      "stdout_sha256": "c3237a6793227bde334235f4e708ca7e971a1bee7860afd3d25baf4d75856b3d",
+      "stdout_bytes": 1038,
+      "stderr_bytes": 0
+    }
+  ],
+  "original_bytes_preserved": true,
+  "fixture_pins": [
+    {
+      "path": "fixtures/first.json",
+      "bytes": 425,
+      "sha256": "3efb4c2b71b51d74b6e431208fab72b616fb0e6a8ef814a444bf93ddb6519e5e"
+    },
+    {
+      "path": "fixtures/mismatched.json",
+      "bytes": 389,
+      "sha256": "25424fbe1a1bf8dc77eab329c1505face094e2056fef02c34135cfee77536410"
+    },
+    {
+      "path": "fixtures/order-only.json",
+      "bytes": 425,
+      "sha256": "ccaf4cab2a55f03504a2778d4efb17109d1a54826ff675e33dd9a2e2f1239670"
+    },
+    {
+      "path": "fixtures/order-oracle.json",
+      "bytes": 1038,
+      "sha256": "c3237a6793227bde334235f4e708ca7e971a1bee7860afd3d25baf4d75856b3d"
+    },
+    {
+      "path": "fixtures/order-oracle.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "fixtures/second.json",
+      "bytes": 390,
+      "sha256": "2eb6b537101fd90d5e76e602c98c50b45a876a6902d3d5d67d664930ef18c532"
+    },
+    {
+      "path": "fixtures/typed-oracle.json",
+      "bytes": 1830,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3"
+    },
+    {
+      "path": "fixtures/typed-oracle.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

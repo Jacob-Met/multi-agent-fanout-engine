@@ -1,0 +1,32 @@
+{
+  "capture_label": "Second saved document (authored example)",
+  "parts": [
+    {
+      "depends_on": [
+        "audit"
+      ],
+      "id": "publish",
+      "note": "Hold until separately authorized.",
+      "state": "queued"
+    },
+    {
+      "artifact_ref": null,
+      "attempts": 1.0,
+      "confirmed": 0,
+      "evidence": {
+        "finding": "A changed saved claim only: <script>literal</script>‮",
+        "ordered": [
+          "b",
+          "a"
+        ]
+      },
+      "id": "audit",
+      "instruction": "Read <notes> & keep literal 雪 / مرحبا / 👩‍💻.\nNo external work is implied.",
+      "state": "completed",
+      "task_id": "recorded-local-reference",
+      "zero": 0.0
+    }
+  ],
+  "plan_digest": "authored-declared-digest-not-authenticated",
+  "project_id": "review-handoff"
+}

@@ -1,0 +1,24 @@
+{
+  "project_id": "handoff <&> Ω",
+  "plan_digest": "opaque-declared-digest",
+  "ready": true,
+  "nullable": null,
+  "parts": [
+    {
+      "id": "handoff",
+      "state": "blocked",
+      "offset": -0.0
+    },
+    {
+      "id": "audit \"Ω\"",
+      "state": "outcome_unknown",
+      "task_ref": null
+    },
+    {
+      "id": "inventory<&>",
+      "state": "complete",
+      "count": 1,
+      "accepted": false
+    }
+  ]
+}

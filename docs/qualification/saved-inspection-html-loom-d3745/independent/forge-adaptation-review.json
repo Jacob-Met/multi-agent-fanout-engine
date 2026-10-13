@@ -1,0 +1,35 @@
+{
+  "schema": "hamon.forge.fanout-browser-adaptation-review.v1",
+  "utc": "2026-10-13 20:40:59 UTC",
+  "accepted": true,
+  "reviewed_files": [
+    {
+      "path": "receive-browser-v3.py",
+      "bytes": 6157,
+      "sha256": "8c9b53555a3119162e4b10463aad17dc59c72ae0e2cc71c4d9274ccc7b0e779b",
+      "role": "original frozen Playwright predicates"
+    },
+    {
+      "path": "receive-browser-v4.cjs",
+      "bytes": 8896,
+      "sha256": "068c22655ecc82136f8a2dc03ba19a356e4044c346fb2db1fcfda3a987c21338",
+      "role": "unexecuted full Puppeteer adaptation"
+    },
+    {
+      "path": "receive-browser-v5.cjs",
+      "bytes": 9071,
+      "sha256": "70604667c8832e4ff45eca04baf1724614210c586af6f2b733121c26951a6e42",
+      "role": "accepted narrow cleanup correction"
+    }
+  ],
+  "method": "Read original independent criteria/v3 browser body/freeze, complete v4 CJS body and adaptation disclosure, then full v4-to-v5 diff and v5 disclosure. Recomputed actual local v4/v5 full sizes/SHA256. No receiver, browser, renderer, CLI or tests executed by Forge for this review.",
+  "findings": [
+    "Same exact supplied HTML and original JSON oracle are admitted before opening; host/account and owned absent profile are checked. All page opening remains file-origin. The adapted runtime is the already observed Node/Puppeteer25.12.0/Firefox route, not an installed or downloaded replacement.",
+    "Expanded details and recorded full desktop/narrow body text preserve the original first/second labels, saved-data notice, input hashes and typed-token predicates. Both viewport overflow checks and full screenshots remain; root's separate manual semantic/visual review is still required, because token checks alone do not prove complete visible values.",
+    "Actual link click waits for a complete real filesystem JSON download and compares every byte to the immutable original oracle; the fresh download directory and partial-file observation bound this receiving method. Request allowance is limited to the exact file URL and exact selected data: download href, not arbitrary external URLs.",
+    "Passive-element absence, no page exceptions and no console errors remain required. Narrow link visibility is tested by actual computed styles/bounding box, preserving the original visible-link meaning; screenshots/body/scroll-container observations remain separate.",
+    "Explicit Firefox process-exit observation improves cleanup attribution. V4's uncaught owned-directory cleanup could have bypassed final receipt; V5 catches precisely that failure, marks acceptance false and retains recovery paths before writing the receipt. Full diff changes only output/schema version and this cleanup block."
+  ],
+  "history": "Adaptation occurs after candidate exposure. Root reports original v3 PID278299 exit1 at missing distro Playwright driver before any browser launch, with seven preflight checks and exact inputs retained. Original v3 failure and unexecuted v4 remain separate; V5 actual receiving is pending at this review. No successful browser result is inferred from this source review.",
+  "blocking_findings": []
+}

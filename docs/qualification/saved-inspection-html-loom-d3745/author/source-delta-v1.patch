@@ -1,0 +1,473 @@
+--- a/fanout_engine/compare_inspections.py
++++ b/fanout_engine/compare_inspections.py
+@@ -127,7 +127,9 @@
+     )
+     parser.add_argument("--first", type=Path, required=True, help="first saved inspection JSON file")
+     parser.add_argument("--second", type=Path, required=True, help="second saved inspection JSON file")
+-    parser.add_argument("--output", type=Path, help="new comparison file; otherwise write JSON to stdout")
++    parser.add_argument("--format", choices=("json", "html"), default="json",
++                        help="report format; default: json")
++    parser.add_argument("--output", type=Path, help="new comparison file; otherwise write report to stdout")
+     return parser
+ 
+ 
+@@ -136,7 +138,11 @@
+     try:
+         first = _read_input(args.first, MAX_INPUT_BYTES, "first")
+         second = _read_input(args.second, MAX_INPUT_BYTES, "second")
+-        content = _serialize(compare_inspections(first, second))
++        report = compare_inspections(first, second)
++        content = _serialize(report)
++        if args.format == "html":
++            from .compare_inspections_html import render_saved_comparison
++            content = render_saved_comparison(report, content)
+     except RecursionError:
+         print("fanout compare-inspections: input nesting exceeds comparison limits", file=sys.stderr)
+         return 2
+--- a/fanout_engine/compare_inspections_html.py
++++ b/fanout_engine/compare_inspections_html.py
+@@ -0,0 +1,154 @@
++"""Passive HTML presentation of an admitted saved-inspection comparison."""
++from __future__ import annotations
++
++import base64
++from html import escape
++import json
++from typing import Any
++
++MAX_HTML_BYTES = 32 * 1024 * 1024
++
++_STYLE = """
++:root { font-family: system-ui, sans-serif; color: #182934; background: #edf2f3; color-scheme: light; }
++* { box-sizing: border-box; }
++body { margin: 0; }
++main { max-width: 1160px; margin: auto; padding: 36px 24px 64px; }
++header { border-top: 6px solid #16756e; padding-top: 24px; }
++.eyebrow { color: #286961; text-transform: uppercase; letter-spacing: .09em; font-size: .8rem; font-weight: 700; }
++h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.12; margin: 10px 0 18px; }
++h2 { font-size: 1.35rem; margin: 0 0 18px; }
++h3 { font-size: 1.05rem; margin: 24px 0 10px; }
++p, li, dt, dd, summary { line-height: 1.55; }
++p { max-width: 84ch; }
++.notice { background: #fff6dc; border-left: 4px solid #8d6400; padding: 12px 16px; }
++section { margin-top: 24px; padding: 24px; background: #fff; border: 1px solid #bfcdd0; border-radius: 10px; }
++.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
++.facts div { padding: 14px; background: #f1f7f6; border-radius: 6px; }
++dt { color: #3e535c; font-size: .9rem; }
++dd { font-size: 1.4rem; font-weight: 650; margin: 5px 0 0; }
++table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 14px; }
++caption { text-align: left; font-weight: 650; margin: 0 0 10px; overflow-wrap: anywhere; }
++th, td { text-align: left; vertical-align: top; padding: 12px; border: 1px solid #cbd6d8; overflow-wrap: anywhere; }
++th { background: #eef4f4; font-size: .9rem; }
++thead th:first-child { width: 24%; }
++pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .85rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
++pre { margin: 0; }
++details { margin-top: 16px; border: 1px solid #cbd6d8; border-radius: 6px; background: #f8fbfb; }
++summary { cursor: pointer; font-weight: 650; padding: 14px; }
++details pre { padding: 0 16px 16px; }
++a { color: #075d72; overflow-wrap: anywhere; text-underline-offset: 3px; }
++a:focus-visible, summary:focus-visible { outline: 3px solid #a56700; outline-offset: 4px; }
++.download { display: inline-block; padding: 12px 16px; border-radius: 6px; background: #126b65; color: white; font-weight: 650; text-decoration: none; }
++.note { color: #485e67; font-size: .9rem; }
++@media (max-width: 640px) {
++  main { padding: 24px 12px 40px; }
++  section { padding: 18px 12px; }
++  .facts { grid-template-columns: 1fr; }
++  .comparison, .comparison tbody, .comparison tr, .comparison th, .comparison td { display: block; width: 100%; }
++  .comparison thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
++  .comparison tr { margin-bottom: 18px; }
++  .comparison td::before { content: attr(data-side); display: block; font-weight: 700; margin-bottom: 8px; color: #285b61; }
++  .comparison td + td { border-top: 0; }
++}
++"""
++
++
++def _json_text(value: Any) -> str:
++    text = json.dumps(value, ensure_ascii=False, allow_nan=False, indent=2, sort_keys=True)
++    # Keep ordinary Unicode readable. Display-only control escapes do not change
++    # the comparison document or its exact downloadable bytes.
++    text = "".join(
++        "\\u%04x" % ord(char)
++        if 0x7f <= ord(char) <= 0x9f or ord(char) in (0x061c, 0x200e, 0x200f)
++        or 0x202a <= ord(char) <= 0x202e or 0x2066 <= ord(char) <= 0x2069
++        else char for char in text
++    )
++    return escape(text, quote=True)
++
++
++def _pre(value: Any) -> str:
++    return "<pre>" + _json_text(value) + "</pre>"
++
++
++def _table(caption: str, rows: list[tuple[str, Any, Any]]) -> str:
++    out = ['<table class="comparison"><caption>', caption,
++           '</caption><thead><tr><th scope="col">Field</th><th scope="col">First</th>',
++           '<th scope="col">Second</th></tr></thead><tbody>']
++    for field, first, second in rows:
++        out.extend(['<tr><th scope="row">', _pre(field), '</th>',
++                    '<td data-side="First">', _pre(first), '</td>',
++                    '<td data-side="Second">', _pre(second), '</td></tr>'])
++    out.append('</tbody></table>')
++    return "".join(out)
++
++
++def render_saved_comparison(report: dict[str, Any], native_json: bytes) -> bytes:
++    """Render the CLI's admitted report and its exact canonical JSON+LF.
++
++    Admission and serialization belong to compare_inspections. This helper
++    performs no file access, ledger reads, dispatch, or output publication.
++    """
++    first, second = report["first"], report["second"]
++    download = base64.b64encode(native_json).decode("ascii")
++    out = ['<!doctype html>\n<html lang="en"><head><meta charset="utf-8">',
++           '<meta name="viewport" content="width=device-width, initial-scale=1">',
++           '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; '
++           "style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'\">",
++           '<title>Saved inspection comparison</title><style>', _STYLE,
++           '</style></head><body><main><header><div class="eyebrow">Fanout · saved data</div>',
++           '<h1>Saved inspection comparison</h1>',
++           '<p>Read the literal differences between two saved documents. First and second '
++           'name the supplied files; their order does not establish chronology.</p>',
++           '<p class="notice">These are saved claims. This comparison does not authenticate '
++           'their origin or declared plan digest, validate a native plan, resolve uncertainty, '
++           'or authorize dispatch, retry or reconciliation.</p>',
++           '<a class="download" download="saved-inspection-comparison.json" '
++           f'href="data:application/json;base64,{download}">Download exact comparison JSON</a>',
++           '<p class="note">The download contains both complete documents, exact input identities '
++           'and the original canonical comparison with its final newline. The page is offline '
++           'and does not update itself.</p></header>',
++           '<section><h2>At a glance</h2><dl class="facts">']
++    for label, key in (("Same input bytes", "same_input_bytes"),
++                       ("Same saved values", "same_saved_values"),
++                       ("Part order changed", "part_order_changed")):
++        out.extend(['<div><dt>', label, '</dt><dd>', _json_text(report[key]), '</dd></div>'])
++    out.extend(['</dl><h3>Changed part IDs</h3>', _pre(report["changed_part_ids"]),
++                '<p class="note">Changed parts follow the first document’s order. A pure '
++                'part-order change can have no changed fields.</p></section>',
++                '<section><h2>Captured input identities</h2>',
++                _table('Raw bytes and declared project relationship', [
++                    ('Input bytes', first['input_bytes'], second['input_bytes']),
++                    ('Input SHA-256', first['input_sha256'], second['input_sha256']),
++                    ('Declared project ID', first['document']['project_id'], second['document']['project_id']),
++                    ('Declared plan digest', first['document']['plan_digest'], second['document']['plan_digest']),
++                ]), '</section>',
++                '<section><h2>Changed fields</h2>',
++                '<p>Each side shows its complete JSON envelope. <code>{"present": false}</code> '
++                'means absent; a present value of <code>null</code> is different. JSON notation '
++                'also preserves booleans, integer/float forms, signed floating zero and array order.</p>',
++                '<p class="note">Markup is literal text. Control and directional formatting '
++                'characters are shown as JSON escapes; ordinary Unicode stays readable. '
++                'The exact download is unchanged by this display treatment.</p>',
++                '<h3>Top-level fields</h3>'])
++    top = report['top_level_changes']
++    if top:
++        out.append(_table('Top-level differences', [(r['field'], r['first'], r['second']) for r in top]))
++    else:
++        out.append('<p>No top-level fields changed.</p>')
++    out.append('<h3>Part fields</h3>')
++    if report['part_changes']:
++        for part in report['part_changes']:
++            out.append(_table('Part ' + _json_text(part['part_id']),
++                              [(r['field'], r['first'], r['second']) for r in part['fields']]))
++    else:
++        out.append('<p>No part fields changed.</p>')
++    out.extend(['</section><section><h2>Complete saved documents</h2>',
++                '<p>These are the complete parsed values, including fields outside the comparison’s '
++                'structural admission. Expand either document to read it.</p>',
++                '<details><summary>First complete saved document</summary>', _pre(first['document']), '</details>',
++                '<details><summary>Second complete saved document</summary>', _pre(second['document']), '</details>',
++                '</section></main></body></html>\n'])
++    encoded = "".join(out).encode("utf-8")
++    if len(encoded) > MAX_HTML_BYTES:
++        raise ValueError("HTML report exceeds the 32 MiB consumer limit")
++    return encoded
+--- a/tests/test_compare_inspections_html.py
++++ b/tests/test_compare_inspections_html.py
+@@ -0,0 +1,216 @@
++"""Actual saved-report CLI and passive HTML presentation boundaries."""
++from __future__ import annotations
++
++import base64
++import copy
++from html.parser import HTMLParser
++import io
++import json
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++from unittest.mock import patch
++
++from fanout_engine.compare_inspections import main
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def raw(value):
++    return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False) + "\n").encode()
++
++
++class Page(HTMLParser):
++    def __init__(self, body):
++        super().__init__(convert_charrefs=True)
++        self.tags = []
++        self.attrs = []
++        self.pres = []
++        self.downloads = []
++        self.visible = []
++        self.current_pre = None
++        self.feed(body.decode("utf-8"))
++
++    def handle_starttag(self, tag, attrs):
++        self.tags.append(tag)
++        self.attrs.extend(attrs)
++        attr = dict(attrs)
++        if tag == "pre":
++            self.current_pre = []
++        if tag == "a" and "download" in attr:
++            self.downloads.append(attr)
++
++    def handle_data(self, data):
++        self.visible.append(data)
++        if self.current_pre is not None:
++            self.current_pre.append(data)
++
++    def handle_endtag(self, tag):
++        if tag == "pre":
++            self.pres.append("".join(self.current_pre))
++            self.current_pre = None
++
++    def downloaded(self):
++        if len(self.downloads) != 1:
++            raise ValueError("one exact native download required")
++        prefix = "data:application/json;base64,"
++        href = self.downloads[0]["href"]
++        if not href.startswith(prefix):
++            raise ValueError("unexpected download type")
++        return base64.b64decode(href[len(prefix):], validate=True)
++
++
++class SavedInspectionHTMLTests(unittest.TestCase):
++    def setUp(self):
++        self.tmp = tempfile.TemporaryDirectory()
++        self.addCleanup(self.tmp.cleanup)
++        self.directory = Path(self.tmp.name)
++        self.first = self.directory / "first.json"
++        self.second = self.directory / "second.json"
++        self.left = {"project_id": "saved project", "plan_digest": "declared only", "parts": [
++            {"id": "audit", "state": "outcome_unknown", "absent_later": None, "flag": False,
++             "number": 1, "zero": -0.0, "ordered": [1, 2],
++             "text": "<script>literal</script> & 雪 مرحبا 👩‍💻\n\u202e\u007f\u0085"},
++            {"id": "publish", "state": "queued"}], "unknown_field": {"a": True}}
++        self.right = copy.deepcopy(self.left)
++        part = self.right["parts"][0]
++        part.update({"flag": 0, "number": 1.0, "zero": 0.0, "ordered": [2, 1], "present_null": None})
++        del part["absent_later"]
++        self.right["parts"].reverse()
++        self.first.write_bytes(raw(self.left))
++        self.second.write_bytes(raw(self.right))
++
++    def cli(self, *args):
++        return subprocess.run([sys.executable, "-B", *(["-O"] if sys.flags.optimize else []),
++                               "-m", "fanout_engine.compare_inspections", "--first", str(self.first),
++                               "--second", str(self.second), *map(str, args)],
++                              cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=15)
++
++    def successful(self, *args):
++        result = self.cli(*args)
++        self.assertEqual((result.returncode, result.stderr), (0, b""))
++        return result.stdout
++
++    def test_default_explicit_json_and_html_download_stdout_file_identity(self):
++        before = [(p.read_bytes(), p.stat().st_mtime_ns) for p in (self.first, self.second)]
++        native = self.successful()
++        self.assertEqual(self.successful("--format", "json"), native)
++        html = self.successful("--format", "html")
++        self.assertEqual(self.successful("--format", "html"), html)
++        page = Page(html)
++        self.assertEqual(page.downloaded(), native)
++        self.assertTrue(native.endswith(b"\n"))
++        self.assertEqual(page.downloads[0]["download"], "saved-inspection-comparison.json")
++        destination = self.directory / "review.html"
++        self.assertEqual(self.successful("--format", "html", "--output", destination), b"")
++        self.assertEqual(destination.read_bytes(), html)
++        self.assertEqual([(p.read_bytes(), p.stat().st_mtime_ns) for p in (self.first, self.second)], before)
++
++    def test_complete_typed_envelopes_documents_and_order_preserved(self):
++        page = Page(self.successful("--format", "html"))
++        report = json.loads(page.downloaded())
++        parsed = [json.loads(value) for value in page.pres]
++        # Canonical encoded values avoid Python's bool/int and signed-zero aliases.
++        values = [raw(value) for value in parsed]
++        for field in report["part_changes"][0]["fields"]:
++            self.assertIn(raw(field["field"]), values)
++            self.assertIn(raw(field["first"]), values)
++            self.assertIn(raw(field["second"]), values)
++        self.assertIn(raw({"present": False}), values)
++        self.assertIn(raw({"present": True, "value": None}), values)
++        self.assertIn(raw({"present": True, "value": False}), values)
++        self.assertIn(raw({"present": True, "value": 0}), values)
++        self.assertIn(raw({"present": True, "value": 1}), values)
++        self.assertIn(raw({"present": True, "value": 1.0}), values)
++        self.assertIn(raw({"present": True, "value": -0.0}), values)
++        self.assertIn(raw({"present": True, "value": 0.0}), values)
++        self.assertIn(raw(self.left), values)
++        self.assertIn(raw(self.right), values)
++        for side in ("first", "second"):
++            self.assertIn(raw(report[side]["input_sha256"]), values)
++            self.assertIn(raw(report[side]["input_bytes"]), values)
++
++    def test_literal_escaping_passive_page_and_readable_unicode(self):
++        html = self.successful("--format", "html")
++        page = Page(html)
++        self.assertFalse(set(page.tags) & {"script", "iframe", "object", "form", "img", "link", "svg"})
++        self.assertFalse(any(name.startswith("on") for name, _ in page.attrs))
++        self.assertEqual([value for name, value in page.attrs if name in ("src", "href")],
++                         [page.downloads[0]["href"]])
++        text = "".join(page.visible)
++        self.assertIn("<script>literal</script>", text)
++        self.assertIn("雪 مرحبا 👩‍💻", text)
++        self.assertIn("\\u202e", text)
++        self.assertIn("\\u007f", text)
++        self.assertIn("\\u0085", text)
++        self.assertNotIn("\u202e", text)
++        self.assertIn("does not establish chronology", text)
++        self.assertIn("retry or reconciliation", text)
++        self.assertEqual(json.loads(page.downloaded())["first"]["document"], self.left)
++
++    def test_order_only_identical_and_empty_parts_have_distinct_summary(self):
++        ordered = copy.deepcopy(self.left)
++        ordered["parts"].reverse()
++        self.second.write_bytes(raw(ordered))
++        page = Page(self.successful("--format", "html"))
++        report = json.loads(page.downloaded())
++        self.assertIs(report["part_order_changed"], True)
++        self.assertIs(report["same_saved_values"], False)
++        self.assertEqual(report["part_changes"], [])
++        self.assertIn("No part fields changed.", "".join(page.visible))
++        self.second.write_bytes(self.first.read_bytes())
++        identical = json.loads(Page(self.successful("--format", "html")).downloaded())
++        self.assertIs(identical["same_input_bytes"], True)
++        self.assertIs(identical["same_saved_values"], True)
++        self.assertIs(identical["part_order_changed"], False)
++        empty = {"project_id": "p", "plan_digest": "d", "parts": []}
++        self.first.write_bytes(raw(empty)); self.second.write_bytes(raw(empty))
++        self.assertEqual(json.loads(Page(self.successful("--format", "html")).downloaded())["changed_part_ids"], [])
++
++    def test_existing_input_dangling_and_missing_parent_outputs_refused(self):
++        occupied = self.directory / "occupied.html"
++        occupied.write_bytes(b"keep exact\n")
++        before = {str(p): (p.read_bytes(), p.stat().st_mtime_ns) for p in (self.first, self.second, occupied)}
++        for destination in (occupied, self.first, self.second, self.directory / "missing" / "report.html"):
++            with self.subTest(destination=destination):
++                child = self.cli("--format", "html", "--output", destination)
++                self.assertEqual(child.returncode, 1)
++                self.assertEqual(child.stdout, b"")
++        self.assertEqual({str(p): (p.read_bytes(), p.stat().st_mtime_ns) for p in (self.first, self.second, occupied)}, before)
++        self.assertFalse((self.directory / "missing").exists())
++        if hasattr(Path, "symlink_to"):
++            dangling = self.directory / "dangling.html"
++            try:
++                dangling.symlink_to(self.directory / "absent-target")
++            except (OSError, NotImplementedError):
++                return  # The platform may not grant symlink creation.
++            child = self.cli("--format", "html", "--output", dangling)
++            self.assertEqual(child.returncode, 1)
++            self.assertTrue(dangling.is_symlink())
++            self.assertFalse((self.directory / "absent-target").exists())
++
++    def test_native_admission_and_html_size_bound_precede_publication(self):
++        output = self.directory / "invalid.html"
++        self.second.write_bytes(b'{"project_id": "wrong", "plan_digest": "other", "parts": []}\n')
++        child = self.cli("--format", "html", "--output", output)
++        self.assertEqual((child.returncode, child.stdout), (2, b""))
++        self.assertFalse(output.exists())
++        self.second.write_bytes(raw(self.right))
++        args = ["--first", str(self.first), "--second", str(self.second), "--format", "html", "--output", str(output)]
++        with patch("fanout_engine.compare_inspections_html.MAX_HTML_BYTES", 64), patch("sys.stderr", new_callable=io.StringIO) as stderr:
++            self.assertEqual(main(args), 2)
++            self.assertIn("HTML report exceeds", stderr.getvalue())
++        self.assertFalse(output.exists())
++        self.assertFalse(any(p.name.startswith(".") for p in self.directory.iterdir()))
++
++    def test_html_stdout_failure_uses_existing_output_exit(self):
++        args = ["--first", str(self.first), "--second", str(self.second), "--format", "html"]
++        with patch("fanout_engine.compare_inspections._write_stdout", side_effect=OSError("owned broken output")), patch("sys.stderr", new_callable=io.StringIO) as stderr:
++            self.assertEqual(main(args), 1)
++            self.assertIn("cannot write report", stderr.getvalue())
++
++
++if __name__ == "__main__":
++    unittest.main()
+--- a/docs/compare-inspections.md
++++ b/docs/compare-inspections.md
+@@ -146,3 +146,68 @@
+ complete-output limits, actual CLI output, occupied destination refusal, input
+ conservation, regular-file referents, and explicit file output when standard
+ output is unavailable.
++
++## Read the saved comparison as an offline page
++
++Add an explicit HTML format when the recipient needs to read the captured
++differences in a browser:
++
++```sh
++python -B -m fanout_engine.compare_inspections \
++  --first first-inspection.json --second second-inspection.json \
++  --format html --output saved-comparison.html
++```
++
++Open the newly created HTML file directly. It needs no server, network,
++JavaScript or installation in the browser. The page puts three summary facts,
++the exact captured input identities, complete changed-field envelopes and both
++complete parsed documents together. The complete documents use ordinary
++expandable sections. Narrow windows stack each field's first and second sides.
++
++The labels **first** and **second** identify the arguments. They do not establish
++chronology, prove a state transition or resolve an unknown outcome. A pure
++part-array reorder is reported separately even if no part fields changed.
++The prominent saved-data notice retains the same structural-only comparison
++boundary as the JSON report.
++
++Each changed side is shown as its full JSON envelope. An absent field is
++`{"present": false}`; a present null has
++`{"present": true, "value": null}`. Booleans, integer and floating forms,
++signed floating zero, arrays and complete nested values remain visible.
++Authored markup stays literal text. Ordinary Unicode remains readable; DEL,
++C1 controls and the twelve bidi formatting characters U+061C, U+200E–U+200F,
++U+202A–U+202E and U+2066–U+2069 are visibly escaped in this display.
++This presentation treatment does not change either source document or the
++download.
++
++**Download exact comparison JSON** is a single ordinary embedded data link.
++It contains byte-for-byte the canonical comparison that the original JSON
++command emits, including both documents, their raw input hashes/byte counts
++and the final LF. Browser download restrictions are host behavior; the
++ordinary JSON file command remains available.
++
++Default output and explicit `--format json` have identical native JSON bytes.
++HTML stdout and file output are deterministic for the same admitted input
++bytes. The native 8 MiB complete-comparison limit is checked first; the
++complete HTML then has a separate 32 MiB limit before any publication.
++An HTML size refusal exits 2. File or stdout write failures retain exit 1;
++a failed stdout sink may already have received a prefix.
++
++Both formats use the same exclusive new-file publisher and preserve its
++occupied destination, input path, dangling symlink and absent-parent
++behavior described above. No output directories are created. Do not
++interpret a late publication/cleanup failure as a guarantee that no
++destination was written; inspect a retained destination before choosing a
++new path.
++
++Focused presentation controls:
++
++```sh
++python3 -B -m unittest discover -s tests -p 'test_compare_inspections_html.py' -v
++python3 -O -B -m unittest discover -s tests -p 'test_compare_inspections_html.py' -v
++```
++
++The presentation tests call the actual CLI, preserve exact native downloads,
++exercise typed/absent values and passive escaping, distinguish identical and
++order-only documents, and check bounded publication failures. Their CLI
++children inherit optimized execution when the test parent uses `-O`.

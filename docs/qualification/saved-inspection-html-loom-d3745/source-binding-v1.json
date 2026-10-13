@@ -1,0 +1,119 @@
+{
+  "candidate_files": [
+    {
+      "bytes": 7203,
+      "git_blob": "c9077a3737f8a1dc61037bd260d8ffd280f324c7",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/compare_inspections.py",
+      "sha256": "a2e3a1f0a2128d5ec19c031e4e34539dca7af06fa1a68b60e1a02fd6d55bbb3f",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/fanout_engine/compare_inspections.py"
+    },
+    {
+      "bytes": 9255,
+      "git_blob": "1f07e2849e50a3c477f5855c8bb56ca65b0be271",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/compare_inspections_html.py",
+      "sha256": "3234000ee108e8883f767b3f2f897e82c78703ce4b29f639a32fbfbddfa5ce77",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/fanout_engine/compare_inspections_html.py"
+    },
+    {
+      "bytes": 10759,
+      "git_blob": "0d87ff6ed0ed48ce814f03af31b2e63f56b70627",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "tests/test_compare_inspections_html.py",
+      "sha256": "3dd00937c22a3c54b9cad375703d0a806bed69ff037abc8eb828d9075e2ddc94",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/tests/test_compare_inspections_html.py"
+    },
+    {
+      "bytes": 10423,
+      "git_blob": "4b03b9864280f3bb836961b0edd38b1a6bdc517a",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/compare-inspections.md",
+      "sha256": "245cb5ae7f4bf2b76d58820e967292ced1d8ef1242c023884a0399b2d50e9f2d",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/docs/compare-inspections.md"
+    }
+  ],
+  "current_parent": {
+    "commit": "639038bb09a14b54109efd2df2e699a22484a815",
+    "leaf_count": 319,
+    "tree": "fbb6e1317c2b733539f36335d89fdc6ad39be351"
+  },
+  "received_base": {
+    "commit": "a64d8e08bd9db201931ab105caa848e06d5668b2",
+    "tree": "4103fb660411f1b1519c38c7fe3491ca3fd8bf57"
+  },
+  "schema": "hamon.loom.saved-inspection-html-source-binding.v1",
+  "scope": "All11 source/dependency/test/guide/workflow bindings remain exact after PR96. Candidate product bytes stay frozen. No runtime rerun; current publication parent is subject to ordinary final freshness/overlap review. Original receipts remain at a64d8e08 and unpublished at execution.",
+  "unchanged_selected_closure": [
+    {
+      "blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "bytes": 613,
+      "mode": "100644",
+      "path": "fanout_engine/__init__.py"
+    },
+    {
+      "blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "bytes": 4599,
+      "mode": "100644",
+      "path": "fanout_engine/dispatch.py"
+    },
+    {
+      "blob": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+      "bytes": 19340,
+      "mode": "100644",
+      "path": "fanout_engine/ledger.py"
+    },
+    {
+      "blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "bytes": 6055,
+      "mode": "100644",
+      "path": "fanout_engine/inspection.py"
+    },
+    {
+      "blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "bytes": 7513,
+      "mode": "100644",
+      "path": "fanout_engine/plan.py"
+    },
+    {
+      "blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "bytes": 2818,
+      "mode": "100644",
+      "path": "fanout_engine/routing.py"
+    },
+    {
+      "blob": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+      "bytes": 9462,
+      "mode": "100644",
+      "path": "fanout_engine/preview.py"
+    },
+    {
+      "blob": "d0cee2336eec6bdb87b05877af70c0d30dea0b8c",
+      "bytes": 6867,
+      "mode": "100644",
+      "path": "fanout_engine/compare_inspections.py"
+    },
+    {
+      "blob": "c21b46c0245e5961dc414c3533f277a7a4b51c82",
+      "bytes": 11307,
+      "mode": "100644",
+      "path": "tests/test_compare_inspections.py"
+    },
+    {
+      "blob": "83c3388bfcb3b9d853b071a9bdf45859e30a5802",
+      "bytes": 7169,
+      "mode": "100644",
+      "path": "docs/compare-inspections.md"
+    },
+    {
+      "blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+      "bytes": 574,
+      "mode": "100644",
+      "path": ".github/workflows/test.yml"
+    }
+  ]
+}

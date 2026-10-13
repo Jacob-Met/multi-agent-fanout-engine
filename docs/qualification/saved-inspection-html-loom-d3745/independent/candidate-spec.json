@@ -1,0 +1,53 @@
+{
+  "all_other_selected_source_bytes_modes_preserved": true,
+  "author_receipt": {
+    "bytes": 23384,
+    "path": "author-v1/receipt.json",
+    "sha256": "41a2ea576751ae0ce9c19d6999f2b0218ed468a78702b4ca05985b26d75323cf"
+  },
+  "base_commit": "a64d8e08bd9db201931ab105caa848e06d5668b2",
+  "base_tree": "4103fb660411f1b1519c38c7fe3491ca3fd8bf57",
+  "cli_inverse_recovers_original_bytes": true,
+  "frozen_utc": "2026-10-13T20:01:24.691921+00:00",
+  "publication_state": "unpublished",
+  "schema": "hamon.loom.saved-inspection-html-candidate-freeze.v1",
+  "scope": "Four selected source paths only. Existing native comparator helper and default JSON control preserved. Candidate body withheld from root until independent driver freeze.",
+  "source_files": [
+    {
+      "bytes": 7203,
+      "git_blob": "c9077a3737f8a1dc61037bd260d8ffd280f324c7",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/compare_inspections.py",
+      "sha256": "a2e3a1f0a2128d5ec19c031e4e34539dca7af06fa1a68b60e1a02fd6d55bbb3f",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/fanout_engine/compare_inspections.py"
+    },
+    {
+      "bytes": 9255,
+      "git_blob": "1f07e2849e50a3c477f5855c8bb56ca65b0be271",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "fanout_engine/compare_inspections_html.py",
+      "sha256": "3234000ee108e8883f767b3f2f897e82c78703ce4b29f639a32fbfbddfa5ce77",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/fanout_engine/compare_inspections_html.py"
+    },
+    {
+      "bytes": 10759,
+      "git_blob": "0d87ff6ed0ed48ce814f03af31b2e63f56b70627",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "tests/test_compare_inspections_html.py",
+      "sha256": "3dd00937c22a3c54b9cad375703d0a806bed69ff037abc8eb828d9075e2ddc94",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/tests/test_compare_inspections_html.py"
+    },
+    {
+      "bytes": 10423,
+      "git_blob": "4b03b9864280f3bb836961b0edd38b1a6bdc517a",
+      "mode": "100644",
+      "native_mode": "0o644",
+      "path": "docs/compare-inspections.md",
+      "sha256": "245cb5ae7f4bf2b76d58820e967292ced1d8ef1242c023884a0399b2d50e9f2d",
+      "source_path": "/dev/shm/loom-d3745-fanout-comparison-html/candidate/docs/compare-inspections.md"
+    }
+  ]
+}

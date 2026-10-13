@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Saved inspection comparison</title><style>
+:root { font-family: system-ui, sans-serif; color: #182934; background: #edf2f3; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1160px; margin: auto; padding: 36px 24px 64px; }
+header { border-top: 6px solid #16756e; padding-top: 24px; }
+.eyebrow { color: #286961; text-transform: uppercase; letter-spacing: .09em; font-size: .8rem; font-weight: 700; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.12; margin: 10px 0 18px; }
+h2 { font-size: 1.35rem; margin: 0 0 18px; }
+h3 { font-size: 1.05rem; margin: 24px 0 10px; }
+p, li, dt, dd, summary { line-height: 1.55; }
+p { max-width: 84ch; }
+.notice { background: #fff6dc; border-left: 4px solid #8d6400; padding: 12px 16px; }
+section { margin-top: 24px; padding: 24px; background: #fff; border: 1px solid #bfcdd0; border-radius: 10px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.facts div { padding: 14px; background: #f1f7f6; border-radius: 6px; }
+dt { color: #3e535c; font-size: .9rem; }
+dd { font-size: 1.4rem; font-weight: 650; margin: 5px 0 0; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 14px; }
+caption { text-align: left; font-weight: 650; margin: 0 0 10px; overflow-wrap: anywhere; }
+th, td { text-align: left; vertical-align: top; padding: 12px; border: 1px solid #cbd6d8; overflow-wrap: anywhere; }
+th { background: #eef4f4; font-size: .9rem; }
+thead th:first-child { width: 24%; }
+pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .85rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
+pre { margin: 0; }
+details { margin-top: 16px; border: 1px solid #cbd6d8; border-radius: 6px; background: #f8fbfb; }
+summary { cursor: pointer; font-weight: 650; padding: 14px; }
+details pre { padding: 0 16px 16px; }
+a { color: #075d72; overflow-wrap: anywhere; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #a56700; outline-offset: 4px; }
+.download { display: inline-block; padding: 12px 16px; border-radius: 6px; background: #126b65; color: white; font-weight: 650; text-decoration: none; }
+.note { color: #485e67; font-size: .9rem; }
+@media (max-width: 640px) {
+  main { padding: 24px 12px 40px; }
+  section { padding: 18px 12px; }
+  .facts { grid-template-columns: 1fr; }
+  .comparison, .comparison tbody, .comparison tr, .comparison th, .comparison td { display: block; width: 100%; }
+  .comparison thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .comparison tr { margin-bottom: 18px; }
+  .comparison td::before { content: attr(data-side); display: block; font-weight: 700; margin-bottom: 8px; color: #285b61; }
+  .comparison td + td { border-top: 0; }
+}
+</style></head><body><main><header><div class="eyebrow">Fanout · saved data</div><h1>Saved inspection comparison</h1><p>Read the literal differences between two saved documents. First and second name the supplied files; their order does not establish chronology.</p><p class="notice">These are saved claims. This comparison does not authenticate their origin or declared plan digest, validate a native plan, resolve uncertainty, or authorize dispatch, retry or reconciliation.</p><a class="download" download="saved-inspection-comparison.json" href="data:application/json;base64,eyJjaGFuZ2VkX3BhcnRfaWRzIjpbImF1ZGl0Il0sImZpcnN0Ijp7ImRvY3VtZW50Ijp7ImNhcHR1cmVfbGFiZWwiOiJGaXJzdCBzYXZlZCBkb2N1bWVudCAoYXV0aG9yZWQgZXhhbXBsZSkiLCJwYXJ0cyI6W3siYXR0ZW1wdHMiOjEsImNvbmZpcm1lZCI6ZmFsc2UsImV2aWRlbmNlIjp7ImZpbmRpbmciOiJSZXRhaW5lZCB1bmtub3duIG91dGNvbWU7IG5vIHJldHJ5IGF1dGhvcml0eS4iLCJvcmRlcmVkIjpbImEiLCJiIl19LCJpZCI6ImF1ZGl0IiwiaW5zdHJ1Y3Rpb24iOiJSZWFkIDxub3Rlcz4gJiBrZWVwIGxpdGVyYWwg6ZuqIC8g2YXYsdit2KjYpyAvIPCfkanigI3wn5K7LlxuTm8gZXh0ZXJuYWwgd29yayBpcyBpbXBsaWVkLiIsInJldGlyZWRfbm90ZSI6bnVsbCwic3RhdGUiOiJvdXRjb21lX3Vua25vd24iLCJ0YXNrX2lkIjpudWxsLCJ6ZXJvIjotMC4wfSx7ImRlcGVuZHNfb24iOlsiYXVkaXQiXSwiaWQiOiJwdWJsaXNoIiwibm90ZSI6IkhvbGQgdW50aWwgc2VwYXJhdGVseSBhdXRob3JpemVkLiIsInN0YXRlIjoicXVldWVkIn1dLCJwbGFuX2RpZ2VzdCI6ImF1dGhvcmVkLWRlY2xhcmVkLWRpZ2VzdC1ub3QtYXV0aGVudGljYXRlZCIsInByb2plY3RfaWQiOiJyZXZpZXctaGFuZG9mZiJ9LCJpbnB1dF9ieXRlcyI6NTc1LCJpbnB1dF9zaGEyNTYiOiI5OTE1ZTUwODE1YmIyN2QwMGQxODNhZDJkN2FlMDZiMGVjNzhhY2ZkYjgxNmJlMTQ5N2E5MjhkYmM3NzIyYWNjIn0sInBhcnRfY2hhbmdlcyI6W3siZmllbGRzIjpbeyJmaWVsZCI6ImFydGlmYWN0X3JlZiIsImZpcnN0Ijp7InByZXNlbnQiOmZhbHNlfSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjpudWxsfX0seyJmaWVsZCI6ImF0dGVtcHRzIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjF9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjEuMH19LHsiZmllbGQiOiJjb25maXJtZWQiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6ZmFsc2V9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOjB9fSx7ImZpZWxkIjoiZXZpZGVuY2UiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6eyJmaW5kaW5nIjoiUmV0YWluZWQgdW5rbm93biBvdXRjb21lOyBubyByZXRyeSBhdXRob3JpdHkuIiwib3JkZXJlZCI6WyJhIiwiYiJdfX0sInNlY29uZCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6eyJmaW5kaW5nIjoiQSBjaGFuZ2VkIHNhdmVkIGNsYWltIG9ubHk6IDxzY3JpcHQ+bGl0ZXJhbDwvc2NyaXB0PuKAriIsIm9yZGVyZWQiOlsiYiIsImEiXX19fSx7ImZpZWxkIjoicmV0aXJlZF9ub3RlIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOm51bGx9LCJzZWNvbmQiOnsicHJlc2VudCI6ZmFsc2V9fSx7ImZpZWxkIjoic3RhdGUiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6Im91dGNvbWVfdW5rbm93biJ9LCJzZWNvbmQiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJjb21wbGV0ZWQifX0seyJmaWVsZCI6InRhc2tfaWQiLCJmaXJzdCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6bnVsbH0sInNlY29uZCI6eyJwcmVzZW50Ijp0cnVlLCJ2YWx1ZSI6InJlY29yZGVkLWxvY2FsLXJlZmVyZW5jZSJ9fSx7ImZpZWxkIjoiemVybyIsImZpcnN0Ijp7InByZXNlbnQiOnRydWUsInZhbHVlIjotMC4wfSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjowLjB9fV0sInBhcnRfaWQiOiJhdWRpdCJ9XSwicGFydF9vcmRlcl9jaGFuZ2VkIjp0cnVlLCJzYW1lX2lucHV0X2J5dGVzIjpmYWxzZSwic2FtZV9zYXZlZF92YWx1ZXMiOmZhbHNlLCJzYXZlZF9kYXRhX29ubHkiOnRydWUsInNjaGVtYSI6ImZhbm91dC5zYXZlZC1pbnNwZWN0aW9uLWNvbXBhcmlzb24vMSIsInNlY29uZCI6eyJkb2N1bWVudCI6eyJjYXB0dXJlX2xhYmVsIjoiU2Vjb25kIHNhdmVkIGRvY3VtZW50IChhdXRob3JlZCBleGFtcGxlKSIsInBhcnRzIjpbeyJkZXBlbmRzX29uIjpbImF1ZGl0Il0sImlkIjoicHVibGlzaCIsIm5vdGUiOiJIb2xkIHVudGlsIHNlcGFyYXRlbHkgYXV0aG9yaXplZC4iLCJzdGF0ZSI6InF1ZXVlZCJ9LHsiYXJ0aWZhY3RfcmVmIjpudWxsLCJhdHRlbXB0cyI6MS4wLCJjb25maXJtZWQiOjAsImV2aWRlbmNlIjp7ImZpbmRpbmciOiJBIGNoYW5nZWQgc2F2ZWQgY2xhaW0gb25seTogPHNjcmlwdD5saXRlcmFsPC9zY3JpcHQ+4oCuIiwib3JkZXJlZCI6WyJiIiwiYSJdfSwiaWQiOiJhdWRpdCIsImluc3RydWN0aW9uIjoiUmVhZCA8bm90ZXM+ICYga2VlcCBsaXRlcmFsIOmbqiAvINmF2LHYrdio2KcgLyDwn5Gp4oCN8J+Suy5cbk5vIGV4dGVybmFsIHdvcmsgaXMgaW1wbGllZC4iLCJzdGF0ZSI6ImNvbXBsZXRlZCIsInRhc2tfaWQiOiJyZWNvcmRlZC1sb2NhbC1yZWZlcmVuY2UiLCJ6ZXJvIjowLjB9XSwicGxhbl9kaWdlc3QiOiJhdXRob3JlZC1kZWNsYXJlZC1kaWdlc3Qtbm90LWF1dGhlbnRpY2F0ZWQiLCJwcm9qZWN0X2lkIjoicmV2aWV3LWhhbmRvZmYifSwiaW5wdXRfYnl0ZXMiOjgxNywiaW5wdXRfc2hhMjU2IjoiOTk3NWQwMWU3YjljMzJmNDVlNTcyYTcwNjkwOGNlNjc2NjNmMGU0YmIwZDQ4ODcyODMyODBmY2FjODlkNDIzNSJ9LCJ0b3BfbGV2ZWxfY2hhbmdlcyI6W3siZmllbGQiOiJjYXB0dXJlX2xhYmVsIiwiZmlyc3QiOnsicHJlc2VudCI6dHJ1ZSwidmFsdWUiOiJGaXJzdCBzYXZlZCBkb2N1bWVudCAoYXV0aG9yZWQgZXhhbXBsZSkifSwic2Vjb25kIjp7InByZXNlbnQiOnRydWUsInZhbHVlIjoiU2Vjb25kIHNhdmVkIGRvY3VtZW50IChhdXRob3JlZCBleGFtcGxlKSJ9fV19Cg==">Download exact comparison JSON</a><p class="note">The download contains both complete documents, exact input identities and the original canonical comparison with its final newline. The page is offline and does not update itself.</p></header><section><h2>At a glance</h2><dl class="facts"><div><dt>Same input bytes</dt><dd>false</dd></div><div><dt>Same saved values</dt><dd>false</dd></div><div><dt>Part order changed</dt><dd>true</dd></div></dl><h3>Changed part IDs</h3><pre>[
+  &quot;audit&quot;
+]</pre><p class="note">Changed parts follow the first document’s order. A pure part-order change can have no changed fields.</p></section><section><h2>Captured input identities</h2><table class="comparison"><caption>Raw bytes and declared project relationship</caption><thead><tr><th scope="col">Field</th><th scope="col">First</th><th scope="col">Second</th></tr></thead><tbody><tr><th scope="row"><pre>&quot;Input bytes&quot;</pre></th><td data-side="First"><pre>575</pre></td><td data-side="Second"><pre>817</pre></td></tr><tr><th scope="row"><pre>&quot;Input SHA-256&quot;</pre></th><td data-side="First"><pre>&quot;9915e50815bb27d00d183ad2d7ae06b0ec78acfdb816be1497a928dbc7722acc&quot;</pre></td><td data-side="Second"><pre>&quot;9975d01e7b9c32f45e572a706908ce67663f0e4bb0d4887283280fcac89d4235&quot;</pre></td></tr><tr><th scope="row"><pre>&quot;Declared project ID&quot;</pre></th><td data-side="First"><pre>&quot;review-handoff&quot;</pre></td><td data-side="Second"><pre>&quot;review-handoff&quot;</pre></td></tr><tr><th scope="row"><pre>&quot;Declared plan digest&quot;</pre></th><td data-side="First"><pre>&quot;authored-declared-digest-not-authenticated&quot;</pre></td><td data-side="Second"><pre>&quot;authored-declared-digest-not-authenticated&quot;</pre></td></tr></tbody></table></section><section><h2>Changed fields</h2><p>Each side shows its complete JSON envelope. <code>{"present": false}</code> means absent; a present value of <code>null</code> is different. JSON notation also preserves booleans, integer/float forms, signed floating zero and array order.</p><p class="note">Markup is literal text. Control and directional formatting characters are shown as JSON escapes; ordinary Unicode stays readable. The exact download is unchanged by this display treatment.</p><h3>Top-level fields</h3><table class="comparison"><caption>Top-level differences</caption><thead><tr><th scope="col">Field</th><th scope="col">First</th><th scope="col">Second</th></tr></thead><tbody><tr><th scope="row"><pre>&quot;capture_label&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: &quot;First saved document (authored example)&quot;
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: &quot;Second saved document (authored example)&quot;
+}</pre></td></tr></tbody></table><h3>Part fields</h3><table class="comparison"><caption>Part &quot;audit&quot;</caption><thead><tr><th scope="col">Field</th><th scope="col">First</th><th scope="col">Second</th></tr></thead><tbody><tr><th scope="row"><pre>&quot;artifact_ref&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: false
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: null
+}</pre></td></tr><tr><th scope="row"><pre>&quot;attempts&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: 1
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: 1.0
+}</pre></td></tr><tr><th scope="row"><pre>&quot;confirmed&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: false
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: 0
+}</pre></td></tr><tr><th scope="row"><pre>&quot;evidence&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: {
+    &quot;finding&quot;: &quot;Retained unknown outcome; no retry authority.&quot;,
+    &quot;ordered&quot;: [
+      &quot;a&quot;,
+      &quot;b&quot;
+    ]
+  }
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: {
+    &quot;finding&quot;: &quot;A changed saved claim only: &lt;script&gt;literal&lt;/script&gt;\u202e&quot;,
+    &quot;ordered&quot;: [
+      &quot;b&quot;,
+      &quot;a&quot;
+    ]
+  }
+}</pre></td></tr><tr><th scope="row"><pre>&quot;retired_note&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: null
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: false
+}</pre></td></tr><tr><th scope="row"><pre>&quot;state&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: &quot;outcome_unknown&quot;
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: &quot;completed&quot;
+}</pre></td></tr><tr><th scope="row"><pre>&quot;task_id&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: null
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: &quot;recorded-local-reference&quot;
+}</pre></td></tr><tr><th scope="row"><pre>&quot;zero&quot;</pre></th><td data-side="First"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: -0.0
+}</pre></td><td data-side="Second"><pre>{
+  &quot;present&quot;: true,
+  &quot;value&quot;: 0.0
+}</pre></td></tr></tbody></table></section><section><h2>Complete saved documents</h2><p>These are the complete parsed values, including fields outside the comparison’s structural admission. Expand either document to read it.</p><details><summary>First complete saved document</summary><pre>{
+  &quot;capture_label&quot;: &quot;First saved document (authored example)&quot;,
+  &quot;parts&quot;: [
+    {
+      &quot;attempts&quot;: 1,
+      &quot;confirmed&quot;: false,
+      &quot;evidence&quot;: {
+        &quot;finding&quot;: &quot;Retained unknown outcome; no retry authority.&quot;,
+        &quot;ordered&quot;: [
+          &quot;a&quot;,
+          &quot;b&quot;
+        ]
+      },
+      &quot;id&quot;: &quot;audit&quot;,
+      &quot;instruction&quot;: &quot;Read &lt;notes&gt; &amp; keep literal 雪 / مرحبا / 👩‍💻.\nNo external work is implied.&quot;,
+      &quot;retired_note&quot;: null,
+      &quot;state&quot;: &quot;outcome_unknown&quot;,
+      &quot;task_id&quot;: null,
+      &quot;zero&quot;: -0.0
+    },
+    {
+      &quot;depends_on&quot;: [
+        &quot;audit&quot;
+      ],
+      &quot;id&quot;: &quot;publish&quot;,
+      &quot;note&quot;: &quot;Hold until separately authorized.&quot;,
+      &quot;state&quot;: &quot;queued&quot;
+    }
+  ],
+  &quot;plan_digest&quot;: &quot;authored-declared-digest-not-authenticated&quot;,
+  &quot;project_id&quot;: &quot;review-handoff&quot;
+}</pre></details><details><summary>Second complete saved document</summary><pre>{
+  &quot;capture_label&quot;: &quot;Second saved document (authored example)&quot;,
+  &quot;parts&quot;: [
+    {
+      &quot;depends_on&quot;: [
+        &quot;audit&quot;
+      ],
+      &quot;id&quot;: &quot;publish&quot;,
+      &quot;note&quot;: &quot;Hold until separately authorized.&quot;,
+      &quot;state&quot;: &quot;queued&quot;
+    },
+    {
+      &quot;artifact_ref&quot;: null,
+      &quot;attempts&quot;: 1.0,
+      &quot;confirmed&quot;: 0,
+      &quot;evidence&quot;: {
+        &quot;finding&quot;: &quot;A changed saved claim only: &lt;script&gt;literal&lt;/script&gt;\u202e&quot;,
+        &quot;ordered&quot;: [
+          &quot;b&quot;,
+          &quot;a&quot;
+        ]
+      },
+      &quot;id&quot;: &quot;audit&quot;,
+      &quot;instruction&quot;: &quot;Read &lt;notes&gt; &amp; keep literal 雪 / مرحبا / 👩‍💻.\nNo external work is implied.&quot;,
+      &quot;state&quot;: &quot;completed&quot;,
+      &quot;task_id&quot;: &quot;recorded-local-reference&quot;,
+      &quot;zero&quot;: 0.0
+    }
+  ],
+  &quot;plan_digest&quot;: &quot;authored-declared-digest-not-authenticated&quot;,
+  &quot;project_id&quot;: &quot;review-handoff&quot;
+}</pre></details></section></main></body></html>

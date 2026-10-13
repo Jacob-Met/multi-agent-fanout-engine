@@ -1,0 +1,24 @@
+{
+  "schema": "hamon.root.fanout-inspection-html-consumer-criteria.v1",
+  "candidate_exposed": false,
+  "baseline_commit": "a64d8e08bd9db201931ab105caa848e06d5668b2",
+  "public_contract": "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/95#issuecomment-6153711131",
+  "scope": "One independent saved-file rendering and actual browser opening course; no live Ledger, provider, dispatch, operational data or replay.",
+  "cases": [
+    "Independent authored typed-difference pair: exact unchanged-native JSON oracle, same declarations, reordered part list, complete first/second documents, missing/null, boolean/integer, integer/float and signed-zero distinctions.",
+    "Candidate default JSON and explicit --format json must equal the complete original baseline oracle including final LF.",
+    "Candidate --format html stdout and exclusive new-file output must be identical deterministic UTF-8; all first/second input identities and literal complete changes remain available.",
+    "Exact encoded comparison JSON data-link decodes to original complete oracle including final LF; actual browser download must match same bytes.",
+    "Input order is explicitly first/second, with no assertion of chronology or inferred authority; saved-data-only scope visible.",
+    "An independently authored order-only pair has no field changes but signals order and saved-value difference consistently with baseline oracle.",
+    "Occupied output and selected input destination refuse with original contents unchanged; invalid mismatched declared identity refuses before output creation.",
+    "File-origin desktop and narrow browser opening show saved-data boundary, comparison values and native download. No scripts, external fetches, forms or storage; no page exceptions. Inspect actual rendered screenshots and horizontal reachability of complete values.",
+    "Original inputs, accepted unchanged dependency closure and candidate bytes/modes remain unchanged across course."
+  ],
+  "evidence": "Retain complete child commands/exits/stdout/stderr, input/source pins, complete page bytes, native JSON oracle and exact downloaded bytes; bounded two viewport screenshots. Mark any failed original execution honestly without silently replacing its receipt.",
+  "limits": [
+    "Fixture is authored for literal saved-data comparisons; not an actual operational timeline.",
+    "Source review and output presentation review are independent gates; this criteria record does not claim execution.",
+    "Browser environment selected from verified authorized estate route; no installation or network dependency change implied."
+  ]
+}

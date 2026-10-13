@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"><title>Saved inspection comparison</title><style>
+:root { font-family: system-ui, sans-serif; color: #182934; background: #edf2f3; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1160px; margin: auto; padding: 36px 24px 64px; }
+header { border-top: 6px solid #16756e; padding-top: 24px; }
+.eyebrow { color: #286961; text-transform: uppercase; letter-spacing: .09em; font-size: .8rem; font-weight: 700; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.12; margin: 10px 0 18px; }
+h2 { font-size: 1.35rem; margin: 0 0 18px; }
+h3 { font-size: 1.05rem; margin: 24px 0 10px; }
+p, li, dt, dd, summary { line-height: 1.55; }
+p { max-width: 84ch; }
+.notice { background: #fff6dc; border-left: 4px solid #8d6400; padding: 12px 16px; }
+section { margin-top: 24px; padding: 24px; background: #fff; border: 1px solid #bfcdd0; border-radius: 10px; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+.facts div { padding: 14px; background: #f1f7f6; border-radius: 6px; }
+dt { color: #3e535c; font-size: .9rem; }
+dd { font-size: 1.4rem; font-weight: 650; margin: 5px 0 0; }
+table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 14px; }
+caption { text-align: left; font-weight: 650; margin: 0 0 10px; overflow-wrap: anywhere; }
+th, td { text-align: left; vertical-align: top; padding: 12px; border: 1px solid #cbd6d8; overflow-wrap: anywhere; }
+th { background: #eef4f4; font-size: .9rem; }
+thead th:first-child { width: 24%; }
+pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .85rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; word-break: normal; }
+pre { margin: 0; }
+details { margin-top: 16px; border: 1px solid #cbd6d8; border-radius: 6px; background: #f8fbfb; }
+summary { cursor: pointer; font-weight: 650; padding: 14px; }
+details pre { padding: 0 16px 16px; }
+a { color: #075d72; overflow-wrap: anywhere; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #a56700; outline-offset: 4px; }
+.download { display: inline-block; padding: 12px 16px; border-radius: 6px; background: #126b65; color: white; font-weight: 650; text-decoration: none; }
+.note { color: #485e67; font-size: .9rem; }
+@media (max-width: 640px) {
+  main { padding: 24px 12px 40px; }
+  section { padding: 18px 12px; }
+  .facts { grid-template-columns: 1fr; }
+  .comparison, .comparison tbody, .comparison tr, .comparison th, .comparison td { display: block; width: 100%; }
+  .comparison thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .comparison tr { margin-bottom: 18px; }
+  .comparison td::before { content: attr(data-side); display: block; font-weight: 700; margin-bottom: 8px; color: #285b61; }
+  .comparison td + td { border-top: 0; }
+}
+</style></head><body><main><header><div class="eyebrow">Fanout · saved data</div><h1>Saved inspection comparison</h1><p>Read the literal differences between two saved documents. First and second name the supplied files; their order does not establish chronology.</p><p class="notice">These are saved claims. This comparison does not authenticate their origin or declared plan digest, validate a native plan, resolve uncertainty, or authorize dispatch, retry or reconciliation.</p><a class="download" download="saved-inspection-comparison.json" href="data:application/json;base64,eyJjaGFuZ2VkX3BhcnRfaWRzIjpbXSwiZmlyc3QiOnsiZG9jdW1lbnQiOnsibnVsbGFibGUiOm51bGwsInBhcnRzIjpbeyJhY2NlcHRlZCI6ZmFsc2UsImNvdW50IjoxLCJpZCI6ImludmVudG9yeTwmPiIsInN0YXRlIjoiY29tcGxldGUifSx7ImlkIjoiYXVkaXQgXCLOqVwiIiwic3RhdGUiOiJvdXRjb21lX3Vua25vd24iLCJ0YXNrX3JlZiI6bnVsbH0seyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOi0wLjAsInN0YXRlIjoiYmxvY2tlZCJ9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOnRydWV9LCJpbnB1dF9ieXRlcyI6NDI1LCJpbnB1dF9zaGEyNTYiOiIzZWZiNGMyYjcxYjUxZDc0YjZlNDMxMjA4ZmFiNzJiNjE2ZmIwZTZhOGVmODE0YTQ0NGJmOTNkZGI2NTE5ZTVlIn0sInBhcnRfY2hhbmdlcyI6W10sInBhcnRfb3JkZXJfY2hhbmdlZCI6dHJ1ZSwic2FtZV9pbnB1dF9ieXRlcyI6ZmFsc2UsInNhbWVfc2F2ZWRfdmFsdWVzIjpmYWxzZSwic2F2ZWRfZGF0YV9vbmx5Ijp0cnVlLCJzY2hlbWEiOiJmYW5vdXQuc2F2ZWQtaW5zcGVjdGlvbi1jb21wYXJpc29uLzEiLCJzZWNvbmQiOnsiZG9jdW1lbnQiOnsibnVsbGFibGUiOm51bGwsInBhcnRzIjpbeyJpZCI6ImhhbmRvZmYiLCJvZmZzZXQiOi0wLjAsInN0YXRlIjoiYmxvY2tlZCJ9LHsiaWQiOiJhdWRpdCBcIs6pXCIiLCJzdGF0ZSI6Im91dGNvbWVfdW5rbm93biIsInRhc2tfcmVmIjpudWxsfSx7ImFjY2VwdGVkIjpmYWxzZSwiY291bnQiOjEsImlkIjoiaW52ZW50b3J5PCY+Iiwic3RhdGUiOiJjb21wbGV0ZSJ9XSwicGxhbl9kaWdlc3QiOiJvcGFxdWUtZGVjbGFyZWQtZGlnZXN0IiwicHJvamVjdF9pZCI6ImhhbmRvZmYgPCY+IM6pIiwicmVhZHkiOnRydWV9LCJpbnB1dF9ieXRlcyI6NDI1LCJpbnB1dF9zaGEyNTYiOiJjY2FmNGNhYjJhNTVmMDM1MDRhMjc3OGQ0ZWZiMTcxMDlkMWE1NDgyNmZmNjc1ZTMzZGQ5YTJlMmYxMjM5NjcwIn0sInRvcF9sZXZlbF9jaGFuZ2VzIjpbXX0K">Download exact comparison JSON</a><p class="note">The download contains both complete documents, exact input identities and the original canonical comparison with its final newline. The page is offline and does not update itself.</p></header><section><h2>At a glance</h2><dl class="facts"><div><dt>Same input bytes</dt><dd>false</dd></div><div><dt>Same saved values</dt><dd>false</dd></div><div><dt>Part order changed</dt><dd>true</dd></div></dl><h3>Changed part IDs</h3><pre>[]</pre><p class="note">Changed parts follow the first document’s order. A pure part-order change can have no changed fields.</p></section><section><h2>Captured input identities</h2><table class="comparison"><caption>Raw bytes and declared project relationship</caption><thead><tr><th scope="col">Field</th><th scope="col">First</th><th scope="col">Second</th></tr></thead><tbody><tr><th scope="row"><pre>&quot;Input bytes&quot;</pre></th><td data-side="First"><pre>425</pre></td><td data-side="Second"><pre>425</pre></td></tr><tr><th scope="row"><pre>&quot;Input SHA-256&quot;</pre></th><td data-side="First"><pre>&quot;3efb4c2b71b51d74b6e431208fab72b616fb0e6a8ef814a444bf93ddb6519e5e&quot;</pre></td><td data-side="Second"><pre>&quot;ccaf4cab2a55f03504a2778d4efb17109d1a54826ff675e33dd9a2e2f1239670&quot;</pre></td></tr><tr><th scope="row"><pre>&quot;Declared project ID&quot;</pre></th><td data-side="First"><pre>&quot;handoff &lt;&amp;&gt; Ω&quot;</pre></td><td data-side="Second"><pre>&quot;handoff &lt;&amp;&gt; Ω&quot;</pre></td></tr><tr><th scope="row"><pre>&quot;Declared plan digest&quot;</pre></th><td data-side="First"><pre>&quot;opaque-declared-digest&quot;</pre></td><td data-side="Second"><pre>&quot;opaque-declared-digest&quot;</pre></td></tr></tbody></table></section><section><h2>Changed fields</h2><p>Each side shows its complete JSON envelope. <code>{"present": false}</code> means absent; a present value of <code>null</code> is different. JSON notation also preserves booleans, integer/float forms, signed floating zero and array order.</p><p class="note">Markup is literal text. Control and directional formatting characters are shown as JSON escapes; ordinary Unicode stays readable. The exact download is unchanged by this display treatment.</p><h3>Top-level fields</h3><p>No top-level fields changed.</p><h3>Part fields</h3><p>No part fields changed.</p></section><section><h2>Complete saved documents</h2><p>These are the complete parsed values, including fields outside the comparison’s structural admission. Expand either document to read it.</p><details><summary>First complete saved document</summary><pre>{
+  &quot;nullable&quot;: null,
+  &quot;parts&quot;: [
+    {
+      &quot;accepted&quot;: false,
+      &quot;count&quot;: 1,
+      &quot;id&quot;: &quot;inventory&lt;&amp;&gt;&quot;,
+      &quot;state&quot;: &quot;complete&quot;
+    },
+    {
+      &quot;id&quot;: &quot;audit \&quot;Ω\&quot;&quot;,
+      &quot;state&quot;: &quot;outcome_unknown&quot;,
+      &quot;task_ref&quot;: null
+    },
+    {
+      &quot;id&quot;: &quot;handoff&quot;,
+      &quot;offset&quot;: -0.0,
+      &quot;state&quot;: &quot;blocked&quot;
+    }
+  ],
+  &quot;plan_digest&quot;: &quot;opaque-declared-digest&quot;,
+  &quot;project_id&quot;: &quot;handoff &lt;&amp;&gt; Ω&quot;,
+  &quot;ready&quot;: true
+}</pre></details><details><summary>Second complete saved document</summary><pre>{
+  &quot;nullable&quot;: null,
+  &quot;parts&quot;: [
+    {
+      &quot;id&quot;: &quot;handoff&quot;,
+      &quot;offset&quot;: -0.0,
+      &quot;state&quot;: &quot;blocked&quot;
+    },
+    {
+      &quot;id&quot;: &quot;audit \&quot;Ω\&quot;&quot;,
+      &quot;state&quot;: &quot;outcome_unknown&quot;,
+      &quot;task_ref&quot;: null
+    },
+    {
+      &quot;accepted&quot;: false,
+      &quot;count&quot;: 1,
+      &quot;id&quot;: &quot;inventory&lt;&amp;&gt;&quot;,
+      &quot;state&quot;: &quot;complete&quot;
+    }
+  ],
+  &quot;plan_digest&quot;: &quot;opaque-declared-digest&quot;,
+  &quot;project_id&quot;: &quot;handoff &lt;&amp;&gt; Ω&quot;,
+  &quot;ready&quot;: true
+}</pre></details></section></main></body></html>

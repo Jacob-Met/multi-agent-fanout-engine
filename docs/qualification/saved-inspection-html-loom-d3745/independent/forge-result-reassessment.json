@@ -1,0 +1,102 @@
+{
+  "browser_course_accepted": false,
+  "custody_and_cleanup": {
+    "closed_safely": true,
+    "console_errors": [],
+    "firefox_exit": 0,
+    "input_modes": "0664 in both original receipts",
+    "limits": "Browser closure and owned profile removal are recorded in original finally execution; native completed read-only audit independently observed the four recorded process IDs absent. Later optional native namespace recheck was refused offline, not executed.",
+    "native_audit_pids_absent": {
+      "278299": true,
+      "286068": true,
+      "286135": true,
+      "286158": true
+    },
+    "original_html_bytes": 12871,
+    "original_html_sha256": "80f208b9b03abb8076e0cac3f179941f758ed08355e2a66eb411bb633f4d1fc7",
+    "owned_profile_removed": true,
+    "page_errors": [],
+    "receipt_before_after_exact": true
+  },
+  "download": {
+    "full_equality": "Actual native saved file equals both original supplied cloud oracle bytes, exact JSON request payload and both receipt actual/expected base64 values, including final newline.",
+    "identity": {
+      "bytes": 1830,
+      "git_blob": "c5502573020c5b7d554e9eca9785b71a7ff2251a",
+      "mode": 436,
+      "sha256": "49623ea49030dae436470076a8a9594caeedda99f36dd4940b7e9e2996785ee3"
+    }
+  },
+  "history_and_scope": "Read-only audit of original failed v3 and v5, exact five-file custody mirror and original supplied oracle. V5 was a post-candidate-exposure environment adaptation; v4 remained unexecuted. No browser, comparator, renderer, product tests or saved-input execution. This reassessment separates request classification from UX acceptance and does not turn either failed attempt into accepted receiving.",
+  "mirror_receipt": {
+    "bytes": 4670,
+    "git_blob": "bf1688a0591791b027365c5a6e32b5640d749faa",
+    "mode": 420,
+    "sha256": "fece9787a3e419be970346ac8b2f828ade36e92f6771de5f92eaea899e4296cb"
+  },
+  "original_results": {
+    "v3": {
+      "accepted": false,
+      "checks": 7,
+      "meaning": "Pre-browser Playwright initialization failure; requests empty and supplied input hashes/modes preserved. Retained traceback is AttributeError in installed Playwright context manager. Root separately observed missing driver startup dependency; this review does not rewrite that traceback.",
+      "receipt": {
+        "bytes": 2650,
+        "git_blob": "229c2cb88d37fffbd4cd7f5a5236f5a34dca2953",
+        "mode": 436,
+        "sha256": "4734b0244351037280f759efe29b2cba97378a0014174863b5e09647ff736060"
+      }
+    },
+    "v5": {
+      "accepted": false,
+      "checks": 31,
+      "firefox_pid": 286158,
+      "node_pid": 286135,
+      "passed": 30,
+      "receipt": {
+        "bytes": 27620,
+        "git_blob": "d1a30801dc86e1497755b6c8d9518e972870c28d",
+        "mode": 436,
+        "sha256": "9814c091204a29b1387529c8bd3b796945ec60014773d525738b8c228aea6dfa"
+      },
+      "reported_shell_exit": 1,
+      "reported_shell_pid": 286068,
+      "sole_failed_predicate": "no page external requests"
+    }
+  },
+  "prior_adaptation_review": {
+    "git_blob": "5c612d26ffb39e6d4e9fb32c7842d78f1d81717a",
+    "path": "/dev/shm/forge-d3745-fanout-html-review/browser-adaptation-review.json"
+  },
+  "request_reassessment": {
+    "classification": "The sole rejected URL contains its WOFF2 bytes inline. It is not a remote network endpoint. The complete recorded request list contains no HTTP(S) URL. The original exact-href allowlist classified this extra data URI as external; that assertion failure remains recorded unchanged.",
+    "download_mime": "application/json",
+    "font_decoded_bytes": 1180,
+    "font_magic": "wOF2",
+    "font_mime": "font/woff2",
+    "font_sha256": "64509a32feeb777a3b2850ea06757782c101ab36ead80183a7509bbc59af6545",
+    "limits": "This page-event log is not a system-wide network capture and does not establish the inline font initiator or provenance. No request is silently removed or substituted.",
+    "observed_requests": 2,
+    "schemes": [
+      "data",
+      "data"
+    ]
+  },
+  "review_complete": true,
+  "schema": "hamon.forge.fanout-browser-result-reassessment.v1",
+  "utc": "2026-10-13T20:52:59.109297+00:00",
+  "visual_result": {
+    "accepted": false,
+    "desktop": "Viewed exact original screenshot: comparison, complete documents and download are visibly laid out as a readable desktop report. Root owns the detailed seven-difference semantic review.",
+    "narrow": "Viewed exact original 390px screenshot: multiple table captions collapse into single-character vertical strips with a very long page. The existing no-page-overflow true flag does not establish readable mobile layout. Root manual narrow gate fails; this independent view agrees.",
+    "png_dimensions": {
+      "desktop.png": [
+        1428,
+        4173
+      ],
+      "narrow.png": [
+        378,
+        8999
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Process started with PID 286068 (shell: /bin/bash)\nInitial output:\n\n⏳ Process is running. Use read_process_output to get more output."
+    },
+    {
+      "type": "text",
+      "text": "\n[executed on device: hamon-thinkpad (d55b2499-5e82-4805-819a-d0d7ddea1efe)]"
+    }
+  ],
+  "isError": false
+}
