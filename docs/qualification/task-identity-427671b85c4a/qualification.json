@@ -1,0 +1,285 @@
+{
+  "schema": "hamon.fanout-task-identity-qualification/1",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "pr": 65,
+  "source_commit": "a5959edc361b4345ec6c356e8e40a294b1e6b3d6",
+  "source_tree": "6b6ac5d71602fece8de8659b401a2cf00a7d24a9",
+  "parent": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+  "author_receipts": {
+    "baseline-full": {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "returncode": 0,
+      "head": "27502202fe2429eef11740d23a8e760c4a7d9fc5",
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+      "sqlite": "3.46.1",
+      "stderr_tail": "oject\": self.project_id, \"parts\": [part.to_dict() for part in self.parts]}\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n----------------------------------------------------------------------\nRan 193 tests in 11.170s\n\nOK\n",
+      "stderr_sha256": "d585544e5c19f5edfa7cee5c9804c8c492ec321982aa7790b36e8ead8437f801"
+    },
+    "baseline-regression": {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_task_identity.py",
+        "-v"
+      ],
+      "returncode": 1,
+      "test_sha256": "866df6cf233fa65314bb7013468c71fac539a8886cdc64b2e986228527bda8f6",
+      "summary": "~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: LedgerError not raised\n\n----------------------------------------------------------------------\nRan 5 tests in 0.186s\n\nFAILED (failures=11, errors=6)\n"
+    },
+    "candidate": {
+      "head": "27502202fe2429eef11740d23a8e760c4a7d9fc5",
+      "tree": "cfaca3669bb7546d997b29e1a61404c7602bdc5d",
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+      "sqlite": "3.46.1",
+      "files": {
+        "fanout_engine/ledger.py": {
+          "sha256": "c97a2e2719d83aaf4a961656b6f7cd9170de14b899b55fb9aa0496fecd40c937",
+          "blob": "e4ef6e275e0525881816eae484fd8d7a96fe6d56",
+          "bytes": 17063
+        },
+        "tests/test_task_identity.py": {
+          "sha256": "866df6cf233fa65314bb7013468c71fac539a8886cdc64b2e986228527bda8f6",
+          "blob": "fcf99e367876c34ac26f883fabc9b56b29a442ef",
+          "bytes": 9860
+        },
+        "docs/task-identity.md": {
+          "sha256": "57b22c50c2173e8d01245d08c88057d77b74c54070ab987a2cb13903f9f66f84",
+          "blob": "5736decb0404704da43a7e76bb554a74a2f49ae4",
+          "bytes": 2556
+        }
+      },
+      "results": [
+        {
+          "label": "focused",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_task_identity.py",
+            "-v"
+          ],
+          "returncode": 0,
+          "summary": "task_identity.TaskIdentityTests.test_running_identity_cannot_be_replaced_by_equality_override) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.180s\n\nOK\n"
+        },
+        {
+          "label": "focused-optimized",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "-O",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_task_identity.py",
+            "-v"
+          ],
+          "returncode": 0,
+          "summary": "task_identity.TaskIdentityTests.test_running_identity_cannot_be_replaced_by_equality_override) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.583s\n\nOK\n"
+        },
+        {
+          "label": "full",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "returncode": 0,
+          "summary": "for part in self.parts]}\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n----------------------------------------------------------------------\nRan 198 tests in 10.970s\n\nOK\n"
+        },
+        {
+          "label": "demo",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "examples/demo.py"
+          ],
+          "returncode": 0,
+          "summary": ""
+        },
+        {
+          "label": "whitespace",
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "returncode": 0,
+          "summary": ""
+        }
+      ]
+    },
+    "composition": {
+      "parent": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+      "method_equal_to_reviewed": true,
+      "restored_equals_current_base": true,
+      "files": {
+        "fanout_engine/ledger.py": {
+          "sha256": "c07a96ea8cf7aaaea85623120b6eb3adaafa227744d68be40111f933dd8a9dd8",
+          "blob": "0abb2b5ee43a6d3b58d08ceb5b8ebc1357f66679"
+        },
+        "tests/test_task_identity.py": {
+          "sha256": "866df6cf233fa65314bb7013468c71fac539a8886cdc64b2e986228527bda8f6",
+          "blob": "fcf99e367876c34ac26f883fabc9b56b29a442ef"
+        },
+        "docs/task-identity.md": {
+          "sha256": "57b22c50c2173e8d01245d08c88057d77b74c54070ab987a2cb13903f9f66f84",
+          "blob": "5736decb0404704da43a7e76bb554a74a2f49ae4"
+        }
+      }
+    },
+    "current-candidate": {
+      "parent": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+      "files": {
+        "fanout_engine/ledger.py": "c07a96ea8cf7aaaea85623120b6eb3adaafa227744d68be40111f933dd8a9dd8",
+        "tests/test_task_identity.py": "866df6cf233fa65314bb7013468c71fac539a8886cdc64b2e986228527bda8f6",
+        "docs/task-identity.md": "57b22c50c2173e8d01245d08c88057d77b74c54070ab987a2cb13903f9f66f84"
+      },
+      "results": [
+        {
+          "label": "full",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-q"
+          ],
+          "returncode": 0,
+          "summary": "----------------------------------------------------------------------\nRan 207 tests in 12.498s\n\nOK\n"
+        },
+        {
+          "label": "focused-optimized",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "-O",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_task_identity.py",
+            "-v"
+          ],
+          "returncode": 0,
+          "summary": "task_identity.TaskIdentityTests.test_running_identity_cannot_be_replaced_by_equality_override) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.563s\n\nOK\n"
+        },
+        {
+          "label": "demo",
+          "command": [
+            "/usr/bin/python3",
+            "-B",
+            "examples/demo.py"
+          ],
+          "returncode": 0,
+          "summary": ""
+        },
+        {
+          "label": "whitespace",
+          "command": [
+            "git",
+            "diff",
+            "--check"
+          ],
+          "returncode": 0,
+          "summary": ""
+        }
+      ]
+    }
+  },
+  "source_review": {
+    "reviewer": "publication_tools independent teammate",
+    "result": "accepted",
+    "scope": "Source and identity/diff review, followed by current-main composition review. The reviewer did not independently execute the author suite.",
+    "original_parent": "27502202fe2429eef11740d23a8e760c4a7d9fc5",
+    "current_parent": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+    "finding": "No concrete defect found. The current candidate is precisely the GitHub current-parent ledger plus the previously approved mark_running guard replacement; the complete method equals the original reviewed freeze. The test and guide remain byte-identical. PR47 edits distinct dispatcher paths.",
+    "reviewed_ledger_sha256": "c07a96ea8cf7aaaea85623120b6eb3adaafa227744d68be40111f933dd8a9dd8",
+    "reviewed_ledger_blob": "0abb2b5ee43a6d3b58d08ceb5b8ebc1357f66679",
+    "test_sha256": "866df6cf233fa65314bb7013468c71fac539a8886cdc64b2e986228527bda8f6",
+    "guide_sha256": "57b22c50c2173e8d01245d08c88057d77b74c54070ab987a2cb13903f9f66f84"
+  },
+  "source_tree_verification": {
+    "base_count": 208,
+    "candidate_count": 210,
+    "diff": [
+      {
+        "path": "fanout_engine/ledger.py",
+        "before": {
+          "mode": "100644",
+          "sha": "c7cbd46e260b964b1a8a62eb425ae4e2861ddd4f"
+        },
+        "after": {
+          "mode": "100644",
+          "sha": "0abb2b5ee43a6d3b58d08ceb5b8ebc1357f66679"
+        }
+      },
+      {
+        "path": "docs/task-identity.md",
+        "after": {
+          "mode": "100644",
+          "sha": "5736decb0404704da43a7e76bb554a74a2f49ae4"
+        }
+      },
+      {
+        "path": "tests/test_task_identity.py",
+        "after": {
+          "mode": "100644",
+          "sha": "fcf99e367876c34ac26f883fabc9b56b29a442ef"
+        }
+      }
+    ]
+  },
+  "independent_receiving": {
+    "reviewer": "runtime_receiving independent teammate",
+    "native_receipt": "independent/native-receiving.json",
+    "native_receipt_sha256": "56f69402c96a3fb117190f9babb5f9b77875d6b4fae0faa694015b156c46656c",
+    "candidate_checks_passed": 16,
+    "parent_checks_passed": 3,
+    "total_checks": 16,
+    "cli_receipt": "independent/cli-receiving.json",
+    "cli_receipt_sha256": "ec34594d96be4a2dcf97407f4bee909f955d13c43229b462570e16aeedb8bd0b",
+    "cli_commands_passed": 2,
+    "course_sha256": "63e4c42caba44c337a7c0965eff167ec1d75e1080d16f1222927e53cdbf41114",
+    "runner_sha256": "19a29e99eb86f49e1bfb5b31b8781de67c59bffc143760df14453b48dd27b57f"
+  },
+  "limits": [
+    "Native Linux qualification only; no Windows or macOS claim.",
+    "No installed worker, provider dispatch, deployment, or hosted Actions execution.",
+    "Qualification source is the exact pinned commit. Later main advances are separate from these observed test counts."
+  ]
+}

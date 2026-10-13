@@ -1,0 +1,136 @@
+{
+  "database_sha256_after": "01ac15380982723537e4b6035497f627fa26dd95636d97cff7e9bfad1361b2d3",
+  "database_sha256_before": "01ac15380982723537e4b6035497f627fa26dd95636d97cff7e9bfad1361b2d3",
+  "database_unchanged": true,
+  "results": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.inspect",
+        "--database",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate.sqlite3",
+        "--project",
+        "adaptation"
+      ],
+      "exit_code": 0,
+      "keys": [
+        "blocked_queued_ids",
+        "parts",
+        "plan_digest",
+        "project_id",
+        "queued_ready_ids",
+        "state_counts"
+      ],
+      "module": "inspect",
+      "output_path": "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate-inspect-cli.json",
+      "stderr": "",
+      "stdout_sha256": "4233087a122a129f66f38b874ce4a612438cc02015243e3db977b16ba85bcf17",
+      "value": {
+        "blocked_queued_ids": [],
+        "parts": [
+          {
+            "artifact_ref": null,
+            "depends_on": [],
+            "evidence": null,
+            "id": "first",
+            "idempotency_key": "fanout-c7f6dcc85438a0f6d3570355af93b001ea48fa6b29d5f3fc8e8414710c347d3b",
+            "instruction": "Independent local receiving",
+            "route": {
+              "effort": "low",
+              "model": "fixture-model"
+            },
+            "state": "running",
+            "tags": [],
+            "task_id": "  task/\u03a9#1  ",
+            "unmet_dependencies": [],
+            "updated_at": 1791860609.619925,
+            "worker_id": "fixture-worker"
+          }
+        ],
+        "plan_digest": "1e4639cace436feba2bd731dd6ac58ddc2a3dd59f83881339ef6a91daf94e491",
+        "project_id": "adaptation",
+        "queued_ready_ids": [],
+        "state_counts": {
+          "completed": 0,
+          "dispatching": 0,
+          "failed": 0,
+          "outcome_unknown": 0,
+          "queued": 0,
+          "running": 1
+        }
+      }
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-B",
+        "-m",
+        "fanout_engine.history",
+        "--database",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate.sqlite3",
+        "--project",
+        "adaptation"
+      ],
+      "exit_code": 0,
+      "keys": [
+        "events",
+        "part_id",
+        "plan_digest",
+        "project_id",
+        "schema_version"
+      ],
+      "module": "history",
+      "output_path": "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate-history-cli.json",
+      "stderr": "",
+      "stdout_sha256": "3228485555cc5d785fab5d96b08a117066b15c5ee72d44cf4f6e7fb0f46a4b09",
+      "value": {
+        "events": [
+          {
+            "at": 1791860609.6198218,
+            "detail": {
+              "part_count": 1,
+              "plan_digest": "1e4639cace436feba2bd731dd6ac58ddc2a3dd59f83881339ef6a91daf94e491"
+            },
+            "detail_json": "{\"part_count\":1,\"plan_digest\":\"1e4639cace436feba2bd731dd6ac58ddc2a3dd59f83881339ef6a91daf94e491\"}",
+            "event": "plan_recorded",
+            "part_id": null,
+            "project_id": "adaptation",
+            "seq": 19
+          },
+          {
+            "at": 1791860609.6198852,
+            "detail": {
+              "route": {
+                "effort": "low",
+                "model": "fixture-model"
+              },
+              "worker_id": "fixture-worker"
+            },
+            "detail_json": "{\"route\":{\"effort\":\"low\",\"model\":\"fixture-model\"},\"worker_id\":\"fixture-worker\"}",
+            "event": "dispatch_started",
+            "part_id": "first",
+            "project_id": "adaptation",
+            "seq": 20
+          },
+          {
+            "at": 1791860609.619961,
+            "detail": {
+              "task_id": "  task/\u03a9#1  "
+            },
+            "detail_json": "{\"task_id\":\"  task/\u03a9#1  \"}",
+            "event": "dispatch_accepted",
+            "part_id": "first",
+            "project_id": "adaptation",
+            "seq": 21
+          }
+        ],
+        "part_id": null,
+        "plan_digest": "1e4639cace436feba2bd731dd6ac58ddc2a3dd59f83881339ef6a91daf94e491",
+        "project_id": "adaptation",
+        "schema_version": 1
+      }
+    }
+  ]
+}
