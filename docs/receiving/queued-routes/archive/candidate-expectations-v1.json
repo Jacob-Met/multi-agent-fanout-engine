@@ -1,0 +1,162 @@
+{
+  "schema": "hamon.queued-routes.independent-expectations.v1",
+  "contractUrl": "https://github.com/Jacob-Met/hamon/issues/143#issuecomment-6142035765",
+  "originalCommit": "9fe49691944cacf666e1c37f526c0d26fc1a4ee1",
+  "originalSource": "/dev/shm/hamon-worker-two-queued-routes-3795/original-9fe49691",
+  "baseReport": {
+    "schema_version": 1,
+    "project_id": "receiver-queued-routes",
+    "plan_digest": "900e89972d03b17d801e69d4be77c87afd48f987f901a19a31a19d8d28f7188e",
+    "state_counts": {
+      "completed": 1,
+      "dispatching": 1,
+      "failed": 1,
+      "outcome_unknown": 1,
+      "queued": 7,
+      "running": 1
+    },
+    "queued_ready_ids": [
+      "zulu",
+      "alpha"
+    ],
+    "blocked_queued_ids": [
+      "blocked_unknown",
+      "blocked_running",
+      "blocked_failed",
+      "blocked_dispatching",
+      "blocked_queued"
+    ],
+    "parts": [
+      {
+        "id": "zulu",
+        "state": "queued",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "unknown",
+        "state": "outcome_unknown",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "done",
+        "state": "completed",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "alpha",
+        "state": "queued",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "blocked_unknown",
+        "state": "queued",
+        "unmet_dependencies": [
+          {
+            "id": "unknown",
+            "state": "outcome_unknown"
+          }
+        ]
+      },
+      {
+        "id": "running",
+        "state": "running",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "blocked_running",
+        "state": "queued",
+        "unmet_dependencies": [
+          {
+            "id": "running",
+            "state": "running"
+          }
+        ]
+      },
+      {
+        "id": "failed",
+        "state": "failed",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "blocked_failed",
+        "state": "queued",
+        "unmet_dependencies": [
+          {
+            "id": "failed",
+            "state": "failed"
+          }
+        ]
+      },
+      {
+        "id": "dispatching",
+        "state": "dispatching",
+        "unmet_dependencies": []
+      },
+      {
+        "id": "blocked_dispatching",
+        "state": "queued",
+        "unmet_dependencies": [
+          {
+            "id": "dispatching",
+            "state": "dispatching"
+          }
+        ]
+      },
+      {
+        "id": "blocked_queued",
+        "state": "queued",
+        "unmet_dependencies": [
+          {
+            "id": "alpha",
+            "state": "queued"
+          }
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "part_id": "zulu",
+        "route": {
+          "model": "model-b",
+          "effort": "max"
+        },
+        "route_source": "explicit",
+        "idempotency_key": "fanout-fe79237a7a535464a666a3e2091bf851196fdecaeff0343854bca13860e9c530"
+      },
+      {
+        "part_id": "alpha",
+        "route": {
+          "model": "model-a",
+          "effort": "low"
+        },
+        "route_source": "pool",
+        "idempotency_key": "fanout-d5b74fcdccb75788b2b4e40fda3e0b3968bfe6ba3f0abe779951b6234d251e1e"
+      }
+    ],
+    "configured_step_up": {
+      "model": "model-a",
+      "effort": "high"
+    },
+    "routing_input_sha256": "711d27da4b141394aae8109780bdf18f553dc41436467876d07e085244356041"
+  },
+  "scope": "New capability, original controls complete; candidate not read. Full actual module consumer oracle freezes before candidate intake. Whole configuration authorizes blocked/completed overrides; this does not change dispatch behavior.",
+  "cases": [
+    "Exact mixed-state projection in authored order with zulu explicit and alpha pool route",
+    "One actual read-only selected SQLite connection",
+    "Repeated report without reservation",
+    "Help and eight usage refusals before observed fixture I/O",
+    "Unknown project3, missing database/read/input failures2, absent database remains absent",
+    "Unknown override ID and unauthorized ready/blocked/completed overrides refuse whole config",
+    "Unauthorized pool/step-up, empty and over256 pool/catalog refuse",
+    "Malformed/repeated-key/nonfinite/invalidUTF8/over256KiB route file refuse",
+    "No step-up reports null",
+    "No queued work produces exact complete advisory empty route report",
+    "Malformed last retained part refuses entire report",
+    "257-part ledger refuses",
+    "Actual interpreter fd1 closed yields clean stdout-failure status1",
+    "Source/helper/input byte/mode/mtime fences; all owned process groups absent without signals",
+    "No observed Python network/child-start/write-open events inside CLI"
+  ],
+  "observerBoundary": "Supported Python audit hooks around actual runpy module entrypoint; selected Python open/sqlite3.connect/socket.connect/subprocess/os.system events, not OS-wide trace or stat/access audit. Stdlib original package separately creates fictional fixtures; candidate code remains unchanged.",
+  "executionBoundary": "Cloud Linux/POSIX Python only; no native probe, provider call, installed state, service mutation or Actions."
+}

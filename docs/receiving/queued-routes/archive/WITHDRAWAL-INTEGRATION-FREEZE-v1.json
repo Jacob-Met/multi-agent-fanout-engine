@@ -1,0 +1,18 @@
+{
+  "frozenUtc": "2026-10-13T10:15:09.129714+00:00",
+  "phase": "post-intake integration before current composition intake/execution",
+  "pins": {
+    "receive-withdrawal-preview-v1.py": {
+      "bytes": 7495,
+      "sha256": "0c5995bcf19cd437ab6b663d35e89fc63560361185d8673c1b9de480c2fec4bc"
+    },
+    "withdrawal-preview-expectations-v1.json": {
+      "bytes": 1559,
+      "sha256": "06a3c688b0c03925401c7b581df44525560a8da085437609f3875aa10569e378"
+    },
+    "canonical-withdrawal-contract-5e237921.md": {
+      "bytes": 4046,
+      "sha256": "4079041b0fb2572d9d5a0290854ea3a8e325cba19ed808d3dc572a46b84c3acc"
+    }
+  }
+}
