@@ -1,0 +1,44 @@
+{
+  "accepted": true,
+  "consumer_or_test_runs_in_this_delivery": 0,
+  "downloads": [
+    {
+      "bytes": 663260,
+      "equals_native_original": true,
+      "git_blob": "969d50b83a1b92eab879873523257c9610f6c6d4",
+      "http_status": 200,
+      "kind": "zip",
+      "reference": "notion-file-block://e232515a-c417-4a1b-bde9-e75bec5bed16/519ee5e8-dd8a-4e4b-ade9-838a1132a5dd?space_id=847aedcd-f4a5-8159-99ed-0003ba2ee75a&name=HAMON_Fanout_Plan_Identity_37ede_000b1a0.zip",
+      "sha256": "1273461ad0b7129eb5831ef3d0cb74d88e0ddea5d894ab277bfc98a67210e1a2"
+    },
+    {
+      "bytes": 13169,
+      "equals_native_original": true,
+      "git_blob": "bff370612587a04c7f8815dad1e9341b9b155915",
+      "http_status": 200,
+      "kind": "receipt",
+      "reference": "notion-file-block://545ebd39-b36d-47b0-9383-22f6fd1a8cf5/c0d44bdf-37e6-4ab5-85e8-f7095ef47f40?space_id=847aedcd-f4a5-8159-99ed-0003ba2ee75a&name=HAMON_Fanout_Plan_Identity_37ede_Package_Receiving.json",
+      "sha256": "b47837a2b5a6b776ad34672e3096750e6673fa019e48e7d332e24112a3cbb389"
+    }
+  ],
+  "drive_binary_delivery": "pending separate supported transfer route",
+  "manifest": {
+    "bytes": 70398,
+    "complete_frozen_git_tree_path_blob_mode_size_matches": true,
+    "crc_passed": true,
+    "git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+    "git_payloads_verified": 228,
+    "opening_guide_git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+    "payloads_verified_by_size_sha256": 229,
+    "regular_unique_relative_members": 230,
+    "sha256": "2181f1d112cf3068cce35ae3143b4e909baf78b22883b4e24f5817d3127bccfa"
+  },
+  "notion_page": "https://app.notion.com/p/3f4aedcdf4a58119bf4ff87a0c51f6a4",
+  "original_archive_and_package_receipt_preserved": true,
+  "product_source_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+  "schema": "hamon.fanout-kit-notion-fresh-download.v1",
+  "scope": "Fresh Notion download and exact source/manifest custody only; independent package consumer and source qualifications retain their separate raw receipts and owners.",
+  "source_commit": "000b1a0927b3864befb75f791f793991f5b53b5e",
+  "source_tree": "35472226a5fe2b208e1fcee8d19efe49fe3e5fbf",
+  "verified_at_utc": "2026-10-13T01:13:51.731156+00:00"
+}

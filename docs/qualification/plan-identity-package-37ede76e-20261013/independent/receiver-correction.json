@@ -1,0 +1,20 @@
+{
+  "archive_or_source_changes": false,
+  "cause": "Receiver expected boolean True; published self_excluded is the filename string MANIFEST.json.",
+  "copied_inputs": [
+    "local_consumer.py",
+    "published-MANIFEST.json",
+    "published-README_RECEIVING.md",
+    "run_inspect_cli.py",
+    "source-admission.json"
+  ],
+  "correction": "Change only the receiver comparison to that published filename string.",
+  "fresh_directory": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2",
+  "initial_product_children_run": 0,
+  "observed_at_utc": "2026-10-13T01:07:52.691832+00:00",
+  "original_directory": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013",
+  "original_inputs_preserved": 6,
+  "original_receipt_git_blob": "8f2ea5f710f474c296f2872b327b90311aa5a089",
+  "original_receiver_git_blob": "cc54d1b26d87edcb79ba3a890c4ee598d055fbd1",
+  "schema": "fanout-package-receiver-schema-correction.37ede.v1"
+}

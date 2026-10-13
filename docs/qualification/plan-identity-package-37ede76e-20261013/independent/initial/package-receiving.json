@@ -1,0 +1,67 @@
+{
+  "accepted": false,
+  "error": {
+    "message": "Manifest self-exclusion mismatch",
+    "traceback": "Traceback (most recent call last):\n  File \"/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013/receive_fanout_kit.py\", line 267, in <module>\n    receive()\n    ~~~~~~~^^\n  File \"/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013/receive_fanout_kit.py\", line 126, in receive\n    require(manifest[\"self_excluded\"] is True, \"Manifest self-exclusion mismatch\")\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013/receive_fanout_kit.py\", line 38, in require\n    raise RuntimeError(message)\nRuntimeError: Manifest self-exclusion mismatch\n",
+    "type": "RuntimeError"
+  },
+  "execution": {
+    "argv": [
+      "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013/receive_fanout_kit.py"
+    ],
+    "broad_or_previous_behavior_courses_run": 0,
+    "device_id": "95471aa0-31a3-4fd9-a2a6-a4a06f09d7cb",
+    "executable": "/usr/local/bin/python3",
+    "model_provider_or_remote_adapter_calls": 0,
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "scope": "Fresh package extraction, exact full Git/manifest identity, one local persistent public consumer and the maintained inspect CLI.",
+    "working_directory": "/Users/me/.npm/_npx/4b4c857f6efdfb61/node_modules/@wonderwhy-er/desktop-commander/dist"
+  },
+  "finished_at_utc": "2026-10-13T01:05:05.139472+00:00",
+  "inputs_before": {
+    "local_consumer.py": {
+      "bytes": 3974,
+      "git_blob": "1cf35ceeb53bcd1f23f56efdc45370bc98b40a89",
+      "sha256": "338404f50c86f1d49a5f287e6bc587ac6dfd948654e745ba54478857f50b2802"
+    },
+    "published-MANIFEST.json": {
+      "bytes": 70398,
+      "git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+      "sha256": "2181f1d112cf3068cce35ae3143b4e909baf78b22883b4e24f5817d3127bccfa"
+    },
+    "published-README_RECEIVING.md": {
+      "bytes": 3585,
+      "git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+      "sha256": "91a329ff488cf796a5237f00d3fe6b906fa2950a93228ae170bba9ed0702e9be"
+    },
+    "receive_fanout_kit.py": {
+      "bytes": 14325,
+      "git_blob": "cc54d1b26d87edcb79ba3a890c4ee598d055fbd1",
+      "sha256": "6e847598a44771b0f70c460d8ffb9aef53aa5492b4b2e815ea9b908cd9e76764"
+    },
+    "run_inspect_cli.py": {
+      "bytes": 1518,
+      "git_blob": "b58c45459ba5bf7ec258231937704118335efa2e",
+      "sha256": "994e548ee8c8ca4eb1b1773eb896bdb2552b143c4f269c0079023c93c82e1ca0"
+    },
+    "source-admission.json": {
+      "bytes": 51163,
+      "git_blob": "2aa0ccc5948e0e92fdaa0aef71b8a12c580e388a",
+      "sha256": "b75105eb4ab87e9afdd0aca3c2252ec8cb14736e0e41b8c7de888c993b3fdabd"
+    }
+  },
+  "runs": [],
+  "schema": "fanout-kit-independent-package-receiving.37ede.v1",
+  "source": {
+    "commit": "000b1a0927b3864befb75f791f793991f5b53b5e",
+    "git_tree_complete": true,
+    "git_tree_entries": 265,
+    "manifest_git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+    "opening_readme_git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+    "product_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "tree": "35472226a5fe2b208e1fcee8d19efe49fe3e5fbf"
+  },
+  "started_at_utc": "2026-10-13T01:05:05.122535+00:00"
+}

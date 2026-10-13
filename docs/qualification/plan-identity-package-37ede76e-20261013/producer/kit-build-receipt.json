@@ -1,0 +1,47 @@
+{
+  "accepted": true,
+  "all_git_blob_identities_verified": true,
+  "archive": {
+    "bytes": 663260,
+    "git_blob": "969d50b83a1b92eab879873523257c9610f6c6d4",
+    "path": "/private/tmp/hamon-estate-fanout-kit-37ede-20261013/HAMON_Fanout_Plan_Identity_37ede_000b1a0.zip",
+    "sha256": "1273461ad0b7129eb5831ef3d0cb74d88e0ddea5d894ab277bfc98a67210e1a2"
+  },
+  "built_at_utc": "2026-10-13T00:55:15.632083+00:00",
+  "counts": {
+    "git_files": 228,
+    "manifest_payload_files": 229,
+    "uncompressed_bytes": 2366336,
+    "zip_members": 230
+  },
+  "executed_builder": {
+    "bytes": 7132,
+    "file": "build_fanout_kit.py",
+    "git_blob": "67b093307c9761648a28ac229eb9ee6d9ce7ceea",
+    "sha256": "10a75a1e5c691b19a95c5fc1f9f22322c9ad538dadfe125085849c6a67cb770b"
+  },
+  "limits": [
+    "Producer assembly/readback only. No product code or test suite was executed by this builder.",
+    "Independent extraction and relocated consumer receiving follow separately.",
+    "The ZIP freezes the named PR54 source/evidence commit; later receipt publication does not change this archive."
+  ],
+  "manifest": {
+    "bytes": 70398,
+    "file": "MANIFEST.json",
+    "git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+    "sha256": "2181f1d112cf3068cce35ae3143b4e909baf78b22883b4e24f5817d3127bccfa"
+  },
+  "producer_inputs_unchanged": true,
+  "product_source_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+  "product_source_tree": "7579c83e1dcc823d59b28bb19090d5d2c8e420a7",
+  "receiving_guide": {
+    "bytes": 3585,
+    "file": "README_RECEIVING.md",
+    "git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+    "sha256": "91a329ff488cf796a5237f00d3fe6b906fa2950a93228ae170bba9ed0702e9be"
+  },
+  "schema": "hamon.fanout-plan-identity-kit.build.v1",
+  "source_commit": "000b1a0927b3864befb75f791f793991f5b53b5e",
+  "source_tree": "35472226a5fe2b208e1fcee8d19efe49fe3e5fbf",
+  "zip_names_crc_and_payloads_read_back_exact": true
+}
