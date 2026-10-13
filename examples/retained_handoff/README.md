@@ -234,3 +234,54 @@ separately rather than presenting them as successive snapshots of one run.
 See the [offline retained-project review guide](../../docs/project-review.md)
 for the report's read-only scope and output behavior. The page is a fixed
 observation: later database changes require a new report at a new output path.
+
+## Open the four saved phase reviews
+
+A new public run also writes four self-contained offline pages while each phase's
+retained state exists. Open a page directly in a browser; no server is required.
+
+| Page in the run directory | Recorded phase | Events | Completed | Unknown | Queued |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `initial-review.html` | Initial independent work | 9 | 2 | 1 | 2 |
+| `unknown-review.html` | Resume completes summary; audit remains unknown | 12 | 3 | 1 | 1 |
+| `held-review.html` | Hold preserves the unknown result without replay | 12 | 3 | 1 | 1 |
+| `final-review.html` | Evidence-backed reconciliation and handoff | 16 | 5 | 0 | 0 |
+
+These four pages come from **one execution** of the documented public command.
+They are saved observations and do not update as the retained database changes.
+The initial page records summary as ready and handoff as blocked. The next two
+keep handoff blocked by the unknown audit; their complete saved inspections are
+identical. The final page records all five parts completed. The audit's task
+reference remains null throughout: reconciliation does not invent a task ID.
+
+Each page's **Download exact inspection JSON** link contains the exact bytes of
+its sibling `<label>-inspect.stdout.json`, including the final newline. The
+phase receipt binds the actual review command, empty raw stdout/stderr, page
+SHA-256 and inspection SHA-256. The final `receipt.json` lists `review_reports`
+in initial, unknown, held, final order. Keep each HTML file with its matching
+inspection and phase receipt when sharing the observations. The renderer and its
+read-only interpretation are documented in [project review](../../docs/project-review.md).
+
+The separately qualified earlier two-page artifact still describes two separate
+executions. These new same-run captures do not change that earlier provenance.
+
+A capture failure is not a transaction rollback. Each phase can have committed
+its local work before the review command, output publication or byte comparison
+fails. A failed phase retains its started marker and any files already written;
+it does not get a successful phase receipt. Inspect the retained database and
+raw diagnostics before deciding how to proceed. The public command refuses an
+already existing run directory before phase work; do not reuse its private
+`--phase` option as a retry mechanism or overwrite an existing review page.
+
+For a literal comparison of saved observations, the separate
+[saved-inspection comparator](../../docs/compare-inspections.md) reads only the
+two JSON files. For example, from the repository root, replace `RUN` with the
+run directory and choose new output paths:
+
+```sh
+python3 -B -m fanout_engine.compare_inspections --first RUN/initial-inspect.stdout.json --second RUN/final-inspect.stdout.json --output RUN/initial-final-comparison.json
+python3 -B -m fanout_engine.compare_inspections --first RUN/unknown-inspect.stdout.json --second RUN/held-inspect.stdout.json --output RUN/unknown-held-comparison.json
+```
+
+The first/second roles are explicit. The comparator describes saved values; it
+does not read the ledger, infer progress from timestamps or perform work.
