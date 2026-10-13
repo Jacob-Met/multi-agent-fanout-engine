@@ -307,3 +307,14 @@ installed backend using `tools/build_offline_wheel.py`. The command requires
 Python 3.11+, an explicit epoch and a new output directory outside the source.
 See [the offline wheel build guide](docs/offline-wheel-build.md) for the five-file
 receipt, source identity boundary and fresh-environment installation.
+
+## Compare saved inspection reports
+
+Use `python -B -m fanout_engine.compare_inspections --first first-inspection.json --second second-inspection.json --output saved-comparison.json`
+to describe literal field differences between two saved reports for the same
+declared project, plan and part set. The result preserves both complete parsed
+documents and their original byte identities. The
+[saved-inspection comparison guide](docs/compare-inspections.md) explains
+ordering, typed values, structural limits and create-new output. The command
+reads saved files without opening a ledger; input order does not establish
+chronology or resolve recorded uncertainty.
