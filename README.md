@@ -207,6 +207,25 @@ writes the native JSON report. Missing or malformed databases are not created or
 initialized. [The existing-ledger guide](docs/inspect-ledger.md) explains status
 codes, literal path handling, Python use and the read-only/WAL boundary.
 
+## Open an offline retained-project review
+
+Save the same validated inspection snapshot as a self-contained HTML page:
+
+```sh
+python -m fanout_engine.review --database "work/dispatch.sqlite3" --project sample --output "work/sample-review.html"
+```
+
+Open the new HTML file in a browser to read state counts, dependency readiness and
+each complete retained part record. **Download exact inspection JSON** saves the
+same canonical JSON plus newline that the inspection CLI writes. The page is a
+captured observation: it does not update itself, dispatch work or verify external
+outcomes.
+
+The command reads an existing ledger and creates a new output file; it refuses
+an existing destination. [The offline review guide](docs/project-review.md)
+explains the output guards, status codes, recorded-state interpretation and
+literal text handling.
+
 ## Compare a revised plan before recording it
 
 ```sh
