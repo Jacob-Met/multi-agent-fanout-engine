@@ -117,3 +117,53 @@ establishes uncertainty; the verified local journal establishes completion in
 this fixture. A production adapter must supply its own evidence of what its
 worker or provider actually did. This example's local journal is not evidence
 about any external task.
+
+## Preview routes from each retained phase
+
+The same public command now saves four actual
+[`fanout_engine.queued_routes`](../../docs/queued-routes.md) reports alongside
+the existing state and history captures. No extra setup or command is needed.
+Each report uses the retained database and the checked fixture routing file:
+
+| Capture | Selected routes | Retained context |
+| --- | --- | --- |
+| `initial-queued-routes.stdout.json` | `summary`, using the pool's `fixture-local / low` route | Audit is unknown; handoff is blocked. |
+| `unknown-queued-routes.stdout.json` | None | Summary has completed; handoff still waits for audit. |
+| `held-queued-routes.stdout.json` | None | The idle pass has not released or replayed audit. |
+| `final-queued-routes.stdout.json` | None | All five parts have completed. |
+
+The earlier `preview.stdout.json` still describes the authored plan before
+execution. These four reports describe current retained readiness at their
+capture points. They are advisory snapshots, not dispatch reservations or
+worker/provider capacity checks.
+
+Each phase receipt adds `queued_route_command` with the actual invocation,
+return code and raw stdout/stderr hashes, `queued_route_report` with its
+relative stdout filename, and `queued_route_ready_ids` in native order.
+The final `receipt.json` adds `queued_route_reports`, an ordered list of the
+four relative filenames above. Raw stderr logs are kept alongside the reports.
+
+The example verifies each report against the same phase's inspection: project,
+plan digest, state counts, ready and blocked IDs, and each part's unmet
+dependencies. It checks the raw routing-file SHA-256 and the selected model,
+effort, route source and exact stored native idempotency key. Existing checkout
+source checks surround each CLI call, and the existing database-byte comparison
+includes both inspection and queued-route receiving. These checks describe this
+owned, ordinary SQLite fixture; they are not a general claim that every
+read-only SQLite connection leaves WAL shared-memory bookkeeping untouched.
+
+The workflow still makes exactly five unique local adapter submissions, retains
+sixteen final events, and never replays audit. Dispatch, reconciliation evidence,
+the source observation algorithm and the existing output-directory refusal are
+unchanged. The separately owned SQLite connection-lifetime follow-up is not
+included in this integration.
+
+A focused maintained check runs the public all-phase command and verifies the
+four captures and occupied-output refusal:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_queued_routes_3795.py' -v
+```
+
+Use Python 3.10+ and a writable temporary directory. The command runs only the
+authored local adapter and does not contact a provider or install a service.
