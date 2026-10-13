@@ -46,7 +46,7 @@
             "git": "21086620ab67870c6d4a0922b7ac469ef1ffeb9d",
             "inode": 19,
             "mode": 33188,
-            "mtime_ns": 1791909383537717800
+            "mtime_ns": 1791909383537717851
           },
           "fanout_engine/__init__.py": {
             "bytes": 613,
@@ -54,7 +54,7 @@
             "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
             "inode": 21,
             "mode": 33188,
-            "mtime_ns": 1791909383537790000
+            "mtime_ns": 1791909383537790010
           },
           "fanout_engine/dispatch.py": {
             "bytes": 4599,
@@ -62,7 +62,7 @@
             "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
             "inode": 22,
             "mode": 33188,
-            "mtime_ns": 1791909383537833000
+            "mtime_ns": 1791909383537832884
           },
           "fanout_engine/inspection.py": {
             "bytes": 6055,
@@ -70,7 +70,7 @@
             "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
             "inode": 23,
             "mode": 33188,
-            "mtime_ns": 1791909383537875200
+            "mtime_ns": 1791909383537875198
           },
           "fanout_engine/ledger.py": {
             "bytes": 19340,
@@ -78,7 +78,7 @@
             "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
             "inode": 24,
             "mode": 33188,
-            "mtime_ns": 1791909383537924600
+            "mtime_ns": 1791909383537924582
           },
           "fanout_engine/plan.py": {
             "bytes": 7513,
@@ -86,7 +86,7 @@
             "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
             "inode": 25,
             "mode": 33188,
-            "mtime_ns": 1791909383537984300
+            "mtime_ns": 1791909383537984292
           },
           "fanout_engine/routing.py": {
             "bytes": 2818,
@@ -94,7 +94,7 @@
             "git": "436a9f014caf69960fce67de28c062a431805b99",
             "inode": 26,
             "mode": 33188,
-            "mtime_ns": 1791909383538022000
+            "mtime_ns": 1791909383538022008
           },
           "tests/test_sample_creator_output.py": {
             "bytes": 4153,
@@ -102,7 +102,7 @@
             "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
             "inode": 28,
             "mode": 33188,
-            "mtime_ns": 1791909383538061000
+            "mtime_ns": 1791909383538061137
           },
           "docs/sample-creator-output.md": {
             "bytes": 3279,
@@ -110,7 +110,7 @@
             "git": "73812585677f5623e77d1cd8ea95664d20465f92",
             "inode": 30,
             "mode": 33188,
-            "mtime_ns": 1791909383538100200
+            "mtime_ns": 1791909383538100246
           }
         },
         "after": {
@@ -120,7 +120,7 @@
             "git": "21086620ab67870c6d4a0922b7ac469ef1ffeb9d",
             "inode": 19,
             "mode": 33188,
-            "mtime_ns": 1791909383537717800
+            "mtime_ns": 1791909383537717851
           },
           "fanout_engine/__init__.py": {
             "bytes": 613,
@@ -128,7 +128,7 @@
             "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
             "inode": 21,
             "mode": 33188,
-            "mtime_ns": 1791909383537790000
+            "mtime_ns": 1791909383537790010
           },
           "fanout_engine/dispatch.py": {
             "bytes": 4599,
@@ -136,7 +136,7 @@
             "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
             "inode": 22,
             "mode": 33188,
-            "mtime_ns": 1791909383537833000
+            "mtime_ns": 1791909383537832884
           },
           "fanout_engine/inspection.py": {
             "bytes": 6055,
@@ -144,7 +144,7 @@
             "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
             "inode": 23,
             "mode": 33188,
-            "mtime_ns": 1791909383537875200
+            "mtime_ns": 1791909383537875198
           },
           "fanout_engine/ledger.py": {
             "bytes": 19340,
@@ -152,7 +152,7 @@
             "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
             "inode": 24,
             "mode": 33188,
-            "mtime_ns": 1791909383537924600
+            "mtime_ns": 1791909383537924582
           },
           "fanout_engine/plan.py": {
             "bytes": 7513,
@@ -160,7 +160,7 @@
             "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
             "inode": 25,
             "mode": 33188,
-            "mtime_ns": 1791909383537984300
+            "mtime_ns": 1791909383537984292
           },
           "fanout_engine/routing.py": {
             "bytes": 2818,
@@ -168,7 +168,7 @@
             "git": "436a9f014caf69960fce67de28c062a431805b99",
             "inode": 26,
             "mode": 33188,
-            "mtime_ns": 1791909383538022000
+            "mtime_ns": 1791909383538022008
           },
           "tests/test_sample_creator_output.py": {
             "bytes": 4153,
@@ -176,7 +176,7 @@
             "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
             "inode": 28,
             "mode": 33188,
-            "mtime_ns": 1791909383538061000
+            "mtime_ns": 1791909383538061137
           },
           "docs/sample-creator-output.md": {
             "bytes": 3279,
@@ -184,7 +184,7 @@
             "git": "73812585677f5623e77d1cd8ea95664d20465f92",
             "inode": 30,
             "mode": 33188,
-            "mtime_ns": 1791909383538100200
+            "mtime_ns": 1791909383538100246
           }
         },
         "source_identities_unchanged": true,
@@ -219,7 +219,7 @@
             "git": "0e0bc5d8ea3790ce4bb5028cbe3b1725fcedb21a",
             "inode": 179,
             "mode": 33188,
-            "mtime_ns": 1791909384276917800
+            "mtime_ns": 1791909384276917805
           },
           "fanout_engine/__init__.py": {
             "bytes": 613,
@@ -227,7 +227,7 @@
             "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
             "inode": 181,
             "mode": 33188,
-            "mtime_ns": 1791909384277095200
+            "mtime_ns": 1791909384277095162
           },
           "fanout_engine/dispatch.py": {
             "bytes": 4599,
@@ -235,7 +235,7 @@
             "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
             "inode": 182,
             "mode": 33188,
-            "mtime_ns": 1791909384277271000
+            "mtime_ns": 1791909384277271166
           },
           "fanout_engine/inspection.py": {
             "bytes": 6055,
@@ -243,7 +243,7 @@
             "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
             "inode": 183,
             "mode": 33188,
-            "mtime_ns": 1791909384277330700
+            "mtime_ns": 1791909384277330636
           },
           "fanout_engine/ledger.py": {
             "bytes": 19340,
@@ -251,7 +251,7 @@
             "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
             "inode": 184,
             "mode": 33188,
-            "mtime_ns": 1791909384277481000
+            "mtime_ns": 1791909384277480962
           },
           "fanout_engine/plan.py": {
             "bytes": 7513,
@@ -259,7 +259,7 @@
             "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
             "inode": 185,
             "mode": 33188,
-            "mtime_ns": 1791909384277714700
+            "mtime_ns": 1791909384277714703
           },
           "fanout_engine/routing.py": {
             "bytes": 2818,
@@ -267,7 +267,7 @@
             "git": "436a9f014caf69960fce67de28c062a431805b99",
             "inode": 186,
             "mode": 33188,
-            "mtime_ns": 1791909384277856500
+            "mtime_ns": 1791909384277856406
           },
           "tests/test_sample_creator_output.py": {
             "bytes": 4153,
@@ -275,7 +275,7 @@
             "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
             "inode": 188,
             "mode": 33188,
-            "mtime_ns": 1791909384278025700
+            "mtime_ns": 1791909384278025770
           },
           "docs/sample-creator-output.md": {
             "bytes": 3279,
@@ -283,7 +283,7 @@
             "git": "73812585677f5623e77d1cd8ea95664d20465f92",
             "inode": 190,
             "mode": 33188,
-            "mtime_ns": 1791909384278239500
+            "mtime_ns": 1791909384278239482
           }
         },
         "after": {
@@ -293,7 +293,7 @@
             "git": "0e0bc5d8ea3790ce4bb5028cbe3b1725fcedb21a",
             "inode": 179,
             "mode": 33188,
-            "mtime_ns": 1791909384276917800
+            "mtime_ns": 1791909384276917805
           },
           "fanout_engine/__init__.py": {
             "bytes": 613,
@@ -301,7 +301,7 @@
             "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
             "inode": 181,
             "mode": 33188,
-            "mtime_ns": 1791909384277095200
+            "mtime_ns": 1791909384277095162
           },
           "fanout_engine/dispatch.py": {
             "bytes": 4599,
@@ -309,7 +309,7 @@
             "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
             "inode": 182,
             "mode": 33188,
-            "mtime_ns": 1791909384277271000
+            "mtime_ns": 1791909384277271166
           },
           "fanout_engine/inspection.py": {
             "bytes": 6055,
@@ -317,7 +317,7 @@
             "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
             "inode": 183,
             "mode": 33188,
-            "mtime_ns": 1791909384277330700
+            "mtime_ns": 1791909384277330636
           },
           "fanout_engine/ledger.py": {
             "bytes": 19340,
@@ -325,7 +325,7 @@
             "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
             "inode": 184,
             "mode": 33188,
-            "mtime_ns": 1791909384277481000
+            "mtime_ns": 1791909384277480962
           },
           "fanout_engine/plan.py": {
             "bytes": 7513,
@@ -333,7 +333,7 @@
             "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
             "inode": 185,
             "mode": 33188,
-            "mtime_ns": 1791909384277714700
+            "mtime_ns": 1791909384277714703
           },
           "fanout_engine/routing.py": {
             "bytes": 2818,
@@ -341,7 +341,7 @@
             "git": "436a9f014caf69960fce67de28c062a431805b99",
             "inode": 186,
             "mode": 33188,
-            "mtime_ns": 1791909384277856500
+            "mtime_ns": 1791909384277856406
           },
           "tests/test_sample_creator_output.py": {
             "bytes": 4153,
@@ -349,7 +349,7 @@
             "git": "5f2ed07c4a2a9aac61541bab7c236e8d1f615db3",
             "inode": 188,
             "mode": 33188,
-            "mtime_ns": 1791909384278025700
+            "mtime_ns": 1791909384278025770
           },
           "docs/sample-creator-output.md": {
             "bytes": 3279,
@@ -357,7 +357,7 @@
             "git": "73812585677f5623e77d1cd8ea95664d20465f92",
             "inode": 190,
             "mode": 33188,
-            "mtime_ns": 1791909384278239500
+            "mtime_ns": 1791909384278239482
           }
         },
         "source_identities_unchanged": true,
