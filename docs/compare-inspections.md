@@ -146,3 +146,46 @@ The maintained tests exercise saved-value distinctions, ordering, admission and
 complete-output limits, actual CLI output, occupied destination refusal, input
 conservation, regular-file referents, and explicit file output when standard
 output is unavailable.
+
+## Open the comparison as an offline page
+
+Use the same saved JSON inputs and select HTML explicitly:
+
+```bash
+python3 -B -m fanout_engine.compare_inspections --first ../first-inspection.json --second ../second-inspection.json --format html --output ../saved-inspection-comparison.html
+```
+
+Open the new HTML file in a browser. It contains the equality and part-order
+flags, complete input hashes and byte counts, every changed top-level and part
+field, and expandable complete First and Second documents. On a narrow screen,
+field sides stack with explicit First and Second labels.
+
+Each changed side is displayed as its complete JSON object, including
+`present` and, when present, `value`. Absence and present/null remain distinct.
+The native comparison determines row order and value distinctions; HTML adds no
+inference about chronology, progress, authority or whether external work succeeded.
+
+**Download exact comparison JSON** saves the complete native comparison report,
+including its final newline. The embedded download uses the same bytes as default
+JSON output and explicit `--format json`. Displayed data uses literal JSON notation
+and HTML escaping. C0 controls use JSON escapes; DEL/C1 controls and bidi
+formatting controls are shown as Unicode escapes. Ordinary Unicode letters,
+Arabic/Hebrew text and emoji joiners remain intact. Authored literal backslash
+sequences remain distinguishable from control escapes. These display choices do
+not alter the native JSON download or either input.
+
+The page is self-contained, with no scripts or external resources. A browser is
+sufficient to read the saved result; no server or installed engine is needed.
+It does not update observations, open a ledger or rerun work.
+
+HTML is limited to 32 MiB after complete rendering, in addition to the existing
+8 MiB native JSON limit. An oversized HTML report is refused with exit status 2
+before publication. The same create-new output rules and output-failure status
+1 apply to both formats. Omit `--output` to write the selected format to stdout;
+file extensions do not select a format.
+
+Run the focused HTML tests alongside the existing JSON-reader tests:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_compare_inspections*.py' -v
+```
