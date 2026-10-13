@@ -11,7 +11,19 @@ ledger.mark_failed(project_id, part_id, evidence)
 
 `mark_failed` requires an existing running part and a dictionary with nonblank
 string `source`, `locator` and `finding` fields. Record what the receiving worker
-or service actually reported. For example:
+or service actually reported. Required fields must contain nonblank UTF-8 text.
+The ledger checks the literal Unicode contents using the built-in string
+operations, so a string subclass's overridden validation methods cannot invent
+a nonblank field or reject an otherwise valid field. Accepted surrounding
+whitespace, Unicode and additional JSON evidence fields are preserved.
+
+The same required-field checks apply to `mark_outcome_unknown` and
+`reconcile_unknown`, and to `mark_completed` when evidence is supplied.
+Invalid required text raises `LedgerError` before a transaction or state/event
+write. Direct completion still permits omitted evidence. These checks establish
+usable recorded text; the caller remains responsible for verifying its claims.
+
+For example:
 
 ```python
 ledger.mark_failed("sample", "build", {
@@ -90,6 +102,7 @@ to the child started by this invocation.
 
 ```sh
 python -m unittest discover -s tests -p test_direct_failure.py -v
+python -m unittest discover -s tests -p test_evidence_text.py -v
 python -m unittest discover -s tests -p test_failure_flow_retained.py -v
 python -m unittest discover -s tests -v
 ```
