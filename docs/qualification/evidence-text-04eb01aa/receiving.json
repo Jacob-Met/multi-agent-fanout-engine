@@ -1,0 +1,184 @@
+{
+  "baseline_commit": "afd0ac5657888cb348be8717bb3c8ac436a29dfd",
+  "baseline_tree": "1cbfce6bc068f73281640ca4181a7c14d536abb7",
+  "composed_source_commit": "eb7f4d73265f05fac02bd1517c04762e302e137e",
+  "composed_source_tree": "311d4339d6df8c322f3b0c342b188c94590991fe",
+  "current_main_commit": "6d76703f8a3d5a29e56bf9fab97523935b06e61c",
+  "focused_optimized": {
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-B",
+      "-O",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_evidence_text.py",
+      "-v"
+    ],
+    "exit": 0,
+    "stderr": "test_blank_literal_cannot_be_accepted_by_overridden_strip (test_evidence_text.EvidenceTextTests.test_blank_literal_cannot_be_accepted_by_overridden_strip) ... ok\ntest_direct_completion_still_allows_omitted_optional_evidence (test_evidence_text.EvidenceTextTests.test_direct_completion_still_allows_omitted_optional_evidence) ... ok\ntest_existing_missing_nontext_and_blank_refusals_remain (test_evidence_text.EvidenceTextTests.test_existing_missing_nontext_and_blank_refusals_remain) ... ok\ntest_malformed_utf8_is_a_ledger_error_before_any_transaction (test_evidence_text.EvidenceTextTests.test_malformed_utf8_is_a_ledger_error_before_any_transaction) ... ok\ntest_unicode_padding_and_additional_json_survive_retained_reopen (test_evidence_text.EvidenceTextTests.test_unicode_padding_and_additional_json_survive_retained_reopen) ... ok\ntest_valid_literal_does_not_call_text_overrides (test_evidence_text.EvidenceTextTests.test_valid_literal_does_not_call_text_overrides) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.111s\n\nOK\n",
+    "stdout": ""
+  },
+  "focused_streams": {
+    "baseline-focused.stderr": {
+      "content": "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",
+      "decoded_bytes": 98582,
+      "decoded_sha256": "617b41650188f54af62048476e2c4181e23157ed346d859123b61156ad04b0fd",
+      "encoding": "gzip+base64"
+    },
+    "baseline-focused.stdout": {
+      "content": "H4sIAAAAAAACAwMAAAAAAAAAAAA=",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip+base64"
+    },
+    "baseline-initial-fixture.stderr": {
+      "content": "H4sIAAAAAAACA+2db1PiShbG3/MpenkD3kWM4KhjLTtl1WjNrZqaueV6730hbqpNGs0ldNh0cLS29rvv6ST80QFNIChpHl/MQAidc/r08zuHdNKJhIrsG5/Lvu17kQi5bztcyoA2Cps7jhhGwrVvHu3gXoSh57pC2ioKvSGrR/qr4t6jTY6wI/EQNc/Sd5f05pI+Vs1o2fZ3WLPZZBXGos21sO4Eo1CJTm0k+zL4IWsN1vOE73Zqij5wBL1Pm+xUa6zbjbpdWasmnp2f/vrVIO+63QdudbujlmW1TXDRDxweBaGpEZznnmkh7HnS9eStqSGc517JQ+gEg6EvaD9DQZrNP/OCaBZMMzpoXhjNAmpGB0sexh73fGN5msE5w8JnFkmzeGdYAM1iaBbvSh7AUDiBdLSbu6aXp7ldNTq0ZqE2v69GB9csDOf31ZzgGl3g5vPT3KAay+ItqIBf8NZYCq9UF0ebPSU3tdH1yOXITlOOF+jdPN+3ue8HP5QdDLxItxQM9Wd0lLFheexc9hiJrUE/sVQ8ePQ1eWsPPKX0/zKQ+qg2l27aFaHojRT3Fb0YcE/msTF/608nNzfPurknycZH63wLpHg+Fgbc7wXhgEIxinrHtqdsbpMEbkVo0yAKQhpb9DmNL/loRyGXijs6YnkcWfIQT/t6k+3MOeE6co8ta0yOs4uL7xdGOtnr9Qxycn6CNy2Ui7w0K5bzs7ppsVzkZaljmfX8VsmDmd1N06JpJGdz+GlaPI1kbQ4/Sx3PTOeuSh7LjD4aFUcjIZvVSaMiaSReszpZ6kguMWlb8rAu5bHBMTaSwsu5bHCUjST0ci6bEuVtKIvzu2tqdE3H9FbUzbnneM2Nb2Y6x6aMpOcErrCH3NXfiicf9ct02vYvpWd2R+G9dy/sUETck2R1KIKhyOXxCod5OmN8z33PncyPu4FQtp4hd7jvxwaMJ8eFymNe9lafzlq+vzVz5gf6NAA6tS/xBQK65dqcQb7Bhl9wT0+Hl8Dy2dKoZJ3+s+nl6fYJ8ErW58/sLk+HL/g1ULLuf9GLUgajrEJY7MKiMGxQ6o8vrap0CvmrxN6dGHsFVGW3kL/KZcgdccOdPqsPAhUxGkBCRkzHiPlcRTsnNMrPaSSx6p4r7vfu+CCQNLZkMIp2rQNxY+1zftj7KPbSbT+CsC/CPd0pam9O/w0fq9ojKdj+/lGDeXKlEJFxjCnh95qh+Es4+rrIH150R4bM7pX2cYP995dffrv4/v087eOTcdf+b2dtXh58jJ18ybypE/HGuHKvJ8432Nj0yVWea7O0bSXhmNgQ25XY0RzwsG9Te8R3YadDtV4dN0VNVPWBqivbmbyzhbwlk/bSg09tbH1IunOeObG57k1TPAhnFIl69fffPp9enrEhDyPF/nV2yVTEI1Las+/VGpMe0T+WOp8ao6HLdax41PnE/vxydkGNhIEOoO25tOn02+e41fhdtVH5PfkJdibjf/VwPWE1Gse7xzWmNzmkJ1mLmIh3YM4dJ9XRwGO1VM/apWGQ9Do7PDph9IMtDG7JCMUImSy+9Fe4gGO2M2mAI+AIOJoAR61nwLHYK65BR9ARdDSydDywQMcV79QAHUFH0NHI2hF0XPkOL9ARdAQdjawd91ug44p3hoKOoCPoaGTtCDqufkc58Ag8Fo3H1mt4nAzSuWCs9ryHaBSKk709QofXI+fWj8ujgykuJ+ZlBuWM6sYm69WMiJCYxjZtcQoQE8QEMQ0lJua217HODZAJZAKZ21JkYkqngCWzgEwgE8jclioTyCxg9T0gE8gEMrelysTkTwELeQKZQCaQuS1VJpC54prAwCVwWTQuD17DZTJC3+MSouMPUyomVmRG4lhWmP42asFwABAABABLA0DMZhf+NAEQEAQEActbAmKmZdVHjYCAICAIWN4aEARc9TlEICAICAKWtwbEPMiqDykDAUFAELC8NSAIWOgTDIFD4LBoHB69gMPJUH1xgYl7EbqeE3XS/xtrYWPbstIufWZSVkJ+wh3TW0FKFI4gJUhpDikxt7zmJyYDlUAlUGlkUYkpmGKftA5UApVApZFVJVCZF5WYuwYqgcotrCoxqVMUKlFVApVApcFVJVD5IipxUzQwCUyiosSUThGYRDUJTAKTmPkGJjHtDU6Ck5j2BidX4STqSXASnMScNziJCW9wEpzEhDc4uQonUU+Ck+AkZruL4uQ99z3XToVgu4FQNh3S1gSIR4gdUDRD6iCVB43ZW52h4eTB5axP8OvUvnguta1brhkBPKs9BV72DtoUPFivrfjw7Pnz77H0w4fWdOmHZ+ZMuzHpexLXxNf6es1qt5Ik8POBY6NC7inBvsbfiukx7TkmhXA1A+SuGAyjR5ZMWlK7ydmmBuPSZWmpQFXBE0OaqSEzLZ+wpVreNvBcUETIbZAH5Ck7eY5eIo/Xi8sLPdipNJo1p8F0AbfDgpA48FhfsFfzVkT1vnjcaVBpFcZ76z3HH1/RR9dN+sQb1nfiA2b6+3cxf2vt0H/cCikehuE/N7gf8/8V2I8ZdH2cQCn2ayYR/sH9kUjzIB/Rr6VQuEx/lY3BRIluutMJm7+T6Tlr9gJ5lMubl7TK+GCtw+NFD9ZC4YzCOROEUDqDQsZRCEU0imgU0Qbmr8mkGyrozctdm7zEsDV3iWFUyaiSX6cMSmRgppSYQRmMMhhlsIEJasG6KyiKNy9bleQirdbH9gsXaaFORp2cF0OomsEhUziEQhqFNAppszMYTi0je6GKRhW9QQxCCQ0IoYRGCY0SGiV0p3J++uvXNHvd+Fz2J+x0uNTkvBE2dxwx1HdC3jyO8Uke27FnefLYMu3PvT1n8dKNrNuNul1pxq3Rhx+neW2Zvst5W/T6c93Bcba7oPX2xHCulAgjXbEIVZ8p+uJezwTUymncBDWd6mmmlRhDsSxd6GnBUqgP3Op2Ry3LakNUEBVElVdU8xaEQ5aCoCCoAgWFNAVVQVWrqGreOlNIUxAUBFWgoJCmoCqoKoeq5jz+Dyf9oCgoas2KQqKCrCCr1WSFE3+QFCS1dkkhVUFX0NVqusLJP0gKklq7pJCqoCvoKoeuMjyrGWkKcoKcCpMTUhQ0BU2toCmc9YOeoKf16glJCqKCqFYQFc73QU/Q03r1hCQFUUFUOUS1YNk3nPqDuCCuNxcX0hcUBoUVpjCcFoS6oK63VBcSGCQGiRUmMZwyhLqgrrdUFxIYJAaJLScxXDgIZUFZ76QsJC7IC/IqRl44bwhpQVpvJi2kLugL+ipGXzhjCGlBWm8mLaQu6Av6elVfBujiyCpKF8nwOvvPiPt1bblqsKvrnZ+HjEc2Mdfr9QS9u6rFrRB8Xntx1Wq1mXPHQ3Wtt16zv3Wo/Url3Aupx3xqlRHiIu5JxdoW464bPwCL+0z4YkDdqZrpvtQBIR9vZdZJJT1QpfJ33eLu1Ch6zfB6La+v1wEJ8UDDgHKZPfCUfiqdLWlE6Oe0cemmozsUvZHivqIXAxoreRCRv/UFq3qMj9b5FkhhxEPzWjMPzcvfTcit75tb3/1BkyZIYN9a7bmRS6bPuzgXs0mqDJPncU43pDtc7e8fZ02f+znT5xMbZrLoU9ti+D8zL962mbtR3xQ0Ki+4ZIfxwFB6hFjN/faBqsQCPPvM6vr32CgUqtMmiAodZdU5sHYq/wdJHCDFEYUBAA==",
+      "decoded_bytes": 99601,
+      "decoded_sha256": "264d41e071027b2144c8c2f462732d959e597d481a9f11d9da9bbf1977b530ad",
+      "encoding": "gzip+base64"
+    },
+    "baseline-initial-fixture.stdout": {
+      "content": "H4sIAAAAAAACAwMAAAAAAAAAAAA=",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip+base64"
+    },
+    "candidate-focused.stderr": {
+      "content": "H4sIAAAAAAACA62Sv07DQAzG9zxFRhiI2gXBAzAxIKHulnvnVqaXc3R2Qvv2+Kq2UjZSyHJ/nPP3+2wbqcE2YT5AYqOCCQLmLH5JgCHQYBRhewKZqBSOkTKoFR7aB6tPaWK/CgRGR+veLqeNHzYe1s7uzf/Ydl3XyqE5Z4hcKBgE6YdExlJ/4pQAU5JvBenZah4Zasw1rlhLKO/VmJPSkf1Z3kPPqnXNkqsqYI6XQhTajYpJfdMj5yWMy7PP6XpMOym92xht9wKsgJAo7qmAl1+Kd8Xj3pl8AiuYFUN1uwTxTok555g5SCQYMMZqs9qr20vpv7R2ZywTT+Q+zX26XiEZaBHrH2TmvBMmjrcJj0IKdcaDz84Z4DrepEvwfp/1RtM8/cvXfGJun9tKoa2P6Kpbr161aT7emx9unPw5MgQAAA==",
+      "decoded_bytes": 1074,
+      "decoded_sha256": "72f66539c3402cf92c79772c3561a593c6cac6439a974ca05c5aa06c38342ff7",
+      "encoding": "gzip+base64"
+    },
+    "candidate-focused.stdout": {
+      "content": "H4sIAAAAAAACAwMAAAAAAAAAAAA=",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "encoding": "gzip+base64"
+    }
+  },
+  "native_merge_tree": "311d4339d6df8c322f3b0c342b188c94590991fe",
+  "notes": [
+    "The initial author test incorrectly expected direct completion with None evidence to refuse. That fixture expectation was corrected before the production change. Its raw initial failure streams remain above.",
+    "On the unchanged baseline the corrected six-method receiver exits 1 with 32 subcase/override-assertion failures and 40 error records; three control methods pass. Candidate focused receiving exits 0 with all six methods passing.",
+    "Initial full baseline: 221 tests pass. Original candidate: 227 tests pass in normal and genuine optimized Python. All complete courses use -W always::ResourceWarning, report zero skips and no resource warnings.",
+    "Current-main composition retains all three reviewed source/test/guide blobs unchanged. Its new main delta is only the previously accepted three-file inspection SQLite path guard. Complete composition: 233 tests pass; the six evidence methods also pass in genuine optimized Python.",
+    "The optimized full-course statement applies to the unittest parent. Existing maintained child-process flags remain as authored.",
+    "All qualification uses private local SQLite fixtures and local subprocesses; no provider, remote worker or installed deployment was exercised.",
+    "Production files, tests and guide remained byte-identical during receiving. Native git merge-tree and GitHub tree construction agree exactly. The qualification receipt is added afterward without modifying tested source.",
+    "A check initially expected no untracked files, but maintained CLI child processes generated only the listed Python bytecode caches. The complete tracked working source still matched the tested index; the native merge-tree comparison had already passed."
+  ],
+  "original_source_commit": "49b6b404d9a04a8c34f2497b170f94a22cc366aa",
+  "original_source_tree": "157bfa51db5a7d6c962f082cd0d6df16fb4a82d3",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "schema": "fanout.evidence-text-receiving/1",
+  "source_files": [
+    {
+      "blob": "7007a3cedccd83410c9ebc592c393000a6013c0b",
+      "path": "fanout_engine/ledger.py",
+      "sha256": "a9043803fbe0894803f4a94ecad0cbdfd82d17cfab3d0a63383c224eabf53232"
+    },
+    {
+      "blob": "12577edc5cc9c0a9153293ea14215cb98f325009",
+      "path": "tests/test_evidence_text.py",
+      "sha256": "1565d2749d12e1a84634e968a95bb711caa6a82dfc1a969de6fa6db6375a3a2d"
+    },
+    {
+      "blob": "f8f920fb174fdfcd75d92f4148e94629b2b154e9",
+      "path": "docs/task-results.md",
+      "sha256": "27f41725bed8790146ea653b5d4608168c40d3f1905804cb34f2926cca801f20"
+    }
+  ],
+  "sqlite": "3.53.1",
+  "suite_results": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-W",
+        "always::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit": 0,
+      "label": "baseline-full",
+      "stderr": "----------------------------------------------------------------------\nRan 221 tests in 11.466s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-W",
+        "always::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit": 0,
+      "label": "candidate-full",
+      "stderr": "----------------------------------------------------------------------\nRan 227 tests in 11.310s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-O",
+        "-W",
+        "always::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit": 0,
+      "label": "candidate-optimized",
+      "stderr": "----------------------------------------------------------------------\nRan 227 tests in 14.613s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-W",
+        "always::ResourceWarning",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-q"
+      ],
+      "exit": 0,
+      "label": "current-candidate-full",
+      "stderr": "----------------------------------------------------------------------\nRan 233 tests in 11.445s\n\nOK\n",
+      "stdout": ""
+    }
+  ],
+  "untracked_receiving_files": [
+    "fanout_engine/__pycache__/__init__.cpython-312.pyc",
+    "fanout_engine/__pycache__/dispatch.cpython-312.pyc",
+    "fanout_engine/__pycache__/history.cpython-312.pyc",
+    "fanout_engine/__pycache__/inspect.cpython-312.pyc",
+    "fanout_engine/__pycache__/inspection.cpython-312.pyc",
+    "fanout_engine/__pycache__/ledger.cpython-312.pyc",
+    "fanout_engine/__pycache__/plan.cpython-312.pyc",
+    "fanout_engine/__pycache__/preview.cpython-312.pyc",
+    "fanout_engine/__pycache__/routing.cpython-312.pyc"
+  ]
+}
