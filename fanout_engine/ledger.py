@@ -171,6 +171,13 @@ class Ledger:
                        for row in rows if row["record_kind"] == 1],
         }
 
+    def project_headers(self) -> list[dict[str, Any]]:
+        """Read all stored plan headers in one snapshot without validating them."""
+        rows = self._db.execute(
+            "SELECT project_id, plan_digest, plan_json FROM projects"
+        ).fetchall()
+        return [dict(row) for row in rows]
+
     def part_state(self, project_id: str, part_id: str) -> str:
         with self._db:
             return self._part(self._db, project_id, part_id)["state"]
