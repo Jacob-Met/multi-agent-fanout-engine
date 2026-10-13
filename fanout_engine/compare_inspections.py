@@ -127,7 +127,9 @@ def _parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--first", type=Path, required=True, help="first saved inspection JSON file")
     parser.add_argument("--second", type=Path, required=True, help="second saved inspection JSON file")
-    parser.add_argument("--output", type=Path, help="new comparison file; otherwise write JSON to stdout")
+    parser.add_argument("--format", choices=("json", "html"), default="json",
+                        help="report format; default: json")
+    parser.add_argument("--output", type=Path, help="new comparison file; otherwise write the report to stdout")
     return parser
 
 
@@ -136,7 +138,11 @@ def main(argv: list[str] | None = None) -> int:
     try:
         first = _read_input(args.first, MAX_INPUT_BYTES, "first")
         second = _read_input(args.second, MAX_INPUT_BYTES, "second")
-        content = _serialize(compare_inspections(first, second))
+        report = compare_inspections(first, second)
+        content = _serialize(report)
+        if args.format == "html":
+            from .compare_inspections_html import render_comparison
+            content = render_comparison(report, content)
     except RecursionError:
         print("fanout compare-inspections: input nesting exceeds comparison limits", file=sys.stderr)
         return 2
