@@ -59,6 +59,14 @@ with Ledger(":memory:") as ledger:
 
 `hub` must implement `submit(part, *, route, worker_id, idempotency_key)` and return a non-empty `task_id` after acceptance. If it cannot prove whether a request was accepted, raise an exception: the part is recorded as unknown and is not submitted again.
 
+`worker_for(part)` must return a nonblank, UTF-8 encodable string.
+`Ledger.mark_dispatching` rejects invalid worker IDs with `LedgerError` before
+opening its transition transaction, so `dispatch_ready` does not submit that part.
+Accepted IDs retain their exact text, including surrounding whitespace and Unicode.
+Validation applies to each eligible part when selected: plan recording, route
+selection and earlier submissions may already have occurred. Blocked parts do not
+call `worker_for`.
+
 When a running task has a verified terminal failure, record it with
 `ledger.mark_failed(project_id, part_id, evidence)`. Required evidence retains
 its source, locator and finding alongside the original task/worker/route identity.

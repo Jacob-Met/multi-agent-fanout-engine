@@ -200,8 +200,12 @@ class Ledger:
             return {row[0] for row in rows}
 
     def mark_dispatching(self, project_id: str, part_id: str, worker_id: str, route: dict[str, str]) -> None:
-        if not worker_id:
-            raise LedgerError("worker id is required")
+        if not isinstance(worker_id, str) or not str.strip(worker_id):
+            raise LedgerError("worker id must be non-empty text")
+        try:
+            str.encode(worker_id, "utf-8")
+        except UnicodeEncodeError as exc:
+            raise LedgerError("worker id must be valid UTF-8 text") from exc
         with self._transaction() as db:
             row = self._part(db, project_id, part_id)
             if row["state"] != "queued":
