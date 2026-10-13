@@ -34,6 +34,26 @@ keys. Tests also reopen a temporary SQLite ledger and dispatch one ready part of
 a deep plan through a local adapter. The preview consumer's separate 256-part
 limit still applies.
 
+## Run a retained local handoff
+
+The [retained handoff example](examples/retained_handoff/README.md) produces an
+audit, inventory, receiving notes, summary and final handoff from three authored
+local files. It carries an unreadable acknowledgement across fresh processes,
+continues independent work and reconciles the exact completion journal before
+finishing dependent work.
+
+From the repository root, choose an output directory that does not exist:
+
+```sh
+python3 -I -B examples/retained_handoff/run_consumer.py --output ../fanout-handoff-run
+python3 -I -B examples/retained_handoff/receive_history_cli.py --run ../fanout-handoff-run
+```
+
+The second command checks the complete retained project and audit timelines
+through the native history CLI. The guide explains the saved artifacts,
+source checks and interrupted-run handling. All work uses the authored local
+adapter; the route labels do not invoke a model provider or remote worker.
+
 ## Minimal integration shape
 
 ```python
@@ -66,6 +86,14 @@ The failed part is not replayed, and its unfinished dependents stay queued.
 [Task results](docs/task-results.md) describes the direct transition and the
 separate unknown-outcome reconciliation path. `python examples/failure_flow.py`
 demonstrates it with one real authored local child failure and no remote service.
+
+Before submission, withdraw queued work with
+`ledger.withdraw_queued(project_id, part_id, evidence)`. The terminal decision
+uses the existing failed state with a distinct `queued_withdrawn` event,
+preserves identity, prevents submission, and leaves descendants blocked.
+It requires absent submission/artifact references and does not cancel running
+work. [Queued withdrawal](docs/queued-withdrawal.md) explains admission and
+refusal; `python examples/withdraw_queue.py` demonstrates persistence locally.
 
 Direct `Part` and `Plan` construction accepts tuples or lists for `depends_on`,
 `tags`, and `parts`, and snapshots these collections to tuples. Later edits to a
@@ -179,6 +207,25 @@ writes the native JSON report. Missing or malformed databases are not created or
 initialized. [The existing-ledger guide](docs/inspect-ledger.md) explains status
 codes, literal path handling, Python use and the read-only/WAL boundary.
 
+## Open an offline retained-project review
+
+Save the same validated inspection snapshot as a self-contained HTML page:
+
+```sh
+python -m fanout_engine.review --database "work/dispatch.sqlite3" --project sample --output "work/sample-review.html"
+```
+
+Open the new HTML file in a browser to read state counts, dependency readiness and
+each complete retained part record. **Download exact inspection JSON** saves the
+same canonical JSON plus newline that the inspection CLI writes. The page is a
+captured observation: it does not update itself, dispatch work or verify external
+outcomes.
+
+The command reads an existing ledger and creates a new output file; it refuses
+an existing destination. [The offline review guide](docs/project-review.md)
+explains the output guards, status codes, recorded-state interpretation and
+literal text handling.
+
 ## Compare a revised plan before recording it
 
 ```sh
@@ -208,3 +255,55 @@ no events has an empty timeline; an unknown part is reported distinctly. The
 [history guide](docs/inspect-history.md) explains the report, Python helper and
 local example. Events remain recorded evidence; the command performs no dispatch,
 recovery or reconciliation.
+
+## Preview routes for currently queued work
+
+Use `python -B -m fanout_engine.queued_routes --database work/dispatch.sqlite3 --project sample --routes routes.json` to combine one validated retained snapshot with caller-supplied routing. Only queued parts whose direct prerequisites are completed receive selected routes; native states and blocked reasons remain visible. The [queued-route guide](docs/queued-routes.md) explains whole-configuration validation, exact stored identities, read-only/WAL limits and the advisory boundary. This command performs no dispatch, worker selection, reservation or step-up.
+
+## Operator withdrawal of queued work
+
+For a recorded part that has not been submitted, use the explicit existing-ledger
+[withdrawal command](docs/withdraw-queued-cli.md). It requires a database, project,
+part and three evidence arguments, preserves the native queued-only transition,
+and distinguishes a refusal from a confirmation-output failure after commit.
+
+
+## Export a recorded plan
+
+Write one retained project's validated native Plan JSON to a new file:
+
+```bash
+python -m fanout_engine.export_plan --database retained.sqlite3 --project example --output recorded-plan.json
+```
+
+See [recorded plan export](docs/export-recorded-plan.md) for exact identity, read-only scope, downstream comparison/preview and output refusal behavior.
+
+
+## Explain what holds queued work
+
+```sh
+python -m fanout_engine.blockers --database "work/dispatch.sqlite3" --project sample
+```
+
+Follow incomplete dependencies through queued parts to the ready queued or
+already dispatched/failed/unknown work that currently holds them. The report
+also lists the distinct downstream queued parts affected by each frontier,
+preserving native order and state. It reads the existing validated project
+snapshot without dispatching or changing it. The
+[blocker guide](docs/inspect-blockers.md) defines the completed and in-flight
+cutoffs, Python helper, report fields and create-only export.
+
+## Create a queued ledger from a saved plan
+
+Use `python -m fanout_engine.create_ledger --plan plan.json --database new-work.sqlite3`
+to record a parsed authored Plan in a new SQLite file. Every part starts queued;
+no work is dispatched. The [new-ledger guide](docs/create-plan-ledger.md) covers
+native identity, sidecar guards, exact receipts and publication/output failures.
+
+## Build an offline wheel
+
+Build and verify this reference package from captured source with an already
+installed backend using `tools/build_offline_wheel.py`. The command requires
+Python 3.11+, an explicit epoch and a new output directory outside the source.
+See [the offline wheel build guide](docs/offline-wheel-build.md) for the five-file
+receipt, source identity boundary and fresh-environment installation.

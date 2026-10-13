@@ -1,0 +1,36 @@
+{
+  "project": "browser-review",
+  "part_order": [
+    "z_ready",
+    "a_blocked",
+    "m_complete",
+    "b_failed",
+    "u_unknown",
+    "r_running",
+    "d_dispatching",
+    "c_ready_child"
+  ],
+  "counts": {
+    "queued": 3,
+    "completed": 1,
+    "failed": 1,
+    "outcome_unknown": 1,
+    "running": 1,
+    "dispatching": 1
+  },
+  "ready": [
+    "z_ready",
+    "c_ready_child"
+  ],
+  "blocked": [
+    "a_blocked"
+  ],
+  "literal_instruction": "Literal <b>bold?</b> & quotes \" ' — 雪 λ\nSecond line\tTAB\u0001",
+  "evidence": {
+    "source": "authored consumer receipt 雪",
+    "locator": "https://example.invalid/retained?<b>literal</b>&x=1",
+    "finding": "Literal <em>evidence</em>\nControl \u0002 and a long token: WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  },
+  "origin": "Unchanged parent native inspection plus separately checked hand-derived anchors.",
+  "baseline_gap": "review.py is absent at the pinned parent; no original browser failure is invented."
+}

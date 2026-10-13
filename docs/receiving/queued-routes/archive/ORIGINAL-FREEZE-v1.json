@@ -1,0 +1,16 @@
+{
+  "frozenUtc": "2026-10-13T08:57:27.546503+00:00",
+  "scope": "Original-only healthy controls and expected CLI absence; no candidate exposed",
+  "pins": [
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/original-expectations-v1.json",
+      "bytes": 1894,
+      "sha256": "b8740963fecee5101179adaa8685cc9d3cf4cc26102a7f3cf31d824fb147eaf9"
+    },
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/receive-original-queued-routes-v1.py",
+      "bytes": 6707,
+      "sha256": "43b20ce688f41b792dc4e9476939fb4133cbf74432e9d162d86d6d567cb426bf"
+    }
+  ]
+}

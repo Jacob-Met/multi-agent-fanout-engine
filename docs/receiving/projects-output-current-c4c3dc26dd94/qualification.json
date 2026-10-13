@@ -1,0 +1,665 @@
+{
+  "repo": "Jacob-Met/multi-agent-fanout-engine",
+  "base": "72d35642b0f9c9882e2211a7c6284fb76566de58",
+  "owner_head": "4b9e1a980792ecacb8cda513655967d87a595849",
+  "claim": 6150915072,
+  "source_blob": "fce2586c6ebbd96c5a2333b2f618aa4ef9be5b02",
+  "test_blob": "4b46ae831584d61e64b1a5e5a7593d83d3c299ed",
+  "guide_blob": "4ab98f3d795bab326135417a1414df649727ade6",
+  "composition": {
+    "source_three_line_inverse_exact": true,
+    "guide_additive_inverse_exact": true,
+    "runtime_files": 9
+  },
+  "archive": {
+    "bytes": 55555,
+    "sha256": "2ead6472c01113fbaf1280f500fd729bfd5a618b6ef6fccf4ce5bf3b03a22236",
+    "git": "3e7111eb04b64d386c6f7e688852b0180f34d2d7"
+  },
+  "qualification": {
+    "base": "72d35642b0f9c9882e2211a7c6284fb76566de58",
+    "owner_head": "4b9e1a980792ecacb8cda513655967d87a595849",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "scope": "nine-file current runtime projection; three owned-fixture behaviors plus stdout/seed controls; no broad filename, native, installed or live-ledger course",
+    "courses": [
+      {
+        "name": "original",
+        "expected_catalog": {
+          "schema_version": 1,
+          "project_count": 2,
+          "projects": [
+            {
+              "project_id": "Alpha",
+              "plan_digest": "c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401",
+              "part_count": 1
+            },
+            {
+              "project_id": "zulu",
+              "plan_digest": "276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6",
+              "part_count": 1
+            }
+          ]
+        },
+        "seed": {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "seed.py"
+          ],
+          "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/original",
+          "pid": 5,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.056784535001497716,
+          "stdout": "{\"schema_version\": 1, \"project_count\": 2, \"projects\": [{\"project_id\": \"Alpha\", \"plan_digest\": \"c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401\", \"part_count\": 1}, {\"project_id\": \"zulu\", \"plan_digest\": \"276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6\", \"part_count\": 1}]}\n",
+          "stderr": ""
+        },
+        "stdout_control": {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.projects",
+            "--database",
+            "fixtures/selected.sqlite3"
+          ],
+          "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/original",
+          "pid": 6,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.06510142299521249,
+          "stdout": "{\"project_count\":2,\"projects\":[{\"part_count\":1,\"plan_digest\":\"c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401\",\"project_id\":\"Alpha\"},{\"part_count\":1,\"plan_digest\":\"276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6\",\"project_id\":\"zulu\"}],\"schema_version\":1}\n",
+          "stderr": ""
+        },
+        "cases": [
+          {
+            "name": "ordinary",
+            "desired_pass": true,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/selected.sqlite3",
+                "--output",
+                "fixtures/catalog.json"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/original",
+              "pid": 7,
+              "exit": 0,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.062105980003252625,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "reserved_selected_wal",
+            "desired_pass": false,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/selected.sqlite3",
+                "--output",
+                "fixtures/selected.sqlite3-wal"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/original",
+              "pid": 8,
+              "exit": 0,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.06835851501091383,
+              "stdout": "",
+              "stderr": ""
+            },
+            "output_present": true
+          },
+          {
+            "name": "invalid_plan_precedence",
+            "desired_pass": true,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/invalid.sqlite3",
+                "--output",
+                "fixtures/invalid.sqlite3-wal"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/original",
+              "pid": 9,
+              "exit": 2,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.11379814399697352,
+              "stdout": "",
+              "stderr": "fanout projects: invalid_record: stored plan is malformed\n"
+            }
+          }
+        ],
+        "desired_passes": 2,
+        "source_before": {
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 19,
+            "mode": 33188,
+            "mtime_ns": 1791911363117950952
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 20,
+            "mode": 33188,
+            "mtime_ns": 1791911363117999785
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 21,
+            "mode": 33188,
+            "mtime_ns": 1791911363118029460
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 22,
+            "mode": 33188,
+            "mtime_ns": 1791911363118070321
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 23,
+            "mode": 33188,
+            "mtime_ns": 1791911363118097802
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 24,
+            "mode": 33188,
+            "mtime_ns": 1791911363118118914
+          },
+          "fanout_engine/projects.py": {
+            "bytes": 2390,
+            "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+            "git": "6589dba3740f51e42cafd6b484912818cccac211",
+            "inode": 25,
+            "mode": 33188,
+            "mtime_ns": 1791911363118170902
+          },
+          "fanout_engine/inspect.py": {
+            "bytes": 4178,
+            "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+            "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+            "inode": 26,
+            "mode": 33188,
+            "mtime_ns": 1791911363118203411
+          },
+          "fanout_engine/preview.py": {
+            "bytes": 9462,
+            "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+            "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+            "inode": 27,
+            "mode": 33188,
+            "mtime_ns": 1791911363118229490
+          }
+        },
+        "source_after": {
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 19,
+            "mode": 33188,
+            "mtime_ns": 1791911363117950952
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 20,
+            "mode": 33188,
+            "mtime_ns": 1791911363117999785
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 21,
+            "mode": 33188,
+            "mtime_ns": 1791911363118029460
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 22,
+            "mode": 33188,
+            "mtime_ns": 1791911363118070321
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 23,
+            "mode": 33188,
+            "mtime_ns": 1791911363118097802
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 24,
+            "mode": 33188,
+            "mtime_ns": 1791911363118118914
+          },
+          "fanout_engine/projects.py": {
+            "bytes": 2390,
+            "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+            "git": "6589dba3740f51e42cafd6b484912818cccac211",
+            "inode": 25,
+            "mode": 33188,
+            "mtime_ns": 1791911363118170902
+          },
+          "fanout_engine/inspect.py": {
+            "bytes": 4178,
+            "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+            "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+            "inode": 26,
+            "mode": 33188,
+            "mtime_ns": 1791911363118203411
+          },
+          "fanout_engine/preview.py": {
+            "bytes": 9462,
+            "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+            "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+            "inode": 27,
+            "mode": 33188,
+            "mtime_ns": 1791911363118229490
+          }
+        },
+        "fixtures_before": {
+          "selected.sqlite3": {
+            "bytes": 32768,
+            "sha256": "7ecf2177cb3429eba816a75be2f85268515771b8524817506f137dc17df1a3f1",
+            "git": "11f0be93348e3c7e767fbbe63a1b4e040b7ca27f",
+            "inode": 30,
+            "mode": 33188,
+            "mtime_ns": 1791911363156372030
+          },
+          "invalid.sqlite3": {
+            "bytes": 32768,
+            "sha256": "e4354f872f5fcb53d24a3fce94ecd29e2fe08af7a801cf86e05c32939c64c79f",
+            "git": "03dec76e19607ca18a0820395bbfe78fbe949114",
+            "inode": 37,
+            "mode": 33188,
+            "mtime_ns": 1791911363156602066
+          }
+        },
+        "fixtures_after": {
+          "selected.sqlite3": {
+            "bytes": 32768,
+            "sha256": "7ecf2177cb3429eba816a75be2f85268515771b8524817506f137dc17df1a3f1",
+            "git": "11f0be93348e3c7e767fbbe63a1b4e040b7ca27f",
+            "inode": 30,
+            "mode": 33188,
+            "mtime_ns": 1791911363156372030
+          },
+          "invalid.sqlite3": {
+            "bytes": 32768,
+            "sha256": "e4354f872f5fcb53d24a3fce94ecd29e2fe08af7a801cf86e05c32939c64c79f",
+            "git": "03dec76e19607ca18a0820395bbfe78fbe949114",
+            "inode": 37,
+            "mode": 33188,
+            "mtime_ns": 1791911363156602066
+          }
+        },
+        "source_and_database_identities_unchanged": true
+      },
+      {
+        "name": "candidate",
+        "expected_catalog": {
+          "schema_version": 1,
+          "project_count": 2,
+          "projects": [
+            {
+              "project_id": "Alpha",
+              "plan_digest": "c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401",
+              "part_count": 1
+            },
+            {
+              "project_id": "zulu",
+              "plan_digest": "276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6",
+              "part_count": 1
+            }
+          ]
+        },
+        "seed": {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "seed.py"
+          ],
+          "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/candidate",
+          "pid": 10,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.06362296300358139,
+          "stdout": "{\"schema_version\": 1, \"project_count\": 2, \"projects\": [{\"project_id\": \"Alpha\", \"plan_digest\": \"c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401\", \"part_count\": 1}, {\"project_id\": \"zulu\", \"plan_digest\": \"276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6\", \"part_count\": 1}]}\n",
+          "stderr": ""
+        },
+        "stdout_control": {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.projects",
+            "--database",
+            "fixtures/selected.sqlite3"
+          ],
+          "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/candidate",
+          "pid": 11,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.06244034500559792,
+          "stdout": "{\"project_count\":2,\"projects\":[{\"part_count\":1,\"plan_digest\":\"c07ac0bfa21d0885d53e84084c87ea854e89c35053f33a336800d2518dfeb401\",\"project_id\":\"Alpha\"},{\"part_count\":1,\"plan_digest\":\"276e6f4c6e712c8268fea2341497e31fb3e6012aa512b91f6c6888bb95969bc6\",\"project_id\":\"zulu\"}],\"schema_version\":1}\n",
+          "stderr": ""
+        },
+        "cases": [
+          {
+            "name": "ordinary",
+            "desired_pass": true,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/selected.sqlite3",
+                "--output",
+                "fixtures/catalog.json"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/candidate",
+              "pid": 12,
+              "exit": 0,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.0693925359955756,
+              "stdout": "",
+              "stderr": ""
+            }
+          },
+          {
+            "name": "reserved_selected_wal",
+            "desired_pass": true,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/selected.sqlite3",
+                "--output",
+                "fixtures/selected.sqlite3-wal"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/candidate",
+              "pid": 13,
+              "exit": 1,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.06131278599787038,
+              "stdout": "",
+              "stderr": "fanout projects: cannot write catalog: output is a database or SQLite sidecar path\n"
+            },
+            "output_present": false
+          },
+          {
+            "name": "invalid_plan_precedence",
+            "desired_pass": true,
+            "process": {
+              "argv": [
+                "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+                "-S",
+                "-B",
+                "-m",
+                "fanout_engine.projects",
+                "--database",
+                "fixtures/invalid.sqlite3",
+                "--output",
+                "fixtures/invalid.sqlite3-wal"
+              ],
+              "cwd": "/dev/estate-sources-fanout66-c4c3dc26dd94/candidate",
+              "pid": 14,
+              "exit": 2,
+              "reaped": true,
+              "timed_out": false,
+              "seconds": 0.06501096500142012,
+              "stdout": "",
+              "stderr": "fanout projects: invalid_record: stored plan is malformed\n"
+            }
+          }
+        ],
+        "desired_passes": 3,
+        "source_before": {
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 53,
+            "mode": 33188,
+            "mtime_ns": 1791911363485845933
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 54,
+            "mode": 33188,
+            "mtime_ns": 1791911363485886755
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 55,
+            "mode": 33188,
+            "mtime_ns": 1791911363486212514
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 56,
+            "mode": 33188,
+            "mtime_ns": 1791911363486269840
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 57,
+            "mode": 33188,
+            "mtime_ns": 1791911363486302379
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 58,
+            "mode": 33188,
+            "mtime_ns": 1791911363486324843
+          },
+          "fanout_engine/projects.py": {
+            "bytes": 2481,
+            "sha256": "a51222f5dd3cb333a0d7fdf52d446b8291fd2cd8de2023dd56fdb4c65d4f833a",
+            "git": "fce2586c6ebbd96c5a2333b2f618aa4ef9be5b02",
+            "inode": 59,
+            "mode": 33188,
+            "mtime_ns": 1791911363486352184
+          },
+          "fanout_engine/inspect.py": {
+            "bytes": 4178,
+            "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+            "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+            "inode": 60,
+            "mode": 33188,
+            "mtime_ns": 1791911363486373656
+          },
+          "fanout_engine/preview.py": {
+            "bytes": 9462,
+            "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+            "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+            "inode": 61,
+            "mode": 33188,
+            "mtime_ns": 1791911363486397222
+          }
+        },
+        "source_after": {
+          "fanout_engine/__init__.py": {
+            "bytes": 613,
+            "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+            "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+            "inode": 53,
+            "mode": 33188,
+            "mtime_ns": 1791911363485845933
+          },
+          "fanout_engine/dispatch.py": {
+            "bytes": 4599,
+            "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+            "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+            "inode": 54,
+            "mode": 33188,
+            "mtime_ns": 1791911363485886755
+          },
+          "fanout_engine/inspection.py": {
+            "bytes": 6055,
+            "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+            "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+            "inode": 55,
+            "mode": 33188,
+            "mtime_ns": 1791911363486212514
+          },
+          "fanout_engine/ledger.py": {
+            "bytes": 19340,
+            "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+            "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+            "inode": 56,
+            "mode": 33188,
+            "mtime_ns": 1791911363486269840
+          },
+          "fanout_engine/plan.py": {
+            "bytes": 7513,
+            "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+            "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+            "inode": 57,
+            "mode": 33188,
+            "mtime_ns": 1791911363486302379
+          },
+          "fanout_engine/routing.py": {
+            "bytes": 2818,
+            "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+            "git": "436a9f014caf69960fce67de28c062a431805b99",
+            "inode": 58,
+            "mode": 33188,
+            "mtime_ns": 1791911363486324843
+          },
+          "fanout_engine/projects.py": {
+            "bytes": 2481,
+            "sha256": "a51222f5dd3cb333a0d7fdf52d446b8291fd2cd8de2023dd56fdb4c65d4f833a",
+            "git": "fce2586c6ebbd96c5a2333b2f618aa4ef9be5b02",
+            "inode": 59,
+            "mode": 33188,
+            "mtime_ns": 1791911363486352184
+          },
+          "fanout_engine/inspect.py": {
+            "bytes": 4178,
+            "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+            "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+            "inode": 60,
+            "mode": 33188,
+            "mtime_ns": 1791911363486373656
+          },
+          "fanout_engine/preview.py": {
+            "bytes": 9462,
+            "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+            "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+            "inode": 61,
+            "mode": 33188,
+            "mtime_ns": 1791911363486397222
+          }
+        },
+        "fixtures_before": {
+          "selected.sqlite3": {
+            "bytes": 32768,
+            "sha256": "b8ca2eae46653da750945d836ce9537d78574a5fc2f66643601af02b34e09e2e",
+            "git": "f58f90bd34f29ac554cd7db61f3905f024ef39e7",
+            "inode": 64,
+            "mode": 33188,
+            "mtime_ns": 1791911363542310845
+          },
+          "invalid.sqlite3": {
+            "bytes": 32768,
+            "sha256": "21f3119e313b28aed3394c0bd918155424388cb82b228ac566287ae246c8efed",
+            "git": "6ba7bb4861110898efea3ace3884cd36a3491100",
+            "inode": 71,
+            "mode": 33188,
+            "mtime_ns": 1791911363542678248
+          }
+        },
+        "fixtures_after": {
+          "selected.sqlite3": {
+            "bytes": 32768,
+            "sha256": "b8ca2eae46653da750945d836ce9537d78574a5fc2f66643601af02b34e09e2e",
+            "git": "f58f90bd34f29ac554cd7db61f3905f024ef39e7",
+            "inode": 64,
+            "mode": 33188,
+            "mtime_ns": 1791911363542310845
+          },
+          "invalid.sqlite3": {
+            "bytes": 32768,
+            "sha256": "21f3119e313b28aed3394c0bd918155424388cb82b228ac566287ae246c8efed",
+            "git": "6ba7bb4861110898efea3ace3884cd36a3491100",
+            "inode": 71,
+            "mode": 33188,
+            "mtime_ns": 1791911363542678248
+          }
+        },
+        "source_and_database_identities_unchanged": true
+      }
+    ],
+    "qualified": true
+  }
+}

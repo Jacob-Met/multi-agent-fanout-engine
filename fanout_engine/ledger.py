@@ -46,6 +46,28 @@ class Ledger:
             raise
 
     @classmethod
+    def open_existing(cls, database: str | Path) -> "Ledger":
+        """Open an existing regular SQLite file for updates without schema setup.
+
+        The argument is a literal filesystem path. SQLite mode=rw also refuses
+        a missing file at connection time; no table or index is created here.
+        """
+        path = Path(database).absolute()
+        if not path.is_file():
+            raise LedgerError("database must be an existing regular file")
+        ledger = cls.__new__(cls)
+        ledger._db = sqlite3.connect(
+            path.as_uri() + "?mode=rw", uri=True, timeout=10, isolation_level=None,
+        )
+        try:
+            ledger._db.row_factory = sqlite3.Row
+            ledger._db.execute("PRAGMA foreign_keys=ON")
+        except BaseException:
+            ledger._db.close()
+            raise
+        return ledger
+
+    @classmethod
     def open_readonly(cls, database: str | Path) -> "Ledger":
         """Open an existing regular SQLite file without initializing its schema.
 
@@ -218,6 +240,19 @@ class Ledger:
         """Only queued items may be submitted; unknown and in-flight items are excluded."""
         rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='queued'", (project_id,))
         return {row[0] for row in rows}
+
+    def withdraw_queued(self, project_id: str, part_id: str, evidence: dict[str, str]) -> None:
+        """Record a terminal caller withdrawal before dispatch admission."""
+        self._validate_evidence(evidence)
+        with self._transaction() as db:
+            row = self._part(db, project_id, part_id)
+            if row["state"] != "queued":
+                raise LedgerError("only queued work may be withdrawn")
+            if any(row[name] is not None for name in ("worker_id", "task_id", "route_json", "artifact_ref")):
+                raise LedgerError("queued withdrawal requires absent submission and artifact references")
+            db.execute("UPDATE parts SET state='failed',evidence_json=?,updated_at=? WHERE project_id=? AND part_id=?",
+                       (canonical_json(evidence), time.time(), project_id, part_id))
+            self._event(db, project_id, part_id, "queued_withdrawn", evidence)
 
     def mark_dispatching(self, project_id: str, part_id: str, worker_id: str, route: dict[str, str]) -> None:
         if not isinstance(worker_id, str) or not str.strip(worker_id):

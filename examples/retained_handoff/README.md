@@ -117,3 +117,120 @@ establishes uncertainty; the verified local journal establishes completion in
 this fixture. A production adapter must supply its own evidence of what its
 worker or provider actually did. This example's local journal is not evidence
 about any external task.
+
+## Preview routes from each retained phase
+
+The same public command now saves four actual
+[`fanout_engine.queued_routes`](../../docs/queued-routes.md) reports alongside
+the existing state and history captures. No extra setup or command is needed.
+Each report uses the retained database and the checked fixture routing file:
+
+| Capture | Selected routes | Retained context |
+| --- | --- | --- |
+| `initial-queued-routes.stdout.json` | `summary`, using the pool's `fixture-local / low` route | Audit is unknown; handoff is blocked. |
+| `unknown-queued-routes.stdout.json` | None | Summary has completed; handoff still waits for audit. |
+| `held-queued-routes.stdout.json` | None | The idle pass has not released or replayed audit. |
+| `final-queued-routes.stdout.json` | None | All five parts have completed. |
+
+The earlier `preview.stdout.json` still describes the authored plan before
+execution. These four reports describe current retained readiness at their
+capture points. They are advisory snapshots, not dispatch reservations or
+worker/provider capacity checks.
+
+Each phase receipt adds `queued_route_command` with the actual invocation,
+return code and raw stdout/stderr hashes, `queued_route_report` with its
+relative stdout filename, and `queued_route_ready_ids` in native order.
+The final `receipt.json` adds `queued_route_reports`, an ordered list of the
+four relative filenames above. Raw stderr logs are kept alongside the reports.
+
+The example verifies each report against the same phase's inspection: project,
+plan digest, state counts, ready and blocked IDs, and each part's unmet
+dependencies. It checks the raw routing-file SHA-256 and the selected model,
+effort, route source and exact stored native idempotency key. Existing checkout
+source checks surround each CLI call, and the existing database-byte comparison
+includes both inspection and queued-route receiving. These checks describe this
+owned, ordinary SQLite fixture; they are not a general claim that every
+read-only SQLite connection leaves WAL shared-memory bookkeeping untouched.
+
+The workflow still makes exactly five unique local adapter submissions, retains
+sixteen final events, and never replays audit. Dispatch, reconciliation evidence,
+the source observation algorithm and the existing output-directory refusal are
+unchanged. The separately owned SQLite connection-lifetime follow-up is not
+included in this integration.
+
+A focused maintained check runs the public all-phase command and verifies the
+four captures and occupied-output refusal:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_queued_routes_3795.py' -v
+```
+
+Use Python 3.10+ and a writable temporary directory. The command runs only the
+authored local adapter and does not contact a provider or install a service.
+
+## Explain each retained blocker
+
+The same run now saves four actual
+[`fanout_engine.blockers`](../../docs/inspect-blockers.md) reports beside the
+route captures. Open these files to see why the queued handoff remains held:
+
+| Capture | Blocker frontier | What the retained state permits |
+| --- | --- | --- |
+| `initial-blockers.stdout.json` | `audit` is `outcome_unknown`; `summary` is ready and queued | Independent summary work may proceed; the audit still needs reconciliation evidence. |
+| `unknown-blockers.stdout.json` | Only the unknown `audit` | Summary is complete, but the handoff must still wait. |
+| `held-blockers.stdout.json` | The same unknown `audit` | The idle pass has neither replayed audit nor released handoff. |
+| `final-blockers.stdout.json` | Empty | Reconciliation and the existing handoff have completed all five parts. |
+
+The initial handoff's direct unmet dependency order is `audit, summary`.
+After summary completes it is only `audit`. Frontier rows retain the exact
+recorded state and worker/task references; the unknown audit has no invented
+accepted task ID. These are captured observations, not instructions to retry,
+reconcile or dispatch.
+
+Each phase receipt adds `blocker_command`, containing the actual command,
+return code and raw stream hashes; `blocker_report`, its relative stdout
+filename; and `blocker_frontier_ids`, the ordered frontier IDs. The final
+`receipt.json` lists the four filenames in `blocker_reports`. Matching raw
+stderr logs are retained beside each report.
+
+The runner compares the entire report with the authored phase's expected
+frontier and the existing validated state. Existing checkout-source and
+database-byte fences cover the new native CLI reads. The queued-route captures,
+local artifacts, five unique submissions, zero audit replays and sixteen final
+events retain their existing behavior. No extra setup or user command is needed.
+
+The focused regression receives the actual public workflow and then verifies
+that an occupied output directory is refused without changing its contents:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_blockers.py' -v
+```
+
+This remains an authored local adapter example. It does not identify a deployed
+estate ledger, contact a provider or qualify the separately owned SQLite
+connection-closure follow-up.
+
+## Open an offline review of the completed run
+
+From this checkout's repository root, render the retained database to a new HTML
+file outside the run directory:
+
+```bash
+python3 -B -m fanout_engine.review --database ../fanout-handoff-run/retained.sqlite3 --project fixture-handoff-51df5b72e832 --output ../fanout-handoff-review.html
+```
+
+Open `../fanout-handoff-review.html` in a browser. The self-contained page shows
+recorded states, dependency readiness and complete part details. Its ordinary
+download link saves the exact native inspection JSON, including the final
+newline. The command reads the existing ledger and refuses an occupied output
+path; it does not dispatch, retry or reconcile work.
+
+The public all-phase run retains its completed database. Rendering that database
+shows the current completed observation; it does not reconstruct an earlier
+phase from the saved inspection reports. Those JSON reports remain the earlier
+observations. If reviewing databases from separate executions, label them
+separately rather than presenting them as successive snapshots of one run.
+
+See the [offline retained-project review guide](../../docs/project-review.md)
+for the report's read-only scope and output behavior. The page is a fixed
+observation: later database changes require a new report at a new output path.

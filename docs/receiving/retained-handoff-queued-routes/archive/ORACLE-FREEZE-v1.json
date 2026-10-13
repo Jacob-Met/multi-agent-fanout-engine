@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-13T12:30:49.943003+00:00",
+  "stage": "before original public-command execution and candidate intake",
+  "files": [
+    {
+      "path": "receive-retained-routes-v1.py",
+      "bytes": 15235,
+      "sha256": "6b102e935cfd2a48377c9067f1b4af48191ea70f42afaf60fd88df340ab09614"
+    },
+    {
+      "path": "retained-route-expectations-v1.json",
+      "bytes": 4342,
+      "sha256": "28cb5e8dd4993fdc5333892161c61e7ed5f9eba8cc4a7253d1e67c27209cbd27"
+    },
+    {
+      "path": "PUBLIC-CONTRACT.json",
+      "bytes": 6783,
+      "sha256": "6a5f6ac1424386386ad29d1ff267d7c09ef1bb5932885981a23097db1f139f18"
+    },
+    {
+      "path": "PUBLIC-SHAPE-CLARIFICATION.json",
+      "bytes": 4657,
+      "sha256": "cad07ca1e3ee80fa14b67d5f8d469a5732c4c93b46be2766d1faa37638851ba4"
+    }
+  ],
+  "syntax_compile_only": true,
+  "prior_fc2b_preparation_unexecuted": true
+}

@@ -63,6 +63,15 @@ selected ledger itself. Output failures can retain a complete file if publicatio
 succeeded but cleanup failed; ordinary stream failure can leave a received prefix.
 See the [existing-ledger guide](inspect-ledger.md) for the shared output boundary.
 
+The same shared SQLite output guard also reserves absent `-wal`, `-shm`, and
+`-journal` names for the selected database and its resolved target. Conservative
+case/Unicode aliases and sidecars of an existing hard-link alias are refused with
+output status 1, before report staging. A filename ending in one of these suffixes
+remains valid when it is unrelated to the selected database. Complete source and
+plan validation takes precedence: malformed input still returns status 2 without
+publishing a report. This assumes stable filesystem paths; it does not promise
+protection against concurrent hostile path replacement.
+
 | Exit status | Meaning |
 | --- | --- |
 | 0 | The complete catalog was written and flushed. |
@@ -103,6 +112,7 @@ limits remain documented in the [existing-ledger guide](inspect-ledger.md).
 ~~~sh
 python -B -m unittest discover -s tests -p test_projects.py -v
 python -B -O -m unittest discover -s tests -p test_projects.py -v
+python -B -m unittest discover -s tests -p test_projects_sqlite_paths.py -v
 python -B -m unittest discover -s tests -v
 ~~~
 
@@ -111,3 +121,5 @@ complete refusal of malformed plans, detached values, one-query observation,
 caller transaction preservation, runtime-row scope, actual CLI handoff to the
 existing inspector, exclusive output, input refusal, strict options and committed
 WAL visibility. All fixtures are authored local data.
+The SQLite-path receiver additionally checks reserved sidecars and aliases,
+validation precedence, unchanged database bytes, and valid unrelated output.
