@@ -1,0 +1,39 @@
+{
+  "schema": "hamon.queued-routes.withdrawal-expectations.v1",
+  "phase": "post-intake integration, frozen before current-composition execution",
+  "canonicalCommit": "5e23792109a8bfbd60427e35098adf4523014f63",
+  "ledgerGit": "938a5e68a7b33b01a4219356c6894614b95fb0b5",
+  "contractUrl": "https://github.com/Jacob-Met/multi-agent-fanout-engine/blob/5e23792109a8bfbd60427e35098adf4523014f63/docs/queued-withdrawal.md",
+  "contractGit": "7824ddce5c856e111ae0b0b131fbec8e251dfeb4",
+  "project": "withdrawal-preview-local",
+  "partOrder": [
+    "root",
+    "child",
+    "free",
+    "unknown",
+    "inflight"
+  ],
+  "routing": {
+    "catalog": {
+      "m": [
+        "low"
+      ]
+    },
+    "pool": [
+      {
+        "model": "m",
+        "effort": "low"
+      }
+    ]
+  },
+  "evidence": {
+    "source": "independent receiving fixture",
+    "locator": "fixture://local-withdrawal",
+    "finding": "Fictional root is no longer requested."
+  },
+  "sourcePins": {
+    "fanout_engine/queued_routes.py": "7515cdd5e49903a8a279eed8f093e265d54e707b0712e17230554135f085f17d",
+    "fanout_engine/ledger.py": "7a1611b2904515432be42aa84005e4d6ec31268b6b365c722df17748e26aa2f0"
+  },
+  "boundary": "Two direct actual Python CLI subprocesses and one actual Ledger.withdraw_queued call against an owned synthetic SQLite. Post-intake composition of accepted CLI and canonical additive ledger; no original-blind or 42-course rerun claim. No adapter/Hub/provider/native service, no OS-wide audit; source/input byte and metadata fences plus SQL snapshots and POSIX child custody."
+}
