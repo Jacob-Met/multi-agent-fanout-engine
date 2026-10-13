@@ -1,0 +1,539 @@
+{
+  "cases": [
+    {
+      "finding_bytes": 1,
+      "fixture": {
+        "database_bytes": 159744,
+        "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+        "fixture_create_s": 0.05946325299737509
+      },
+      "medians": {
+        "after": {
+          "complete_workflow_s": 0.009749730001203716,
+          "dispatch_workflow_s": 0.003521945996908471,
+          "first_dispatch_s": 0.0008760080017964356,
+          "inspection_and_serialization_s": 0.006267222997848876,
+          "state_peak_python_bytes": 19966
+        },
+        "before": {
+          "complete_workflow_s": 0.01057262800168246,
+          "dispatch_workflow_s": 0.004346526002336759,
+          "first_dispatch_s": 0.0010799539959407412,
+          "inspection_and_serialization_s": 0.006176997994771227,
+          "state_peak_python_bytes": 21265
+        }
+      },
+      "samples": {
+        "after": [
+          {
+            "complete_workflow_s": 0.009998544002883136,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.000881405001564417,
+              0.0009093370026675984,
+              0.0009285269989049993
+            ],
+            "dispatch_workflow_s": 0.003663627998321317,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.006279251996602397,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.000825811002869159,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          },
+          {
+            "complete_workflow_s": 0.009749730001203716,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0008760080017964356,
+              0.0007054509987938218,
+              0.0006462119999923743
+            ],
+            "dispatch_workflow_s": 0.003426642004342284,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.006267222997848876,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.0011684269993565977,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          },
+          {
+            "complete_workflow_s": 0.009444411000004038,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0007738029962638393,
+              0.0008037480001803488,
+              0.0006817550020059571
+            ],
+            "dispatch_workflow_s": 0.003521945996908471,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.005882184996153228,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.001232702998095192,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          }
+        ],
+        "before": [
+          {
+            "complete_workflow_s": 0.013682975004485343,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0015787939992151223,
+              0.0014122529973974451,
+              0.0013705509991268627
+            ],
+            "dispatch_workflow_s": 0.005558408003707882,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.008049745003518183,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.0011612060043262318,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 21265,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 48512
+            }
+          },
+          {
+            "complete_workflow_s": 0.010082740998768713,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0010799539959407412,
+              0.0010490869972272776,
+              0.001014374996884726
+            ],
+            "dispatch_workflow_s": 0.004098883000551723,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.005942495001363568,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.0009246400004485622,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 21265,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 48512
+            }
+          },
+          {
+            "complete_workflow_s": 0.01057262800168246,
+            "database_sha256": "d5beb00a05553c50ea8b1fa29c22286a270c2ccd9f151bc714ffd4bf8df0d27d",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0010780110023915768,
+              0.0013745969990850426,
+              0.0009071139938896522
+            ],
+            "dispatch_workflow_s": 0.004346526002336759,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.006176997994771227,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.0009533639968140051,
+            "report_bytes": 57470,
+            "report_sha256": "0757a84edce05c8c4303a5d00bec4a7e319fd173402e0b32052b072203d69f1f",
+            "state_peak_python_bytes": 21265,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 48512
+            }
+          }
+        ]
+      }
+    },
+    {
+      "finding_bytes": 262144,
+      "fixture": {
+        "database_bytes": 67342336,
+        "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+        "fixture_create_s": 0.24232720899453852
+      },
+      "medians": {
+        "after": {
+          "complete_workflow_s": 0.3601479929930065,
+          "dispatch_workflow_s": 0.003561935001926031,
+          "first_dispatch_s": 0.0008820860020932741,
+          "inspection_and_serialization_s": 0.3560182619985426,
+          "state_peak_python_bytes": 19966
+        },
+        "before": {
+          "complete_workflow_s": 0.45734968699980527,
+          "dispatch_workflow_s": 0.07068109099782305,
+          "first_dispatch_s": 0.023404622996167745,
+          "inspection_and_serialization_s": 0.3638131070038071,
+          "state_peak_python_bytes": 283408
+        }
+      },
+      "samples": {
+        "after": [
+          {
+            "complete_workflow_s": 0.3339643739964231,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0008820860020932741,
+              0.0007174690035753883,
+              0.0007509689967264421
+            ],
+            "dispatch_workflow_s": 0.003561935001926031,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.3302303789969301,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.0011745360025088303,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          },
+          {
+            "complete_workflow_s": 0.36146859799919184,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.0013925940002081916,
+              0.001208146997669246,
+              0.0011783520021708682
+            ],
+            "dispatch_workflow_s": 0.00528116100031184,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.3560182619985426,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.0014507209998555481,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          },
+          {
+            "complete_workflow_s": 0.3601479929930065,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.00083326299500186,
+              0.0007281549987965263,
+              0.000656836993584875
+            ],
+            "dispatch_workflow_s": 0.003303003999462817,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.3565927990057389,
+            "ledger_sha256": "762d038419afb9f9a41a388ded84f361c0ccbea49bf9bd46ba266478660037bf",
+            "open_plan_s": 0.001047122997988481,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 19966,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 1536
+            }
+          }
+        ],
+        "before": [
+          {
+            "complete_workflow_s": 0.4223070679945522,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.023404622996167745,
+              0.022162294000736438,
+              0.023768610000843182
+            ],
+            "dispatch_workflow_s": 0.07068109099782305,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.35142548600560986,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.0012587429955601692,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 283408,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 33602816
+            }
+          },
+          {
+            "complete_workflow_s": 0.45734968699980527,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.026784951995068695,
+              0.02961287300422555,
+              0.035860634001437575
+            ],
+            "dispatch_workflow_s": 0.09336013499705587,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.3638131070038071,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.001018951996229589,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 283408,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 33602816
+            }
+          },
+          {
+            "complete_workflow_s": 0.4682970829962869,
+            "database_sha256": "6d526e9ff92beca1e4ce1e299c94b3cf01ef4b8b55ab56db613315bde6872c32",
+            "database_unchanged": true,
+            "dispatch_reports": [
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              },
+              {
+                "not_ready": [],
+                "outcome_unknown": [],
+                "started": []
+              }
+            ],
+            "dispatch_s": [
+              0.02245511399814859,
+              0.023141044002841227,
+              0.02395095199608477
+            ],
+            "dispatch_workflow_s": 0.07063900100183673,
+            "hub_calls": 0,
+            "inspection_and_serialization_s": 0.39746476100117434,
+            "ledger_sha256": "751519eed30ca27bc826489a3eb3e030d518bd1b52340ad1e0a1c9ac05848a99",
+            "open_plan_s": 0.0010073439989355393,
+            "report_bytes": 33611768,
+            "report_sha256": "aefa45836cee15d453dc1e74aab4722699ff18bb7b85db0e167e59f6ffcc1ab7",
+            "state_peak_python_bytes": 283408,
+            "state_row_transfer": {
+              "rows": 128,
+              "text_utf8_bytes": 33602816
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "method": "same native disk fixture; fresh processes; alternating before/after order; no provider",
+  "parts": 128,
+  "passes": 3,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "repeats": 3,
+  "sqlite": "3.53.1"
+}
