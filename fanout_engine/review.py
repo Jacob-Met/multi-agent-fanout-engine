@@ -70,7 +70,7 @@ def review_project(ledger: Ledger, project_id: str) -> bytes:
     document = (canonical_json(report) + "\n").encode("utf-8")
     download = base64.b64encode(document).decode("ascii")
     counts = "".join(
-        f'<div class="count"><strong>{count}</strong><span>{_text(state)}</span></div>'
+        f'<div class="count"><strong>{count}</strong><span>{_text(state).replace("_", "_<wbr>")}</span></div>'
         for state, count in report["state_counts"].items()
     )
     rows = []
