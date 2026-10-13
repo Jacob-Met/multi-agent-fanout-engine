@@ -7,7 +7,7 @@ import sqlite3
 import sys
 from typing import Any
 
-from .inspect import _write_stdout
+from .inspect import _check_output_path, _write_stdout
 from .inspection import InspectionError, inspect_project
 from .ledger import Ledger, LedgerError
 from .plan import canonical_json
@@ -103,9 +103,11 @@ def main(argv: list[str] | None = None) -> int:
         if args.output is None:
             _write_stdout(content)
         else:
+            _check_output_path(args.database, args.output)
             _publish_new_file(args.output, content)
-    except (OSError, PreviewError) as exc:
-        print(f"fanout blockers: cannot write report: {exc}", file=sys.stderr)
+    except (OSError, PreviewError, ValueError) as exc:
+        destination_note = "" if args.output is None else f" (output: {args.output})"
+        print(f"fanout blockers: cannot write report: {exc}{destination_note}", file=sys.stderr)
         return 1
     return 0
 

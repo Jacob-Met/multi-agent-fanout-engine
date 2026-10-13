@@ -77,9 +77,9 @@ rows in one SQL statement. Malformed unrelated rows are still rejected before
 any report is returned. Its existing identity and error contract is unchanged.
 
 The CLI reuses `Ledger.open_readonly` for an existing SQLite file, the native
-UTF-8 JSON encoder, and the existing create-only report writer. It does not
-initialize missing databases. Normal SQLite locking and WAL visibility still
-apply; a read-only connection is not an immutable database-file snapshot.
+UTF-8 JSON encoder, the shared SQLite destination check, and the existing
+create-only report writer. It does not initialize missing databases. Normal
+SQLite locking and WAL visibility still apply; a read-only connection is not an immutable database-file snapshot.
 
 | Exit code | Meaning |
 | --- | --- |
@@ -93,10 +93,23 @@ existing output files, and validates and encodes the complete report before
 publishing a new file. See [the existing-ledger guide](inspect-ledger.md) for
 the shared read-only and export boundaries.
 
+The selected database and its `-wal`, `-shm`, and `-journal` names remain
+reserved even when the sidecars do not yet exist. The shared check covers the
+selected and resolved database names, existing hard-link aliases, and conservative
+case and Unicode-normalization variants. It runs after complete record validation
+and encoding, before creating any report. Unrelated sidecar-looking names remain
+available. Existing output files still cannot be replaced.
+
+This composition reuses the inspection guard, its original path regressions, and
+its guide from [PR #58](https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/58)
+at `943ae6fb9d1bd661392cf6e7fe6640430e3ca5cb`, unchanged in its later
+`4edff3afe22ee1d35b0fc12e66840295353fd0b7` head. The blocker command calls that
+shared guard; its path tests reuse the owner's unchanged black-box cases.
+
 ## Tests
 
 ```sh
-python -m unittest discover -s tests -p test_blockers.py -v
+python -m unittest discover -s tests -p 'test_blockers*.py' -v
 ```
 
 The tests exercise real local SQLite ledgers, mixed states, shared dependencies,
