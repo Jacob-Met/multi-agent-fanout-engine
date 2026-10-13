@@ -240,3 +240,10 @@ recovery or reconciliation.
 ## Preview routes for currently queued work
 
 Use `python -B -m fanout_engine.queued_routes --database work/dispatch.sqlite3 --project sample --routes routes.json` to combine one validated retained snapshot with caller-supplied routing. Only queued parts whose direct prerequisites are completed receive selected routes; native states and blocked reasons remain visible. The [queued-route guide](docs/queued-routes.md) explains whole-configuration validation, exact stored identities, read-only/WAL limits and the advisory boundary. This command performs no dispatch, worker selection, reservation or step-up.
+
+## Operator withdrawal of queued work
+
+For a recorded part that has not been submitted, use the explicit existing-ledger
+[withdrawal command](docs/withdraw-queued-cli.md). It requires a database, project,
+part and three evidence arguments, preserves the native queued-only transition,
+and distinguishes a refusal from a confirmation-output failure after commit.

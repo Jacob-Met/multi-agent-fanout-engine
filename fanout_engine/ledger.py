@@ -46,6 +46,28 @@ class Ledger:
             raise
 
     @classmethod
+    def open_existing(cls, database: str | Path) -> "Ledger":
+        """Open an existing regular SQLite file for updates without schema setup.
+
+        The argument is a literal filesystem path. SQLite mode=rw also refuses
+        a missing file at connection time; no table or index is created here.
+        """
+        path = Path(database).absolute()
+        if not path.is_file():
+            raise LedgerError("database must be an existing regular file")
+        ledger = cls.__new__(cls)
+        ledger._db = sqlite3.connect(
+            path.as_uri() + "?mode=rw", uri=True, timeout=10, isolation_level=None,
+        )
+        try:
+            ledger._db.row_factory = sqlite3.Row
+            ledger._db.execute("PRAGMA foreign_keys=ON")
+        except BaseException:
+            ledger._db.close()
+            raise
+        return ledger
+
+    @classmethod
     def open_readonly(cls, database: str | Path) -> "Ledger":
         """Open an existing regular SQLite file without initializing its schema.
 
