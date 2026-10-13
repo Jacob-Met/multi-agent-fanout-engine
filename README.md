@@ -266,3 +266,14 @@ For a recorded part that has not been submitted, use the explicit existing-ledge
 [withdrawal command](docs/withdraw-queued-cli.md). It requires a database, project,
 part and three evidence arguments, preserves the native queued-only transition,
 and distinguishes a refusal from a confirmation-output failure after commit.
+
+
+## Export a recorded plan
+
+Write one retained project's validated native Plan JSON to a new file:
+
+```bash
+python -m fanout_engine.export_plan --database retained.sqlite3 --project example --output recorded-plan.json
+```
+
+See [recorded plan export](docs/export-recorded-plan.md) for exact identity, read-only scope, downstream comparison/preview and output refusal behavior.
