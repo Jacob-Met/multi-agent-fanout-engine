@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "purpose": "Current-main integration of independently reviewed PR42 constructor cleanup",
+  "base": "cb30577caedeb2d722abf74047b42407d0c7f995",
+  "owner": "dd03fd1f9a2e9d80032b5ae226412552b66162c2",
+  "ledger": {
+    "bytes": 16975,
+    "blob": "c7cbd46e260b964b1a8a62eb425ae4e2861ddd4f",
+    "sha256": "a346c8408db6b6a92a88b894ece6c605fa0e1099f3cf4a2ae4578a937c02d463"
+  },
+  "owner_test_blob": "e8455bff8e26d533c39beacd13d05802c46716bd",
+  "scope": {
+    "other_ledger_ast_unchanged": true,
+    "initializer_ast_equals_owner": true
+  },
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+  "command": [
+    "/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "start_utc": "2026-10-13T02:16:36.064715+00:00",
+  "end_utc": "2026-10-13T02:16:48.367450+00:00",
+  "elapsed_seconds": 12.313406503060833,
+  "exit_code": 0,
+  "source_file_count": 70,
+  "source_unchanged": true,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "834236aec2c0a7d4d692023c66915029b89c4c6c09618b96d9c47c5a0a036356",
+  "stderr_tail": [
+    "",
+    "----------------------------------------------------------------------",
+    "Ran 202 tests in 12.178s",
+    "",
+    "OK"
+  ],
+  "diff_check_exit": 0,
+  "maintained_tests": 202,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "prior_independent_review_urls": [
+    "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/42#issuecomment-6134612914",
+    "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/42#issuecomment-6134705544",
+    "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/42#issuecomment-6135720593"
+  ],
+  "limits": [
+    "The earlier real-SQLite and interruption campaigns belong to their original reviewers and pinned sources. This receipt reports the new integration suite only.",
+    "Schema initialization remains nontransactional; statements committed before a later setup failure are not rolled back by closing the connection.",
+    "No hosted Actions, external provider, installed service, or new cross-platform execution is claimed."
+  ],
+  "prior_base_suite": {
+    "base": "27502202fe2429eef11740d23a8e760c4a7d9fc5",
+    "owner": "dd03fd1f9a2e9d80032b5ae226412552b66162c2",
+    "ledger": {
+      "bytes": 16975,
+      "blob": "c7cbd46e260b964b1a8a62eb425ae4e2861ddd4f",
+      "sha256": "a346c8408db6b6a92a88b894ece6c605fa0e1099f3cf4a2ae4578a937c02d463"
+    },
+    "owner_test_blob": "e8455bff8e26d533c39beacd13d05802c46716bd",
+    "scope": {
+      "other_ledger_ast_unchanged": true,
+      "initializer_ast_equals_owner": true
+    },
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "start_utc": "2026-10-13T01:57:12.022410+00:00",
+    "end_utc": "2026-10-13T01:57:21.899133+00:00",
+    "elapsed_seconds": 9.89919091295451,
+    "exit_code": 0,
+    "source_file_count": 69,
+    "source_unchanged": true,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "68523cd07ae12745af2b19bce4d108177434b34e68a73b750279208ee80d7bd8",
+    "stderr_tail": [
+      "",
+      "----------------------------------------------------------------------",
+      "Ran 195 tests in 9.749s",
+      "",
+      "OK"
+    ],
+    "diff_check_exit": 0,
+    "maintained_tests": 195
+  }
+}
