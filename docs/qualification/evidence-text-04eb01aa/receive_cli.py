@@ -60,7 +60,7 @@ def require(condition, message):
     if not condition:
         raise RuntimeError(message)
 
-def snapshot(source):
+def snapshot(source, captured=None):
     result = {}
     for entry in PINS:
         path = source / entry["path"]
@@ -69,6 +69,8 @@ def snapshot(source):
         blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()
         require(blob == entry["blob"], "source blob mismatch: " + entry["path"])
         result[entry["path"]] = {"git_blob": blob, "sha256": hashlib.sha256(data).hexdigest()}
+        if captured is not None:
+            captured[entry["path"]] = data
     return result
 
 def run(source, output):
@@ -77,11 +79,19 @@ def run(source, output):
     require(source.is_dir(), "source must be a directory")
     require(source != output.resolve() and source not in output.resolve().parents,
             "receiving output must be outside source")
-    before = snapshot(source)
+    captured = {}
+    before = snapshot(source, captured)
     output.mkdir(mode=0o700)  # Exclusive; never reuse an existing receiving directory.
     require(not any(k == "fanout_engine" or k.startswith("fanout_engine.") for k in sys.modules),
             "start a fresh Python process without an already loaded fanout package")
-    sys.path.insert(0, str(source))
+    runtime = output / "runtime"
+    for name, data in captured.items():
+        target = runtime / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with target.open("xb") as stream:
+            stream.write(data)
+    require(snapshot(runtime) == before, "staged runtime mismatch")
+    sys.path.insert(0, str(runtime))
     sys.dont_write_bytecode = True
     from fanout_engine.ledger import Ledger, LedgerError
     from fanout_engine.plan import Part, Plan
@@ -142,7 +152,7 @@ def run(source, output):
         arguments = ["--database", str(database)]
         if name != "projects":
             arguments += ["--project", project]
-        command = [sys.executable, "-I", "-B", "-c", launcher, str(source),
+        command = [sys.executable, "-I", "-B", "-c", launcher, str(runtime),
                    "fanout_engine." + name] + arguments
         result = subprocess.run(command, capture_output=True, timeout=20)
         (output / (name + ".stdout")).write_bytes(result.stdout)
@@ -169,16 +179,18 @@ def run(source, output):
     require(history["events"][-1]["event"] == "failed" and
             history["events"][-1]["detail"] == accepted, "history evidence mismatch")
     require(snapshot(source) == before, "received source changed")
+    require(snapshot(runtime) == before, "staged runtime changed")
     require(sorted(p.name for p in output.iterdir()) ==
             ["history.stderr", "history.stdout", "inspect.stderr", "inspect.stdout",
-             "projects.stderr", "projects.stdout", "receiving.sqlite3"],
+             "projects.stderr", "projects.stdout", "receiving.sqlite3", "runtime"],
             "unexpected receiving file or SQLite sidecar")
     receipt = {"schema": "fanout.evidence-cli-receiving/1", "source_commit": SOURCE_COMMIT,
                "python": sys.version, "sqlite": sqlite3.sqlite_version,
                "source_files": before, "controls": controls, "commands": commands,
                "plan_digest": plan.digest, "finding": finding,
                "database_sha256": hashlib.sha256(db_bytes).hexdigest(),
-               "source_unchanged": True, "database_read_windows_unchanged": True,
+               "source_unchanged": True, "runtime_copy_unchanged": True,
+               "runtime_copy": "runtime", "database_read_windows_unchanged": True,
                "consumer_contract": "Literal evidence retained in state and history; dependent stays queued",
                "result": "PASS"}
     text = json.dumps(receipt, indent=2, sort_keys=True, ensure_ascii=True) + "\n"

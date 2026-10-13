@@ -13,8 +13,13 @@ python3 -I -B docs/qualification/evidence-text-04eb01aa/receive_cli.py \
 
 The output directory must be new and outside the source checkout. The receiver
 first verifies all eleven complete runtime files against the pinned Git blobs.
-A different source revision refuses before creating the output directory. An
+A mismatched pinned runtime file refuses before creating the output directory. An
 existing output directory refuses without replacing its files.
+
+The verified captured runtime bytes are copied into a new owned `runtime`
+subdirectory before import or CLI execution. This avoids inheriting a checkout's
+existing Python bytecode caches. The input source and received runtime copy are
+both verified again after the course.
 
 The course creates its own two-part SQLite ledger. It proves that literal blank
 and malformed UTF-8 evidence are refused before any SQL, retaining the preceding
@@ -27,16 +32,18 @@ time remain unchanged through each read-only command; all eleven source files
 are rechecked afterwards.
 
 A successful run retains its SQLite database, six raw CLI streams and
-`receipt.json`, then prints the receipt SHA-256. An error exits nonzero and
+`receipt.json` plus the complete eleven-file runtime copy, then prints the
+receipt SHA-256. An error exits nonzero and
 leaves any already created owned output available for diagnosis. Source files
 are only read. Stable filesystem paths are assumed; this receiver does not
 claim protection against concurrent hostile path replacement.
 
 The checked-in `cli-qualification.json` retains one actual Linux/Python 3.12.14
 course, the exact source manifest, CLI streams and separate existing-output /
-wrong-source controls. Its initial author-side event-shape expectation was
-corrected to match the existing failed-event contract; that earlier error and
-the correction are recorded rather than counted as a pass. The previously
+wrong-source controls. The historical receiving revision linked from that JSON
+preserves an initial author-side event-shape expectation error and its correction
+to the existing failed-event contract. That earlier error is not counted as a
+pass. The revised course executes the fresh captured runtime copy. The previously
 published full-suite qualification remains `receiving.json` and has its own
 scope. This course does not add a full-suite, optimized-mode, other-OS or installed
 adoption claim.

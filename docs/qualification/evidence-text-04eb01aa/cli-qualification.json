@@ -1,27 +1,14 @@
 {
-  "initial_harness_failure": {
-    "correction": "The initial receiver incorrectly expected failed-event detail to wrap evidence. The existing event stores evidence directly. Only that receiver expectation changed; source stayed exact. The initial fixture and streams remain retained.",
-    "result": {
-      "command": [
-        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
-        "-I",
-        "-B",
-        "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py",
-        "--source",
-        "/dev/hamon-fanout-04eb01aa6f9e/current-candidate",
-        "--out",
-        "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-1"
-      ],
-      "returncode": 1,
-      "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 170, in run\n    history[\"events\"][-1][\"detail\"][\"evidence\"] == accepted, \"history evidence mismatch\")\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\nKeyError: 'evidence'\n",
-      "stdout": ""
-    },
-    "source_sha256": "42bd6575dc6a23bac6178811c4f8e63d9e75b71092b0d47846a0f3176d805150"
+  "historical_receiver": {
+    "commit": "408de912df633218a5c3625be4bed3d93adb6af1",
+    "qualification_sha256": "dfcdd006653e6a0aabcda1e8d3ffe4c21b5ccb7634f1c614246115eb63a136b3",
+    "reason_for_new_receiver": "The original exact-source course remains historical. This receiver stages the already captured eleven pinned runtime files into a fresh owned tree before import/CLI execution, eliminating inherited bytecode caches. The original event-shape fixture correction and author summary correction remain retained in that historical record.",
+    "script_sha256": "6860e7f50124cbda13ad56baa337bd10434fc65c676198dabeba9fed79d3d0ae"
   },
   "occupied_refusal": {
     "all_prior_file_bytes_unchanged": true,
     "returncode": 1,
-    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 81, in run\n    output.mkdir(mode=0o700)  # Exclusive; never reuse an existing receiving directory.\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2'\n",
+    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 209, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 205, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 84, in run\n    output.mkdir(mode=0o700)  # Exclusive; never reuse an existing receiving directory.\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-3'\n",
     "stdout": ""
   },
   "receiving": {
@@ -29,7 +16,7 @@
       {
         "arguments": [
           "--database",
-          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3"
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-3/receiving.sqlite3"
         ],
         "module": "projects",
         "returncode": 0,
@@ -39,26 +26,26 @@
       {
         "arguments": [
           "--database",
-          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3",
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-3/receiving.sqlite3",
           "--project",
           "evidence-receiving"
         ],
         "module": "inspect",
         "returncode": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "3f93a8a43f95fc2af389f830887bc5379c45e48becf69b23c1f879b05cb548cd"
+        "stdout_sha256": "83a01b457e13d749312b29a1563bf347c038669a99ee2ecc007ba1fcf0683b4b"
       },
       {
         "arguments": [
           "--database",
-          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-2/receiving.sqlite3",
+          "/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/run-3/receiving.sqlite3",
           "--project",
           "evidence-receiving"
         ],
         "module": "history",
         "returncode": 0,
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "12119f63a57269c9166d7cc043917db3a79cd4390f19b61811442cdf5d1930f9"
+        "stdout_sha256": "d6550e53b6aa993a8d03521ffdc0165d2f7584837f72fac1dd980fb4812be6ad"
       }
     ],
     "consumer_contract": "Literal evidence retained in state and history; dependent stays queued",
@@ -79,11 +66,13 @@
       }
     ],
     "database_read_windows_unchanged": true,
-    "database_sha256": "e9acda3f266b2ea6b68372ce75f2268691e049206c4c13582af8c3cf51e3fd04",
+    "database_sha256": "63a9df7e69bef3213265184441531bf585734f92f4a689abe820389d6ec66acd",
     "finding": "  verified caf\u00e9 \u6771\u4eac  ",
     "plan_digest": "31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b",
     "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
     "result": "PASS",
+    "runtime_copy": "runtime",
+    "runtime_copy_unchanged": true,
     "schema": "fanout.evidence-cli-receiving/1",
     "source_commit": "9b8265a56727e085b99a691e925cc4cfcafb57a7",
     "source_files": {
@@ -135,23 +124,21 @@
     "source_unchanged": true,
     "sqlite": "3.53.1"
   },
-  "schema": "fanout.evidence-cli-qualification/1",
-  "script_sha256": "6860e7f50124cbda13ad56baa337bd10434fc65c676198dabeba9fed79d3d0ae",
+  "schema": "fanout.evidence-cli-qualification/2",
+  "script_sha256": "07e5a9a69231a2bddcba6eb2004e4f049b618b2eec08398659c630179ed86122",
   "source_commit": "9b8265a56727e085b99a691e925cc4cfcafb57a7",
   "streams": {
     "history.stderr": "",
-    "history.stdout": "{\"events\":[{\"at\":1791866986.4005034,\"detail\":{\"part_count\":2,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\"},\"detail_json\":\"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\\\"}\",\"event\":\"plan_recorded\",\"part_id\":null,\"project_id\":\"evidence-receiving\",\"seq\":1},{\"at\":1791866986.4007173,\"detail\":{\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"worker_id\":\"local-receiver\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"low\\\",\\\"model\\\":\\\"fixture\\\"},\\\"worker_id\\\":\\\"local-receiver\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":2},{\"at\":1791866986.4008267,\"detail\":{\"task_id\":\"owned-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"owned-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":3},{\"at\":1791866986.4013515,\"detail\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"detail_json\":\"{\\\"extra\\\":\\\"retained supplementary detail\\\",\\\"finding\\\":\\\"  verified caf\u00e9 \u6771\u4eac  \\\",\\\"locator\\\":\\\"fixture://receiving/work\\\",\\\"source\\\":\\\"owned local fixture\\\"}\",\"event\":\"failed\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":4}],\"part_id\":null,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"schema_version\":1}\n",
+    "history.stdout": "{\"events\":[{\"at\":1791868097.1209264,\"detail\":{\"part_count\":2,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\"},\"detail_json\":\"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\\\"}\",\"event\":\"plan_recorded\",\"part_id\":null,\"project_id\":\"evidence-receiving\",\"seq\":1},{\"at\":1791868097.1210425,\"detail\":{\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"worker_id\":\"local-receiver\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"low\\\",\\\"model\\\":\\\"fixture\\\"},\\\"worker_id\\\":\\\"local-receiver\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":2},{\"at\":1791868097.1211088,\"detail\":{\"task_id\":\"owned-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"owned-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":3},{\"at\":1791868097.1214595,\"detail\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"detail_json\":\"{\\\"extra\\\":\\\"retained supplementary detail\\\",\\\"finding\\\":\\\"  verified caf\u00e9 \u6771\u4eac  \\\",\\\"locator\\\":\\\"fixture://receiving/work\\\",\\\"source\\\":\\\"owned local fixture\\\"}\",\"event\":\"failed\",\"part_id\":\"work\",\"project_id\":\"evidence-receiving\",\"seq\":4}],\"part_id\":null,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"schema_version\":1}\n",
     "inspect.stderr": "",
-    "inspect.stdout": "{\"blocked_queued_ids\":[\"dependent\"],\"parts\":[{\"artifact_ref\":null,\"depends_on\":[],\"evidence\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"id\":\"work\",\"idempotency_key\":\"fanout-85528519a0d117dc6fe424e9d290ec427618781c8c219df8096624b87bd46c5a\",\"instruction\":\"Owned local receiving fixture.\",\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"state\":\"failed\",\"tags\":[],\"task_id\":\"owned-task\",\"unmet_dependencies\":[],\"updated_at\":1791866986.4012778,\"worker_id\":\"local-receiver\"},{\"artifact_ref\":null,\"depends_on\":[\"work\"],\"evidence\":null,\"id\":\"dependent\",\"idempotency_key\":\"fanout-f2614f2375036cf3744595e555639ca546adfee8fe14ad19a065ee68bceeaa37\",\"instruction\":\"Wait for work.\",\"route\":null,\"state\":\"queued\",\"tags\":[],\"task_id\":null,\"unmet_dependencies\":[{\"id\":\"work\",\"state\":\"failed\"}],\"updated_at\":1791866986.4004848,\"worker_id\":null}],\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"queued_ready_ids\":[],\"state_counts\":{\"completed\":0,\"dispatching\":0,\"failed\":1,\"outcome_unknown\":0,\"queued\":1,\"running\":0}}\n",
+    "inspect.stdout": "{\"blocked_queued_ids\":[\"dependent\"],\"parts\":[{\"artifact_ref\":null,\"depends_on\":[],\"evidence\":{\"extra\":\"retained supplementary detail\",\"finding\":\"  verified caf\u00e9 \u6771\u4eac  \",\"locator\":\"fixture://receiving/work\",\"source\":\"owned local fixture\"},\"id\":\"work\",\"idempotency_key\":\"fanout-85528519a0d117dc6fe424e9d290ec427618781c8c219df8096624b87bd46c5a\",\"instruction\":\"Owned local receiving fixture.\",\"route\":{\"effort\":\"low\",\"model\":\"fixture\"},\"state\":\"failed\",\"tags\":[],\"task_id\":\"owned-task\",\"unmet_dependencies\":[],\"updated_at\":1791868097.1214156,\"worker_id\":\"local-receiver\"},{\"artifact_ref\":null,\"depends_on\":[\"work\"],\"evidence\":null,\"id\":\"dependent\",\"idempotency_key\":\"fanout-f2614f2375036cf3744595e555639ca546adfee8fe14ad19a065ee68bceeaa37\",\"instruction\":\"Wait for work.\",\"route\":null,\"state\":\"queued\",\"tags\":[],\"task_id\":null,\"unmet_dependencies\":[{\"id\":\"work\",\"state\":\"failed\"}],\"updated_at\":1791868097.1209128,\"worker_id\":null}],\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\",\"queued_ready_ids\":[],\"state_counts\":{\"completed\":0,\"dispatching\":0,\"failed\":1,\"outcome_unknown\":0,\"queued\":1,\"running\":0}}\n",
     "projects.stderr": "",
     "projects.stdout": "{\"project_count\":1,\"projects\":[{\"part_count\":2,\"plan_digest\":\"31f04a77ed660c11e893137e43b416d280d49771d8fac17767f7e3c82114ad1b\",\"project_id\":\"evidence-receiving\"}],\"schema_version\":1}\n"
   },
   "wrong_source": {
-    "author_check_note": "The first author-side summary over-specified ledger.py as the first mismatching file. The unchanged baseline correctly refused earlier at inspect.py. The raw process stream is unchanged and no output directory was created; no rerun was needed.",
-    "output_not_created": true,
     "returncode": 1,
-    "source_pin_refusal": true,
-    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 197, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 193, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 80, in run\n    before = snapshot(source)\n             ^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 70, in snapshot\n    require(blob == entry[\"blob\"], \"source blob mismatch: \" + entry[\"path\"])\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 61, in require\n    raise RuntimeError(message)\nRuntimeError: source blob mismatch: fanout_engine/inspect.py\n",
+    "source_pin_refusal_before_output": true,
+    "stderr": "Traceback (most recent call last):\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 209, in <module>\n    main()\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 205, in main\n    digest = run(args.source, args.out)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 83, in run\n    before = snapshot(source, captured)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 70, in snapshot\n    require(blob == entry[\"blob\"], \"source blob mismatch: \" + entry[\"path\"])\n  File \"/dev/hamon-fanout-04eb01aa6f9e/cli-receiving/receive_cli.py\", line 61, in require\n    raise RuntimeError(message)\nRuntimeError: source blob mismatch: fanout_engine/inspect.py\n",
     "stdout": ""
   }
 }
