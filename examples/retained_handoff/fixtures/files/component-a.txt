@@ -1,0 +1,2 @@
+Authored local fixture for a receiving handoff.
+Inventory records exact file sizes and SHA-256 digests.
