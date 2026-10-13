@@ -299,3 +299,11 @@ Use `python -m fanout_engine.create_ledger --plan plan.json --database new-work.
 to record a parsed authored Plan in a new SQLite file. Every part starts queued;
 no work is dispatched. The [new-ledger guide](docs/create-plan-ledger.md) covers
 native identity, sidecar guards, exact receipts and publication/output failures.
+
+## Build an offline wheel
+
+Build and verify this reference package from captured source with an already
+installed backend using `tools/build_offline_wheel.py`. The command requires
+Python 3.11+, an explicit epoch and a new output directory outside the source.
+See [the offline wheel build guide](docs/offline-wheel-build.md) for the five-file
+receipt, source identity boundary and fresh-environment installation.
