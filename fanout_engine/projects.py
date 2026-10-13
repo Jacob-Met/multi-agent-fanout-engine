@@ -7,7 +7,7 @@ import sqlite3
 import sys
 from typing import Any
 
-from .inspect import _write_stdout
+from .inspect import _check_output_path, _write_stdout
 from .inspection import InspectionError, _read_plan
 from .ledger import Ledger, LedgerError
 from .plan import canonical_json
@@ -57,8 +57,9 @@ def main(argv: list[str] | None = None) -> int:
         if args.output is None:
             _write_stdout(content)
         else:
+            _check_output_path(args.database, args.output)
             _publish_new_file(args.output, content)
-    except (OSError, PreviewError) as exc:
+    except (OSError, PreviewError, ValueError) as exc:
         print(f"fanout projects: cannot write catalog: {exc}", file=sys.stderr)
         return 1
     return 0
