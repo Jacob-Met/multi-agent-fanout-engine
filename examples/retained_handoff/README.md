@@ -285,3 +285,56 @@ python3 -B -m fanout_engine.compare_inspections --first RUN/unknown-inspect.stdo
 
 The first/second roles are explicit. The comparator describes saved values; it
 does not read the ledger, infer progress from timestamps or perform work.
+
+## Open the saved comparisons from a new run
+
+After all four phases complete, the same public command now creates two readable
+comparison pages and their exact native JSON files. No extra comparison command
+is needed for a new run.
+
+| Open in the run directory | First saved inspection | Second saved inspection |
+| --- | --- | --- |
+| `initial-to-final-comparison.html` | `initial-inspect.stdout.json` | `final-inspect.stdout.json` |
+| `unknown-to-held-comparison.html` | `unknown-inspect.stdout.json` | `held-inspect.stdout.json` |
+
+Open either HTML file directly in a browser. The matching `.json` sibling
+contains the complete native comparison. The page's download link provides
+those exact JSON bytes, including the final newline. First and Second retain
+their explicit input roles; the comparator describes saved values without
+reading the ledger, dispatching work or inferring chronology from timestamps.
+
+The initial/final report shows changes to audit, summary and handoff. The
+audit's task reference remains null even when its state is completed. The
+unknown/held report confirms identical saved input bytes and values, with no
+changed fields or parts. These pairs belong to this one authored local run;
+they do not change the earlier separate-execution review artifact.
+
+The final `receipt.json` adds `comparison_reports` in the table's order. Each
+entry binds the two inspection filenames and SHA-256s, both output filenames
+and SHA-256s, and the actual JSON/HTML commands, exit codes and raw stream
+hashes. The eight `*-comparison-{json,html}.{stdout,stderr}.log` files retain
+the command streams. Successful explicit-output commands leave those streams
+empty. Every file present before the comparison step is checked for unchanged
+bytes afterward, including the database, journals, phase pages and raw reports.
+The existing checkout source checks also surround each comparison command.
+
+A comparison failure occurs **after the native phases have committed their
+work**. It does not roll back that work or invalidate the completed phase
+receipts. Partial comparison files and diagnostics remain available, but a
+successful overall `receipt.json` is not written. Preserve the directory for
+inspection; the public command refuses to reuse it. The private phase option
+is not a report retry mechanism. For an existing run, the separate commands
+above remain available with new output names; add `--format html` for a readable
+page. See the [saved-inspection guide](../../docs/compare-inspections.md).
+
+A focused maintained receiving test invokes the public workflow once and
+checks the new outputs against its actual saved inspections and retained
+references, then confirms an occupied output directory stays unchanged:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_comparisons.py' -v
+```
+
+This remains the authored local adapter example with five unique calls, no
+audit replay, four existing phase reviews and sixteen final events. It adds
+no provider, installed service or live status view.

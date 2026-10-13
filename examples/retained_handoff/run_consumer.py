@@ -345,6 +345,75 @@ def stage_reconcile():
             "audit_replayed": False, "completed_parts": 5, **receiving}
 
 
+
+class ComparisonDownload(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "a" and "download" in values:
+            self.links.append((values["download"], values.get("href", "")))
+
+
+def capture_comparisons():
+    """Read only saved phase files after all native phase work has completed."""
+    preserved = {path: sha(path.read_bytes()) for path in OUTPUT.rglob("*") if path.is_file()}
+    comparisons = []
+    for first_label, second_label in (("initial", "final"), ("unknown", "held")):
+        label = first_label + "-to-" + second_label + "-comparison"
+        first = OUTPUT / (first_label + "-inspect.stdout.json")
+        second = OUTPUT / (second_label + "-inspect.stdout.json")
+        first_bytes, second_bytes = first.read_bytes(), second.read_bytes()
+        commands = {}
+        for kind in ("json", "html"):
+            require(capture_source() == source_pin, "Checkout source changed before saved comparison")
+            target = OUTPUT / (label + "." + kind)
+            command = [sys.executable, "-B", "-m", "fanout_engine.compare_inspections",
+                       "--first", str(first), "--second", str(second),
+                       "--format", kind, "--output", str(target)]
+            result = subprocess.run(command, cwd=SOURCE, env=env, capture_output=True, timeout=15)
+            bytes_new(OUTPUT / (label + "-" + kind + ".stdout.log"), result.stdout)
+            bytes_new(OUTPUT / (label + "-" + kind + ".stderr.log"), result.stderr)
+            require(result.returncode == 0, label + " " + kind
+                    + " capture failed after all phase work completed: "
+                    + result.stderr.decode(errors="replace"))
+            require(result.stdout == result.stderr == b"", "Unexpected saved comparison output")
+            require(capture_source() == source_pin, "Checkout source changed during saved comparison")
+            commands[kind] = {"command": command, "cwd": str(SOURCE),
+                              "returncode": result.returncode,
+                              "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)}
+        json_path, html_path = OUTPUT / (label + ".json"), OUTPUT / (label + ".html")
+        json_bytes, html_bytes = json_path.read_bytes(), html_path.read_bytes()
+        require(json_bytes.endswith(b"\n"), "Saved comparison JSON lacks its native final newline")
+        report = json.loads(json_bytes)
+        for side, content in (("first", first_bytes), ("second", second_bytes)):
+            require(report[side] == {"input_bytes": len(content), "input_sha256": sha(content),
+                                     "document": json.loads(content)},
+                    "Saved comparison does not describe its exact phase input")
+        download = ComparisonDownload()
+        download.feed(html_bytes.decode("utf-8"))
+        download.close()
+        require(len(download.links) == 1, "Comparison must expose one native download")
+        filename, href = download.links[0]
+        prefix = "data:application/json;base64,"
+        require(filename == "saved-inspection-comparison.json" and href.startswith(prefix),
+                "Saved comparison download identity mismatch")
+        require(base64.b64decode(href[len(prefix):], validate=True) == json_bytes,
+                "Saved comparison HTML download differs from its native JSON")
+        comparisons.append({"label": label, "first_inspection": first.name,
+                            "second_inspection": second.name,
+                            "first_inspection_sha256": sha(first_bytes),
+                            "second_inspection_sha256": sha(second_bytes),
+                            "json_report": json_path.name, "json_sha256": sha(json_bytes),
+                            "html_report": html_path.name, "html_sha256": sha(html_bytes),
+                            "json_command": commands["json"], "html_command": commands["html"]})
+    require(all(path.is_file() and sha(path.read_bytes()) == digest
+                for path, digest in preserved.items()),
+            "Saved comparison capture changed an existing retained file")
+    return comparisons
+
 stages = {"start": stage_start, "resume": stage_resume, "hold": stage_hold, "reconcile": stage_reconcile}
 if args.phase == "all":
     OUTPUT.mkdir()
@@ -360,12 +429,14 @@ if args.phase == "all":
         processes.append({"phase": stage, "command": command, "returncode": result.returncode,
                           "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)})
     require(capture_source() == source_pin, "Checkout source changed during this run")
+    comparisons = capture_comparisons()
     summary = {"status": "completed", "scope": "authored-local-fixture", "project_id": plan.project_id,
                "plan_digest": plan.digest, "source": source_pin, "processes": processes,
                "completed_parts": 5, "unique_local_adapter_calls": 5, "unknown_acknowledgements": 1,
                "audit_replays": 0, "final_history_events": len(load(OUTPUT / "final-history.json")),
                "provider_calls": 0, "remote_worker_calls": 0,
                "retained_database": "retained.sqlite3", "handoff_artifact": "artifacts/handoff.json",
+               "comparison_reports": comparisons,
                "queued_route_reports": [label + "-queued-routes.stdout.json"
                                        for label in ("initial", "unknown", "held", "final")],
                "blocker_reports": [label + "-blockers.stdout.json"
