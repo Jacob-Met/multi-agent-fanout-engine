@@ -49,6 +49,8 @@ def _check_output_path(database: Path, destination: Path) -> None:
 
 
 def _write_stdout(content: bytes) -> None:
+    if sys.stdout is None:
+        raise OSError("standard output is unavailable")
     try:
         sys.stdout.buffer.write(content)
         sys.stdout.buffer.flush()

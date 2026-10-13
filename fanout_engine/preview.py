@@ -193,6 +193,8 @@ def _publish_new_file(destination: Path, content: bytes) -> None:
 
 
 def _write_stdout(content: bytes) -> None:
+    if sys.stdout is None:
+        raise OSError("standard output is unavailable")
     try:
         sys.stdout.buffer.write(content)
         sys.stdout.buffer.flush()
