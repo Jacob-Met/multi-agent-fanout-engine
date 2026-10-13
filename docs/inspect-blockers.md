@@ -10,6 +10,16 @@ python -m fanout_engine.blockers --database work/dispatch.sqlite3 --project samp
 python -m fanout_engine.blockers --database work/dispatch.sqlite3 --project sample --output new-blockers.json
 ```
 
+If the project ID is not known, discover it in the selected ledger first:
+
+```sh
+python -m fanout_engine.projects --database work/dispatch.sqlite3
+```
+
+Pass the returned `project_id` unchanged to `--project`. The accepted
+[project catalog](project-catalog.md) validates saved plan identities; the blocker
+command then validates the complete selected project's retained state.
+
 Use the existing open ledger in Python:
 
 ```python
@@ -100,11 +110,12 @@ case and Unicode-normalization variants. It runs after complete record validatio
 and encoding, before creating any report. Unrelated sidecar-looking names remain
 available. Existing output files still cannot be replaced.
 
-This composition reuses the inspection guard, its original path regressions, and
-its guide from [PR #58](https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/58)
-at `943ae6fb9d1bd661392cf6e7fe6640430e3ca5cb`, unchanged in its later
-`4edff3afe22ee1d35b0fc12e66840295353fd0b7` head. The blocker command calls that
-shared guard; its path tests reuse the owner's unchanged black-box cases.
+The blocker command reuses the shared inspection guard and the owner's original
+black-box path cases from [PR #58](https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/58).
+The guard was introduced at `943ae6fb9d1bd661392cf6e7fe6640430e3ca5cb` and
+accepted unchanged in main at `6d76703f8a3d5a29e56bf9fab97523935b06e61c`.
+This composition preserves the accepted project catalog and Ledger implementation;
+it adds no separate catalog or storage reader.
 
 ## Tests
 
