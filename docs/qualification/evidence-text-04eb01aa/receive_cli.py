@@ -194,8 +194,9 @@ def run(source, output):
                "consumer_contract": "Literal evidence retained in state and history; dependent stays queued",
                "result": "PASS"}
     text = json.dumps(receipt, indent=2, sort_keys=True, ensure_ascii=True) + "\n"
-    (output / "receipt.json").write_text(text, encoding="utf-8")
-    return hashlib.sha256(text.encode()).hexdigest()
+    payload = text.encode("utf-8")
+    (output / "receipt.json").write_bytes(payload)
+    return hashlib.sha256(payload).hexdigest()
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
