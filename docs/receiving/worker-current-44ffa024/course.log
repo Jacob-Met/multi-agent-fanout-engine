@@ -1,0 +1,56 @@
+=== worker-main stdout ===
+=== worker-main stderr ===
+test_direct_rejection_preserves_exact_state_and_events (test_worker_identity.WorkerIdentityTests.test_direct_rejection_preserves_exact_state_and_events) ... ok
+test_dispatch_rejects_before_adapter_and_keeps_assignment_retryable (test_worker_identity.WorkerIdentityTests.test_dispatch_rejects_before_adapter_and_keeps_assignment_retryable) ... ok
+test_later_invalid_assignment_does_not_replay_an_earlier_dispatch (test_worker_identity.WorkerIdentityTests.test_later_invalid_assignment_does_not_replay_an_earlier_dispatch) ... ok
+test_valid_literals_survive_adapter_storage_events_and_cli_reopen (test_worker_identity.WorkerIdentityTests.test_valid_literals_survive_adapter_storage_events_and_cli_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.935s
+
+OK
+=== worker-receiving stdout ===
+=== worker-receiving stderr ===
+test_invalid_literal_identity_is_rejected_before_sql (test_worker_identity_receiving.WorkerIdentityReceivingTests.test_invalid_literal_identity_is_rejected_before_sql) ... ok
+test_invalid_selected_worker_never_reaches_hub (test_worker_identity_receiving.WorkerIdentityReceivingTests.test_invalid_selected_worker_never_reaches_hub) ... ok
+test_later_invalid_worker_preserves_earlier_submission (test_worker_identity_receiving.WorkerIdentityReceivingTests.test_later_invalid_worker_preserves_earlier_submission) ... ok
+test_string_overrides_cannot_admit_invalid_literal_identity (test_worker_identity_receiving.WorkerIdentityReceivingTests.test_string_overrides_cannot_admit_invalid_literal_identity) ... ok
+test_valid_literal_identity_is_retained_and_reopens_unchanged (test_worker_identity_receiving.WorkerIdentityReceivingTests.test_valid_literal_identity_is_retained_and_reopens_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.253s
+
+OK
+=== read-transactions stdout ===
+=== read-transactions stderr ===
+test_json_read_failures_preserve_pending_work (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_json_read_failures_preserve_pending_work) ... ok
+test_missing_part_reads_preserve_pending_work (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_missing_part_reads_preserve_pending_work) ... ok
+test_only_explicit_caller_commit_publishes_the_pending_work (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_only_explicit_caller_commit_publishes_the_pending_work) ... ok
+test_ordinary_reads_do_not_open_a_transaction_or_change_durable_data (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_ordinary_reads_do_not_open_a_transaction_or_change_durable_data) ... ok
+test_readonly_reads_keep_the_callers_snapshot_until_rollback (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_readonly_reads_keep_the_callers_snapshot_until_rollback) ... ok
+test_sql_read_failure_preserves_pending_work_and_schema_rollback (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_sql_read_failure_preserves_pending_work_and_schema_rollback) ... ok
+test_successful_reads_preserve_pending_work_and_rollback_choice (test_read_transaction_ownership.ReadTransactionOwnershipTests.test_successful_reads_preserve_pending_work_and_rollback_choice) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.473s
+
+OK
+=== part-state stdout ===
+=== part-state stderr ===
+test_dispatch_preserves_missing_row_failure_before_later_submissions (test_part_state.PartStateTests.test_dispatch_preserves_missing_row_failure_before_later_submissions) ... ok
+test_reopened_states_keep_large_evidence_and_observe_other_connection (test_part_state.PartStateTests.test_reopened_states_keep_large_evidence_and_observe_other_connection) ... ok
+test_state_lookup_preserves_project_scope_and_missing_row_diagnostic (test_part_state.PartStateTests.test_state_lookup_preserves_project_scope_and_missing_row_diagnostic) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.117s
+
+OK
+=== initialization stdout ===
+=== initialization stderr ===
+test_failed_foreign_key_pragma_closes_connection (test_ledger_init_cleanup.LedgerInitializationCleanupTests.test_failed_foreign_key_pragma_closes_connection) ... ok
+test_failed_schema_initialization_closes_connection (test_ledger_init_cleanup.LedgerInitializationCleanupTests.test_failed_schema_initialization_closes_connection) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
