@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "scope": "Original-first adoption of queued-route reports in the documented retained handoff; new capability, no original product-failure claim.",
+  "public_contracts": [
+    "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/43#issuecomment-6145329586",
+    "https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/43#issuecomment-6145458018"
+  ],
+  "baseline": {
+    "commit": "46bf5b33e3323e35096eeb3a9c9aabf12b19b722",
+    "tree": "240dd582346f871cb401891e894937f8d1727d4e",
+    "closure_files": 26,
+    "prior_unexecuted_preparation": "fc2b571cb93949f2fd58c3c8dc1b62b5d73bcd5d"
+  },
+  "phases": [
+    {
+      "phase": "start",
+      "label": "initial",
+      "events": 9,
+      "ready": [
+        "summary"
+      ],
+      "blocked": [
+        "handoff"
+      ],
+      "states": {
+        "audit": "outcome_unknown",
+        "inventory": "completed",
+        "notes": "completed",
+        "summary": "queued",
+        "handoff": "queued"
+      }
+    },
+    {
+      "phase": "resume",
+      "label": "unknown",
+      "events": 12,
+      "ready": [],
+      "blocked": [
+        "handoff"
+      ],
+      "states": {
+        "audit": "outcome_unknown",
+        "inventory": "completed",
+        "notes": "completed",
+        "summary": "completed",
+        "handoff": "queued"
+      }
+    },
+    {
+      "phase": "hold",
+      "label": "held",
+      "events": 12,
+      "ready": [],
+      "blocked": [
+        "handoff"
+      ],
+      "states": {
+        "audit": "outcome_unknown",
+        "inventory": "completed",
+        "notes": "completed",
+        "summary": "completed",
+        "handoff": "queued"
+      }
+    },
+    {
+      "phase": "reconcile",
+      "label": "final",
+      "events": 16,
+      "ready": [],
+      "blocked": [],
+      "states": {
+        "audit": "completed",
+        "inventory": "completed",
+        "notes": "completed",
+        "summary": "completed",
+        "handoff": "completed"
+      }
+    }
+  ],
+  "phase_additions": [
+    "queued_route_command",
+    "queued_route_report",
+    "queued_route_ready_ids"
+  ],
+  "final_addition": "queued_route_reports",
+  "route": {
+    "part_id": "summary",
+    "route": {
+      "model": "fixture-local",
+      "effort": "low"
+    },
+    "route_source": "pool"
+  },
+  "workflow": {
+    "completed_parts": 5,
+    "unique_local_adapter_calls": 5,
+    "unknown_acknowledgements": 1,
+    "audit_replays": 0,
+    "final_history_events": 16,
+    "provider_calls": 0,
+    "remote_worker_calls": 0
+  },
+  "checks": [
+    "Run only public all-phase command from unrelated owned cwd with Unicode output path; no private-phase invocation.",
+    "Record four child phase PIDs, retained state/history/artifacts and native inspection output.",
+    "Original must complete unchanged workflow and lack four new report artifacts/receipt fields.",
+    "Candidate reports must match exact independently assembled route JSON, native identity formula, retained state, raw routing hash and whole order.",
+    "Validate phase CLI metadata command/cwd/status/stream hashes and final ordered relative artifact list.",
+    "Read final SQLite with an explicitly closed owned reader; compare exact persisted events and native part keys.",
+    "Run existing documented history receiver once, retaining exact database bytes/metadata and prior files.",
+    "Candidate must preserve five artifact bytes, adapter-call bytes and authored plan-preview bytes from original control.",
+    "Occupied output refusal preserves all retained files exactly.",
+    "All source/helper/expectation byte/mode/mtime fences; no timed-out or signalled child and absent owned process groups."
+  ],
+  "boundaries": [
+    "Trusted source under independent source review, not an OS syscall/network audit.",
+    "Source and output fences do not exclude transient writes restored before observation.",
+    "Original SQL connection cleanup remains owned by d6773b6dc113/runtime; no warning-enabled closure qualification.",
+    "Ordinary Linux/Python only; no optimized Python, provider, remote Hub, installed release or other native scope.",
+    "Outer process group containment checks descendants in that group; no promise for arbitrary children escaping groups.",
+    "Receipt creation may fail before or during setup/disk errors; supervisor must inspect actual process result."
+  ]
+}
