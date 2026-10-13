@@ -1,0 +1,48 @@
+{
+  "frozen_at_utc": "2026-10-13T07:33:46Z",
+  "candidate_product_or_tests_read": false,
+  "baseline": "6d76703f8a3d5a29e56bf9fab97523935b06e61c",
+  "target_head": "429ca0db8e3ef2bfc511e08cd532ee67f79065d1",
+  "files": [
+    {
+      "path": "receive_review.py",
+      "bytes": 12510,
+      "sha256": "08691a78840b622f5c9ed1e70646a060d73e81ff07101e66d139971c2defce15"
+    },
+    {
+      "path": "prepare_oracle.py",
+      "bytes": 4334,
+      "sha256": "bdca84c0d5bcc1a71167ab234393b66ac47bd707c28838ce52bcae501cf812de"
+    },
+    {
+      "path": "PUBLIC-CONTRACT.md",
+      "bytes": 5255,
+      "sha256": "bb2cdb602c8323d73c46ac12db7e7f6947b49c66a81735e18e9d72f1066f6990"
+    },
+    {
+      "path": "ORIGINAL-SOURCE.json",
+      "bytes": 2509,
+      "sha256": "1b88e23816b0a59fce94be4da4a81745c267ed94213b8dcb961a69618b47ba2f"
+    },
+    {
+      "path": "oracle/authored # % \u03bb.sqlite3",
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    {
+      "path": "oracle/expectations.json",
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    {
+      "path": "oracle/expected.json",
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    {
+      "path": "oracle/plan.json",
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    }
+  ]
+}

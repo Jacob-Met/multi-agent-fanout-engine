@@ -1,0 +1,80 @@
+{
+  "decision": "ACCEPT",
+  "reviewer": "/root/engine_worker",
+  "scope": "Independent source/guide/native-evidence custody and two screenshot inspection; no browser/CLI/native rerun",
+  "product_head": "429ca0db8e3ef2bfc511e08cd532ee67f79065d1",
+  "remote_complete_tree_leaves": 220,
+  "all12_projected_source_git_blobs_modes_exact": true,
+  "manifest15files_exact": true,
+  "guide_sha256": "9b40262a50f208e47b4d412cc9c2ff8ec6211fd2f66636307ba7c2d3d27cca13",
+  "native_zip_sha256": "e2d31c53e96368b753121630b0a5a00183ae3d85695c36dc28b631a22687229a",
+  "native_payloads_verified": 64,
+  "native_members": 65,
+  "all64_extracted_payloads_byte_equal": true,
+  "v1": {
+    "passed": 42,
+    "failed": 1,
+    "failed_check": "evidence finding remains visible text",
+    "preserved": true,
+    "cli_statuses": [
+      0,
+      0,
+      1,
+      1,
+      1,
+      3,
+      2,
+      0,
+      0
+    ],
+    "raw_cli_streams_present": 18
+  },
+  "v2": {
+    "passed": 125,
+    "failed": 0,
+    "visible_field_checks": 80,
+    "download_bytes_exact": 4678,
+    "download_sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203",
+    "html_bytes": 27922,
+    "all_four_html_bytes_equal": true,
+    "page_errors": [],
+    "observed_http_requests": [],
+    "source_oracle_html_preserved": true
+  },
+  "screenshots": {
+    "desktop.png": {
+      "bytes": 57442,
+      "sha256": "42f351ae318d618e0b87aa2aa8bbac6127bdfec15530cda1455af60bbfec0e15"
+    },
+    "narrow.png": {
+      "bytes": 30290,
+      "sha256": "ce2da8948921018c12f547787d9ac35b77ea42f2c6e947faf4e947239831a3e2"
+    }
+  },
+  "visual_inspection": {
+    "desktop_counts": {
+      "queued": 3,
+      "completed": 1,
+      "failed": 1,
+      "outcome_unknown": 1,
+      "running": 1,
+      "dispatching": 1
+    },
+    "ready": [
+      "z_ready",
+      "c_ready_child"
+    ],
+    "blocked": [
+      "a_blocked"
+    ],
+    "desktop_label_wrap": "outcome_unknown wraps its final n on this desktop screenshot; value and label remain visible, no correctness blocker",
+    "narrow": "390 pixel screenshot displays all six count cards in two columns; narrower viewport/readability observation only"
+  },
+  "limits": [
+    "V1 failure is a retained receiver assumption; v2 is explicitly artifact-aware, not blind",
+    "No product source edit, donor test rerun, accessibility/print/other browser or platform certification",
+    "Twelve-module projection is not full220-file checkout",
+    "Readiness is recorded state only; no provider/dispatch or live estate verification"
+  ],
+  "custody_sha256": "e2b7581b923828e0bcfbe87b45d333a8c15040df4484bd481bda1bf72f51c5e0"
+}
