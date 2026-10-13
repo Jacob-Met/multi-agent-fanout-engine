@@ -171,33 +171,30 @@ class Ledger:
                        for row in rows if row["record_kind"] == 1],
         }
 
+    # A connection context commits or rolls back an active transaction. Reads
+    # leave that choice, including any explicit snapshot, with their caller.
     def part_state(self, project_id: str, part_id: str) -> str:
-        with self._db:
-            return self._part(self._db, project_id, part_id)["state"]
+        return self._part(self._db, project_id, part_id)["state"]
 
     def part(self, project_id: str, part_id: str) -> dict[str, Any]:
-        with self._db:
-            row = self._part(self._db, project_id, part_id)
-            result = dict(row)
-            for name in ("payload_json", "route_json", "evidence_json"):
-                if result.get(name) is not None:
-                    result[name.removesuffix("_json")] = json.loads(result[name])
-            return result
+        row = self._part(self._db, project_id, part_id)
+        result = dict(row)
+        for name in ("payload_json", "route_json", "evidence_json"):
+            if result.get(name) is not None:
+                result[name.removesuffix("_json")] = json.loads(result[name])
+        return result
 
     def idempotency_key(self, project_id: str, part_id: str) -> str:
-        with self._db:
-            return self._part(self._db, project_id, part_id)["idempotency_key"]
+        return self._part(self._db, project_id, part_id)["idempotency_key"]
 
     def completed_ids(self, project_id: str) -> set[str]:
-        with self._db:
-            rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='completed'", (project_id,))
-            return {row[0] for row in rows}
+        rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='completed'", (project_id,))
+        return {row[0] for row in rows}
 
     def dispatchable_ids(self, project_id: str) -> set[str]:
         """Only queued items may be submitted; unknown and in-flight items are excluded."""
-        with self._db:
-            rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='queued'", (project_id,))
-            return {row[0] for row in rows}
+        rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='queued'", (project_id,))
+        return {row[0] for row in rows}
 
     def mark_dispatching(self, project_id: str, part_id: str, worker_id: str, route: dict[str, str]) -> None:
         if not worker_id:
@@ -290,12 +287,11 @@ class Ledger:
             return len(rows)
 
     def events(self, project_id: str, part_id: str | None = None) -> list[dict[str, Any]]:
-        with self._db:
-            if part_id is None:
-                rows = self._db.execute("SELECT * FROM events WHERE project_id=? ORDER BY seq", (project_id,)).fetchall()
-            else:
-                rows = self._db.execute("SELECT * FROM events WHERE project_id=? AND part_id=? ORDER BY seq",
-                                        (project_id, part_id)).fetchall()
+        if part_id is None:
+            rows = self._db.execute("SELECT * FROM events WHERE project_id=? ORDER BY seq", (project_id,)).fetchall()
+        else:
+            rows = self._db.execute("SELECT * FROM events WHERE project_id=? AND part_id=? ORDER BY seq",
+                                    (project_id, part_id)).fetchall()
         return [{**dict(row), "detail": json.loads(row["detail_json"])} for row in rows]
 
     @staticmethod
