@@ -1,0 +1,83 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 7520,
+      "sha256": "9b40262a50f208e47b4d412cc9c2ff8ec6211fd2f66636307ba7c2d3d27cca13"
+    },
+    {
+      "path": "receive_review.py",
+      "bytes": 12510,
+      "sha256": "08691a78840b622f5c9ed1e70646a060d73e81ff07101e66d139971c2defce15"
+    },
+    {
+      "path": "receive_browser_v2.py",
+      "bytes": 9570,
+      "sha256": "f2df2ebda19b2a51e11420a37e5cfb7a6e96953efa523bd90f8ff01d167dc649"
+    },
+    {
+      "path": "prepare_oracle.py",
+      "bytes": 4334,
+      "sha256": "bdca84c0d5bcc1a71167ab234393b66ac47bd707c28838ce52bcae501cf812de"
+    },
+    {
+      "path": "ORACLE-FREEZE.json",
+      "bytes": 1473,
+      "sha256": "edf50157f18bf8cdbf46dbe6780b2b19ad03da9b0c367488cdf881374572302e"
+    },
+    {
+      "path": "ORIGINAL-SOURCE.json",
+      "bytes": 2509,
+      "sha256": "1b88e23816b0a59fce94be4da4a81745c267ed94213b8dcb961a69618b47ba2f"
+    },
+    {
+      "path": "CANDIDATE-SOURCE.json",
+      "bytes": 2729,
+      "sha256": "338b3dac18c30ce09363bb670c9c2a2d20a2491d8034ce33b78a57f5b7c4181b"
+    },
+    {
+      "path": "PUBLIC-CONTRACT.md",
+      "bytes": 5255,
+      "sha256": "bb2cdb602c8323d73c46ac12db7e7f6947b49c66a81735e18e9d72f1066f6990"
+    },
+    {
+      "path": "independent-method-review.json",
+      "bytes": 2483,
+      "sha256": "4bdee4378b42f688d519e8da9da60bc12720f2fa14330e53f84bd96ba9d422aa"
+    },
+    {
+      "path": "oracle/authored # % \u03bb.sqlite3",
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    {
+      "path": "oracle/expectations.json",
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    {
+      "path": "oracle/expected.json",
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    {
+      "path": "oracle/plan.json",
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    },
+    {
+      "path": "native-received/receiving/receipt.json",
+      "bytes": 15621,
+      "sha256": "ce42be0a5dab76ad2b4a81d7bbd1396066b218127d0609764ae2532b7c802cf9"
+    },
+    {
+      "path": "native-received/browser-v2/receipt.json",
+      "bytes": 20024,
+      "sha256": "bbd5a60e78907ac88b9cc0cd1a1b2231544bbd4148fe115081bb5a4c2d143f5a"
+    }
+  ],
+  "native_zip": {
+    "bytes": 268250,
+    "sha256": "e2d31c53e96368b753121630b0a5a00183ae3d85695c36dc28b631a22687229a"
+  }
+}
