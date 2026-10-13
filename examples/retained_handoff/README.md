@@ -209,3 +209,28 @@ python3 -B -m unittest discover -s tests -p 'test_retained_handoff_blockers.py' 
 This remains an authored local adapter example. It does not identify a deployed
 estate ledger, contact a provider or qualify the separately owned SQLite
 connection-closure follow-up.
+
+## Open an offline review of the completed run
+
+From this checkout's repository root, render the retained database to a new HTML
+file outside the run directory:
+
+```bash
+python3 -B -m fanout_engine.review --database ../fanout-handoff-run/retained.sqlite3 --project fixture-handoff-51df5b72e832 --output ../fanout-handoff-review.html
+```
+
+Open `../fanout-handoff-review.html` in a browser. The self-contained page shows
+recorded states, dependency readiness and complete part details. Its ordinary
+download link saves the exact native inspection JSON, including the final
+newline. The command reads the existing ledger and refuses an occupied output
+path; it does not dispatch, retry or reconcile work.
+
+The public all-phase run retains its completed database. Rendering that database
+shows the current completed observation; it does not reconstruct an earlier
+phase from the saved inspection reports. Those JSON reports remain the earlier
+observations. If reviewing databases from separate executions, label them
+separately rather than presenting them as successive snapshots of one run.
+
+See the [offline retained-project review guide](../../docs/project-review.md)
+for the report's read-only scope and output behavior. The page is a fixed
+observation: later database changes require a new report at a new output path.
