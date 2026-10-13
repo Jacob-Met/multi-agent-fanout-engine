@@ -67,12 +67,15 @@ AST outside PR49's single admission insertion matches the original source.
 The archived runner preserves the original native scratch paths and admission
 metadata assumptions; it is an exact historical driver. The checker accepts an
 archived source-root argument and can be used separately. The raw receipt embeds
-the full source-admission manifest. No installed-worker or provider call was made
+the full source-admission manifest. Its original input bytes are now retained
+separately as `independent/source-admission.json`; this additive closure changes
+no source, checker, runner or executed receipt. No installed-worker or provider call was made
 by this receiving course, and it does not claim another composition or full-suite
 run.
 
 | Retained file | Bytes | SHA-256 |
 | --- | ---: | --- |
+| [independent/source-admission.json](independent/source-admission.json) | 5724 | `a0222b7056132a58411092ba4c8908103f40c1f7e3b7195ddfaf20b4c111db7b` |
 | [independent/check_dispatch_callbacks.py](independent/check_dispatch_callbacks.py) | 17828 | `d48aa3aefda6a64a3b5db635748e8d9c3ef88d02fe04423f287b977fdbde9975` |
 | [independent/run_dispatch_receiving.py](independent/run_dispatch_receiving.py) | 4915 | `6827444d6925e56a05437b09f6d7f4f1278f21c96d0eaaa9e9301db3d6db09a3` |
 | [independent/dispatch-independent-receipt.json](independent/dispatch-independent-receipt.json) | 444674 | `76be8d72e3456ffa8236dfa83c688a4db6164ab8bb9580076e261b79c2aab2ce` |
