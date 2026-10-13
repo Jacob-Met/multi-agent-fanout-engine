@@ -223,8 +223,13 @@ class Ledger:
             self._event(db, project_id, part_id, "dispatch_started", {"worker_id": worker_id, "route": route})
 
     def mark_running(self, project_id: str, part_id: str, task_id: str) -> None:
-        if not task_id:
-            raise LedgerError("task id is required")
+        if not isinstance(task_id, str) or not str.strip(task_id):
+            raise LedgerError("task id must be non-empty text")
+        try:
+            str.encode(task_id, "utf-8")
+        except UnicodeEncodeError as exc:
+            raise LedgerError("task id must be UTF-8 text") from exc
+        task_id = str.__str__(task_id)
         with self._transaction() as db:
             row = self._part(db, project_id, part_id)
             if row["state"] == "running" and row["task_id"] == task_id:
