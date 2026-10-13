@@ -1,0 +1,180 @@
+{
+  "accepted": true,
+  "changed_source_files": [],
+  "courses": [
+    {
+      "accepted": true,
+      "command": [
+        "/usr/local/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*_plan_*.py",
+        "-v"
+      ],
+      "cwd": "/private/tmp/hamon-estate-plan-current-main-37ede-20261013",
+      "expected_methods": 25,
+      "name": "plan-normal",
+      "observed_methods": 25,
+      "returncode": 0,
+      "stderr": {
+        "bytes": 4586,
+        "file": "plan-normal.stderr.txt",
+        "git_blob": "00926de9bdafac4e0552b6c63d8051f08e43d0b3",
+        "sha256": "9d0e14db981a742be1d624d96e9a0ce426bb2309f5f669dcab83154ce94dc6fa"
+      },
+      "stdout": {
+        "bytes": 0,
+        "file": "plan-normal.stdout.txt",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "command": [
+        "/usr/local/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_worker_identity.py",
+        "-v"
+      ],
+      "cwd": "/private/tmp/hamon-estate-plan-current-main-37ede-20261013",
+      "expected_methods": 4,
+      "name": "worker-normal",
+      "observed_methods": 4,
+      "returncode": 0,
+      "stderr": {
+        "bytes": 808,
+        "file": "worker-normal.stderr.txt",
+        "git_blob": "e3f5869abde1b1348f435ad55117b129f5852c6b",
+        "sha256": "4cdecf4d7ed506a81be0c93cd2a87d547c0a67dcdc35e5fe87a5b604862b3bc3"
+      },
+      "stdout": {
+        "bytes": 0,
+        "file": "worker-normal.stdout.txt",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "command": [
+        "/usr/local/bin/python3",
+        "-O",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*_plan_*.py",
+        "-v"
+      ],
+      "cwd": "/private/tmp/hamon-estate-plan-current-main-37ede-20261013",
+      "expected_methods": 25,
+      "name": "plan-optimized",
+      "observed_methods": 25,
+      "returncode": 0,
+      "stderr": {
+        "bytes": 4586,
+        "file": "plan-optimized.stderr.txt",
+        "git_blob": "8c792bd93495b55e84e25762e0fb4984890f75ec",
+        "sha256": "0415d31b30104245c1cde56779f1a0d52ff1bfa52e7efd19e90af35579ea9ba3"
+      },
+      "stdout": {
+        "bytes": 0,
+        "file": "plan-optimized.stdout.txt",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "accepted": true,
+      "command": [
+        "/usr/local/bin/python3",
+        "-O",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_worker_identity.py",
+        "-v"
+      ],
+      "cwd": "/private/tmp/hamon-estate-plan-current-main-37ede-20261013",
+      "expected_methods": 4,
+      "name": "worker-optimized",
+      "observed_methods": 4,
+      "returncode": 0,
+      "stderr": {
+        "bytes": 808,
+        "file": "worker-optimized.stderr.txt",
+        "git_blob": "c4db80890c6c210902d05901b9ff91a3a45c2324",
+        "sha256": "1be18f1e25ea3d609e18681d6c8a246db014df30ede245b6f5023d9ab3b9e2d0"
+      },
+      "stdout": {
+        "bytes": 0,
+        "file": "worker-optimized.stdout.txt",
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "demo": {
+    "accepted": true,
+    "command": [
+      "/usr/local/bin/python3",
+      "-B",
+      "examples/demo.py"
+    ],
+    "cwd": "/private/tmp/hamon-estate-plan-current-main-37ede-20261013",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "accepted research on worker-a at model-a/low\nstarted: research\nwaiting on prerequisites: write\n"
+  },
+  "driver": {
+    "bytes": 7469,
+    "file": "receive_current_main.py",
+    "git_blob": "9ca411b4f0119aa63e567a0d994e6028d69b1878",
+    "sha256": "01c47e895847f0e964ee3a4da2e3e05d6ab6f23b7e70ffd076b2db9b7e02f3cc"
+  },
+  "driver_and_admission_unchanged": true,
+  "executable": "/usr/local/bin/python3",
+  "limits": [
+    "Runs only the 25 maintained plan-identity/native-key and four worker-identity methods in each parent profile.",
+    "This does not repeat the earlier complete 202-method course or qualify its four skipped /dev/full methods.",
+    "The worker tests run their inspector children with the ordinary flags encoded in the unchanged test; no optimized inspector-child result is claimed.",
+    "The demo uses the existing local adapter. No installed worker, provider call, GitHub Actions run or main integration is performed."
+  ],
+  "native_source_commit": "e5fc82c3ddb278fa60a01e320fd49bf3d59dd362",
+  "ordered_parents": [
+    "c86113dd09ff17d0c606b390b693caddb967f8b1",
+    "d94e560f85028dca0d8798d16b377f72f562618a"
+  ],
+  "platform": "darwin",
+  "published_source_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+  "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "received_at_utc": "2026-10-13T00:43:39.682382+00:00",
+  "schema": "hamon.plan-identity-current-main.receiving.v1",
+  "source_admission": {
+    "bytes": 61797,
+    "file": "source-admission.json",
+    "git_blob": "6368d23986af9e5ec61823ad0e8713684799d338",
+    "sha256": "2586c9138fa714f09de739190a34490d51cd0888c4d80d004679ddd9c11fe51a"
+  },
+  "source_file_count": 215,
+  "source_tree": "7579c83e1dcc823d59b28bb19090d5d2c8e420a7"
+}

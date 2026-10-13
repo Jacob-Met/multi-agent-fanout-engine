@@ -1,0 +1,9 @@
+test_direct_rejection_preserves_exact_state_and_events (test_worker_identity.WorkerIdentityTests.test_direct_rejection_preserves_exact_state_and_events) ... ok
+test_dispatch_rejects_before_adapter_and_keeps_assignment_retryable (test_worker_identity.WorkerIdentityTests.test_dispatch_rejects_before_adapter_and_keeps_assignment_retryable) ... ok
+test_later_invalid_assignment_does_not_replay_an_earlier_dispatch (test_worker_identity.WorkerIdentityTests.test_later_invalid_assignment_does_not_replay_an_earlier_dispatch) ... ok
+test_valid_literals_survive_adapter_storage_events_and_cli_reopen (test_worker_identity.WorkerIdentityTests.test_valid_literals_survive_adapter_storage_events_and_cli_reopen) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.424s
+
+OK

@@ -1,0 +1,227 @@
+{
+  "schema": "hamon.plan-identity-current-main-static-receiving.v1",
+  "reviewer": "shared_delivery / team 37ede76e2734",
+  "reviewed_at_utc": "2026-10-13 00:45:34 UTC",
+  "accepted": true,
+  "product_code_executed": false,
+  "source_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+  "source_tree": "7579c83e1dcc823d59b28bb19090d5d2c8e420a7",
+  "ordered_parents": [
+    "c86113dd09ff17d0c606b390b693caddb967f8b1",
+    "d94e560f85028dca0d8798d16b377f72f562618a"
+  ],
+  "method": "Independent complete-tree union and full-source method-splice comparison against fetched immutable Git inputs. No source execution, behavior-suite replay, merge or installed adoption.",
+  "checks": [
+    {
+      "id": "complete_recursive_trees",
+      "pass": true,
+      "details": [
+        {
+          "key": "old_qualified",
+          "tree": "7bd39e71496fcab4c37aa42950b7db1b8504c0c5",
+          "leaf_count": 211
+        },
+        {
+          "key": "prior",
+          "tree": "b3b423b660660eb8ab708f1bd211ef065f90fa1a",
+          "leaf_count": 213
+        },
+        {
+          "key": "main",
+          "tree": "3fb6e4e2635c49d2cd4d0a4ed0e6574044f8cffa",
+          "leaf_count": 184
+        },
+        {
+          "key": "source",
+          "tree": "7579c83e1dcc823d59b28bb19090d5d2c8e420a7",
+          "leaf_count": 215
+        }
+      ]
+    },
+    {
+      "id": "source_identity_and_ordered_parents",
+      "pass": true,
+      "details": {
+        "source": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+        "tree": "7579c83e1dcc823d59b28bb19090d5d2c8e420a7",
+        "parents": [
+          "c86113dd09ff17d0c606b390b693caddb967f8b1",
+          "d94e560f85028dca0d8798d16b377f72f562618a"
+        ]
+      }
+    },
+    {
+      "id": "prior_evidence_child_identity",
+      "pass": true,
+      "details": {
+        "commit": "d94e560f85028dca0d8798d16b377f72f562618a",
+        "tree": "b3b423b660660eb8ab708f1bd211ef065f90fa1a",
+        "parents": [
+          "da12e1b9b88dad28dc5b5409b85d3d3019e2fe3a"
+        ]
+      }
+    },
+    {
+      "id": "prior_followup_scope_only_three_evidence_paths",
+      "pass": true,
+      "details": [
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/README.md",
+          "status": "modified",
+          "blob": "a94d09a7b0fdf75a9fca9e94f15e94ed6366d2e1"
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/independent-composition-review.json",
+          "status": "added",
+          "blob": "6b4079915e8c094dbf7d56bd8f3806c6491c9248"
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/workflow-demo.json",
+          "status": "added",
+          "blob": "a367ac06c3d6c3e74ef293c299b737e659167641"
+        }
+      ]
+    },
+    {
+      "id": "old_qualified_leaves_preserved_except_receiving_readme",
+      "pass": true,
+      "details": {
+        "preserved_leaves": 210
+      }
+    },
+    {
+      "id": "prior_static_acceptance_exact",
+      "pass": true,
+      "details": "The original 27-check static receipt remains unchanged and keeps its exact da12/b033/23da scope."
+    },
+    {
+      "id": "prior_demo_scope_stays_original_source",
+      "pass": true,
+      "details": {
+        "demo_blob": "a367ac06c3d6c3e74ef293c299b737e659167641",
+        "scope": "Retained original tree's local demo; no current-main runtime result inferred."
+      }
+    },
+    {
+      "id": "new_main_identity",
+      "pass": true,
+      "details": {
+        "commit": "c86113dd09ff17d0c606b390b693caddb967f8b1",
+        "tree": "3fb6e4e2635c49d2cd4d0a4ed0e6574044f8cffa"
+      }
+    },
+    {
+      "id": "new_main_delta_exact_three_paths",
+      "pass": true,
+      "details": [
+        {
+          "path": "docs/dispatch-worker-identity.md",
+          "status": "added",
+          "blob": "211c83f8debc773411385cffd20d4ede2c1b0285"
+        },
+        {
+          "path": "fanout_engine/ledger.py",
+          "status": "modified",
+          "blob": "0e82ccd66eee496a2ba26fe262f3032e7fe5ece2"
+        },
+        {
+          "path": "tests/test_worker_identity.py",
+          "status": "added",
+          "blob": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637"
+        }
+      ]
+    },
+    {
+      "id": "source_delta_from_prior_exact_new_main_union",
+      "pass": true,
+      "details": [
+        "docs/dispatch-worker-identity.md",
+        "fanout_engine/ledger.py",
+        "tests/test_worker_identity.py"
+      ]
+    },
+    {
+      "id": "all_other_prior_leaves_preserved",
+      "pass": true,
+      "details": {
+        "preserved_prior_leaves": 212
+      }
+    },
+    {
+      "id": "new_main_guide_and_test_exact",
+      "pass": true,
+      "details": [
+        {
+          "path": "docs/dispatch-worker-identity.md",
+          "blob": "211c83f8debc773411385cffd20d4ede2c1b0285",
+          "mode": "100644"
+        },
+        {
+          "path": "tests/test_worker_identity.py",
+          "blob": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "whole_combined_ledger_equals_exact_method_splice",
+      "pass": true,
+      "details": {
+        "prior_blob": "627ece1c327b6a15eb47f25b3e7041c371e4d558",
+        "current_main_blob": "0e82ccd66eee496a2ba26fe262f3032e7fe5ece2",
+        "combined_blob": "01c2f7845cad6f92152f797bbad8f4e791cc7273",
+        "method": "mark_dispatching",
+        "comparison": "Complete fetched source text equals prior accepted ledger after replacing only its unique mark_dispatching method span with the exact current-main span."
+      }
+    },
+    {
+      "id": "record_plan_preserved_exact",
+      "pass": true,
+      "details": "The entire accepted PR48 record_plan method span is unchanged."
+    },
+    {
+      "id": "mark_dispatching_preserved_from_current_main",
+      "pass": true,
+      "details": "The entire merged PR52 mark_dispatching method span is unchanged."
+    },
+    {
+      "id": "combined_ledger_tree_admission",
+      "pass": true,
+      "details": {
+        "blob": "01c2f7845cad6f92152f797bbad8f4e791cc7273",
+        "mode": "100644",
+        "type": "blob"
+      }
+    },
+    {
+      "id": "complete_tree_reconstructed_without_other_changes",
+      "pass": true,
+      "details": {
+        "leaves": 215
+      }
+    },
+    {
+      "id": "preview_and_dispatch_original_acceptance_pins",
+      "pass": true,
+      "details": {
+        "preview": "71dabb931a1adafd7ff449b53d3a1223e08e290d",
+        "dispatch": "bec8a82063dc06653128f155b8487428847b73c2"
+      }
+    },
+    {
+      "id": "unowned_new_main_files_preserved",
+      "pass": true,
+      "details": {
+        "preserved_new_main_leaves": 180,
+        "includes_worker_identity_guide_and_tests": true
+      }
+    }
+  ],
+  "prior_static_receipt": "6b4079915e8c094dbf7d56bd8f3806c6491c9248",
+  "runtime_evidence_scope": "The author's separate selected current-main runtime course is not claimed as this reviewer's execution. The older full 202-method course and prior demo retain their original source pins.",
+  "limits": [
+    "Accepts only de72b62cac3f2d783691b7dfe39800e658b0800b with exact tree 7579c83e1dcc823d59b28bb19090d5d2c8e420a7 and ordered parents above.",
+    "Whole-source equality proves the composition does not alter other ledger bytes; it is a static composition result.",
+    "Root retains source integration and installed-consumer authority; later main revisions need separate reconciliation."
+  ]
+}
