@@ -1,0 +1,529 @@
+{
+  "schema": 1,
+  "started_at_utc": "2026-10-13T07:38:01Z",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Python314\\python.exe",
+  "candidate": "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\candidate",
+  "oracle": "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle",
+  "browser_path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "checks": [
+    {
+      "name": "normal: exit",
+      "passed": true,
+      "detail": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "name": "normal: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "normal: stderr empty",
+      "passed": true
+    },
+    {
+      "name": "normal: complete output",
+      "passed": true
+    },
+    {
+      "name": "optimized: exit",
+      "passed": true,
+      "detail": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "name": "optimized: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "optimized: stderr empty",
+      "passed": true
+    },
+    {
+      "name": "optimized: complete output",
+      "passed": true
+    },
+    {
+      "name": "normal and -O exact HTML",
+      "passed": true
+    },
+    {
+      "name": "occupied-output: exit",
+      "passed": true,
+      "detail": {
+        "expected": 1,
+        "actual": 1
+      }
+    },
+    {
+      "name": "occupied-output: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "occupied-output: diagnostic",
+      "passed": true
+    },
+    {
+      "name": "occupied output preserved",
+      "passed": true
+    },
+    {
+      "name": "database-output: exit",
+      "passed": true,
+      "detail": {
+        "expected": 1,
+        "actual": 1
+      }
+    },
+    {
+      "name": "database-output: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "database-output: diagnostic",
+      "passed": true
+    },
+    {
+      "name": "sidecar absent initially",
+      "passed": true
+    },
+    {
+      "name": "reserved-sidecar: exit",
+      "passed": true,
+      "detail": {
+        "expected": 1,
+        "actual": 1
+      }
+    },
+    {
+      "name": "reserved-sidecar: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "reserved-sidecar: diagnostic",
+      "passed": true
+    },
+    {
+      "name": "sidecar not created",
+      "passed": true
+    },
+    {
+      "name": "absent-project: exit",
+      "passed": true,
+      "detail": {
+        "expected": 3,
+        "actual": 3
+      }
+    },
+    {
+      "name": "absent-project: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "absent-project: diagnostic",
+      "passed": true
+    },
+    {
+      "name": "absent project publishes nothing",
+      "passed": true
+    },
+    {
+      "name": "late-malformed: exit",
+      "passed": true,
+      "detail": {
+        "expected": 2,
+        "actual": 2
+      }
+    },
+    {
+      "name": "late-malformed: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "late-malformed: diagnostic",
+      "passed": true
+    },
+    {
+      "name": "late bad record leaves no partial HTML",
+      "passed": true
+    },
+    {
+      "name": "late bad input preserved",
+      "passed": true
+    },
+    {
+      "name": "recovery: exit",
+      "passed": true,
+      "detail": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "name": "recovery: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "recovery: stderr empty",
+      "passed": true
+    },
+    {
+      "name": "recovery: complete output",
+      "passed": true
+    },
+    {
+      "name": "recovery HTML exact",
+      "passed": true
+    },
+    {
+      "name": "help: exit",
+      "passed": true,
+      "detail": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "name": "help: stdout empty",
+      "passed": true
+    },
+    {
+      "name": "page has exact project identity",
+      "passed": true
+    },
+    {
+      "name": "page has exact native plan digest",
+      "passed": true
+    },
+    {
+      "name": "full literal Unicode/control instruction",
+      "passed": true
+    },
+    {
+      "name": "literal markup did not become an element",
+      "passed": true
+    },
+    {
+      "name": "evidence locator remains visible text",
+      "passed": true
+    },
+    {
+      "name": "evidence finding remains visible text",
+      "passed": false
+    }
+  ],
+  "processes": [
+    {
+      "name": "normal",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\received # % \u03bb.html"
+      ],
+      "exit": 0,
+      "stdout": "01-normal.stdout",
+      "stderr": "01-normal.stderr"
+    },
+    {
+      "name": "optimized",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-O",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\optimized.html"
+      ],
+      "exit": 0,
+      "stdout": "02-optimized.stdout",
+      "stderr": "02-optimized.stderr"
+    },
+    {
+      "name": "occupied-output",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\received # % \u03bb.html"
+      ],
+      "exit": 1,
+      "stdout": "03-occupied-output.stdout",
+      "stderr": "03-occupied-output.stderr"
+    },
+    {
+      "name": "database-output",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3"
+      ],
+      "exit": 1,
+      "stdout": "04-database-output.stdout",
+      "stderr": "04-database-output.stderr"
+    },
+    {
+      "name": "reserved-sidecar",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3-wal"
+      ],
+      "exit": 1,
+      "stdout": "05-reserved-sidecar.stdout",
+      "stderr": "05-reserved-sidecar.stderr"
+    },
+    {
+      "name": "absent-project",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "absent",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\absent-project.html"
+      ],
+      "exit": 3,
+      "stdout": "06-absent-project.stdout",
+      "stderr": "06-absent-project.stderr"
+    },
+    {
+      "name": "late-malformed",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\bad.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\bad.html"
+      ],
+      "exit": 2,
+      "stdout": "07-late-malformed.stdout",
+      "stderr": "07-late-malformed.stderr"
+    },
+    {
+      "name": "recovery",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--database",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\oracle\\authored # % \u03bb.sqlite3",
+        "--project",
+        "browser-review",
+        "--output",
+        "C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receiving\\recovery.html"
+      ],
+      "exit": 0,
+      "stdout": "08-recovery.stdout",
+      "stderr": "08-recovery.stderr"
+    },
+    {
+      "name": "help",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "fanout_engine.review",
+        "--help"
+      ],
+      "exit": 0,
+      "stdout": "09-help.stdout",
+      "stderr": "09-help.stderr"
+    }
+  ],
+  "browser_courses": [],
+  "qualification": "FAILED",
+  "source_before": {
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "bytes": 6671,
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 17553,
+      "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/projects.py": {
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+    },
+    "fanout_engine/review.py": {
+      "bytes": 8720,
+      "sha256": "c388dfb97122bb1ec549a2eba4645bdfaa2fa085bfc13d1e1a2d3a4f401a5c61"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "oracle_before": {
+    "authored # % \u03bb.sqlite3": {
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    "expectations.json": {
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    "expected.json": {
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    "plan.json": {
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    }
+  },
+  "browser_version": "154.0.4258.37",
+  "error": {
+    "type": "ValueError",
+    "message": "evidence finding remains visible text",
+    "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receive_review.py\", line 135, in main\n    check(\"evidence finding remains visible text\", display(anchors[\"evidence\"][\"finding\"]) in body)\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jacob\\hamon-receiving\\fanout-review-0d581b491497-20261013\\receive_review.py\", line 59, in check\n    raise ValueError(name)\nValueError: evidence finding remains visible text\n"
+  },
+  "source_after": {
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "bytes": 6671,
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 17553,
+      "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/projects.py": {
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4"
+    },
+    "fanout_engine/review.py": {
+      "bytes": 8720,
+      "sha256": "c388dfb97122bb1ec549a2eba4645bdfaa2fa085bfc13d1e1a2d3a4f401a5c61"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "oracle_after": {
+    "authored # % \u03bb.sqlite3": {
+      "bytes": 32768,
+      "sha256": "f767b66314c880dce8ee68cc6d1e704bbf32587e4b2bd4cf7eafc61fb7f024e3"
+    },
+    "expectations.json": {
+      "bytes": 1102,
+      "sha256": "2fa46c173453513f58b6df4d5d5db364203910fd2cd3e08910c6af5a55976809"
+    },
+    "expected.json": {
+      "bytes": 4678,
+      "sha256": "f26828075eab772cf7cdb3209343e4ce4390aad4c7a5bd3677c4d41102896203"
+    },
+    "plan.json": {
+      "bytes": 986,
+      "sha256": "2d2581d25d95f130acf331da813996416f038935d583b421135968757c071fd7"
+    }
+  },
+  "source_unchanged": true,
+  "oracle_unchanged": true,
+  "passed_checks": 42,
+  "failed_checks": 1,
+  "finished_at_utc": "2026-10-13T07:38:07Z"
+}
