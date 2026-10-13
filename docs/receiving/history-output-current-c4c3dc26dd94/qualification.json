@@ -1,0 +1,1006 @@
+{
+  "base": "d890ec5fad8650777cc2c1972088bef00fc1104f",
+  "owner_head": "f131d49bbc3d8be3788a437867a1e5141b25af64",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "scope": "nine-file current runtime projection; four owned-fixture output behaviors plus full/selected stdout and seed controls; no maintained matrix, native, installed or live-ledger course",
+  "courses": [
+    {
+      "name": "original",
+      "expected_reports": {
+        "full": {
+          "schema_version": 1,
+          "project_id": "sample",
+          "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223",
+          "part_id": null,
+          "events": [
+            {
+              "seq": 1,
+              "project_id": "sample",
+              "part_id": null,
+              "event": "plan_recorded",
+              "detail_json": "{\"part_count\":2,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"}",
+              "at": -1.0,
+              "detail": {
+                "part_count": 2,
+                "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223"
+              }
+            },
+            {
+              "seq": 2,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_started",
+              "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"}",
+              "at": -2.0,
+              "detail": {
+                "route": {
+                  "effort": "high",
+                  "model": "local-fixture"
+                },
+                "worker_id": "fixture-worker"
+              }
+            },
+            {
+              "seq": 3,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_accepted",
+              "detail_json": "{\"task_id\":\"fixture-task\"}",
+              "at": -3.0,
+              "detail": {
+                "task_id": "fixture-task"
+              }
+            },
+            {
+              "seq": 4,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "completed",
+              "detail_json": "{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}}",
+              "at": -4.0,
+              "detail": {
+                "artifact_ref": "fixture://résumé",
+                "evidence": {
+                  "finding": "Authored completion.",
+                  "locator": "fixture://work",
+                  "source": "fixture"
+                }
+              }
+            }
+          ]
+        },
+        "selected": {
+          "schema_version": 1,
+          "project_id": "sample",
+          "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223",
+          "part_id": "work",
+          "events": [
+            {
+              "seq": 2,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_started",
+              "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"}",
+              "at": -2.0,
+              "detail": {
+                "route": {
+                  "effort": "high",
+                  "model": "local-fixture"
+                },
+                "worker_id": "fixture-worker"
+              }
+            },
+            {
+              "seq": 3,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_accepted",
+              "detail_json": "{\"task_id\":\"fixture-task\"}",
+              "at": -3.0,
+              "detail": {
+                "task_id": "fixture-task"
+              }
+            },
+            {
+              "seq": 4,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "completed",
+              "detail_json": "{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}}",
+              "at": -4.0,
+              "detail": {
+                "artifact_ref": "fixture://résumé",
+                "evidence": {
+                  "finding": "Authored completion.",
+                  "locator": "fixture://work",
+                  "source": "fixture"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "seed": {
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-S",
+          "-B",
+          "seed.py"
+        ],
+        "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+        "pid": 5,
+        "exit": 0,
+        "reaped": true,
+        "timed_out": false,
+        "seconds": 0.4472513569999137,
+        "stdout": "{\"full\": {\"schema_version\": 1, \"project_id\": \"sample\", \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\", \"part_id\": null, \"events\": [{\"seq\": 1, \"project_id\": \"sample\", \"part_id\": null, \"event\": \"plan_recorded\", \"detail_json\": \"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\\\"}\", \"at\": -1.0, \"detail\": {\"part_count\": 2, \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"}}, {\"seq\": 2, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_started\", \"detail_json\": \"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\", \"at\": -2.0, \"detail\": {\"route\": {\"effort\": \"high\", \"model\": \"local-fixture\"}, \"worker_id\": \"fixture-worker\"}}, {\"seq\": 3, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_accepted\", \"detail_json\": \"{\\\"task_id\\\":\\\"fixture-task\\\"}\", \"at\": -3.0, \"detail\": {\"task_id\": \"fixture-task\"}}, {\"seq\": 4, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"completed\", \"detail_json\": \"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\", \"at\": -4.0, \"detail\": {\"artifact_ref\": \"fixture://résumé\", \"evidence\": {\"finding\": \"Authored completion.\", \"locator\": \"fixture://work\", \"source\": \"fixture\"}}}]}, \"selected\": {\"schema_version\": 1, \"project_id\": \"sample\", \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\", \"part_id\": \"work\", \"events\": [{\"seq\": 2, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_started\", \"detail_json\": \"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\", \"at\": -2.0, \"detail\": {\"route\": {\"effort\": \"high\", \"model\": \"local-fixture\"}, \"worker_id\": \"fixture-worker\"}}, {\"seq\": 3, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_accepted\", \"detail_json\": \"{\\\"task_id\\\":\\\"fixture-task\\\"}\", \"at\": -3.0, \"detail\": {\"task_id\": \"fixture-task\"}}, {\"seq\": 4, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"completed\", \"detail_json\": \"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\", \"at\": -4.0, \"detail\": {\"artifact_ref\": \"fixture://résumé\", \"evidence\": {\"finding\": \"Authored completion.\", \"locator\": \"fixture://work\", \"source\": \"fixture\"}}}]}}\n",
+        "stderr": ""
+      },
+      "stdout_controls": [
+        {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.history",
+            "--database",
+            "fixtures/selected.sqlite3",
+            "--project",
+            "sample"
+          ],
+          "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+          "pid": 6,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.33564876099990215,
+          "stdout": "{\"events\":[{\"at\":-1.0,\"detail\":{\"part_count\":2,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"},\"detail_json\":\"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\\\"}\",\"event\":\"plan_recorded\",\"part_id\":null,\"project_id\":\"sample\",\"seq\":1},{\"at\":-2.0,\"detail\":{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":2},{\"at\":-3.0,\"detail\":{\"task_id\":\"fixture-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"fixture-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":3},{\"at\":-4.0,\"detail\":{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}},\"detail_json\":\"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\",\"event\":\"completed\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":4}],\"part_id\":null,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\",\"project_id\":\"sample\",\"schema_version\":1}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.history",
+            "--database",
+            "fixtures/selected.sqlite3",
+            "--project",
+            "sample",
+            "--part",
+            "work"
+          ],
+          "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+          "pid": 7,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.45675406500049576,
+          "stdout": "{\"events\":[{\"at\":-2.0,\"detail\":{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":2},{\"at\":-3.0,\"detail\":{\"task_id\":\"fixture-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"fixture-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":3},{\"at\":-4.0,\"detail\":{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}},\"detail_json\":\"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\",\"event\":\"completed\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":4}],\"part_id\":\"work\",\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\",\"project_id\":\"sample\",\"schema_version\":1}\n",
+          "stderr": ""
+        }
+      ],
+      "cases": [
+        {
+          "name": "selected_new_file",
+          "desired_pass": false,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--part",
+              "work",
+              "--output",
+              "fixtures/history résumé.json"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+            "pid": 8,
+            "exit": 2,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.35183801500079426,
+            "stdout": "",
+            "stderr": "usage: history.py [-h] --database DATABASE --project PROJECT [--part PART]\nhistory.py: error: unrecognized arguments: --output fixtures/history résumé.json\n"
+          },
+          "output_present": false
+        },
+        {
+          "name": "occupied_file",
+          "desired_pass": false,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--output",
+              "fixtures/occupied.json"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+            "pid": 9,
+            "exit": 2,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.33621673800007557,
+            "stdout": "",
+            "stderr": "usage: history.py [-h] --database DATABASE --project PROJECT [--part PART]\nhistory.py: error: unrecognized arguments: --output fixtures/occupied.json\n"
+          }
+        },
+        {
+          "name": "selected_absent_wal",
+          "desired_pass": false,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--output",
+              "fixtures/selected.sqlite3-wal"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+            "pid": 10,
+            "exit": 2,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.22434585300015897,
+            "stdout": "",
+            "stderr": "usage: history.py [-h] --database DATABASE --project PROJECT [--part PART]\nhistory.py: error: unrecognized arguments: --output fixtures/selected.sqlite3-wal\n"
+          },
+          "output_present": false
+        },
+        {
+          "name": "invalid_excluded_event_precedence",
+          "desired_pass": false,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/invalid.sqlite3",
+              "--project",
+              "sample",
+              "--part",
+              "pending",
+              "--output",
+              "fixtures/invalid.sqlite3-wal"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/original",
+            "pid": 11,
+            "exit": 2,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.39249257699975715,
+            "stdout": "",
+            "stderr": "usage: history.py [-h] --database DATABASE --project PROJECT [--part PART]\nhistory.py: error: unrecognized arguments: --output fixtures/invalid.sqlite3-wal\n"
+          },
+          "output_present": false
+        }
+      ],
+      "desired_passes": 0,
+      "source_before": {
+        "fanout_engine/__init__.py": {
+          "bytes": 613,
+          "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+          "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+          "inode": 21,
+          "mode": 33188,
+          "mtime_ns": 1791915945558401568
+        },
+        "fanout_engine/dispatch.py": {
+          "bytes": 4599,
+          "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+          "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+          "inode": 22,
+          "mode": 33188,
+          "mtime_ns": 1791915945558464000
+        },
+        "fanout_engine/inspection.py": {
+          "bytes": 6055,
+          "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+          "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+          "inode": 23,
+          "mode": 33188,
+          "mtime_ns": 1791915945558644383
+        },
+        "fanout_engine/ledger.py": {
+          "bytes": 19340,
+          "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+          "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+          "inode": 24,
+          "mode": 33188,
+          "mtime_ns": 1791915945558818862
+        },
+        "fanout_engine/plan.py": {
+          "bytes": 7513,
+          "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+          "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+          "inode": 25,
+          "mode": 33188,
+          "mtime_ns": 1791915945559178020
+        },
+        "fanout_engine/routing.py": {
+          "bytes": 2818,
+          "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+          "git": "436a9f014caf69960fce67de28c062a431805b99",
+          "inode": 26,
+          "mode": 33188,
+          "mtime_ns": 1791915945559312451
+        },
+        "fanout_engine/inspect.py": {
+          "bytes": 4178,
+          "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+          "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+          "inode": 27,
+          "mode": 33188,
+          "mtime_ns": 1791915945559352590
+        },
+        "fanout_engine/preview.py": {
+          "bytes": 9462,
+          "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+          "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+          "inode": 28,
+          "mode": 33188,
+          "mtime_ns": 1791915945559394474
+        },
+        "fanout_engine/history.py": {
+          "bytes": 4243,
+          "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+          "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+          "inode": 29,
+          "mode": 33188,
+          "mtime_ns": 1791915945559670809
+        }
+      },
+      "source_after": {
+        "fanout_engine/__init__.py": {
+          "bytes": 613,
+          "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+          "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+          "inode": 21,
+          "mode": 33188,
+          "mtime_ns": 1791915945558401568
+        },
+        "fanout_engine/dispatch.py": {
+          "bytes": 4599,
+          "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+          "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+          "inode": 22,
+          "mode": 33188,
+          "mtime_ns": 1791915945558464000
+        },
+        "fanout_engine/inspection.py": {
+          "bytes": 6055,
+          "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+          "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+          "inode": 23,
+          "mode": 33188,
+          "mtime_ns": 1791915945558644383
+        },
+        "fanout_engine/ledger.py": {
+          "bytes": 19340,
+          "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+          "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+          "inode": 24,
+          "mode": 33188,
+          "mtime_ns": 1791915945558818862
+        },
+        "fanout_engine/plan.py": {
+          "bytes": 7513,
+          "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+          "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+          "inode": 25,
+          "mode": 33188,
+          "mtime_ns": 1791915945559178020
+        },
+        "fanout_engine/routing.py": {
+          "bytes": 2818,
+          "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+          "git": "436a9f014caf69960fce67de28c062a431805b99",
+          "inode": 26,
+          "mode": 33188,
+          "mtime_ns": 1791915945559312451
+        },
+        "fanout_engine/inspect.py": {
+          "bytes": 4178,
+          "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+          "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+          "inode": 27,
+          "mode": 33188,
+          "mtime_ns": 1791915945559352590
+        },
+        "fanout_engine/preview.py": {
+          "bytes": 9462,
+          "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+          "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+          "inode": 28,
+          "mode": 33188,
+          "mtime_ns": 1791915945559394474
+        },
+        "fanout_engine/history.py": {
+          "bytes": 4243,
+          "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+          "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+          "inode": 29,
+          "mode": 33188,
+          "mtime_ns": 1791915945559670809
+        }
+      },
+      "fixtures_before": {
+        "selected.sqlite3": {
+          "bytes": 32768,
+          "sha256": "3dedcd8caf148b623a39506b0bf8ae97d1702d19f69d58222b4a4cc96f576fb0",
+          "git": "5cc4c517bb562b7ea093e36b5ddf10e2a2c19e9a",
+          "inode": 32,
+          "mode": 33188,
+          "mtime_ns": 1791915945918481573
+        },
+        "invalid.sqlite3": {
+          "bytes": 32768,
+          "sha256": "f9c88cc51b67b500231b3baff5e45c35a3b03a1b4f3b0edc458462525fccdd67",
+          "git": "b78eed34b1ec5e3f9550b248efe2b6721783c0e5",
+          "inode": 42,
+          "mode": 33188,
+          "mtime_ns": 1791915945920008167
+        },
+        "occupied.json": {
+          "bytes": 25,
+          "sha256": "c9a78c71f9296e2a07eae27221ca242686140e130d3d6dbc04f07936e7e4f120",
+          "git": "7c0188b191838676e9fe0b32d4199f7f8c1c2097",
+          "inode": 44,
+          "mode": 33188,
+          "mtime_ns": 1791915945920454191
+        }
+      },
+      "fixtures_after": {
+        "selected.sqlite3": {
+          "bytes": 32768,
+          "sha256": "3dedcd8caf148b623a39506b0bf8ae97d1702d19f69d58222b4a4cc96f576fb0",
+          "git": "5cc4c517bb562b7ea093e36b5ddf10e2a2c19e9a",
+          "inode": 32,
+          "mode": 33188,
+          "mtime_ns": 1791915945918481573
+        },
+        "invalid.sqlite3": {
+          "bytes": 32768,
+          "sha256": "f9c88cc51b67b500231b3baff5e45c35a3b03a1b4f3b0edc458462525fccdd67",
+          "git": "b78eed34b1ec5e3f9550b248efe2b6721783c0e5",
+          "inode": 42,
+          "mode": 33188,
+          "mtime_ns": 1791915945920008167
+        },
+        "occupied.json": {
+          "bytes": 25,
+          "sha256": "c9a78c71f9296e2a07eae27221ca242686140e130d3d6dbc04f07936e7e4f120",
+          "git": "7c0188b191838676e9fe0b32d4199f7f8c1c2097",
+          "inode": 44,
+          "mode": 33188,
+          "mtime_ns": 1791915945920454191
+        }
+      },
+      "source_and_fixture_identities_unchanged": true
+    },
+    {
+      "name": "candidate",
+      "expected_reports": {
+        "full": {
+          "schema_version": 1,
+          "project_id": "sample",
+          "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223",
+          "part_id": null,
+          "events": [
+            {
+              "seq": 1,
+              "project_id": "sample",
+              "part_id": null,
+              "event": "plan_recorded",
+              "detail_json": "{\"part_count\":2,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"}",
+              "at": -1.0,
+              "detail": {
+                "part_count": 2,
+                "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223"
+              }
+            },
+            {
+              "seq": 2,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_started",
+              "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"}",
+              "at": -2.0,
+              "detail": {
+                "route": {
+                  "effort": "high",
+                  "model": "local-fixture"
+                },
+                "worker_id": "fixture-worker"
+              }
+            },
+            {
+              "seq": 3,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_accepted",
+              "detail_json": "{\"task_id\":\"fixture-task\"}",
+              "at": -3.0,
+              "detail": {
+                "task_id": "fixture-task"
+              }
+            },
+            {
+              "seq": 4,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "completed",
+              "detail_json": "{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}}",
+              "at": -4.0,
+              "detail": {
+                "artifact_ref": "fixture://résumé",
+                "evidence": {
+                  "finding": "Authored completion.",
+                  "locator": "fixture://work",
+                  "source": "fixture"
+                }
+              }
+            }
+          ]
+        },
+        "selected": {
+          "schema_version": 1,
+          "project_id": "sample",
+          "plan_digest": "c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223",
+          "part_id": "work",
+          "events": [
+            {
+              "seq": 2,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_started",
+              "detail_json": "{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"}",
+              "at": -2.0,
+              "detail": {
+                "route": {
+                  "effort": "high",
+                  "model": "local-fixture"
+                },
+                "worker_id": "fixture-worker"
+              }
+            },
+            {
+              "seq": 3,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "dispatch_accepted",
+              "detail_json": "{\"task_id\":\"fixture-task\"}",
+              "at": -3.0,
+              "detail": {
+                "task_id": "fixture-task"
+              }
+            },
+            {
+              "seq": 4,
+              "project_id": "sample",
+              "part_id": "work",
+              "event": "completed",
+              "detail_json": "{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}}",
+              "at": -4.0,
+              "detail": {
+                "artifact_ref": "fixture://résumé",
+                "evidence": {
+                  "finding": "Authored completion.",
+                  "locator": "fixture://work",
+                  "source": "fixture"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "seed": {
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-S",
+          "-B",
+          "seed.py"
+        ],
+        "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+        "pid": 12,
+        "exit": 0,
+        "reaped": true,
+        "timed_out": false,
+        "seconds": 0.29806522499984567,
+        "stdout": "{\"full\": {\"schema_version\": 1, \"project_id\": \"sample\", \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\", \"part_id\": null, \"events\": [{\"seq\": 1, \"project_id\": \"sample\", \"part_id\": null, \"event\": \"plan_recorded\", \"detail_json\": \"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\\\"}\", \"at\": -1.0, \"detail\": {\"part_count\": 2, \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"}}, {\"seq\": 2, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_started\", \"detail_json\": \"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\", \"at\": -2.0, \"detail\": {\"route\": {\"effort\": \"high\", \"model\": \"local-fixture\"}, \"worker_id\": \"fixture-worker\"}}, {\"seq\": 3, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_accepted\", \"detail_json\": \"{\\\"task_id\\\":\\\"fixture-task\\\"}\", \"at\": -3.0, \"detail\": {\"task_id\": \"fixture-task\"}}, {\"seq\": 4, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"completed\", \"detail_json\": \"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\", \"at\": -4.0, \"detail\": {\"artifact_ref\": \"fixture://résumé\", \"evidence\": {\"finding\": \"Authored completion.\", \"locator\": \"fixture://work\", \"source\": \"fixture\"}}}]}, \"selected\": {\"schema_version\": 1, \"project_id\": \"sample\", \"plan_digest\": \"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\", \"part_id\": \"work\", \"events\": [{\"seq\": 2, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_started\", \"detail_json\": \"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\", \"at\": -2.0, \"detail\": {\"route\": {\"effort\": \"high\", \"model\": \"local-fixture\"}, \"worker_id\": \"fixture-worker\"}}, {\"seq\": 3, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"dispatch_accepted\", \"detail_json\": \"{\\\"task_id\\\":\\\"fixture-task\\\"}\", \"at\": -3.0, \"detail\": {\"task_id\": \"fixture-task\"}}, {\"seq\": 4, \"project_id\": \"sample\", \"part_id\": \"work\", \"event\": \"completed\", \"detail_json\": \"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\", \"at\": -4.0, \"detail\": {\"artifact_ref\": \"fixture://résumé\", \"evidence\": {\"finding\": \"Authored completion.\", \"locator\": \"fixture://work\", \"source\": \"fixture\"}}}]}}\n",
+        "stderr": ""
+      },
+      "stdout_controls": [
+        {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.history",
+            "--database",
+            "fixtures/selected.sqlite3",
+            "--project",
+            "sample"
+          ],
+          "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+          "pid": 13,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.3199945470005332,
+          "stdout": "{\"events\":[{\"at\":-1.0,\"detail\":{\"part_count\":2,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\"},\"detail_json\":\"{\\\"part_count\\\":2,\\\"plan_digest\\\":\\\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\\\"}\",\"event\":\"plan_recorded\",\"part_id\":null,\"project_id\":\"sample\",\"seq\":1},{\"at\":-2.0,\"detail\":{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":2},{\"at\":-3.0,\"detail\":{\"task_id\":\"fixture-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"fixture-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":3},{\"at\":-4.0,\"detail\":{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}},\"detail_json\":\"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\",\"event\":\"completed\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":4}],\"part_id\":null,\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\",\"project_id\":\"sample\",\"schema_version\":1}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-S",
+            "-B",
+            "-m",
+            "fanout_engine.history",
+            "--database",
+            "fixtures/selected.sqlite3",
+            "--project",
+            "sample",
+            "--part",
+            "work"
+          ],
+          "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+          "pid": 14,
+          "exit": 0,
+          "reaped": true,
+          "timed_out": false,
+          "seconds": 0.3969263809995027,
+          "stdout": "{\"events\":[{\"at\":-2.0,\"detail\":{\"route\":{\"effort\":\"high\",\"model\":\"local-fixture\"},\"worker_id\":\"fixture-worker\"},\"detail_json\":\"{\\\"route\\\":{\\\"effort\\\":\\\"high\\\",\\\"model\\\":\\\"local-fixture\\\"},\\\"worker_id\\\":\\\"fixture-worker\\\"}\",\"event\":\"dispatch_started\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":2},{\"at\":-3.0,\"detail\":{\"task_id\":\"fixture-task\"},\"detail_json\":\"{\\\"task_id\\\":\\\"fixture-task\\\"}\",\"event\":\"dispatch_accepted\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":3},{\"at\":-4.0,\"detail\":{\"artifact_ref\":\"fixture://résumé\",\"evidence\":{\"finding\":\"Authored completion.\",\"locator\":\"fixture://work\",\"source\":\"fixture\"}},\"detail_json\":\"{\\\"artifact_ref\\\":\\\"fixture://résumé\\\",\\\"evidence\\\":{\\\"finding\\\":\\\"Authored completion.\\\",\\\"locator\\\":\\\"fixture://work\\\",\\\"source\\\":\\\"fixture\\\"}}\",\"event\":\"completed\",\"part_id\":\"work\",\"project_id\":\"sample\",\"seq\":4}],\"part_id\":\"work\",\"plan_digest\":\"c2b78aacfa4a16f7a272bba441da4ff26927df2cb0fdb740afaab1b8e5906223\",\"project_id\":\"sample\",\"schema_version\":1}\n",
+          "stderr": ""
+        }
+      ],
+      "cases": [
+        {
+          "name": "selected_new_file",
+          "desired_pass": true,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--part",
+              "work",
+              "--output",
+              "fixtures/history résumé.json"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+            "pid": 15,
+            "exit": 0,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.23330300700035878,
+            "stdout": "",
+            "stderr": ""
+          },
+          "output_present": true
+        },
+        {
+          "name": "occupied_file",
+          "desired_pass": true,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--output",
+              "fixtures/occupied.json"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+            "pid": 16,
+            "exit": 1,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.21551516099953005,
+            "stdout": "",
+            "stderr": "fanout history: cannot write report: output already exists; choose a new file\n"
+          }
+        },
+        {
+          "name": "selected_absent_wal",
+          "desired_pass": true,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/selected.sqlite3",
+              "--project",
+              "sample",
+              "--output",
+              "fixtures/selected.sqlite3-wal"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+            "pid": 17,
+            "exit": 1,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.24279140999988158,
+            "stdout": "",
+            "stderr": "fanout history: cannot write report: output is a database or SQLite sidecar path\n"
+          },
+          "output_present": false
+        },
+        {
+          "name": "invalid_excluded_event_precedence",
+          "desired_pass": true,
+          "process": {
+            "argv": [
+              "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+              "-S",
+              "-B",
+              "-m",
+              "fanout_engine.history",
+              "--database",
+              "fixtures/invalid.sqlite3",
+              "--project",
+              "sample",
+              "--part",
+              "pending",
+              "--output",
+              "fixtures/invalid.sqlite3-wal"
+            ],
+            "cwd": "/dev/estate-sources-fanout63-c4c3dc26dd94/candidate",
+            "pid": 18,
+            "exit": 2,
+            "reaped": true,
+            "timed_out": false,
+            "seconds": 0.2918937979993643,
+            "stdout": "",
+            "stderr": "fanout history: invalid_record: event 1 detail cannot be decoded as finite UTF-8 JSON\n"
+          },
+          "output_present": false
+        }
+      ],
+      "desired_passes": 4,
+      "source_before": {
+        "fanout_engine/__init__.py": {
+          "bytes": 613,
+          "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+          "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+          "inode": 61,
+          "mode": 33188,
+          "mtime_ns": 1791915948109856601
+        },
+        "fanout_engine/dispatch.py": {
+          "bytes": 4599,
+          "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+          "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+          "inode": 62,
+          "mode": 33188,
+          "mtime_ns": 1791915948109915503
+        },
+        "fanout_engine/inspection.py": {
+          "bytes": 6055,
+          "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+          "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+          "inode": 63,
+          "mode": 33188,
+          "mtime_ns": 1791915948109954746
+        },
+        "fanout_engine/ledger.py": {
+          "bytes": 19340,
+          "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+          "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+          "inode": 64,
+          "mode": 33188,
+          "mtime_ns": 1791915948110378811
+        },
+        "fanout_engine/plan.py": {
+          "bytes": 7513,
+          "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+          "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+          "inode": 65,
+          "mode": 33188,
+          "mtime_ns": 1791915948110426869
+        },
+        "fanout_engine/routing.py": {
+          "bytes": 2818,
+          "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+          "git": "436a9f014caf69960fce67de28c062a431805b99",
+          "inode": 66,
+          "mode": 33188,
+          "mtime_ns": 1791915948110453934
+        },
+        "fanout_engine/inspect.py": {
+          "bytes": 4178,
+          "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+          "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+          "inode": 67,
+          "mode": 33188,
+          "mtime_ns": 1791915948110483640
+        },
+        "fanout_engine/preview.py": {
+          "bytes": 9462,
+          "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+          "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+          "inode": 68,
+          "mode": 33188,
+          "mtime_ns": 1791915948110605639
+        },
+        "fanout_engine/history.py": {
+          "bytes": 4608,
+          "sha256": "92505bbbc6349b5ca2d1c7f58f98085a18c23b77cbc403f0e06ce2649da7c6ca",
+          "git": "73c067a3cca375d22221d6028669d7832abaa0da",
+          "inode": 69,
+          "mode": 33188,
+          "mtime_ns": 1791915948110636041
+        }
+      },
+      "source_after": {
+        "fanout_engine/__init__.py": {
+          "bytes": 613,
+          "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+          "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+          "inode": 61,
+          "mode": 33188,
+          "mtime_ns": 1791915948109856601
+        },
+        "fanout_engine/dispatch.py": {
+          "bytes": 4599,
+          "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+          "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+          "inode": 62,
+          "mode": 33188,
+          "mtime_ns": 1791915948109915503
+        },
+        "fanout_engine/inspection.py": {
+          "bytes": 6055,
+          "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+          "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+          "inode": 63,
+          "mode": 33188,
+          "mtime_ns": 1791915948109954746
+        },
+        "fanout_engine/ledger.py": {
+          "bytes": 19340,
+          "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+          "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51",
+          "inode": 64,
+          "mode": 33188,
+          "mtime_ns": 1791915948110378811
+        },
+        "fanout_engine/plan.py": {
+          "bytes": 7513,
+          "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+          "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+          "inode": 65,
+          "mode": 33188,
+          "mtime_ns": 1791915948110426869
+        },
+        "fanout_engine/routing.py": {
+          "bytes": 2818,
+          "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+          "git": "436a9f014caf69960fce67de28c062a431805b99",
+          "inode": 66,
+          "mode": 33188,
+          "mtime_ns": 1791915948110453934
+        },
+        "fanout_engine/inspect.py": {
+          "bytes": 4178,
+          "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+          "git": "39b697f715d03b75629c94d7ff72bd57873b2553",
+          "inode": 67,
+          "mode": 33188,
+          "mtime_ns": 1791915948110483640
+        },
+        "fanout_engine/preview.py": {
+          "bytes": 9462,
+          "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+          "git": "1e45891d6528559e2bf9368e5a63ddb93bee2027",
+          "inode": 68,
+          "mode": 33188,
+          "mtime_ns": 1791915948110605639
+        },
+        "fanout_engine/history.py": {
+          "bytes": 4608,
+          "sha256": "92505bbbc6349b5ca2d1c7f58f98085a18c23b77cbc403f0e06ce2649da7c6ca",
+          "git": "73c067a3cca375d22221d6028669d7832abaa0da",
+          "inode": 69,
+          "mode": 33188,
+          "mtime_ns": 1791915948110636041
+        }
+      },
+      "fixtures_before": {
+        "selected.sqlite3": {
+          "bytes": 32768,
+          "sha256": "8fb07fb6978bb99661b93aee553c82694436a68d561ccc3ea6b671a87160803e",
+          "git": "420a5d5687281930c5322a15abfb180d6926556b",
+          "inode": 72,
+          "mode": 33188,
+          "mtime_ns": 1791915948371858113
+        },
+        "invalid.sqlite3": {
+          "bytes": 32768,
+          "sha256": "e3f7ba1cda8b77ad1c3b64a759251c441fa10be2f425a6aaf073be8795a71098",
+          "git": "8ee10232306b35748b062fa71e190ba7d5d7c17d",
+          "inode": 82,
+          "mode": 33188,
+          "mtime_ns": 1791915948374134545
+        },
+        "occupied.json": {
+          "bytes": 25,
+          "sha256": "c9a78c71f9296e2a07eae27221ca242686140e130d3d6dbc04f07936e7e4f120",
+          "git": "7c0188b191838676e9fe0b32d4199f7f8c1c2097",
+          "inode": 84,
+          "mode": 33188,
+          "mtime_ns": 1791915948374420988
+        }
+      },
+      "fixtures_after": {
+        "selected.sqlite3": {
+          "bytes": 32768,
+          "sha256": "8fb07fb6978bb99661b93aee553c82694436a68d561ccc3ea6b671a87160803e",
+          "git": "420a5d5687281930c5322a15abfb180d6926556b",
+          "inode": 72,
+          "mode": 33188,
+          "mtime_ns": 1791915948371858113
+        },
+        "invalid.sqlite3": {
+          "bytes": 32768,
+          "sha256": "e3f7ba1cda8b77ad1c3b64a759251c441fa10be2f425a6aaf073be8795a71098",
+          "git": "8ee10232306b35748b062fa71e190ba7d5d7c17d",
+          "inode": 82,
+          "mode": 33188,
+          "mtime_ns": 1791915948374134545
+        },
+        "occupied.json": {
+          "bytes": 25,
+          "sha256": "c9a78c71f9296e2a07eae27221ca242686140e130d3d6dbc04f07936e7e4f120",
+          "git": "7c0188b191838676e9fe0b32d4199f7f8c1c2097",
+          "inode": 84,
+          "mode": 33188,
+          "mtime_ns": 1791915948374420988
+        }
+      },
+      "source_and_fixture_identities_unchanged": true
+    }
+  ],
+  "qualified": true
+}
