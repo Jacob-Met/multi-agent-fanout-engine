@@ -266,3 +266,18 @@ For a recorded part that has not been submitted, use the explicit existing-ledge
 [withdrawal command](docs/withdraw-queued-cli.md). It requires a database, project,
 part and three evidence arguments, preserves the native queued-only transition,
 and distinguishes a refusal from a confirmation-output failure after commit.
+
+
+## Explain what holds queued work
+
+```sh
+python -m fanout_engine.blockers --database "work/dispatch.sqlite3" --project sample
+```
+
+Follow incomplete dependencies through queued parts to the ready queued or
+already dispatched/failed/unknown work that currently holds them. The report
+also lists the distinct downstream queued parts affected by each frontier,
+preserving native order and state. It reads the existing validated project
+snapshot without dispatching or changing it. The
+[blocker guide](docs/inspect-blockers.md) defines the completed and in-flight
+cutoffs, Python helper, report fields and create-only export.
