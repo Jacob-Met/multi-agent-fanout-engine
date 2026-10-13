@@ -34,6 +34,26 @@ keys. Tests also reopen a temporary SQLite ledger and dispatch one ready part of
 a deep plan through a local adapter. The preview consumer's separate 256-part
 limit still applies.
 
+## Run a retained local handoff
+
+The [retained handoff example](examples/retained_handoff/README.md) produces an
+audit, inventory, receiving notes, summary and final handoff from three authored
+local files. It carries an unreadable acknowledgement across fresh processes,
+continues independent work and reconciles the exact completion journal before
+finishing dependent work.
+
+From the repository root, choose an output directory that does not exist:
+
+```sh
+python3 -I -B examples/retained_handoff/run_consumer.py --output ../fanout-handoff-run
+python3 -I -B examples/retained_handoff/receive_history_cli.py --run ../fanout-handoff-run
+```
+
+The second command checks the complete retained project and audit timelines
+through the native history CLI. The guide explains the saved artifacts,
+source checks and interrupted-run handling. All work uses the authored local
+adapter; the route labels do not invoke a model provider or remote worker.
+
 ## Minimal integration shape
 
 ```python
