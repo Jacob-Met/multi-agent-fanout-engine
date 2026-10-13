@@ -20,26 +20,30 @@ class LedgerError(RuntimeError):
 class Ledger:
     def __init__(self, database: str = ":memory:") -> None:
         self._db = sqlite3.connect(database, timeout=10, isolation_level=None)
-        self._db.row_factory = sqlite3.Row
-        self._db.execute("PRAGMA foreign_keys=ON")
-        self._db.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS projects(
-                project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
-            CREATE TABLE IF NOT EXISTS parts(
-                project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
-                payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
-                state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
-                worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
-                evidence_json TEXT, updated_at REAL NOT NULL,
-                PRIMARY KEY(project_id,part_id),
-                FOREIGN KEY(project_id) REFERENCES projects(project_id));
-            CREATE TABLE IF NOT EXISTS events(
-                seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
-                part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
-            CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
-            """
-        )
+        try:
+            self._db.row_factory = sqlite3.Row
+            self._db.execute("PRAGMA foreign_keys=ON")
+            self._db.executescript(
+                """
+                CREATE TABLE IF NOT EXISTS projects(
+                    project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS parts(
+                    project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
+                    payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
+                    state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
+                    worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
+                    evidence_json TEXT, updated_at REAL NOT NULL,
+                    PRIMARY KEY(project_id,part_id),
+                    FOREIGN KEY(project_id) REFERENCES projects(project_id));
+                CREATE TABLE IF NOT EXISTS events(
+                    seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
+                    part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
+                CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
+                """
+            )
+        except BaseException:
+            self._db.close()
+            raise
 
     @classmethod
     def open_readonly(cls, database: str | Path) -> "Ledger":
@@ -102,6 +106,19 @@ class Ledger:
         if row is None:
             raise LedgerError("part is not in the ledger")
         return row
+
+    def project_catalog_snapshot(self) -> list[dict[str, Any]]:
+        """Read all recorded plan headers in one ordered SQL snapshot.
+
+        This read does not open, commit or roll back a caller's transaction.
+        The catalog consumer validates the retained plans before projecting
+        their identifiers, digests and authored part counts.
+        """
+        rows = self._db.execute(
+            "SELECT project_id,plan_digest,plan_json FROM projects "
+            "ORDER BY project_id COLLATE BINARY"
+        ).fetchall()
+        return [dict(row) for row in rows]
 
     def project_snapshot(self, project_id: str) -> dict[str, Any] | None:
         """Read one stored project and its parts in a single SQL snapshot.
@@ -170,13 +187,6 @@ class Ledger:
             "events": [{name: row[name] for name in fields}
                        for row in rows if row["record_kind"] == 1],
         }
-
-    def project_headers(self) -> list[dict[str, Any]]:
-        """Read all stored plan headers in one snapshot without validating them."""
-        rows = self._db.execute(
-            "SELECT project_id, plan_digest, plan_json FROM projects"
-        ).fetchall()
-        return [dict(row) for row in rows]
 
     # A connection context commits or rolls back an active transaction. Reads
     # leave that choice, including any explicit snapshot, with their caller.
