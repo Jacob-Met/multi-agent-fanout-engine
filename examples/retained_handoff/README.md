@@ -167,3 +167,45 @@ python3 -B -m unittest discover -s tests -p 'test_retained_handoff_queued_routes
 
 Use Python 3.10+ and a writable temporary directory. The command runs only the
 authored local adapter and does not contact a provider or install a service.
+
+## Explain each retained blocker
+
+The same run now saves four actual
+[`fanout_engine.blockers`](../../docs/inspect-blockers.md) reports beside the
+route captures. Open these files to see why the queued handoff remains held:
+
+| Capture | Blocker frontier | What the retained state permits |
+| --- | --- | --- |
+| `initial-blockers.stdout.json` | `audit` is `outcome_unknown`; `summary` is ready and queued | Independent summary work may proceed; the audit still needs reconciliation evidence. |
+| `unknown-blockers.stdout.json` | Only the unknown `audit` | Summary is complete, but the handoff must still wait. |
+| `held-blockers.stdout.json` | The same unknown `audit` | The idle pass has neither replayed audit nor released handoff. |
+| `final-blockers.stdout.json` | Empty | Reconciliation and the existing handoff have completed all five parts. |
+
+The initial handoff's direct unmet dependency order is `audit, summary`.
+After summary completes it is only `audit`. Frontier rows retain the exact
+recorded state and worker/task references; the unknown audit has no invented
+accepted task ID. These are captured observations, not instructions to retry,
+reconcile or dispatch.
+
+Each phase receipt adds `blocker_command`, containing the actual command,
+return code and raw stream hashes; `blocker_report`, its relative stdout
+filename; and `blocker_frontier_ids`, the ordered frontier IDs. The final
+`receipt.json` lists the four filenames in `blocker_reports`. Matching raw
+stderr logs are retained beside each report.
+
+The runner compares the entire report with the authored phase's expected
+frontier and the existing validated state. Existing checkout-source and
+database-byte fences cover the new native CLI reads. The queued-route captures,
+local artifacts, five unique submissions, zero audit replays and sixteen final
+events retain their existing behavior. No extra setup or user command is needed.
+
+The focused regression receives the actual public workflow and then verifies
+that an occupied output directory is refused without changing its contents:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_blockers.py' -v
+```
+
+This remains an authored local adapter example. It does not identify a deployed
+estate ledger, contact a provider or qualify the separately owned SQLite
+connection-closure follow-up.
