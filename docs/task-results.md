@@ -54,10 +54,43 @@ failure, and asks the dispatcher for ready work again. The JSON shows one child
 submission, a retained `failed` build, the blocked `verify` part, and the direct
 failure event. All work uses an in-memory ledger and the local reference adapter.
 
+To retain the same real local-child result for a separate receiving process,
+choose a **new** SQLite file in an existing directory:
+
+```sh
+python examples/failure_flow.py --database failed-example.sqlite3
+python -m fanout_engine.inspect --database failed-example.sqlite3 --project local-failure-demo
+```
+
+This mode closes the writing connection and reopens the saved ledger read-only
+before printing its events and project state. The ordinary inspector can then
+read the same failed build, exact evidence and blocked `verify` part. The full
+example JSON still includes the child's stdout, stderr and exit code. The
+ledger retains the existing task evidence and timeline, rather than this
+example-specific report envelope.
+
+An existing file, directory or symlink is refused unchanged. The example does
+not create missing parent directories. Unknown options and incomplete arguments
+are rejected before a ledger is created or a child is started; `--help` describes
+the command without running it. Omitting `--database` retains the in-memory
+behavior and existing JSON result shape.
+
+Exit 0 means the example recorded and printed the expected failure successfully;
+the demonstration child itself deliberately exits 7. Argument, persistence or
+output errors return 2, and a caught keyboard interruption returns 130. Once a
+new database has been created, it is retained if a later step fails. The error
+message names that file so it can be inspected: it may contain an accepted task
+without a recorded terminal result. No successful result is claimed on that
+path, and retrying the same filename refuses rather than rerunning the child.
+If the example is interrupted while its child is still running, it terminates
+and collects that local example child before returning. This cleanup is limited
+to the child started by this invocation.
+
 ## Focused regression
 
 ```sh
 python -m unittest discover -s tests -p test_direct_failure.py -v
+python -m unittest discover -s tests -p test_failure_flow_retained.py -v
 python -m unittest discover -s tests -v
 ```
 
