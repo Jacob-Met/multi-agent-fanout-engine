@@ -277,3 +277,18 @@ python -m fanout_engine.export_plan --database retained.sqlite3 --project exampl
 ```
 
 See [recorded plan export](docs/export-recorded-plan.md) for exact identity, read-only scope, downstream comparison/preview and output refusal behavior.
+
+
+## Explain what holds queued work
+
+```sh
+python -m fanout_engine.blockers --database "work/dispatch.sqlite3" --project sample
+```
+
+Follow incomplete dependencies through queued parts to the ready queued or
+already dispatched/failed/unknown work that currently holds them. The report
+also lists the distinct downstream queued parts affected by each frontier,
+preserving native order and state. It reads the existing validated project
+snapshot without dispatching or changing it. The
+[blocker guide](docs/inspect-blockers.md) defines the completed and in-flight
+cutoffs, Python helper, report fields and create-only export.
