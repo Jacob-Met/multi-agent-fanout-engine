@@ -3,9 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import base64
 from contextlib import closing
 from dataclasses import asdict
 import hashlib
+from html.parser import HTMLParser
 import json
 import os
 from pathlib import Path
@@ -78,6 +80,46 @@ def native_cli(label, arguments):
     require(capture_source() == source_pin, "Checkout source changed during native CLI")
     return json.loads(result.stdout), {"command": command, "cwd": str(SOURCE), "returncode": result.returncode,
                                      "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)}
+
+
+class ReviewDownload(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "a" and values.get("download") == "project-inspection.json":
+            self.links.append(values.get("href", ""))
+
+
+def native_review(label):
+    require(capture_source() == source_pin, "Checkout source changed before native review")
+    report = OUTPUT / (label + "-review.html")
+    command = [sys.executable, "-B", "-m", "fanout_engine.review",
+               "--database", str(DB), "--project", plan.project_id, "--output", str(report)]
+    result = subprocess.run(command, cwd=SOURCE, env=env, capture_output=True, timeout=15)
+    bytes_new(OUTPUT / (label + "-review.stdout.log"), result.stdout)
+    bytes_new(OUTPUT / (label + "-review.stderr.log"), result.stderr)
+    require(result.returncode == 0, label + " review capture failed after phase work: "
+            + result.stderr.decode(errors="replace"))
+    require(result.stdout == result.stderr == b"", "Unexpected native review output")
+    require(capture_source() == source_pin, "Checkout source changed during native review")
+    content = report.read_bytes()
+    parser = ReviewDownload()
+    parser.feed(content.decode("utf-8"))
+    parser.close()
+    require(len(parser.links) == 1, "Review must expose one exact inspection download")
+    prefix = "data:application/json;base64,"
+    require(parser.links[0].startswith(prefix), "Review inspection download MIME mismatch")
+    document = base64.b64decode(parser.links[0][len(prefix):], validate=True)
+    inspection = (OUTPUT / (label + "-inspect.stdout.json")).read_bytes()
+    require(document == inspection, "Review download differs from its saved phase inspection")
+    return {"review_command": {
+                "command": command, "cwd": str(SOURCE), "returncode": result.returncode,
+                "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)},
+            "review_report": report.name, "review_sha256": sha(content),
+            "review_inspection_sha256": sha(inspection)}
 
 
 def journal_path(part_id):
@@ -218,6 +260,7 @@ def capture(label):
                      for part_id in frontier_ids],
     }
     require(blockers == expected_blockers, "Blocker report differs from the retained fixture phase")
+    review = native_review(label)
     require(sha(DB.read_bytes()) == before, "Read-only receiving changed database bytes")
     save_new(OUTPUT / (label + "-state.json"), state)
     save_new(OUTPUT / (label + "-history.json"), history)
@@ -229,7 +272,7 @@ def capture(label):
                             "queued_route_ready_ids": queued["queued_ready_ids"],
                             "blocker_command": blocker_command,
                             "blocker_report": label + "-blockers.stdout.json",
-                            "blocker_frontier_ids": frontier_ids}
+                            "blocker_frontier_ids": frontier_ids, **review}
 
 
 def stage_start():
@@ -327,6 +370,8 @@ if args.phase == "all":
                                        for label in ("initial", "unknown", "held", "final")],
                "blocker_reports": [label + "-blockers.stdout.json"
                                    for label in ("initial", "unknown", "held", "final")],
+               "review_reports": [label + "-review.html"
+                                  for label in ("initial", "unknown", "held", "final")],
                "qualification": "The local adapter computes file products synchronously. Ultra is an explicitly authorized native route label here; no model inference or provider-effort behavior was exercised."}
     save_new(OUTPUT / "receipt.json", summary)
     print(json.dumps(summary, indent=2))
