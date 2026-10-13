@@ -21,7 +21,8 @@ class ComparePlansTests(unittest.TestCase):
         self.directory = tempfile.TemporaryDirectory(prefix="fanout-compare-")
         self.addCleanup(self.directory.cleanup)
         self.root = Path(self.directory.name)
-        self.before_path = self.root / "before #?% café.json"
+        punctuation = "#%" if os.name == "nt" else "#?%"
+        self.before_path = self.root / f"before {punctuation} café.json"
         self.after_path = self.root / "after & revised.json"
         self.before = Plan("review", (
             Part("write", "Write the first draft.", ("source",), ("draft",)),
