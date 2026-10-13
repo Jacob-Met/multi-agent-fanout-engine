@@ -1,0 +1,36 @@
+{
+  "courses": [
+    {
+      "exit_code": 0,
+      "log": "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e-pr49-plus48-normal.txt",
+      "log_sha256": "be77c975e1a103a5d39bf0cbb66ff76b600ca16067c3d244d6e3b45ea76d8e17",
+      "methods": 14,
+      "mode": "normal",
+      "skips": []
+    },
+    {
+      "exit_code": 0,
+      "log": "/private/tmp/hamon-estate-dispatch-worker1-20261012-37ede76e-pr49-plus48-optimized.txt",
+      "log_sha256": "a63c34bb97b2bb51fc1ee8fd15ad6d3849141899384b5ac0d15c1accaa785289",
+      "methods": 14,
+      "mode": "optimized",
+      "skips": []
+    }
+  ],
+  "dispatch_source_commit": "842d33b92ac5fc2be186e7172535e83c2ca3a6de",
+  "dispatch_test_remote_commit": "d2eff21ec16ad98c67194a18f3c86a3427b7199d",
+  "ledger_source_commit": "85166e291e6862249a942e5596d60a1be1f27211",
+  "limit": "Two exact source increments and their maintained identity regressions; no whole-estate or installed-adapter claim.",
+  "observed_utc": "2026-10-12T23:51:53.322963+00:00",
+  "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "schema": "fanout.ledger-dispatch.composition.v1",
+  "source_bytes_preserved": true,
+  "source_sha256": {
+    "fanout_engine/dispatch.py": "5933060a2724b59f705d0e9bba99f7b196d1d261953c729d5e76a3a5db9ecf7f",
+    "fanout_engine/ledger.py": "2ad8ad98de472a8deeaf6b0e656e868b906cbdc855912374aa456998797e5b14",
+    "fanout_engine/plan.py": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+    "fanout_engine/routing.py": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+    "tests/test_dispatch_plan_identity.py": "dfb894387879ea273014f48c4d4cc0e2003ace0dbc53e0f0524194e3b6004cd2",
+    "tests/test_ledger_plan_identity.py": "4606035a88de37c075d50c76d6c7ff595e43da93951f4fdf7bcf2019dec0e540"
+  }
+}
