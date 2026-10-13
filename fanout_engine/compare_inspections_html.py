@@ -43,6 +43,7 @@ summary { cursor: pointer; font-weight: 650; }
   section { padding: 18px 12px; }
   dl { gap: 10px 12px; }
   table, tbody, tr, th, td { display: block; width: 100%; }
+  caption { display: block; width: 100%; }
   thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
   tr { margin-bottom: 16px; }
   th, td { border-bottom: 0; }
