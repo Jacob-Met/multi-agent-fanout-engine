@@ -87,6 +87,14 @@ The failed part is not replayed, and its unfinished dependents stay queued.
 separate unknown-outcome reconciliation path. `python examples/failure_flow.py`
 demonstrates it with one real authored local child failure and no remote service.
 
+Before submission, withdraw queued work with
+`ledger.withdraw_queued(project_id, part_id, evidence)`. The terminal decision
+uses the existing failed state with a distinct `queued_withdrawn` event,
+preserves identity, prevents submission, and leaves descendants blocked.
+It requires absent submission/artifact references and does not cancel running
+work. [Queued withdrawal](docs/queued-withdrawal.md) explains admission and
+refusal; `python examples/withdraw_queue.py` demonstrates persistence locally.
+
 Direct `Part` and `Plan` construction accepts tuples or lists for `depends_on`,
 `tags`, and `parts`, and snapshots these collections to tuples. Later edits to a
 caller's lists cannot change the plan payload, digest, or dispatch instructions.
