@@ -17,7 +17,7 @@ class LedgerError(RuntimeError):
     """Raised when a ledger transition is invalid or evidence is incomplete."""
 
 
-def _require_artifact_reference(reference: Any) -> None:
+def _require_artifact_reference(reference: Any) -> str:
     """Reject unusable completion receipts without normalizing accepted text."""
     if not isinstance(reference, str) or not str.strip(reference):
         raise LedgerError("completed work needs a non-empty text artifact reference")
@@ -26,6 +26,8 @@ def _require_artifact_reference(reference: Any) -> None:
         str.encode(reference, "utf-8")
     except UnicodeEncodeError as exc:
         raise LedgerError("completed work needs a UTF-8 artifact reference") from exc
+    # SQLite may adapt a str subclass through __conform__; bind literal text.
+    return str.__str__(reference)
 
 
 class Ledger:
@@ -248,7 +250,7 @@ class Ledger:
 
     def mark_completed(self, project_id: str, part_id: str, artifact_ref: str,
                        evidence: dict[str, str] | None = None) -> None:
-        _require_artifact_reference(artifact_ref)
+        artifact_ref = _require_artifact_reference(artifact_ref)
         if evidence is not None:
             self._validate_evidence(evidence)
         with self._transaction() as db:
@@ -277,7 +279,7 @@ class Ledger:
             raise LedgerError("reconciliation verdict must be completed or failed")
         self._validate_evidence(evidence)
         if verdict == "completed":
-            _require_artifact_reference(artifact_ref)
+            artifact_ref = _require_artifact_reference(artifact_ref)
         with self._transaction() as db:
             row = self._part(db, project_id, part_id)
             if row["state"] != "outcome_unknown":
