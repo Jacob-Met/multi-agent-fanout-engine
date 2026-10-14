@@ -1,4 +1,5 @@
 """Receive native inspection reports through create-only file publication."""
+from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
@@ -105,7 +106,7 @@ class InspectExportTests(unittest.TestCase):
         self.assertEqual(missing.stdout, b"")
         self.assertIn(b"project_not_found", missing.stderr)
         self.assertFalse(output.exists())
-        with sqlite3.connect(self.database) as connection:
+        with closing(sqlite3.connect(self.database)) as connection, connection:
             connection.execute("UPDATE parts SET evidence_json='{' WHERE part_id='publish'")
         before = snapshot(self.database)
         invalid = self.run_cli(output)
