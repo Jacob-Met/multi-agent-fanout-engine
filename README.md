@@ -334,6 +334,19 @@ shows the saved sample report, three staged checks, actual inherited-PATH use,
 and version-preserving recovery. The earlier reader guide remains its historical
 installation record.
 
+The installed wrapper also accepts two authored plan files for comparison:
+
+```sh
+hamon-fanout-read compare --before recorded-plan.json --after revised-plan.json --output new-comparison.json
+```
+
+Choose a new output name, or omit `--output` to read the native JSON on stdout.
+This command compares plan content and idempotency keys; it opens no ledger and
+neither authorizes reuse nor dispatches work. The [guarded source recipe](docs/receiving/thinkpad-plan-compare-e1438c9d058f/README.md)
+records the fixed runtime and preserved previous version. [PR116](https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/116)
+records the later accepted stage and installed command receiving; the recipe's
+original freeze labels remain historical.
+
 ## Compare saved inspection reports
 
 Use `python -B -m fanout_engine.compare_inspections --first first-inspection.json --second second-inspection.json --output saved-comparison.json`
