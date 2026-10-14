@@ -32,12 +32,21 @@ pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font
 pre { margin: 0; }
 .plan { padding: 16px; border: 1px solid #cbd5e1; border-radius: 6px; background: #f8fafc; }
 .note { color: #455468; }
+.mobile-label { display: none; }
 @media (max-width: 600px) {
   main { padding: 24px 12px 40px; }
   section { padding: 16px 12px; }
   h1 { font-size: 1.65rem; }
   th, td { padding: 8px 6px; }
   dl { gap: 10px 12px; }
+  .value-table, .value-table caption, .value-table tbody,
+  .value-table tbody tr, .value-table tbody th, .value-table tbody td { display: block; width: 100%; }
+  .value-table thead { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .value-table tbody tr { margin-bottom: 16px; border: 1px solid #cbd5e1; border-radius: 6px; }
+  .value-table tbody tr:last-child { margin-bottom: 0; }
+  .value-table tbody th, .value-table tbody td { padding: 10px 12px; border: 0; border-bottom: 1px solid #cbd5e1; }
+  .value-table tbody td:last-child { border-bottom: 0; }
+  .value-table .mobile-label { display: block; margin-bottom: 4px; font-size: .8rem; font-weight: 650; line-height: 1.6; }
 }
 """
 
@@ -98,16 +107,21 @@ def render_comparison(report: dict[str, Any], native_json: bytes) -> bytes:
         "before declaration order. An addition or removal also changes the complete part order.</p></section>",
         '<section id="identity" aria-labelledby="identity-heading">'
         '<h2 id="identity-heading">Captured identities</h2>',
-        "<table><caption>Native identity and exact CLI input bytes</caption>"
-        '<thead><tr><th scope="col">Field</th><th scope="col">Before</th>'
-        '<th scope="col">After</th></tr></thead><tbody>',
+        '<table class="value-table" role="table" aria-labelledby="identity-caption">'
+        '<caption id="identity-caption">Native identity and exact CLI input bytes</caption>'
+        '<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Field</th>'
+        '<th scope="col" role="columnheader">Before</th>'
+        '<th scope="col" role="columnheader">After</th></tr></thead><tbody role="rowgroup">',
     ])
     for label, old, new in (
         ("Project ID", before["plan"]["project"], after["plan"]["project"]),
         ("Native plan digest", before["plan_digest"], after["plan_digest"]),
         ("Input SHA-256", report["input_sha256"]["before"], report["input_sha256"]["after"]),
     ):
-        out.append(f'<tr><th scope="row">{label}</th><td>{_pre(old)}</td><td>{_pre(new)}</td></tr>')
+        out.append(f'<tr role="row"><th scope="row" role="rowheader">{label}</th>'
+                   '<td role="cell"><span class="mobile-label" aria-hidden="true">Before</span>' +
+                   _pre(old) + '</td><td role="cell">'
+                   '<span class="mobile-label" aria-hidden="true">After</span>' + _pre(new) + '</td></tr>')
     out.extend(["</tbody></table></section>",
                 '<section id="changes" aria-labelledby="changes-heading">'
                 '<h2 id="changes-heading">Changed retained fields</h2>'])
@@ -135,15 +149,23 @@ def render_comparison(report: dict[str, Any], native_json: bytes) -> bytes:
         '<p class="note">Keys include the complete native plan digest. An unchanged part '
         "can receive a changed key when another part changes. A missing side is null; "
         "this comparison supplies no permission to reuse a key.</p>",
-        "<table><caption>All part keys, in after order followed by removed parts</caption>",
-        '<thead><tr><th scope="col">Part ID</th><th scope="col">Before key</th>'
-        '<th scope="col">After key</th><th scope="col">Changed</th></tr></thead><tbody>',
+        '<table class="value-table" role="table" aria-labelledby="keys-caption">'
+        '<caption id="keys-caption">All part keys, in after order followed by removed parts</caption>',
+        '<thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Part ID</th>'
+        '<th scope="col" role="columnheader">Before key</th>'
+        '<th scope="col" role="columnheader">After key</th>'
+        '<th scope="col" role="columnheader">Changed</th></tr></thead><tbody role="rowgroup">',
     ])
     for index, row in enumerate(report["idempotency_keys"]):
-        out.append("<tr><th scope=\"row\">" + _pre(row["part_id"], f"key-{index}-part") +
-                   "</th><td>" + _pre(row["before"], f"key-{index}-before") +
-                   "</td><td>" + _pre(row["after"], f"key-{index}-after") +
-                   "</td><td>" + _pre(row["changed"], f"key-{index}-changed") + "</td></tr>")
+        out.append('<tr role="row"><th scope="row" role="rowheader">'
+                   '<span class="mobile-label" aria-hidden="true">Part ID</span>' +
+                   _pre(row["part_id"], f"key-{index}-part") +
+                   '</th><td role="cell"><span class="mobile-label" aria-hidden="true">Before key</span>' +
+                   _pre(row["before"], f"key-{index}-before") +
+                   '</td><td role="cell"><span class="mobile-label" aria-hidden="true">After key</span>' +
+                   _pre(row["after"], f"key-{index}-after") +
+                   '</td><td role="cell"><span class="mobile-label" aria-hidden="true">Changed</span>' +
+                   _pre(row["changed"], f"key-{index}-changed") + "</td></tr>")
     out.extend(["</tbody></table></section></main></body></html>\n"])
     encoded = "".join(out).encode("utf-8")
     if len(encoded) > MAX_HTML_BYTES:
