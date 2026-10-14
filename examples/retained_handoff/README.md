@@ -376,3 +376,33 @@ first subprocess boundary before a child is launched:
 ```sh
 python3 -B -m unittest discover -s tests -p 'test_retained_handoff_phase_timeout.py' -v
 ```
+
+## Captured output when an aggregate phase wait expires
+
+If the public parent reaches a phase deadline, it saves the available captured bytes to
+`<phase>.stdout.json` and `<phase>.stderr.log`, then raises the original timeout.
+A missing capture becomes an empty file. Despite the stdout filename, a timeout capture
+may be incomplete JSON, partial UTF-8 or other binary bytes; inspect it as raw data.
+
+These diagnostic files use the same exclusive creation rule as ordinary phase output.
+An existing file is never overwritten. If writing a capture fails, the command still
+fails and the timeout remains in the exception context. The two writes are not atomic:
+the stdout capture may exist even if the later stderr write is refused.
+
+Captured output does not mean that a phase completed, that committed work was rolled
+back, or that every descendant process stopped. No successful phase-command record or
+final receipt is produced after this timeout, and no next phase or comparison is
+attempted. Preserve the partial run and diagnostics; do not automatically retry a
+private phase or reuse its output directory.
+
+This retention applies only to the aggregate parent wait selected by
+`--phase-timeout-seconds`. The default 30-second wait, maximum 3600-second admission,
+unchanged private phase arguments and separate 15-second reader waits retain their
+existing behavior. Successful and nonzero child returns keep their previous stream
+and failure handling.
+
+The focused regression uses the actual public runner's first subprocess boundary with
+a controlled real child that emits partial binary output and times out. The harness
+reaps that child without dispatching the authored workflow. Separate boundary controls
+cover absent captures, refusal of each existing stream path and ordinary child returns;
+they do not qualify a new provider, workflow execution or descendant cleanup policy.
