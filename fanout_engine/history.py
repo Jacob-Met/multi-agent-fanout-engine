@@ -8,10 +8,11 @@ import sqlite3
 import sys
 from typing import Any
 
-from .inspect import _write_stdout
+from .inspect import _check_output_path, _write_stdout
 from .inspection import InspectionError, _decode, _invalid, _read_plan
 from .ledger import Ledger, LedgerError
 from .plan import PlanError, canonical_json
+from .preview import PreviewError, _publish_new_file
 
 
 def inspect_history(
@@ -75,6 +76,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--database", type=Path, required=True, help="existing SQLite ledger file")
     parser.add_argument("--project", required=True, help="exact recorded project identifier")
     parser.add_argument("--part", help="show only events recorded for this exact part identifier")
+    parser.add_argument("--output", type=Path, help="new report file; otherwise write JSON to stdout")
     args = parser.parse_args(argv)
     try:
         with Ledger.open_readonly(args.database) as ledger:
@@ -87,8 +89,12 @@ def main(argv: list[str] | None = None) -> int:
         print(f"fanout history: cannot read ledger: {exc}", file=sys.stderr)
         return 2
     try:
-        _write_stdout(content)
-    except OSError as exc:
+        if args.output is None:
+            _write_stdout(content)
+        else:
+            _check_output_path(args.database, args.output)
+            _publish_new_file(args.output, content)
+    except (OSError, PreviewError, ValueError) as exc:
         print(f"fanout history: cannot write report: {exc}", file=sys.stderr)
         return 1
     return 0

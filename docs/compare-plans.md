@@ -56,16 +56,60 @@ native digest and keys. A comparison exposes these consequences; it does not
 choose a new project ID, update stored rows or decide whether work can be
 submitted again.
 
-To keep the JSON in a file, choose a fresh destination:
+To save the JSON safely, select a new output file:
 
 ```sh
-python -m fanout_engine.compare --before original.json --after revised.json > comparison.json
+python -m fanout_engine.compare --before original.json --after revised.json --output comparison.json
 python -m json.tool comparison.json
 ```
 
-Redirection follows the shell's ordinary file replacement rules. In particular,
-do not redirect output to an input filename. The command itself only opens its
-two input paths for reading.
+The `--output` path must not already exist; an existing file, directory,
+symlink or either input path is refused instead of overwritten. Both input
+files are validated and the entire JSON report is encoded before the output
+is published. The CLI stages the complete bytes beside the destination,
+flushes and syncs them, then uses an exclusive hard link to publish a new
+file. Existing files and input bytes are left intact even when publication
+fails. A failed cleanup may leave a staging file; this is not a general
+crash-durability or multi-file transaction guarantee. Without `--output`,
+the selected format is written to stdout; the default JSON stays unchanged. Shell `>` redirection
+continues to follow ordinary replacement rules and should not be used for
+exclusive publication.
+
+## Open a readable offline comparison
+
+Select HTML explicitly to review the same two drafts in a browser:
+
+```sh
+python -m fanout_engine.compare --before original.json --after revised.json \
+  --format html --output comparison.html
+```
+
+Open the newly created `comparison.html` in a browser. The self-contained page
+shows the native summary, added and removed IDs, every changed retained field
+with its full before/after values, both complete plans, all idempotency keys
+and both captured input hashes. Declaration and dependency order remain visible.
+For a project-only edit or a declaration reorder, the summary still identifies
+the change even when no retained part field changed.
+
+Values use JSON notation: Unicode remains readable, while quotes, line breaks,
+tabs and other control characters have explicit escapes. Markup inside an
+instruction is ordinary displayed text. The page uses semantic headings and
+captioned tables, wraps long values at narrow widths, and has no scripts,
+external resources, forms, storage or dispatch actions.
+
+**Download exact comparison JSON** is an ordinary embedded download link. It
+contains byte-for-byte the existing canonical CLI JSON report, including
+`input_sha256` and the final LF, with the fixed filename
+`plan-comparison.json`. The link does not recompute or fetch the report.
+A browser or host may restrict native downloads; the complete readable page
+remains available, and the ordinary JSON command can save the same report.
+
+`--format json` is exactly the default behavior. HTML is a presentation of the
+same admitted native report; it does not interpret a dependency as completed,
+open a ledger, authorize a route or contact a Hub. No timestamp or absolute
+input path is added. Repeating the same captured inputs and format produces
+identical bytes. HTML and JSON both reuse the exclusive new-file output
+contract above; an output suffix does not choose the format.
 
 ## Read the comparison
 
@@ -125,7 +169,9 @@ Each CLI input must be a UTF-8 regular file at most 1 MiB. File paths are litera
 filesystem names; quote names containing spaces or shell punctuation. Each
 plan can contain at most 256 parts. The complete serialized report, including
 its final newline and CLI hashes, can be at most 4 MiB. The helper also enforces
-the part and report limits. These are limits of this comparison consumer.
+the part and report limits. HTML first admits that complete JSON report, then
+enforces a separate 32 MiB bound on the final UTF-8 HTML bytes before writing
+anything. A rendering-limit refusal uses status `2` and creates no output. These are limits of this comparison consumer.
 
 Both complete plans and the report are validated before successful output
 begins. Invalid graphs, duplicate JSON keys, non-finite numbers, unsupported
@@ -146,6 +192,7 @@ remain outside these controlled statuses.
 
 ```sh
 python -B -m unittest discover -s tests -p test_compare_plans.py -v
+python -B -m unittest discover -s tests -p test_compare_html.py -v
 python -B -m unittest discover -s tests -v
 ```
 

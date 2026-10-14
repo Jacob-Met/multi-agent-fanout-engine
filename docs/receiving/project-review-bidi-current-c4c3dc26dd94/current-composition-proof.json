@@ -1,0 +1,302 @@
+{
+  "accepted": true,
+  "scope": "Static exact-owner/current dependency composition; no new behavioral execution",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "current_main": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
+  "owner_head": "d8fd4548534064c9a1c187fb726ed594ca5e03c8",
+  "owner_publication_parent": "c58d648244650ed97addf7b0d6d18bf9966a2b0c",
+  "owner_coordination_comment": 6161112544,
+  "owner_three_paths": {
+    "docs/project-review.md": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "83d7060b4fb9e99eb43a519fa1a5e2211c23b7f8"
+    },
+    "fanout_engine/review.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61ca91abbf1fc192da845f8c5d960567b85f96dc"
+    },
+    "tests/test_project_review_bidi.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fa0f7754a0908f808ea3960a4c0811f4f4197ace"
+    }
+  },
+  "current_beforeimages": {
+    "docs/project-review.md": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "423d3f1c23cd1b7f677efd83681e7bb10ae5865c"
+    },
+    "fanout_engine/review.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ca6e7376bb7183a7421ed7fdc7d4f139923f69f"
+    },
+    "tests/test_project_review_bidi.py": null
+  },
+  "full_source_inverse": true,
+  "guide_inverse": true,
+  "import_closure": {
+    "fanout_engine/__init__.py": {
+      "pin": {
+        "bytes": 613,
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+        "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8"
+      },
+      "imports": [
+        "fanout_engine/dispatch.py",
+        "fanout_engine/inspection.py",
+        "fanout_engine/ledger.py",
+        "fanout_engine/plan.py",
+        "fanout_engine/routing.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/dispatch.py": {
+      "pin": {
+        "bytes": 4599,
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+        "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c"
+      },
+      "imports": [
+        "fanout_engine/ledger.py",
+        "fanout_engine/plan.py",
+        "fanout_engine/routing.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/inspect.py": {
+      "pin": {
+        "bytes": 4178,
+        "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+        "git_blob": "39b697f715d03b75629c94d7ff72bd57873b2553"
+      },
+      "imports": [
+        "fanout_engine/inspection.py",
+        "fanout_engine/ledger.py",
+        "fanout_engine/plan.py",
+        "fanout_engine/preview.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/inspection.py": {
+      "pin": {
+        "bytes": 6055,
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+        "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34"
+      },
+      "imports": [
+        "fanout_engine/ledger.py",
+        "fanout_engine/plan.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/ledger.py": {
+      "pin": {
+        "bytes": 19340,
+        "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+        "git_blob": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51"
+      },
+      "imports": [
+        "fanout_engine/plan.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/plan.py": {
+      "pin": {
+        "bytes": 7513,
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+        "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82"
+      },
+      "imports": [],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/preview.py": {
+      "pin": {
+        "bytes": 9462,
+        "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+        "git_blob": "1e45891d6528559e2bf9368e5a63ddb93bee2027"
+      },
+      "imports": [
+        "fanout_engine/plan.py",
+        "fanout_engine/routing.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/review.py": {
+      "pin": {
+        "bytes": 8743,
+        "sha256": "d5455fcbde5f0da362b9d4bffbde84b40041e4e5c03c5751a062c8cedeb32484",
+        "git_blob": "7ca6e7376bb7183a7421ed7fdc7d4f139923f69f"
+      },
+      "imports": [
+        "fanout_engine/inspect.py",
+        "fanout_engine/inspection.py",
+        "fanout_engine/ledger.py",
+        "fanout_engine/plan.py",
+        "fanout_engine/preview.py"
+      ],
+      "current_equals_owner_parent": true
+    },
+    "fanout_engine/routing.py": {
+      "pin": {
+        "bytes": 2818,
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+        "git_blob": "436a9f014caf69960fce67de28c062a431805b99"
+      },
+      "imports": [],
+      "current_equals_owner_parent": true
+    }
+  },
+  "qualified_candidate_closure": {
+    "docs/project-review.md": {
+      "bytes": 6233,
+      "sha256": "c38d87db1aa872f757a6db85224d9d63d879ae6f229ceed9490d6150a4f0c8d4",
+      "git_blob": "83d7060b4fb9e99eb43a519fa1a5e2211c23b7f8"
+    },
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4178,
+      "sha256": "7c72c0a953e84a805a12a2230f398b1271947a3c4db8d19d805cad785b440111",
+      "git_blob": "39b697f715d03b75629c94d7ff72bd57873b2553"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 19340,
+      "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+      "git_blob": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9462,
+      "sha256": "063c79e3213d1b00864c27832e4ac667c0c58978b13173a746359eedebdc5de5",
+      "git_blob": "1e45891d6528559e2bf9368e5a63ddb93bee2027"
+    },
+    "fanout_engine/review.py": {
+      "bytes": 8889,
+      "sha256": "e3b4b254b2dec2e40fef6c3b322debc3e9eb43e9f905d735410acd0313ffa735",
+      "git_blob": "61ca91abbf1fc192da845f8c5d960567b85f96dc"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99"
+    },
+    "tests/test_project_review.py": {
+      "bytes": 10010,
+      "sha256": "4ed7888e871d120424a00974d2ec107bd192266c6db38c95f8a10f608f2bfae3",
+      "git_blob": "ae85f937c2c927ddbc2386a2da304cdf8d51a87d"
+    },
+    "tests/test_project_review_bidi.py": {
+      "bytes": 5390,
+      "sha256": "71cd6a75fa556569315c033e99fcf280602dada6bc0f9500d8a23907db3f2c70",
+      "git_blob": "fa0f7754a0908f808ea3960a4c0811f4f4197ace"
+    }
+  },
+  "qualification_reuse": {
+    "all_twelve_files_equal_published_owner": true,
+    "existing_test_unchanged": true,
+    "new_course_executed": false,
+    "prior_normal_and_optimized_tests": "Owner and independent reviews on PR92; not rerun",
+    "prior_browser": "Owner actual Chromium original/candidate at desktop/mobile; not rerun",
+    "prior_portable_use": "Owner exact delivered-kit CLI; not rerun"
+  },
+  "three_path_projection": {
+    "current_leaves": 338,
+    "proposed_leaves": 339,
+    "unrelated_preserved": 336,
+    "workflow_paths_unchanged": []
+  },
+  "preserved_scopes": [
+    "Owner separate leading-LF child comment6154521576",
+    "PR105 installed reader adoption",
+    "All ledger/provider/native state"
+  ],
+  "limits": [
+    "No new runtime, browser, installed consumer or full-matrix result is claimed",
+    "Historical recovered/reconstructed fixture distinction remains in owner PR92 evidence",
+    "Final repository merge requires fresh current-parent proof"
+  ],
+  "initial_current_main": "36f83e0767cf7088fc56cd04d07042f2b285c8d1",
+  "publication_rebase": {
+    "reason": "Concurrent current-main changes observed before branch creation",
+    "all_qualified_inputs_and_intended_beforeimages_unchanged": true,
+    "preserved_changes": {
+      "README.md": {
+        "before": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "a475c98cb4e6658daae347c377e308233b110c0b"
+        },
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f0642959f777d6bde58613b9409fd192bdd88c92"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/source-manifest.json": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d0f6db367de6c6a47c4f1f774069afe6a5c2ffc4"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/hamon-fanout-read": {
+        "before": null,
+        "after": {
+          "mode": "100755",
+          "type": "blob",
+          "sha": "e385ae440719b1d3370a2f35cb1cfc71e64db9c7"
+        }
+      },
+      ".github/workflows/test.yml": {
+        "before": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+        },
+        "after": null
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/install_html_reader.py": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "99c7390223d79ae37db467e7f5acb83ad932975b"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/README.md": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1c7802e0a3bafd057dfeb47654b51bf0dca91e69"
+        }
+      }
+    },
+    "first_inert_proposal": "0b58ea6dba13fe9c6c54234d1847eb27a541d465",
+    "new_parent": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
+    "workflow_count": 0,
+    "no_runtime_rerun": true
+  }
+}

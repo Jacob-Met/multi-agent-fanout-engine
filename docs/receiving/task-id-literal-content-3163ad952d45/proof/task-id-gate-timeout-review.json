@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "no_fake_exit_code": true,
+    "no_success_receipt": true,
+    "nonzero_exit_identifies_timeout": true,
+    "one_failed_operation": true,
+    "original_gate_preserved": true,
+    "second_observer_not_started": true,
+    "source_and_frozen_observers_preserved": true,
+    "stderr_complete_bytes_retained": true,
+    "stdout_complete_bytes_retained": true,
+    "timeout_labeled": true
+  },
+  "exit_message": "Observer timed out; preserve this output and inspect before retrying",
+  "failed_operation_sha256": "69e3d72cb4ad8d54b81dee162eec941d16a285570d57c36a7a971e3eb33a3474",
+  "new_driver_bytes": 8132,
+  "new_driver_sha256": "9220f2ab41c460d212971aeee95dc5d06f70a8ed768c9bbca92fb6870cc20ce6",
+  "old_driver_sha256": "125608bcc994fddce78c56f1fa88337fa7df27830f2d1e24276c07b4e0fc4089",
+  "schema": "fanout-task-id-gate-timeout-fault-review-v1",
+  "scope": "Controlled TimeoutExpired injection at the subprocess boundary; no behavioral observer or dispatch was executed. Existing source and frozen observer bytes retained.",
+  "utc": "2026-10-13T00:41:54.034238+00:00"
+}

@@ -1,0 +1,223 @@
+{
+  "scope": "Two-case current public Plan API receiving; no native adoption",
+  "source_base": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
+  "current_main_closure": {
+    "accepted": true,
+    "current_commit": "0ae18b605965be749b1651545ba7531a5fb03e00",
+    "current_tree": "8f58408f3998dec54443afcca5b424d4d0078bc3",
+    "baseline": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
+    "all_six_receiving_module_blobs_unchanged": true,
+    "new_test_path_absent": true,
+    "leaf_count": 341,
+    "workflow_count": 0,
+    "runtime_executed": false,
+    "tree_lookup_response_sha": "0ae18b605965be749b1651545ba7531a5fb03e00",
+    "tree_pin_source": "Immutable Git commit tree field; tree lookup response sha is the requested commit locator"
+  },
+  "owner_head": "8ef458d2220aec41db4b25a50c85fc4768654c68",
+  "owner_plan": {
+    "bytes": 7655,
+    "sha256": "af42b27c6e0b60023591641397a18c6859871803a5bfdb3f792f2b5a1359d32f",
+    "git": "c1de111f502848221639246ba0bc35781d7c953d"
+  },
+  "owner_test": {
+    "bytes": 1433,
+    "sha256": "39ae015eaa9fac1b762bc8a6c25ec09295eac135285f987b4c84f38f75e6a6ac",
+    "git": "9679168c6108f78e4a1b09e511f50e8df114423d"
+  },
+  "original": {
+    "receipt": {
+      "bytes": 14036,
+      "sha256": "5c214a1c717a807edd4a99e769735b5913296828905aa77ada0bc46bcb0feaea",
+      "git": "2470a86e0ea2f7437a667ed68ae96ab49feafee6"
+    },
+    "desired_passes": 1,
+    "observations": [
+      {
+        "name": "ordinary",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-I",
+          "-B",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/call_plan.py",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/original-source",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/fixtures/ordinary.json"
+        ],
+        "pid": 6,
+        "returncode": 0,
+        "reaped": true,
+        "timed_out": false,
+        "stdout": {
+          "bytes": 315,
+          "sha256": "ca5a2dd5622fbb60ac3427a213a8a91ff89cccf9d59be60574bbb44fc2f47281",
+          "git": "996a66bac1972619b57fc8e37123c7068328a430"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "desired_behavior": true,
+        "matches_expected_phase": true
+      },
+      {
+        "name": "malformed",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-I",
+          "-B",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/call_plan.py",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/original-source",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/fixtures/malformed.json"
+        ],
+        "pid": 7,
+        "returncode": 1,
+        "reaped": true,
+        "timed_out": false,
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "stderr": {
+          "bytes": 796,
+          "sha256": "e620ebd6511c598e5f4a1222af913dbfa2c1b832f59f8480fbd4bf4862163f74",
+          "git": "15b15ed39d927d6f8c85facb648c8072cd56c284"
+        },
+        "desired_behavior": false,
+        "matches_expected_phase": true
+      }
+    ],
+    "selected_inputs": 12,
+    "all_inputs_unchanged": true
+  },
+  "candidate": {
+    "receipt": {
+      "bytes": 25146,
+      "sha256": "312466208d4c2cb5cf925569563a7bf5b87afbcf7615400b84da00ee325926a3",
+      "git": "a5b67cc27a8c92741baae2e460d5d3cf039dee64"
+    },
+    "desired_passes": 2,
+    "observations": [
+      {
+        "name": "ordinary",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-I",
+          "-B",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/call_plan.py",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/candidate-source",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/fixtures/ordinary.json"
+        ],
+        "pid": 6,
+        "returncode": 0,
+        "reaped": true,
+        "timed_out": false,
+        "stdout": {
+          "bytes": 315,
+          "sha256": "ca5a2dd5622fbb60ac3427a213a8a91ff89cccf9d59be60574bbb44fc2f47281",
+          "git": "996a66bac1972619b57fc8e37123c7068328a430"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "desired_behavior": true,
+        "matches_expected_phase": true
+      },
+      {
+        "name": "malformed",
+        "argv": [
+          "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+          "-I",
+          "-B",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/call_plan.py",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/candidate-source",
+          "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/fixtures/malformed.json"
+        ],
+        "pid": 7,
+        "returncode": 2,
+        "reaped": true,
+        "timed_out": false,
+        "stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "stderr": {
+          "bytes": 62,
+          "sha256": "6f0479651984a7db811a4ffd6c4333b51fc83b0e2a1d0a546adcc8a402109018",
+          "git": "a7377e162e63f597d4bbe87a9dbe7a8e92128b34"
+        },
+        "desired_behavior": true,
+        "matches_expected_phase": true
+      }
+    ],
+    "selected_inputs": 25,
+    "all_inputs_unchanged": true
+  },
+  "runtime": {
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39"
+  },
+  "ordinary_output_identical": true,
+  "original_frozen_entries": 17,
+  "helper_outcomes": {
+    "original": {
+      "pid": 5,
+      "child_reaped": true,
+      "child_returncode": 0,
+      "receiver_exit_code": 0,
+      "source_maps": 14,
+      "sources_unchanged": true,
+      "receipt": {
+        "bytes": 9886,
+        "sha256": "2acec4ed4da0c4a1ef211e89e992dbf26d68f558607fceeaf0f0a2fc2b9614c1",
+        "git": "c5b84056a5d94ea8a10c393b32982fea281f8045"
+      }
+    },
+    "candidate": {
+      "pid": 5,
+      "child_reaped": true,
+      "child_returncode": 0,
+      "receiver_exit_code": 0,
+      "source_maps": 27,
+      "sources_unchanged": true,
+      "receipt": {
+        "bytes": 17708,
+        "sha256": "31af3c1c05a91fb2b6481bc46e8688de20534161840df45adc978db2beb43d87",
+        "git": "c12f4f09bcbaa7015f9933bd483fffbbe0fccd6b"
+      }
+    }
+  },
+  "outer_evidence": {
+    "original_initial": {
+      "chunk_id": "452066",
+      "wall_time_seconds": 1.000957818,
+      "session_id": 16175,
+      "original_token_count": 0,
+      "output": ""
+    },
+    "original_completion": {
+      "chunk_id": "09c46e",
+      "wall_time_seconds": 3.0486e-05,
+      "exit_code": 0,
+      "original_token_count": 19,
+      "output": "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/original-job/receipt.json\n"
+    },
+    "candidate_initial_terminal": {
+      "chunk_id": "eee0ef",
+      "wall_time_seconds": 0.947189077,
+      "exit_code": 0,
+      "original_token_count": 19,
+      "output": "/dev/shm/estate-consumers-plan-utf8-c4c3dc26dd94/candidate-job/receipt.json\n"
+    }
+  },
+  "limits": [
+    "Current course is authored receiving with a pre-candidate independent source/oracle peer; final raw peer is separate.",
+    "The three owner maintained methods and historical full suites were not rerun.",
+    "Audit fences are in-process, direct-child cleanup only; no OS sandbox or native/ledger/Hub/provider claim."
+  ]
+}

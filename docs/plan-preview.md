@@ -130,7 +130,7 @@ The CLI accepts UTF-8 regular files with capped reads:
 | Pool routes | 256 |
 | Complete serialized report | 4 MiB (4,194,304 bytes), including its final LF |
 
-The helper also enforces the part and report limits. These limits belong to this consumer; they do not change Plan, the router or the dispatcher. The part bound contains the native recursive DAG validator. Deep or malformed JSON, invalid native plans/routes and I/O errors produce a diagnostic on stderr and exit status 2.
+The helper also enforces the part and report limits. These limits belong to this consumer; they do not change Plan, the router or the dispatcher. The 256-part bound remains a preview consumer limit; native Plan validation uses an iterative graph walk. Deep or malformed JSON, invalid native plans/routes and I/O errors produce a diagnostic on stderr and exit status 2.
 
 Both inputs and the complete report are validated before output begins. File delivery writes and fsyncs an owned temporary file in the destination parent, then publishes it with a no-clobber hard link. A filesystem that cannot provide that operation returns an error instead of falling back to replacement. A pre-publication failure removes the owned stage and leaves prior files intact. If cleanup fails after publication, the diagnostic states that the report was published; a nonzero exit alone cannot prove that nothing was delivered.
 

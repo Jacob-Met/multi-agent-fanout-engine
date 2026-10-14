@@ -1,0 +1,70 @@
+{
+  "checks": {
+    "abbreviated_pin_refused_before_output": true,
+    "every_leaf_matches_prior_native_baseline": true,
+    "exact_six_module_stage": true,
+    "existing_capsule_unchanged": true,
+    "existing_output_refused": true,
+    "full_source_pin": true,
+    "no_candidate_qualification_claim": true,
+    "staged_dispatch_differs_from_existing_worktree": true,
+    "working_source_unchanged": true
+  },
+  "executions": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-receiving-utility/stage_source.py",
+        "--checkout",
+        "/workspace/scratch/3163ad952d45/source_improvement/repo",
+        "--commit",
+        "0317b4bc80638a8e952857aa5966b0e20d1fab72",
+        "--output",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-stager-review/selected source"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "{\"candidate_contract_qualified\": false, \"output\": \"/workspace/scratch/3163ad952d45/runtime_consumer/task-id-stager-review/selected source\", \"source_commit\": \"0317b4bc80638a8e952857aa5966b0e20d1fab72\", \"source_manifest_sha256\": \"c5302a59c38e18733b195fd29e373879e28fc6808a9568903baa0b7400a79ae7\", \"source_modules\": 6, \"source_tree\": \"35dc556c1309b394c6f864fd5aaa6f7e7fcc0b22\", \"staged\": true}\n"
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-receiving-utility/stage_source.py",
+        "--checkout",
+        "/workspace/scratch/3163ad952d45/source_improvement/repo",
+        "--commit",
+        "0317b4bc80638a8e952857aa5966b0e20d1fab72",
+        "--output",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-stager-review/selected source"
+      ],
+      "exit_code": 1,
+      "stderr": "task-ID source staging failed: Output must be new; inspect any earlier operation before retrying\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-B",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-receiving-utility/stage_source.py",
+        "--checkout",
+        "/workspace/scratch/3163ad952d45/source_improvement/repo",
+        "--commit",
+        "0317b4bc",
+        "--output",
+        "/workspace/scratch/3163ad952d45/runtime_consumer/task-id-stager-review/rejected short pin"
+      ],
+      "exit_code": 1,
+      "stderr": "task-ID source staging failed: Use the complete immutable commit SHA, not a branch or abbreviated ref\n",
+      "stdout": ""
+    }
+  ],
+  "helper_sha256": "a80afcad57e9924de4d031bc72c7627a7d0b37419833e2fd0fdbcb365ce383ae",
+  "schema": "fanout-task-id-source-stager-review-v1",
+  "scope": "Actual Git-object staging plus existing-output and abbreviated-ref refusal. No dispatcher/observer workload or network call. Six staged leaves independently equal the prior received original source manifest, despite different working-tree dispatch bytes.",
+  "source_commit": "0317b4bc80638a8e952857aa5966b0e20d1fab72",
+  "source_tree": "35dc556c1309b394c6f864fd5aaa6f7e7fcc0b22",
+  "staged_manifest_sha256": "c5302a59c38e18733b195fd29e373879e28fc6808a9568903baa0b7400a79ae7",
+  "utc": "2026-10-13T00:50:44.307049+00:00"
+}
