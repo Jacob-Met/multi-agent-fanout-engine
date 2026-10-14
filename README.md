@@ -78,6 +78,16 @@ with Ledger(":memory:") as ledger:
 
 `hub` must implement `submit(part, *, route, worker_id, idempotency_key)` and return a non-empty `task_id` after acceptance. If it cannot prove whether a request was accepted, raise an exception: the part is recorded as unknown and is not submitted again.
 
+When a running task has a verified result, call
+`ledger.mark_completed(project_id, part_id, artifact_ref, evidence)`. To resolve
+an unknown outcome as completed, use `ledger.reconcile_unknown` with
+`verdict="completed"`, evidence and the artifact reference. Both completion paths
+require nonblank UTF-8 text, preserve its exact spelling and surrounding spaces,
+and raise `LedgerError` before changing retained rows or events for an invalid
+reference. The [completed-artifact receiving guide](docs/receiving/artifact-reference-current-c4c3dc26dd94/README.md)
+shows the ordinary API and read-only dependency observations. This admission does
+not open the locator or verify the external result.
+
 When a running task has a verified terminal failure, record it with
 `ledger.mark_failed(project_id, part_id, evidence)`. Required evidence retains
 its source, locator and finding alongside the original task/worker/route identity.

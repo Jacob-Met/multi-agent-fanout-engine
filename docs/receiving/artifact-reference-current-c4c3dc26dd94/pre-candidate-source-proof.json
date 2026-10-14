@@ -1,0 +1,52 @@
+{
+  "scope": "Exact existing owner helper and complete two completion functions composed on current source; failed-verdict and every unrelated byte preserved",
+  "current_source": {
+    "bytes": 19340,
+    "sha256": "ad7be94547058d2e269da9253177b987647301cece6c6e767fb34e5f7e6ee30a",
+    "git": "fe545eb59a797ad4a9a05fae0f7c415c3a7f3e51"
+  },
+  "owner_parent": {
+    "bytes": 16383,
+    "sha256": "621d661ccaaca774b35f3aeb53c4c3d87a1c46a9fe9f86319c0b9c49b195af1c",
+    "git": "92707378ebd914097927fc12d5c3a9dfad84b30c"
+  },
+  "owner_source": {
+    "bytes": 16956,
+    "sha256": "31fe7fbb01f245be7a7532cf4775b07009ef991e3b1b772d48ea32966342a77f",
+    "git": "fd25944e91ea6db4dd2fd95527fd7042b65f85ec"
+  },
+  "candidate_source": {
+    "bytes": 19913,
+    "sha256": "c6f02773f0b4a19d3c6cc73baa5b47f36296c9bbf19ed9524453194cb598df44",
+    "git": "3639750485f613337c50cc162f7339bc8da1cb0d"
+  },
+  "owner_full_inverse_exact": true,
+  "current_completion_functions_equal_owner_parent": true,
+  "candidate_full_inverse_exact": true,
+  "candidate_owned_functions_exact": true,
+  "helper_characters": 651,
+  "unchanged_module_count": 8,
+  "original_receipt": {
+    "bytes": 90895,
+    "sha256": "a5cb3503872e7aabc331051c40a2f3d9a0271ce39c9d725d8811611f31954bcf",
+    "git": "7682a5108430310fc34162ec2f4730313f7b1f2f"
+  },
+  "original_freeze": {
+    "bytes": 28008,
+    "sha256": "3ebfd39e67b3ff6359963b89a532dc6fea2fa2b175a4b086de4aea858f5f174c",
+    "git": "a75de831d1fae4c4033a5d6d1b4f91b427337406"
+  },
+  "maintained_tests_attributed_not_executed": [
+    {
+      "bytes": 3692,
+      "sha256": "5cc03c7ebd5f5ec1a10dd1d4b7b98cdd9bdd33578e1bade5975997dd3991b714",
+      "git": "340da011b7c3e18bde42c61259b2967290e92f83"
+    },
+    {
+      "bytes": 4840,
+      "sha256": "22f0ee315a2354e625cb5466d6dbda75fa3fcd1a6bc88c76f844d20695c8b366",
+      "git": "da0610211be4fd7e0aa75c3a352261f2804887d2"
+    }
+  ],
+  "candidate_executed": false
+}
