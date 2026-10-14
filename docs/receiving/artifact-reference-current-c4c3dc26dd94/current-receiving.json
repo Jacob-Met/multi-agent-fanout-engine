@@ -1,0 +1,356 @@
+{
+  "scope": "Four ordinary public API cases per source in owned fictional SQLite fixtures; no product CLI or native/installed execution",
+  "source_proof": {
+    "bytes": 1928,
+    "sha256": "c5ee59813cb53e19561f3208034fd32918cbaeb643bc1b2c5f7739d40f10b438",
+    "git": "01b044e22ebb93c2c2e9c52671d790a495ae5e26"
+  },
+  "candidate_ledger": {
+    "bytes": 19913,
+    "sha256": "c6f02773f0b4a19d3c6cc73baa5b47f36296c9bbf19ed9524453194cb598df44",
+    "git": "3639750485f613337c50cc162f7339bc8da1cb0d"
+  },
+  "current_baseline": "10765dee0f518b28ff9ca06c4f04c5d1a6955b0f",
+  "original_inputs_frozen_before_candidate_inspection": 45,
+  "source_modules_per_phase": 9,
+  "phases": {
+    "original": {
+      "raw_receipt": {
+        "bytes": 90895,
+        "sha256": "a5cb3503872e7aabc331051c40a2f3d9a0271ce39c9d725d8811611f31954bcf",
+        "git": "7682a5108430310fc34162ec2f4730313f7b1f2f"
+      },
+      "receiver_accepted": true,
+      "desired_passes": 2,
+      "desired_total": 4,
+      "api_children": [
+        {
+          "case": "direct-blank",
+          "pid": 8,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 10580,
+            "sha256": "ba39d8dc616b5c09da8ef262b48acaf778de067cd9a8ad27773a5f682452665a",
+            "git": "dfbbda11a0b2884a9dc84de8bb62808087d1e5a5"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": false,
+          "domain_error": null,
+          "before_state": "running",
+          "after_state": "completed",
+          "artifact_ref": " \t ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        },
+        {
+          "case": "reconcile-blank",
+          "pid": 9,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 11796,
+            "sha256": "8c30d8b9d25f912dcd7e4f3633f37d795d0690f05e6588f41f24fb3e43abf966",
+            "git": "844c8b00fccbae7c4af408ba0061c45764b75109"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": false,
+          "domain_error": null,
+          "before_state": "outcome_unknown",
+          "after_state": "completed",
+          "artifact_ref": " \t ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        },
+        {
+          "case": "direct-valid",
+          "pid": 10,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 10853,
+            "sha256": "bd6bcd119f0439fa0bb2158b2755713e91729095f89c8c9f65f35cdb913ea64f",
+            "git": "48ee8be3c0921413ed53d7b2941fc993b5b335eb"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": null,
+          "before_state": "running",
+          "after_state": "completed",
+          "artifact_ref": "  file://fictional-artifact-東京-雪-é  ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        },
+        {
+          "case": "reconcile-valid",
+          "pid": 11,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 12075,
+            "sha256": "58fda962456b54f5d314b789a0780e973f49ea82a58057e6b7536b3f8e7dd470",
+            "git": "ad0239332fae53ef03a317a9dbeeb15085a77e96"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": null,
+          "before_state": "outcome_unknown",
+          "after_state": "completed",
+          "artifact_ref": "  file://fictional-artifact-東京-雪-é  ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        }
+      ],
+      "inputs": 14,
+      "typed_maps_unchanged": true,
+      "helper_receipt": {
+        "bytes": 12241,
+        "sha256": "f597f59dfd9e0f4b29d7c408ef3b68a10f5995284000a52870b4f4031b5950b0",
+        "git": "a7374ae089b0e5718ee7a08cc52f3fd155cf5dc9"
+      },
+      "helper": {
+        "pid": 7,
+        "child_reaped": true,
+        "child_returncode": 0,
+        "receiver_exit_code": 0,
+        "sources_unchanged": true,
+        "inspection_errors": []
+      },
+      "helper_sources": 17,
+      "outer_initial": {
+        "bytes": 131,
+        "sha256": "5ccabe3b1b20a09578789fba5fa7f3833c13b773d78c9d7b1f17167a42284d51",
+        "git": "64dab8e42a0b80167cb32581f5d49a74467e467e"
+      },
+      "outer_completion": {
+        "bytes": 217,
+        "sha256": "30fcd0e6e6d2a0dc0817c97a386d866ec5c2a34bc48f0cc37ad7be298270964a",
+        "git": "d9e508cce0306f5314275e0c7284294118cc7d01"
+      },
+      "outer_exit": 0
+    },
+    "candidate": {
+      "raw_receipt": {
+        "bytes": 141866,
+        "sha256": "c61396f0dfe65b3e4128e8d491d44a6fd507596e0b09d19753f8a45bd9d47b18",
+        "git": "08ee32143ff6c2709e5a620173e1ac4fc85d3022"
+      },
+      "receiver_accepted": true,
+      "desired_passes": 4,
+      "desired_total": 4,
+      "api_children": [
+        {
+          "case": "direct-blank",
+          "pid": 8,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 9711,
+            "sha256": "b23fe06504e56f7b1853c4f0f30cbbc144b7b9f4f2aaed6b94a3a6ee19ee0495",
+            "git": "f495450995b921a93b4c0ad2624ab46dd3bbf5b6"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": {
+            "class": "LedgerError",
+            "message": "completed work needs a non-empty text artifact reference"
+          },
+          "before_state": "running",
+          "after_state": "running",
+          "artifact_ref": null,
+          "row_events_snapshot_unchanged": true,
+          "database_bytes_unchanged": true,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [],
+          "blocked_queued_ids": [
+            "consume"
+          ],
+          "frontier_ids": [
+            "produce"
+          ],
+          "audit_failures": []
+        },
+        {
+          "case": "reconcile-blank",
+          "pid": 9,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 11641,
+            "sha256": "1217ee607dcfa609dad2f3e182fdf951c91a3a8ebbe1ff2fdb3891e934ecaecc",
+            "git": "830a123c2dc84e12d8d79db47f08a12896f77f85"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": {
+            "class": "LedgerError",
+            "message": "completed work needs a non-empty text artifact reference"
+          },
+          "before_state": "outcome_unknown",
+          "after_state": "outcome_unknown",
+          "artifact_ref": null,
+          "row_events_snapshot_unchanged": true,
+          "database_bytes_unchanged": true,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [],
+          "blocked_queued_ids": [
+            "consume"
+          ],
+          "frontier_ids": [
+            "produce"
+          ],
+          "audit_failures": []
+        },
+        {
+          "case": "direct-valid",
+          "pid": 10,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 10859,
+            "sha256": "dcd3246ce4b42a99c50132fc8b0e5e77d2cd9925e614b7df90bf863a572f8c7f",
+            "git": "0da76ea641af9d7a71d047cb22669860c0534b90"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": null,
+          "before_state": "running",
+          "after_state": "completed",
+          "artifact_ref": "  file://fictional-artifact-東京-雪-é  ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        },
+        {
+          "case": "reconcile-valid",
+          "pid": 11,
+          "returncode": 0,
+          "reaped": true,
+          "timed_out": false,
+          "stdout": {
+            "bytes": 12070,
+            "sha256": "964666fdce8301553d30e270d20b747db55c1e85907a1fc41cf5cca882a652ac",
+            "git": "9835b5637f4d9626005f014d920998f17add0ec0"
+          },
+          "stderr": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "git": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+          },
+          "desired_pass": true,
+          "domain_error": null,
+          "before_state": "outcome_unknown",
+          "after_state": "completed",
+          "artifact_ref": "  file://fictional-artifact-東京-雪-é  ",
+          "row_events_snapshot_unchanged": false,
+          "database_bytes_unchanged": false,
+          "read_only_database_unchanged": true,
+          "queued_ready_ids": [
+            "consume"
+          ],
+          "blocked_queued_ids": [],
+          "frontier_ids": [],
+          "audit_failures": []
+        }
+      ],
+      "inputs": 56,
+      "typed_maps_unchanged": true,
+      "helper_receipt": {
+        "bytes": 12853,
+        "sha256": "9d7729692420cf5aac7d37834e939c91b45bb617960e28bcbebac2755a48c5b1",
+        "git": "99bd8584d5bc624aa6b9ba9c27e3fda33992aa4b"
+      },
+      "helper": {
+        "pid": 7,
+        "child_reaped": true,
+        "child_returncode": 0,
+        "receiver_exit_code": 0,
+        "sources_unchanged": true,
+        "inspection_errors": []
+      },
+      "helper_sources": 18,
+      "outer_initial": {
+        "bytes": 130,
+        "sha256": "91818a8578a921549eb4365dee0f3b3e56661d91b99c4ea68b9a433074771c01",
+        "git": "17a7a84aca158d2e3f719b85e821d38c0ef13f0e"
+      },
+      "outer_completion": {
+        "bytes": 218,
+        "sha256": "c4e97e02ca088ca5b5be6829d28325b633274ae620202783ab16090af79dfb4e",
+        "git": "a1a04aa48f30c0364d57cc236d5e9d2cdf096ebf"
+      },
+      "outer_exit": 0
+    }
+  },
+  "maintained_owner_suites_repeated": false,
+  "no_installed_change": true
+}

@@ -89,6 +89,15 @@ temporary file without exposing a partial report; a reported cleanup failure
 after publication can leave the complete report present. This is the same
 create-only publication behavior used by the plan preview command.
 
+The selected database's `-wal`, `-shm`, and `-journal` names are reserved
+even when no sidecar currently exists. A JSON report at one of those names could
+interfere with later SQLite use. The check covers the selected name, its resolved
+target, and a sidecar whose existing unsuffixed file is a hard-link alias of the
+database. It conservatively treats case and Unicode-normalization variants as
+reserved, including on filesystems where those spellings would be distinct.
+These destination checks run only after native record validation and encoding;
+they do not replace the maintained preview publisher or its no-replacement rule.
+
 Run the file-export consumer tests with:
 
 ```sh

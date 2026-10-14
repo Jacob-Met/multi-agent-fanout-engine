@@ -1,0 +1,313 @@
+{
+  "schema": "hamon.project-catalog-current-composition-qualification.v1",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "pull_request": 46,
+  "source": {
+    "schema_version": 1,
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "final_source_commit": "3b2706a32e2e395bb7282b83ea18d3ac2cd576d9",
+    "final_source_tree": "4491a6b4adba678d1cd4cab230337446d746bbf2",
+    "ordered_parents": [
+      "eda3b524ad9a1997e6973a7ee3ed1ca109bce027",
+      "484ad9270b6c5e49db87171eb26ac516d592ddd6"
+    ],
+    "current_main": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+    "current_main_tree": "3eb9d157062e3998fad452e08b6e0613bc152635",
+    "current_main_leaves": 208,
+    "final_source_leaves": 213,
+    "unrelated_current_leaves_conserved": 206,
+    "qualified_paths": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b4a22e7bf06f66036600f67fc20e353d4f25e30f"
+      },
+      {
+        "path": "docs/project-catalog.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "39b026676832bdaad8bf13c7d0106c83129af5b0"
+      },
+      {
+        "path": "docs/qualification/project-catalog-dc06b3a12de5/README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0fbedd675b790d5b3f6cff45ed13770dd34e672f"
+      },
+      {
+        "path": "docs/qualification/project-catalog-dc06b3a12de5/receiving.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "94bf3b7cf35b6e2e25f6d5e9b47e382183f5a0cc"
+      },
+      {
+        "path": "fanout_engine/projects.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6589dba3740f51e42cafd6b484912818cccac211"
+      },
+      {
+        "path": "tests/test_projects.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5e3d229acb9e6a32698faa285d43be49e03c2665"
+      },
+      {
+        "path": "fanout_engine/ledger.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21"
+      }
+    ],
+    "ledger_bytes": 17553,
+    "ledger_sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+    "exact_578_byte_inverse": true,
+    "entire_current_ledger_ast_restored": true,
+    "all_25_current_method_asts_conserved": true,
+    "scope": "Preserve newly accepted initializer cleanup; all other catalog source/navigation/test/guide/QA paths unchanged. Prior eda source receipt remains separate."
+  },
+  "prior_comparison_union_source": {
+    "schema_version": 1,
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "reviewed_composition": "bfd43a8f33f1f4b1376b4b8211458daef7ed5f3f",
+    "final_source_commit": "eda3b524ad9a1997e6973a7ee3ed1ca109bce027",
+    "final_source_tree": "e5f165d8691cb0b864f02104befe4397d939f538",
+    "ordered_parents": [
+      "bfd43a8f33f1f4b1376b4b8211458daef7ed5f3f",
+      "cb30577caedeb2d722abf74047b42407d0c7f995"
+    ],
+    "current_main": "cb30577caedeb2d722abf74047b42407d0c7f995",
+    "current_main_tree": "e27bf988796671467430854edb58ecbc13f7aea1",
+    "current_main_leaves": 205,
+    "final_source_leaves": 210,
+    "unrelated_current_leaves_conserved": 203,
+    "qualified_paths": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b4a22e7bf06f66036600f67fc20e353d4f25e30f"
+      },
+      {
+        "path": "docs/project-catalog.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "39b026676832bdaad8bf13c7d0106c83129af5b0"
+      },
+      {
+        "path": "docs/qualification/project-catalog-dc06b3a12de5/README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0fbedd675b790d5b3f6cff45ed13770dd34e672f"
+      },
+      {
+        "path": "docs/qualification/project-catalog-dc06b3a12de5/receiving.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "94bf3b7cf35b6e2e25f6d5e9b47e382183f5a0cc"
+      },
+      {
+        "path": "fanout_engine/projects.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6589dba3740f51e42cafd6b484912818cccac211"
+      },
+      {
+        "path": "tests/test_projects.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5e3d229acb9e6a32698faa285d43be49e03c2665"
+      },
+      {
+        "path": "fanout_engine/ledger.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "13e576037ff9ed87cf2ce75bee31bbdd25378a8d"
+      }
+    ],
+    "runtime_delta_from_reviewed": [
+      "fanout_engine/compare.py"
+    ],
+    "catalog_runtime_and_imported_closure": "all runtime modules except independent comparison exporter remain exact to bfd; projects.py does not import compare.py",
+    "affected_test_course": {
+      "tests": 17,
+      "returncode": 0,
+      "receipt": "final-compare-evidence/receipt.json",
+      "receipt_bytes": 34745,
+      "receipt_sha256": "100be210d88734389fbbea7273318d363e2e4af1d05a4e3cbbe8120ab3ea3819"
+    },
+    "source_scope": "No original catalog runtime, tests, guide, navigation or QA changed; latest main comparison exporter and guide correction conserved."
+  },
+  "complete_maintained_suites": {
+    "platform": "Linux CPython 3.12.14",
+    "current_commit": "27502202fe2429eef11740d23a8e760c4a7d9fc5",
+    "composition_commit": "bfd43a8f33f1f4b1376b4b8211458daef7ed5f3f",
+    "current_passed": 193,
+    "composition_passed": 204,
+    "skips": 0,
+    "composition_actual_optimized_catalog_passed": 11,
+    "actual_import_origins_and_optimization_recorded": true,
+    "source_projection_counts": {
+      "current": 62,
+      "candidate": 67
+    },
+    "all_129_source_bytes_modes_inodes_mtime_ns_unchanged": true,
+    "receipt": {
+      "file": "linux-current-evidence/receipt.json",
+      "bytes": 94473,
+      "sha256": "bd8940265a97a72d99aae646c8a26d37fcbb3dd71e42b08ebcbe2af13e0eab44"
+    },
+    "replay": {
+      "file": "run_current_tests.py",
+      "bytes": 5789,
+      "sha256": "4421f7a9814a920492427efb5d5ec9ba6af74569c9fd3a574991f57d6ac82356"
+    },
+    "projection": {
+      "file": "projection-input.json",
+      "bytes": 17659,
+      "sha256": "aacbf240dac5272cc9055032de7a3956514bd0187721ccf4602bd6ca649262dd"
+    }
+  },
+  "independent_transaction_receiving": {
+    "receiver": "dc06b3a12de5/consumer_runtime",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "sqlite_version": "3.53.1",
+    "current_direct_inspection_controls": 4,
+    "candidate_catalog_handoffs": 4,
+    "all_accepted": true,
+    "cases": [
+      "pending_write_rollback",
+      "inspection_refusal_rollback",
+      "wal_snapshot_handoff",
+      "closed_file_cli_handoff"
+    ],
+    "claims": [
+      "Real external observer confirms reads do not commit the caller pending write; explicit rollback works.",
+      "Malformed pending runtime-part inspection refuses while preserving the caller transaction and marker.",
+      "An explicit WAL reader retains the old catalog and queued state after another connection commits a new project and dispatch; explicit rollback reveals both new project and dispatching state.",
+      "Actual catalog CLI exact-ID handoff to inspect CLI preserves the closed database bytes, inode, mode and mtime_ns."
+    ],
+    "current_receipt": {
+      "file": "peer-transactions/current-receipt.json",
+      "bytes": 6161,
+      "sha256": "4b01290671290ef949bd9ea6d3cf5926a7393870293134c6c00b9ee1f8ac4b08"
+    },
+    "candidate_receipt": {
+      "file": "peer-transactions/candidate-receipt.json",
+      "bytes": 7152,
+      "sha256": "922565b19e520d1fd4ede35efa43876ee9d22b670bf78500a58f97509128b9c5"
+    },
+    "replay": {
+      "file": "peer-transactions/receive_transactions.py",
+      "bytes": 12782,
+      "sha256": "5f9b42c95dfa9059496633635f01a9da10e6606094f821b431bf3bb0e501255e"
+    },
+    "terminal_and_custody": {
+      "file": "peer-transactions/terminal-and-custody.json",
+      "bytes": 2464,
+      "sha256": "36022f446153791c61a57de13a1dd42ab61aa046d4a7a3192b4f7085df4115f9"
+    },
+    "source_files_unchanged": 129,
+    "limits": "Current provides direct inspection controls because it has no catalog. Candidate adds real catalog discovery/inspection to the transaction and snapshot cases. These are not four identical paired catalog tests. Fixture setup intentionally writes disposable SQLite state and changes its journal mode; unchanged database state is asserted only across the final closed-file CLIs. No Hub, provider, maintained-suite repetition, original source/ref change, installed adoption or Mac execution."
+  },
+  "independent_static_receiving": {
+    "receiver": "dc06b3a12de5/shared_delivery",
+    "reviewed_composition": {
+      "file": "peer-source-static.json",
+      "bytes": 8406,
+      "sha256": "278c042eaad457dd9224abee76c5f970224077c5dc7f93fbc92f38b867c5c763"
+    },
+    "comparison_union": {
+      "file": "peer-final-union.json",
+      "bytes": 2973,
+      "sha256": "e68f537bc44255b7bb552e8d2830e3ede4c98a7a4ad94c25a018aa88d1a15ba7"
+    },
+    "final_initializer_union": {
+      "file": "peer-init-union.json",
+      "bytes": 2232,
+      "sha256": "57fbc437debaf905a2a0be1a413614f565f881e737a148e83e5ad928b3adb0b6"
+    },
+    "scope": "Exact tree, source inverse, unchanged catalog dependency closure and guide semantics; no product execution by this reviewer."
+  },
+  "concurrent_main_comparison_receiving": {
+    "commit": "eda3b524ad9a1997e6973a7ee3ed1ca109bce027",
+    "tree": "e5f165d8691cb0b864f02104befe4397d939f538",
+    "current_main": "cb30577caedeb2d722abf74047b42407d0c7f995",
+    "passed": 17,
+    "returncode": 0,
+    "source_projection_files": 68,
+    "source_bytes_modes_inodes_mtime_ns_unchanged": true,
+    "receipt": {
+      "file": "final-compare-evidence/receipt.json",
+      "bytes": 34745,
+      "sha256": "100be210d88734389fbbea7273318d363e2e4af1d05a4e3cbbe8120ab3ea3819"
+    },
+    "replay": {
+      "file": "run_final_compare.py",
+      "bytes": 3358,
+      "sha256": "04c6a3695fe3ed9a6b452757160e6554f0dce1bb04a8df571e788bcd12a82ec6"
+    },
+    "scope": "Affected comparison consumers only. Complete maintained suites were run on 275/bfd; they were not rerun or relabelled as a complete eda3 course."
+  },
+  "mac_current_composition": {
+    "status": "not run: device explicitly offline before a product course started",
+    "transport_record": {
+      "file": "mac-current-receiving-unavailable.json",
+      "bytes": 1554,
+      "sha256": "849d78fa95f3c72e4d10de12d5533d158282c72bc7cc8a6c2697ba7857841ef4"
+    },
+    "ambiguous_effects": "A directory creation and one source-transfer write may have partial effects; no repeated writes or qualification credit. Readback awaits access.",
+    "historical_receiving": "Original catalog Mac qualification remains bound to original source, not this composition."
+  },
+  "concurrent_main_initializer_receiving": {
+    "commit": "3b2706a32e2e395bb7282b83ea18d3ac2cd576d9",
+    "tree": "4491a6b4adba678d1cd4cab230337446d746bbf2",
+    "current_main": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+    "passed": 13,
+    "breakdown": {
+      "initializer": 2,
+      "catalog": 11
+    },
+    "returncode": 0,
+    "source_projection_files": 69,
+    "source_bytes_modes_inodes_mtime_ns_unchanged": true,
+    "receipt": {
+      "file": "init-catalog-evidence/receipt.json",
+      "bytes": 35446,
+      "sha256": "268fe71c073dbacab58e79b032cdd40db03ad144cbd2b35fc663155128daa6a0"
+    },
+    "replay": {
+      "file": "run_init_catalog.py",
+      "bytes": 3583,
+      "sha256": "04e3fadb96f0162cc2eb48020781433f981197947abd5775fdc39b7c2ec697e0"
+    },
+    "scope": "Final union preserves current initializer bytes and all 25 current method ASTs. The earlier independent transaction course remains bound to bfd; affected initializer and catalog cases are qualified on 3b2706. No complete-suite or Mac claim for this latest union."
+  },
+  "original_replay_packet": {
+    "url": "https://drive.google.com/file/d/1dyRf1h8138QEQe5zYKQ5LyTJSXxg8399/view",
+    "bytes": 827349,
+    "sha256": "03ecc2f0a50c332b37ae752cd813d0b9247edf5132d155c5b50a5344b2b28cbc",
+    "changed": false
+  },
+  "workflow": {
+    "git_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53",
+    "source_changed": false,
+    "dispatched": false,
+    "commit_skip_markers": [
+      "[skip ci]",
+      "[skip actions]",
+      "skip-checks: true"
+    ],
+    "hosted_status_note": "Empty pending statuses are not hosted test passes; actual publication and merge run counts are recorded separately."
+  },
+  "limits": [
+    "Current-main draft owners retain their adjacent work. No plan-persistence/dispatch draft is adopted.",
+    "Catalog validates authored plan headers and counts; detailed runtime/event validation remains with the existing inspectors.",
+    "SQLite transaction visibility is not an immutable filesystem snapshot.",
+    "Raw original receipts retain integer nanosecond timestamps and are copied unchanged in the separate evidence companion.",
+    "This qualification does not establish an installed fleet, provider or service adoption.",
+    "Later source publication and main integration are separately recorded events."
+  ]
+}

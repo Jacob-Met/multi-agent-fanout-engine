@@ -202,5 +202,63 @@ class ComparePlansTests(unittest.TestCase):
         self.assertNotIn(b"Exception ignored", result.stderr)
 
 
+
+    def test_exclusive_output_matches_stdout_and_preserves_inputs(self) -> None:
+        before = self.before_path.read_bytes()
+        after = self.after_path.read_bytes()
+        expected = self.run_pair()
+        self.assertEqual(expected.returncode, 0, expected.stderr)
+        destination = self.root / "result résumé.json"
+        result = self.cli("--before", str(self.before_path), "--after", str(self.after_path),
+                          "--output", str(destination))
+        self.assertEqual((result.returncode, result.stdout, result.stderr), (0, b"", b""))
+        self.assertEqual(destination.read_bytes(), expected.stdout)
+        self.assertEqual(self.before_path.read_bytes(), before)
+        self.assertEqual(self.after_path.read_bytes(), after)
+        self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
+
+    def test_exclusive_output_refuses_existing_and_missing_parent(self) -> None:
+        original_before = self.before_path.read_bytes()
+        original_after = self.after_path.read_bytes()
+        occupied = self.root / "occupied.json"
+        occupied.write_bytes(b"not a comparison")
+        directory = self.root / "directory"
+        directory.mkdir()
+        symlink = self.root / "symlink.json"
+        destinations = [occupied, directory, self.root / "missing" / "new.json",
+                        self.before_path, self.after_path]
+        try:
+            symlink.symlink_to(occupied)
+        except (OSError, NotImplementedError):
+            # Symlink privileges vary on Windows; other refusal cases always run.
+            pass
+        else:
+            destinations.append(symlink)
+        for destination in destinations:
+            with self.subTest(destination=destination):
+                result = self.cli("--before", str(self.before_path), "--after", str(self.after_path),
+                                  "--output", str(destination))
+                self.assertEqual((result.returncode, result.stdout), (1, b""), result.stderr)
+                self.assertIn(b"cannot write report", result.stderr)
+                self.assertNotIn(b"Traceback", result.stderr)
+        self.assertEqual(occupied.read_bytes(), b"not a comparison")
+        self.assertEqual(self.before_path.read_bytes(), original_before)
+        self.assertEqual(self.after_path.read_bytes(), original_after)
+        self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
+        self.assertFalse((self.root / "missing").exists())
+
+    def test_invalid_second_plan_with_output_does_not_create_file(self) -> None:
+        destination = self.root / "must-remain-absent.json"
+        self.after_path.write_bytes(b'{"project":"p","parts":[}')
+        before = self.before_path.read_bytes()
+        after = self.after_path.read_bytes()
+        result = self.cli("--before", str(self.before_path), "--after", str(self.after_path),
+                          "--output", str(destination))
+        self.assertEqual((result.returncode, result.stdout), (2, b""), result.stderr)
+        self.assertIn(b"cannot compare plans", result.stderr)
+        self.assertFalse(destination.exists())
+        self.assertEqual(self.before_path.read_bytes(), before)
+        self.assertEqual(self.after_path.read_bytes(), after)
+
 if __name__ == "__main__":
     unittest.main()

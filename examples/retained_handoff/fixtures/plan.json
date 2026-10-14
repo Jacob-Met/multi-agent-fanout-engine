@@ -1,0 +1,53 @@
+{
+  "project": "fixture-handoff-51df5b72e832",
+  "parts": [
+    {
+      "id": "audit",
+      "instruction": "Verify every authored fixture file against its expected byte length and SHA-256 digest.",
+      "tags": [
+        "fixture",
+        "integrity"
+      ]
+    },
+    {
+      "id": "inventory",
+      "instruction": "Produce an inventory of authored files, their hashes and total byte length.",
+      "tags": [
+        "fixture",
+        "inventory"
+      ]
+    },
+    {
+      "id": "notes",
+      "instruction": "Prepare practical receiving notes from the local workflow contract.",
+      "tags": [
+        "fixture",
+        "notes"
+      ]
+    },
+    {
+      "id": "summary",
+      "instruction": "Summarize the completed inventory for the receiving handoff.",
+      "depends_on": [
+        "inventory"
+      ],
+      "tags": [
+        "fixture",
+        "summary"
+      ]
+    },
+    {
+      "id": "handoff",
+      "instruction": "Assemble the verified handoff after audit, notes and summary have completed.",
+      "depends_on": [
+        "audit",
+        "notes",
+        "summary"
+      ],
+      "tags": [
+        "fixture",
+        "handoff"
+      ]
+    }
+  ]
+}

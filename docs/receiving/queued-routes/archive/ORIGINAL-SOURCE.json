@@ -1,0 +1,187 @@
+{
+  "schema": "hamon.original-source-intake.v1",
+  "capturedUtc": "2026-10-13T08:50:10.540596+00:00",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "commit": "9fe49691944cacf666e1c37f526c0d26fc1a4ee1",
+  "tree": "f25d46b79a87c6c88bbbfe5bbae9ced9cb34f020",
+  "sourceRoot": "/dev/shm/hamon-worker-two-queued-routes-3795/original-9fe49691",
+  "files": [
+    {
+      "path": "examples/retained_handoff/README.md",
+      "bytes": 7102,
+      "sha256": "22789401a66adb7076a521206ec4c744c5c341a79e0aad342f44df76157aa7fe",
+      "git_blob": "bbfb6ed2dcd535cf049641ebfe436f5c2de5cab3",
+      "mode": "100644",
+      "mtime_ns": 1791881410539866037
+    },
+    {
+      "path": "fanout_engine/dispatch.py",
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "mode": "100644",
+      "mtime_ns": 1791881410539947860
+    },
+    {
+      "path": "fanout_engine/inspection.py",
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "mode": "100644",
+      "mtime_ns": 1791881410539990164
+    },
+    {
+      "path": "fanout_engine/ledger.py",
+      "bytes": 17553,
+      "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+      "git_blob": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21",
+      "mode": "100644",
+      "mtime_ns": 1791881410540034431
+    },
+    {
+      "path": "fanout_engine/plan.py",
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "mode": "100644",
+      "mtime_ns": 1791881410540077245
+    },
+    {
+      "path": "fanout_engine/preview.py",
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+      "git_blob": "3af98db006853a19f60506322f7e450ce3685cfc",
+      "mode": "100644",
+      "mtime_ns": 1791881410540111667
+    },
+    {
+      "path": "fanout_engine/projects.py",
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+      "git_blob": "6589dba3740f51e42cafd6b484912818cccac211",
+      "mode": "100644",
+      "mtime_ns": 1791881410540185628
+    },
+    {
+      "path": "fanout_engine/routing.py",
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "mode": "100644",
+      "mtime_ns": 1791881410540219929
+    },
+    {
+      "path": "examples/retained_handoff/_checkout.py",
+      "bytes": 1281,
+      "sha256": "fae7e3a36cf20dbaa35fd2b3afa39f97b15a3bf650cd4d79ebc14c6cfbbef98c",
+      "git_blob": "d2c34b74a423b4c60d42d1d723eb9c6afb3b48cb",
+      "mode": "100644",
+      "mtime_ns": 1791881410540245538
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/expected-files.json",
+      "bytes": 527,
+      "sha256": "0a75e25e569c77e54ad9a9b482aab54a3fb5e786c8f8dd367d09a5d4948ce707",
+      "git_blob": "185fae36f88dcb25565f6e4e35df2a212e0c00b9",
+      "mode": "100644",
+      "mtime_ns": 1791881410540269814
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/files/component-a.txt",
+      "bytes": 104,
+      "sha256": "819c8fd2ab66ca03d272aeb9717738b9354021b948f817d53061356c95649ea6",
+      "git_blob": "7c34d90b4b1d4f073048f15c574622a048f9811e",
+      "mode": "100644",
+      "mtime_ns": 1791881410540293810
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/files/owner-notes.md",
+      "bytes": 171,
+      "sha256": "965be098d9eb5c31704dde6d6b9044b391dc76b36f44ad602e0635658bfdb36e",
+      "git_blob": "2d218e563ef8131802035d740da37d18d173d41d",
+      "mode": "100644",
+      "mtime_ns": 1791881410540317206
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/files/receive-contract.json",
+      "bytes": 172,
+      "sha256": "420d60fd42e2688a5790855fcae894a841a351e429ea8622bfa2972dc297ef55",
+      "git_blob": "c1290730c48710c325ce88f30a3ff83d83025d2a",
+      "mode": "100644",
+      "mtime_ns": 1791881410540339469
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/fixture-pin.json",
+      "bytes": 969,
+      "sha256": "90142c3664427b5cb8d0bdcf928cb65d71cf95f87ab71404a2a77eb652632bd5",
+      "git_blob": "85df96571547e20376e8d71e39e3ad26141350d7",
+      "mode": "100644",
+      "mtime_ns": 1791881410540362454
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/plan.json",
+      "bytes": 1174,
+      "sha256": "888d78fcdf39217f87fd93ad54cf31ae833423a22d1c1f6632becf6451e8d22f",
+      "git_blob": "a4be5c7ddc62499daf5d3577695a48980be28f0f",
+      "mode": "100644",
+      "mtime_ns": 1791881410540384757
+    },
+    {
+      "path": "examples/retained_handoff/fixtures/routes.json",
+      "bytes": 267,
+      "sha256": "d421f5e5886d1a1fea9c50b862d311e882a66b23fb11c1ec5e359f926349ee22",
+      "git_blob": "018882813bf6ad896f98ce50eb9f5ecf8cfe08d3",
+      "mode": "100644",
+      "mtime_ns": 1791881410540406219
+    },
+    {
+      "path": "examples/retained_handoff/receive_history_cli.py",
+      "bytes": 4200,
+      "sha256": "9198a6a923869d23ad588fb3ebbb7621329d41f6564d8e165795f88790b66728",
+      "git_blob": "844b5dca10586d03211c90dea645980060a9ab18",
+      "mode": "100644",
+      "mtime_ns": 1791881410540428663
+    },
+    {
+      "path": "examples/retained_handoff/run_consumer.py",
+      "bytes": 17569,
+      "sha256": "81b1c757b3c66fabe68b1cef4cf7b70c3cee5f8ac7a1ff28bd6a8be03ee4c80c",
+      "git_blob": "0d5b980bc14ee87706fbc46951f27436eff2dd42",
+      "mode": "100644",
+      "mtime_ns": 1791881410540463325
+    },
+    {
+      "path": "fanout_engine/__init__.py",
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "mode": "100644",
+      "mtime_ns": 1791881410540499720
+    },
+    {
+      "path": "fanout_engine/compare.py",
+      "bytes": 6671,
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5",
+      "git_blob": "fb478246d94d6dfab6671910a641f86eab60d78c",
+      "mode": "100644",
+      "mtime_ns": 1791881410540523886
+    },
+    {
+      "path": "fanout_engine/history.py",
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+      "git_blob": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+      "mode": "100644",
+      "mtime_ns": 1791881410540551308
+    },
+    {
+      "path": "fanout_engine/inspect.py",
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273",
+      "git_blob": "827b5760a0a95bd7960b084708225ebd478e3ff3",
+      "mode": "100644",
+      "mtime_ns": 1791881410540581573
+    }
+  ],
+  "boundary": "Original-only primary Git source. Every payload hash independently recomputed and matched exact current-tree Git blob. No candidate, dependency installation, runtime execution or native probe."
+}

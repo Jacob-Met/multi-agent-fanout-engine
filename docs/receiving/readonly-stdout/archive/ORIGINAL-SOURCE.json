@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-13T11:02:22.942496+00:00",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "commit": "ad99d83d23e029cc383b2adf8a999f23be642f8c",
+  "tree": "4cd5e997f9d8ac7c68d03ab5ea818667b8d0a20a",
+  "source": "/dev/shm/hamon-worker-two-readonly-stdout-3795/original-ad99d83d",
+  "files": {
+    "fanout_engine/__init__.py": {
+      "bytes": 613,
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+      "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "localMode": "0644"
+    },
+    "fanout_engine/dispatch.py": {
+      "bytes": 4599,
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+      "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "localMode": "0644"
+    },
+    "fanout_engine/ledger.py": {
+      "bytes": 18475,
+      "sha256": "7a1611b2904515432be42aa84005e4d6ec31268b6b365c722df17748e26aa2f0",
+      "git": "938a5e68a7b33b01a4219356c6894614b95fb0b5",
+      "localMode": "0644"
+    },
+    "fanout_engine/inspection.py": {
+      "bytes": 6055,
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+      "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "localMode": "0644"
+    },
+    "fanout_engine/inspect.py": {
+      "bytes": 4095,
+      "sha256": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273",
+      "git": "827b5760a0a95bd7960b084708225ebd478e3ff3",
+      "localMode": "0644"
+    },
+    "fanout_engine/preview.py": {
+      "bytes": 9379,
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+      "git": "3af98db006853a19f60506322f7e450ce3685cfc",
+      "localMode": "0644"
+    },
+    "fanout_engine/plan.py": {
+      "bytes": 7513,
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+      "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "localMode": "0644"
+    },
+    "fanout_engine/routing.py": {
+      "bytes": 2818,
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+      "git": "436a9f014caf69960fce67de28c062a431805b99",
+      "localMode": "0644"
+    },
+    "fanout_engine/history.py": {
+      "bytes": 4243,
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+      "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+      "localMode": "0644"
+    },
+    "fanout_engine/projects.py": {
+      "bytes": 2390,
+      "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+      "git": "6589dba3740f51e42cafd6b484912818cccac211",
+      "localMode": "0644"
+    }
+  },
+  "scope": "Original-only stdlib import closure for preview, inspect, history and projects. No candidate intake or execution."
+}

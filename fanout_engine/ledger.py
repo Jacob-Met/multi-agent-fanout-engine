@@ -33,26 +33,52 @@ def _require_artifact_reference(reference: Any) -> str:
 class Ledger:
     def __init__(self, database: str = ":memory:") -> None:
         self._db = sqlite3.connect(database, timeout=10, isolation_level=None)
-        self._db.row_factory = sqlite3.Row
-        self._db.execute("PRAGMA foreign_keys=ON")
-        self._db.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS projects(
-                project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
-            CREATE TABLE IF NOT EXISTS parts(
-                project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
-                payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
-                state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
-                worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
-                evidence_json TEXT, updated_at REAL NOT NULL,
-                PRIMARY KEY(project_id,part_id),
-                FOREIGN KEY(project_id) REFERENCES projects(project_id));
-            CREATE TABLE IF NOT EXISTS events(
-                seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
-                part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
-            CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
-            """
+        try:
+            self._db.row_factory = sqlite3.Row
+            self._db.execute("PRAGMA foreign_keys=ON")
+            self._db.executescript(
+                """
+                CREATE TABLE IF NOT EXISTS projects(
+                    project_id TEXT PRIMARY KEY, plan_digest TEXT NOT NULL, plan_json TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS parts(
+                    project_id TEXT NOT NULL, part_id TEXT NOT NULL, payload_json TEXT NOT NULL,
+                    payload_digest TEXT NOT NULL, idempotency_key TEXT NOT NULL,
+                    state TEXT NOT NULL CHECK(state IN ('queued','dispatching','running','outcome_unknown','completed','failed')),
+                    worker_id TEXT, task_id TEXT, route_json TEXT, artifact_ref TEXT,
+                    evidence_json TEXT, updated_at REAL NOT NULL,
+                    PRIMARY KEY(project_id,part_id),
+                    FOREIGN KEY(project_id) REFERENCES projects(project_id));
+                CREATE TABLE IF NOT EXISTS events(
+                    seq INTEGER PRIMARY KEY AUTOINCREMENT, project_id TEXT NOT NULL,
+                    part_id TEXT, event TEXT NOT NULL, detail_json TEXT NOT NULL, at REAL NOT NULL);
+                CREATE INDEX IF NOT EXISTS events_project_id ON events(project_id);
+                """
+            )
+        except BaseException:
+            self._db.close()
+            raise
+
+    @classmethod
+    def open_existing(cls, database: str | Path) -> "Ledger":
+        """Open an existing regular SQLite file for updates without schema setup.
+
+        The argument is a literal filesystem path. SQLite mode=rw also refuses
+        a missing file at connection time; no table or index is created here.
+        """
+        path = Path(database).absolute()
+        if not path.is_file():
+            raise LedgerError("database must be an existing regular file")
+        ledger = cls.__new__(cls)
+        ledger._db = sqlite3.connect(
+            path.as_uri() + "?mode=rw", uri=True, timeout=10, isolation_level=None,
         )
+        try:
+            ledger._db.row_factory = sqlite3.Row
+            ledger._db.execute("PRAGMA foreign_keys=ON")
+        except BaseException:
+            ledger._db.close()
+            raise
+        return ledger
 
     @classmethod
     def open_readonly(cls, database: str | Path) -> "Ledger":
@@ -115,6 +141,19 @@ class Ledger:
         if row is None:
             raise LedgerError("part is not in the ledger")
         return row
+
+    def project_catalog_snapshot(self) -> list[dict[str, Any]]:
+        """Read all recorded plan headers in one ordered SQL snapshot.
+
+        This read does not open, commit or roll back a caller's transaction.
+        The catalog consumer validates the retained plans before projecting
+        their identifiers, digests and authored part counts.
+        """
+        rows = self._db.execute(
+            "SELECT project_id,plan_digest,plan_json FROM projects "
+            "ORDER BY project_id COLLATE BINARY"
+        ).fetchall()
+        return [dict(row) for row in rows]
 
     def project_snapshot(self, project_id: str) -> dict[str, Any] | None:
         """Read one stored project and its parts in a single SQL snapshot.
@@ -184,37 +223,58 @@ class Ledger:
                        for row in rows if row["record_kind"] == 1],
         }
 
+    # A connection context commits or rolls back an active transaction. Reads
+    # leave that choice, including any explicit snapshot, with their caller.
     def part_state(self, project_id: str, part_id: str) -> str:
-        with self._db:
-            return self._part(self._db, project_id, part_id)["state"]
+        row = self._db.execute(
+            "SELECT state FROM parts WHERE project_id=? AND part_id=?",
+            (project_id, part_id),
+        ).fetchone()
+        if row is None:
+            raise LedgerError("part is not in the ledger")
+        return row["state"]
 
     def part(self, project_id: str, part_id: str) -> dict[str, Any]:
-        with self._db:
-            row = self._part(self._db, project_id, part_id)
-            result = dict(row)
-            for name in ("payload_json", "route_json", "evidence_json"):
-                if result.get(name) is not None:
-                    result[name.removesuffix("_json")] = json.loads(result[name])
-            return result
+        row = self._part(self._db, project_id, part_id)
+        result = dict(row)
+        for name in ("payload_json", "route_json", "evidence_json"):
+            if result.get(name) is not None:
+                result[name.removesuffix("_json")] = json.loads(result[name])
+        return result
 
     def idempotency_key(self, project_id: str, part_id: str) -> str:
-        with self._db:
-            return self._part(self._db, project_id, part_id)["idempotency_key"]
+        return self._part(self._db, project_id, part_id)["idempotency_key"]
 
     def completed_ids(self, project_id: str) -> set[str]:
-        with self._db:
-            rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='completed'", (project_id,))
-            return {row[0] for row in rows}
+        rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='completed'", (project_id,))
+        return {row[0] for row in rows}
 
     def dispatchable_ids(self, project_id: str) -> set[str]:
         """Only queued items may be submitted; unknown and in-flight items are excluded."""
-        with self._db:
-            rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='queued'", (project_id,))
-            return {row[0] for row in rows}
+        rows = self._db.execute("SELECT part_id FROM parts WHERE project_id=? AND state='queued'", (project_id,))
+        return {row[0] for row in rows}
+
+    def withdraw_queued(self, project_id: str, part_id: str, evidence: dict[str, str]) -> None:
+        """Record a terminal caller withdrawal before dispatch admission."""
+        self._validate_evidence(evidence)
+        with self._transaction() as db:
+            row = self._part(db, project_id, part_id)
+            if row["state"] != "queued":
+                raise LedgerError("only queued work may be withdrawn")
+            if any(row[name] is not None for name in ("worker_id", "task_id", "route_json", "artifact_ref")):
+                raise LedgerError("queued withdrawal requires absent submission and artifact references")
+            db.execute("UPDATE parts SET state='failed',evidence_json=?,updated_at=? WHERE project_id=? AND part_id=?",
+                       (canonical_json(evidence), time.time(), project_id, part_id))
+            self._event(db, project_id, part_id, "queued_withdrawn", evidence)
 
     def mark_dispatching(self, project_id: str, part_id: str, worker_id: str, route: dict[str, str]) -> None:
-        if not worker_id:
-            raise LedgerError("worker id is required")
+        if not isinstance(worker_id, str) or not str.strip(worker_id):
+            raise LedgerError("worker id must be non-empty text")
+        try:
+            str.encode(worker_id, "utf-8")
+        except UnicodeEncodeError as exc:
+            raise LedgerError("worker id must be UTF-8 text") from exc
+        worker_id = str.__str__(worker_id)
         with self._transaction() as db:
             row = self._part(db, project_id, part_id)
             if row["state"] != "queued":
@@ -302,12 +362,11 @@ class Ledger:
             return len(rows)
 
     def events(self, project_id: str, part_id: str | None = None) -> list[dict[str, Any]]:
-        with self._db:
-            if part_id is None:
-                rows = self._db.execute("SELECT * FROM events WHERE project_id=? ORDER BY seq", (project_id,)).fetchall()
-            else:
-                rows = self._db.execute("SELECT * FROM events WHERE project_id=? AND part_id=? ORDER BY seq",
-                                        (project_id, part_id)).fetchall()
+        if part_id is None:
+            rows = self._db.execute("SELECT * FROM events WHERE project_id=? ORDER BY seq", (project_id,)).fetchall()
+        else:
+            rows = self._db.execute("SELECT * FROM events WHERE project_id=? AND part_id=? ORDER BY seq",
+                                    (project_id, part_id)).fetchall()
         return [{**dict(row), "detail": json.loads(row["detail_json"])} for row in rows]
 
     @staticmethod

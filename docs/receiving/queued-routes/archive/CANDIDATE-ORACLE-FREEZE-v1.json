@@ -1,0 +1,30 @@
+{
+  "schema": "hamon.receiving-freeze.v1",
+  "frozenUtc": "2026-10-13T09:20:06.570800+00:00",
+  "candidateExposed": false,
+  "syntaxParsed": true,
+  "pins": [
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/receive-queued-routes-v1.py",
+      "bytes": 11831,
+      "sha256": "d12f655b3a33b0c16a4cfad813e0cf66e246c427d77faaf6b3e7a48a671a2e59"
+    },
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/observe-queued-cli-v1.py",
+      "bytes": 1133,
+      "sha256": "ce4275c0bc2d6c4181be771f5ca58acebf981f0a117e1e734bb0b1e5c9f0c61f"
+    },
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/candidate-expectations-v1.json",
+      "bytes": 5128,
+      "sha256": "2be371a7ad5505e6e47d3b67fb71a0ac7801593cd985520a3913329ee5d65c59"
+    },
+    {
+      "path": "/dev/shm/hamon-worker-two-queued-routes-3795/public-contract-v2.json",
+      "bytes": 7592,
+      "sha256": "6241e2f21c417ccc0fb1f049c1e7bc5f8448be366fac3a23f0817dc8f586b136"
+    }
+  ],
+  "original": "9/9 controls at original-controls-v2; earlier ENOSPC attempt preserved separately",
+  "priorFreezeWrite": "ENOSPC left zero-byte receive-queued-routes-v1.py; preserved as .incomplete-zero. Its intended byte content was unchanged before this retry."
+}

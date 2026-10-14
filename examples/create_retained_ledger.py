@@ -49,7 +49,13 @@ def main() -> int:
     except OSError as exc:
         print(f"sample ledger: {exc}", file=sys.stderr)
         return 2
-    print(f"Created authored sample project 'sample' in {args.database}")
+    message = f"Created authored sample project 'sample' in {args.database}"
+    try:
+        print(message)
+    except UnicodeEncodeError:
+        # Keep the real path intact; escape only its unprintable diagnostic text.
+        escaped = message.encode(sys.stdout.encoding, "backslashreplace")
+        print(escaped.decode(sys.stdout.encoding))
     return 0
 
 

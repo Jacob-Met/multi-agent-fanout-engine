@@ -1,0 +1,73 @@
+{
+  "schema": "hamon.readonly-cli.stdout-expectations.v1",
+  "contract": "https://github.com/Jacob-Met/hamon/issues/143#issuecomment-6144101879",
+  "baseline": "ad99d83d23e029cc383b2adf8a999f23be642f8c",
+  "project": "receiver-output",
+  "plan": {
+    "project": "receiver-output",
+    "parts": [
+      {
+        "id": "root",
+        "instruction": "Synthetic root — 雪"
+      },
+      {
+        "id": "child",
+        "instruction": "Synthetic dependent",
+        "depends_on": [
+          "root"
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "catalog": {
+      "m": [
+        "low"
+      ]
+    },
+    "pool": [
+      {
+        "model": "m",
+        "effort": "low"
+      }
+    ]
+  },
+  "evidence": {
+    "source": "independent local fixture",
+    "locator": "fixture://complete",
+    "finding": "Fictional completed root; no external execution"
+  },
+  "commands": {
+    "preview": {
+      "prefix": "fanout preview:",
+      "outputExit": 2,
+      "invalidExit": 2,
+      "fileOutput": true
+    },
+    "inspect": {
+      "prefix": "fanout inspect:",
+      "outputExit": 1,
+      "invalidExit": 3,
+      "fileOutput": true
+    },
+    "history": {
+      "prefix": "fanout history:",
+      "outputExit": 1,
+      "invalidExit": 3,
+      "fileOutput": false
+    },
+    "projects": {
+      "prefix": "fanout projects:",
+      "outputExit": 1,
+      "invalidExit": 2,
+      "fileOutput": true
+    }
+  },
+  "course": {
+    "expectedChildren": 23,
+    "expectedChecks": 26,
+    "originalExpectation": "Four absent-stdout contract checks should expose the suspected defect; all healthy/existing-stream/file-output/input/source/process controls must remain distinguishable. Do not convert the first failure into a pass.",
+    "candidateExpectation": "All unchanged checks pass; healthy stdout equals raw original outputs on copied identical fixtures."
+  },
+  "boundary": "Original-first direct actual POSIX Python CLI processes. Descriptor 1 is physically closed in child pre-exec before interpreter startup; no sys.stdout patch, candidate mock or audit shim. Separate actual /dev/full existing-stream controls. Owned synthetic SQLite only, no dispatcher, adapter, provider, external worker or native installed-state claim. Byte/mode/mtime input and source preservation plus bounded owned process custody; not an OS-wide I/O audit."
+}

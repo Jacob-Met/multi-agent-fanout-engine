@@ -1,0 +1,116 @@
+{
+  "actual_result": {
+    "accepted": true,
+    "checks": {
+      "all_persisted_rows_preserved": true,
+      "database_bytes_preserved": true,
+      "part_complete_bytes_match": true,
+      "project_complete_bytes_match": true,
+      "recorded_unknown_and_reconciliation_both_visible": true,
+      "source_preserved": true,
+      "sqlite_sidecars_preserved": true,
+      "stored_json_text_and_decoded_detail_preserved": true
+    },
+    "database_after_sha256": "e17a509e8407d150ee9df3d80e24c6d4f99adaefb09534c8e9aa2bf4916a713d",
+    "map_05_events": [
+      "dispatch_started",
+      "outcome_unknown",
+      "reconciled"
+    ],
+    "map_05_global_sequences": [
+      12,
+      13,
+      73
+    ],
+    "operations": [
+      {
+        "command": [
+          "/usr/bin/python3",
+          "-B",
+          "-S",
+          "-m",
+          "fanout_engine.history",
+          "--database",
+          "/home/jacob/hamon-3163ad952d45-fanout-receiving/candidate-result/workflow.sqlite3",
+          "--project",
+          "native-dataset-review"
+        ],
+        "exit_code": 0,
+        "label": "project",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 25342,
+        "stdout_sha256": "d0349a158f0511369550ac55ad3f79e559e95338fc0a476b6fcab3fc62c74889",
+        "timed_out": false
+      },
+      {
+        "command": [
+          "/usr/bin/python3",
+          "-B",
+          "-S",
+          "-m",
+          "fanout_engine.history",
+          "--database",
+          "/home/jacob/hamon-3163ad952d45-fanout-receiving/candidate-result/workflow.sqlite3",
+          "--project",
+          "native-dataset-review",
+          "--part",
+          "map-05"
+        ],
+        "exit_code": 0,
+        "label": "map-05",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_bytes": 1971,
+        "stdout_sha256": "c4ac9373adbb517b6ce4986c0c3167e514ee7a37d9c30dda217092d03bf4514f",
+        "timed_out": false
+      }
+    ],
+    "original_database_sha256": "e17a509e8407d150ee9df3d80e24c6d4f99adaefb09534c8e9aa2bf4916a713d",
+    "part_events": 3,
+    "project_events": 79
+  },
+  "data_only_verifier_sha256": "403c2959f8cd784d6fd96978d95ae951b354fedb7c94c317fa70e2301157cea2",
+  "executed_source": {
+    "commit": "6d76703f8a3d5a29e56bf9fab97523935b06e61c",
+    "manifest_sha256": "b30b12a07ebf0e4dd06252ffa206d35b763e6c76fcf1d0eae19f28ef18622e3a",
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "tree": "831af49f435ba629c99c4ac6ab3ab0a1ecde58ce"
+  },
+  "frozen_receiver_sha256": "21f85e2d97cdf1201a5276759e346e12b40fdb634fbe4ebcf758d5045f690e17",
+  "independent_result_review_sha256": "388e5ffa475d762387bbf448306bcac3cc42d047426795a1e36abd30250aa0dc",
+  "limits": [
+    "One valid retained ledger; no malformed-history or concurrent-writer qualification.",
+    "Sequence order is ledger recording order, not external execution order.",
+    "Recorded artifact references/findings are preserved; artifact contents are not included or re-proved.",
+    "The source closure is nine runtime modules plus its guide, not a full repository or full-suite run.",
+    "No provider call, replay, reconciliation, service binding or task-ID composition qualification."
+  ],
+  "platform": {
+    "host": "hamon-thinkpad",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43",
+    "python": "3.14.4",
+    "sqlite": "3.46.1"
+  },
+  "raw_packet": {
+    "bytes": 51302,
+    "filename": "Fanout-Retained-History-6d76703-Native-20261013.tar.gz",
+    "manifest_sha256": "b38e8d6014aec7a72d9853e214ebb71d60de34532f162085dfadcd7948a77475",
+    "payloads": 28,
+    "sha256": "0fcd83ae30a52c959b6c8332e5cb5dd20b899c2df61ef5f607b481a0a6257a9b"
+  },
+  "receipt_sha256": "58306d309ebae3a4e564841fed760a0f7e3112124bc9742a985ca9e119314154",
+  "schema": "hamon.fanout.retained-history.qualification.v1",
+  "scope": "Recorded native two-CLI receiving of one original retained valid ledger, separate from source publication or later repository state. No product execution during packaging.",
+  "source_files": {
+    "SOURCE.json": "b30b12a07ebf0e4dd06252ffa206d35b763e6c76fcf1d0eae19f28ef18622e3a",
+    "docs/inspect-history.md": "852163375c70547e5ba35a88f03a091db9ce63a8caa928edb0ed98665016ed6c",
+    "fanout_engine/__init__.py": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+    "fanout_engine/dispatch.py": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+    "fanout_engine/history.py": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+    "fanout_engine/inspect.py": "4eb49d5bb21825b6486b14edb958890591adce0d3345aedbc97e1255a8e59273",
+    "fanout_engine/inspection.py": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+    "fanout_engine/ledger.py": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+    "fanout_engine/plan.py": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+    "fanout_engine/preview.py": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+    "fanout_engine/routing.py": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+  }
+}

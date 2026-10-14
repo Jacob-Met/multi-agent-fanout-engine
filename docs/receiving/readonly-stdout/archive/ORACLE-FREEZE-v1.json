@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-13T11:13:20.813227+00:00",
+  "phase": "original-first freeze before original execution and candidate intake",
+  "files": {
+    "receive-readonly-stdout-v1.py": {
+      "bytes": 7794,
+      "sha256": "61abcf5ae17103ea67d7148d2ff3e539597f79eda9ca7404199ee10bf937a48f"
+    },
+    "stdout-expectations-v1.json": {
+      "bytes": 2340,
+      "sha256": "f07cbb5ba99b0e48821cf119877cc349a95fc4617eba52b1fc0fb740f1c7b1fd"
+    },
+    "PUBLIC-CONTRACT.json": {
+      "bytes": 2503,
+      "sha256": "d461f8dc56d797592e24958f73b1e0d629a5f3143970863c0bbf35205dc997e2"
+    }
+  }
+}

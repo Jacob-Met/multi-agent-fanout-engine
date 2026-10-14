@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "purpose": "Independent receiving of the read-transaction and state-only-query composition.",
+  "base_commit": "c86113dd09ff17d0c606b390b693caddb967f8b1",
+  "owners": {
+    "read_transactions": {
+      "pull_request": 50,
+      "head": "a321ed405f49ada08e390a2fc094698374214848"
+    },
+    "state_projection": {
+      "pull_request": 26,
+      "head": "6611a828ca5a8cf05b2b7f52450323e6c9f06e40"
+    }
+  },
+  "ledger": {
+    "path": "fanout_engine/ledger.py",
+    "bytes": 16805,
+    "git_blob": "8d1a3d87e0b58d1eae9f7308da247f01b0d65af2",
+    "sha256": "2d58cb4a792ca00790f8a4197af0fd54eb92ff6573dbd8900c7ec51e9fa449a9"
+  },
+  "independent_oracle": {
+    "bytes": 3343,
+    "sha256": "a5a3a51b9eaf75b71c49ca4ec647fc24ee24320c4192b74ea27b03734f206507",
+    "frozen_before_candidate": true,
+    "freeze_bytes": 2769,
+    "freeze_sha256": "4fcc81ef9c69351a9ac4a3326ef9f6275d7c12effba1ce296bb0312f2ba5c2c8",
+    "cases": "Six successful readers and three missing-part errors; real SQLite transaction state, pending marker, separate-reader visibility and explicit rollback."
+  },
+  "stages": [
+    {
+      "label": "original",
+      "base": "23daeba5b97ea87733f95bae19b45525e40ae95c",
+      "passed": 0,
+      "total": 9,
+      "raw_receipt_bytes": 3254,
+      "raw_receipt_sha256": "2738b89543668ee8e59f1b9833e3e080d94a5d89ba5e8cfa1c380455a0f11466"
+    },
+    {
+      "label": "owner_pr50",
+      "head": "a321ed405f49ada08e390a2fc094698374214848",
+      "passed": 9,
+      "total": 9,
+      "raw_receipt_bytes": 3113,
+      "raw_receipt_sha256": "4e6f19db3c092df4d1ec6540bc5a4c2849734c6b420fae22636de0bdc0897e1a",
+      "runtime_receipt_sha256": "c995435d5ac5f016be22ab3383036d72026e8b1d119e2bf397a348f3871b977e"
+    },
+    {
+      "label": "prior_base_composition",
+      "base": "23daeba5b97ea87733f95bae19b45525e40ae95c",
+      "ledger_sha256": "e98b09cb0728119b4b325aba9c01f8ced1d9a070feee266291abea40d50e2525",
+      "passed": 9,
+      "total": 9,
+      "runtime_receipt_sha256": "8d8bbcf2b67bf7235739b39adfa56e06037968072e6864f367c807868844dac8"
+    },
+    {
+      "label": "current_composition",
+      "base": "c86113dd09ff17d0c606b390b693caddb967f8b1",
+      "ledger_sha256": "2d58cb4a792ca00790f8a4197af0fd54eb92ff6573dbd8900c7ec51e9fa449a9",
+      "passed": 9,
+      "total": 9,
+      "received_at_utc": "2026-10-13T00:50:22.784922+00:00",
+      "exit_code": 0,
+      "raw_receipt_bytes": 3113,
+      "raw_receipt_sha256": "4e6f19db3c092df4d1ec6540bc5a4c2849734c6b420fae22636de0bdc0897e1a",
+      "runtime_receipt_bytes": 12253,
+      "runtime_receipt_sha256": "f6d638ee0f0922156a9dfafb2e5990a5807f384ce0eb6065e827d1fcb90b37b8"
+    }
+  ],
+  "source_review": {
+    "independent_complete_text_comparison": true,
+    "independent_ast_comparison": true,
+    "other_nine_production_modules_unchanged": true,
+    "accepted_PR52_worker_identity_method_unchanged": true,
+    "owner_six_added_files_copied_exactly": true
+  },
+  "maintained_suite": {
+    "base": "c86113dd09ff17d0c606b390b693caddb967f8b1",
+    "python": "CPython 3.14.4",
+    "platform": "Linux x86-64",
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "start_utc": "2026-10-13T00:46:28.052020+00:00",
+    "end_utc": "2026-10-13T00:46:38.984893+00:00",
+    "exit_code": 0,
+    "tests": 193,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "source_files_unchanged": true,
+    "source_file_count": 64,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "84e40d6e9cc017f85e56fc953de8493f093a4bbbb3ef0cfdd12b9daf92d9e915"
+  },
+  "prior_base_suite": {
+    "tests": 189,
+    "exit_code": 0,
+    "source_files_unchanged": true,
+    "stderr_sha256": "3345154c2c649387ef4962a6b1973a49188e67c50504fe2c3356c7c9cf8cf260"
+  },
+  "limits": [
+    "Frozen raw oracle fields name the original reference source. Each retained runtime wrapper separately binds the actually executed candidate and its hashes.",
+    "Raw native receipts are retained separately; this public receipt omits operator-specific paths and endpoints.",
+    "The earlier PR26 timing evidence retains its original source pins. No current-composition timing, external Hub dispatch, installed worker or hosted Actions execution is claimed."
+  ]
+}
