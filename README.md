@@ -319,6 +319,12 @@ provides the fictional sample, exact source and wheel identities, observed nativ
 receiving, offline HTML opening and guarded withdrawal instructions. This is a
 specific received installation, not a new package-wide console entry point.
 
+The received 2026-10-14 wrapper also exposes `blockers --database FILE --project ID`
+through the same unchanged private environment. The [installed blockers guide](docs/receiving/thinkpad-blockers-c4c3dc26dd94/README.md)
+shows the saved sample report, three staged checks, actual inherited-PATH use,
+and version-preserving recovery. The earlier reader guide remains its historical
+installation record.
+
 ## Compare saved inspection reports
 
 Use `python -B -m fanout_engine.compare_inspections --first first-inspection.json --second second-inspection.json --output saved-comparison.json`
