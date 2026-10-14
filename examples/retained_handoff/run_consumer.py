@@ -436,7 +436,12 @@ if args.phase == "all":
     for stage in stages:
         command = [sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--phase", stage,
                    "--output", str(OUTPUT)]
-        result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=args.phase_timeout_seconds)
+        try:
+            result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=args.phase_timeout_seconds)
+        except subprocess.TimeoutExpired as error:
+            bytes_new(OUTPUT / (stage + ".stdout.json"), error.stdout if error.stdout is not None else b"")
+            bytes_new(OUTPUT / (stage + ".stderr.log"), error.stderr if error.stderr is not None else b"")
+            raise
         bytes_new(OUTPUT / (stage + ".stdout.json"), result.stdout)
         bytes_new(OUTPUT / (stage + ".stderr.log"), result.stderr)
         require(result.returncode == 0, stage + " failed: " + result.stderr.decode(errors="replace"))
