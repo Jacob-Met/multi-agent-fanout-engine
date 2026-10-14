@@ -1,6 +1,5 @@
 # Multi-agent Fan-out Engine
 
-[![test](https://github.com/Jacob-Met/multi-agent-fanout-engine/actions/workflows/test.yml/badge.svg)](https://github.com/Jacob-Met/multi-agent-fanout-engine/actions/workflows/test.yml)
 
 A small, sanitized Python reference implementation for splitting a project into independent parts, tracking each dispatch in a SQLite ledger, and routing work by requested reasoning effort.
 
