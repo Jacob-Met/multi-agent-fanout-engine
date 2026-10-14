@@ -97,6 +97,19 @@ instruction is ordinary displayed text. The page uses semantic headings and
 captioned tables, wraps long values at narrow widths, and has no scripts,
 external resources, forms, storage or dispatch actions.
 
+At widths up to 600 CSS pixels, each captured-identity and native-key row is
+shown as a labelled group. Before and after values each use the full row width;
+part IDs, missing-side `null` values and Changed booleans remain explicit.
+Wider windows retain the side-by-side table presentation. The page keeps each
+value once, in the original order, with no collapsed or shortened keys.
+
+The native table, caption, row and column headers remain in the document, with
+matching explicit roles for the responsive layout. Additional visible labels
+repeat the headers on small screens and are hidden from assistive technology
+to avoid duplicate announcements. Browser structure and layout checks do not
+establish support for every screen-reader/browser combination; that needs
+separate assistive-technology testing.
+
 **Download exact comparison JSON** is an ordinary embedded download link. It
 contains byte-for-byte the existing canonical CLI JSON report, including
 `input_sha256` and the final LF, with the fixed filename

@@ -258,5 +258,176 @@ class ComparisonHtmlTests(unittest.TestCase):
         self.assertNotIn(b"Exception ignored", result.stderr)
 
 
+class _MobilePage(Page):
+    """Observe real label text and native table relationships, without a CSS model."""
+    def __init__(self, raw):
+        self.mobile_tables = []
+        self.current_mobile = None
+        self.current_label = None
+        super().__init__(raw)
+
+    def handle_starttag(self, tag, attrs):
+        attributes = dict(attrs)
+        if tag == "table" and "value-table" in attributes.get("class", "").split():
+            self.current_mobile = {"tags": [], "labels": []}
+            self.mobile_tables.append(self.current_mobile)
+        if self.current_mobile is not None:
+            self.current_mobile["tags"].append((tag, attributes))
+            if tag == "span" and "mobile-label" in attributes.get("class", "").split():
+                self.current_label = {"attributes": attributes, "text": ""}
+                self.current_mobile["labels"].append(self.current_label)
+        super().handle_starttag(tag, attrs)
+
+    def handle_data(self, data):
+        if self.current_label is not None:
+            self.current_label["text"] += data
+        super().handle_data(data)
+
+    def handle_endtag(self, tag):
+        if tag == "span":
+            self.current_label = None
+        if tag == "table":
+            self.current_mobile = None
+        super().handle_endtag(tag)
+
+
+class MobileComparisonHtmlTests(unittest.TestCase):
+    """Direct presentation fixtures; no comparator, CLI or ledger invocation."""
+    @classmethod
+    def setUpClass(cls):
+        import importlib.util
+        path = ROOT / "fanout_engine" / "compare_html.py"
+        spec = importlib.util.spec_from_file_location("mobile_report_renderer", path)
+        cls.renderer = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.renderer)
+
+    @staticmethod
+    def report(mixed):
+        # These literal identities are synthetic presentation values, not digests
+        # derived by a second comparison implementation.
+        part = {"id": "draft", "instruction": 'Read <reader> & "quotes".\n\tΩ',
+                "depends_on": [], "tags": ["old"]}
+        same_plan = {"project": 'review "Ω"', "parts": [part]}
+        report = {
+            "schema_version": 1,
+            "before": {"plan": same_plan, "plan_digest": "a" * 64},
+            "after": {"plan": json.loads(json.dumps(same_plan)), "plan_digest": "a" * 64},
+            "same_plan": True, "project_id_changed": False, "part_order_changed": False,
+            "added_part_ids": [], "removed_part_ids": [], "changed_parts": [],
+            "input_sha256": {"before": "b" * 64, "after": "c" * 64},
+            "idempotency_keys": [{"part_id": "draft", "before": "fanout-" + "d" * 64,
+                                  "after": "fanout-" + "d" * 64, "changed": False}],
+        }
+        if mixed:
+            report["before"]["plan"]["parts"].append(
+                {"id": "removed", "instruction": "Before only", "depends_on": [], "tags": []})
+            report["after"] = {
+                "plan": {"project": "after Ω", "parts": [
+                    {"id": "added", "instruction": "After only", "depends_on": [], "tags": []},
+                    {"id": "draft", "instruction": '</pre><script>CANARY</script>\x00\r\n\t🌿',
+                     "depends_on": ["added"], "tags": ['new "tag"', "Ω"]}]},
+                "plan_digest": "e" * 64,
+            }
+            report.update(same_plan=False, project_id_changed=True, part_order_changed=True,
+                          added_part_ids=["added"], removed_part_ids=["removed"],
+                          changed_parts=[{"part_id": "draft", "fields": ["instruction", "depends_on", "tags"]}],
+                          idempotency_keys=[
+                              {"part_id": "added", "before": None, "after": "fanout-" + "f" * 64, "changed": True},
+                              {"part_id": "draft", "before": "fanout-" + "d" * 64, "after": "fanout-" + "1" * 64, "changed": True},
+                              {"part_id": "removed", "before": "fanout-" + "2" * 64, "after": None, "changed": True}])
+        return report
+
+    def render(self, mixed):
+        report = self.report(mixed)
+        native = (json.dumps(report, ensure_ascii=False, separators=(",", ":")) + "\n").encode()
+        raw = self.renderer.render_comparison(report, native)
+        return report, native, raw, _MobilePage(raw)
+
+    def test_same_and_mixed_reports_preserve_complete_values(self):
+        for mixed in (False, True):
+            with self.subTest(mixed=mixed):
+                report, native, raw, page = self.render(mixed)
+                self.assertEqual(page.download(), native)
+                for side in ("before", "after"):
+                    self.assertEqual(json.loads(page.ids[side + "-plan-json"]), report[side]["plan"])
+                    self.assertIn(report[side]["plan_digest"], page.ids["identity"])
+                    self.assertIn(report["input_sha256"][side], page.ids["identity"])
+                for key, identity in (("same_plan", "same-plan"), ("project_id_changed", "project-id-changed"),
+                                      ("part_order_changed", "part-order-changed"), ("added_part_ids", "added-part-ids"),
+                                      ("removed_part_ids", "removed-part-ids")):
+                    self.assertEqual(json.loads(page.ids[identity]), report[key])
+                for index, row in enumerate(report["idempotency_keys"]):
+                    for key, suffix in (("part_id", "part"), ("before", "before"), ("after", "after"), ("changed", "changed")):
+                        self.assertEqual(json.loads(page.ids[f"key-{index}-{suffix}"]), row[key])
+                if mixed:
+                    self.assertEqual(page.ids["key-0-before"], "null")
+                    self.assertEqual(page.ids["key-2-after"], "null")
+                    for field in ("instruction", "depends_on", "tags"):
+                        self.assertEqual(json.loads(page.ids[f"change-0-{field}-before"]), report["before"]["plan"]["parts"][0][field])
+                        self.assertEqual(json.loads(page.ids[f"change-0-{field}-after"]), report["after"]["plan"]["parts"][1][field])
+                else:
+                    self.assertIn("No retained part fields changed.", page.ids["changes"])
+
+    def test_mobile_table_labels_and_semantic_structure(self):
+        for mixed in (False, True):
+            with self.subTest(mixed=mixed):
+                report, _, _, page = self.render(mixed)
+                self.assertEqual(len(page.mobile_tables), 2)
+                identity, keys = page.mobile_tables
+                self.assertEqual([x["text"] for x in identity["labels"]], ["Before", "After"] * 3)
+                self.assertEqual([x["text"] for x in keys["labels"]],
+                                 ["Part ID", "Before key", "After key", "Changed"] * len(report["idempotency_keys"]))
+                for table in page.mobile_tables:
+                    tags = table["tags"]
+                    self.assertEqual(tags[0][1]["role"], "table")
+                    self.assertIn(tags[0][1]["aria-labelledby"], page.ids)
+                    self.assertEqual(sum(tag == "caption" for tag, _ in tags), 1)
+                    for tag, attributes in tags:
+                        if tag in ("thead", "tbody"):
+                            self.assertEqual(attributes["role"], "rowgroup")
+                        elif tag == "tr":
+                            self.assertEqual(attributes["role"], "row")
+                        elif tag == "th":
+                            self.assertEqual(attributes["role"], {"col": "columnheader", "row": "rowheader"}[attributes["scope"]])
+                        elif tag == "td":
+                            self.assertEqual(attributes["role"], "cell")
+                    self.assertTrue(all(x["attributes"].get("aria-hidden") == "true" for x in table["labels"]))
+
+    def test_markup_is_inert_and_download_preserves_supplied_bytes(self):
+        for mixed in (False, True):
+            with self.subTest(mixed=mixed):
+                report = self.report(mixed)
+                # Whitespace and a CRLF are deliberately supplied to the renderer;
+                # this test requires exact custody, not JSON reserialization.
+                supplied = (" \n" + json.dumps(report, ensure_ascii=False, indent=1) + "\r\n").encode()
+                page = _MobilePage(self.renderer.render_comparison(report, supplied))
+                self.assertEqual(page.download(), supplied)
+                self.assertEqual(len(page.links), 1)
+                self.assertFalse({tag for tag, _ in page.tags} & {"script", "iframe", "object", "embed", "img", "link", "form"})
+                for _, attrs in page.tags:
+                    self.assertFalse(any(name.lower().startswith("on") for name in attrs))
+                    self.assertNotIn("src", attrs)
+                if mixed:
+                    self.assertIn("</pre><script>CANARY</script>", page.ids["after-plan-json"])
+                    self.assertIn("\\u0000", page.ids["after-plan-json"])
+                    self.assertIn("🌿", page.ids["after-plan-json"])
+
+    def test_render_is_repeatable_immutable_and_limited(self):
+        report = self.report(True)
+        snapshot = json.dumps(report, ensure_ascii=False)
+        native = (snapshot + "\n").encode()
+        first = self.renderer.render_comparison(report, native)
+        self.assertEqual(self.renderer.render_comparison(report, native), first)
+        self.assertEqual(json.dumps(report, ensure_ascii=False), snapshot)
+        old_limit = self.renderer.MAX_HTML_BYTES
+        try:
+            self.renderer.MAX_HTML_BYTES = len(first) - 1
+            with self.assertRaisesRegex(ValueError, "HTML report exceeds the 32 MiB consumer limit"):
+                self.renderer.render_comparison(report, native)
+        finally:
+            self.renderer.MAX_HTML_BYTES = old_limit
+        self.assertEqual(json.dumps(report, ensure_ascii=False), snapshot)
+
+
 if __name__ == "__main__":
     unittest.main()
