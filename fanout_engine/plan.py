@@ -111,7 +111,10 @@ class Plan:
             for tag in part.tags:
                 _identifier(tag, "tag")
         self._check_acyclic()
-        encoded = canonical_json(self.to_dict()).encode("utf-8")
+        try:
+            encoded = canonical_json(self.to_dict()).encode("utf-8")
+        except UnicodeEncodeError as exc:
+            raise PlanError("plan contains text that is not valid UTF-8") from exc
         object.__setattr__(self, "digest", hashlib.sha256(encoded).hexdigest())
 
     @classmethod
