@@ -209,3 +209,200 @@ python3 -B -m unittest discover -s tests -p 'test_retained_handoff_blockers.py' 
 This remains an authored local adapter example. It does not identify a deployed
 estate ledger, contact a provider or qualify the separately owned SQLite
 connection-closure follow-up.
+
+## Open an offline review of the completed run
+
+From this checkout's repository root, render the retained database to a new HTML
+file outside the run directory:
+
+```bash
+python3 -B -m fanout_engine.review --database ../fanout-handoff-run/retained.sqlite3 --project fixture-handoff-51df5b72e832 --output ../fanout-handoff-review.html
+```
+
+Open `../fanout-handoff-review.html` in a browser. The self-contained page shows
+recorded states, dependency readiness and complete part details. Its ordinary
+download link saves the exact native inspection JSON, including the final
+newline. The command reads the existing ledger and refuses an occupied output
+path; it does not dispatch, retry or reconcile work.
+
+The public all-phase run retains its completed database. Rendering that database
+shows the current completed observation; it does not reconstruct an earlier
+phase from the saved inspection reports. Those JSON reports remain the earlier
+observations. If reviewing databases from separate executions, label them
+separately rather than presenting them as successive snapshots of one run.
+
+See the [offline retained-project review guide](../../docs/project-review.md)
+for the report's read-only scope and output behavior. The page is a fixed
+observation: later database changes require a new report at a new output path.
+
+## Open the four saved phase reviews
+
+A new public run also writes four self-contained offline pages while each phase's
+retained state exists. Open a page directly in a browser; no server is required.
+
+| Page in the run directory | Recorded phase | Events | Completed | Unknown | Queued |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `initial-review.html` | Initial independent work | 9 | 2 | 1 | 2 |
+| `unknown-review.html` | Resume completes summary; audit remains unknown | 12 | 3 | 1 | 1 |
+| `held-review.html` | Hold preserves the unknown result without replay | 12 | 3 | 1 | 1 |
+| `final-review.html` | Evidence-backed reconciliation and handoff | 16 | 5 | 0 | 0 |
+
+These four pages come from **one execution** of the documented public command.
+They are saved observations and do not update as the retained database changes.
+The initial page records summary as ready and handoff as blocked. The next two
+keep handoff blocked by the unknown audit; their complete saved inspections are
+identical. The final page records all five parts completed. The audit's task
+reference remains null throughout: reconciliation does not invent a task ID.
+
+Each page's **Download exact inspection JSON** link contains the exact bytes of
+its sibling `<label>-inspect.stdout.json`, including the final newline. The
+phase receipt binds the actual review command, empty raw stdout/stderr, page
+SHA-256 and inspection SHA-256. The final `receipt.json` lists `review_reports`
+in initial, unknown, held, final order. Keep each HTML file with its matching
+inspection and phase receipt when sharing the observations. The renderer and its
+read-only interpretation are documented in [project review](../../docs/project-review.md).
+
+The separately qualified earlier two-page artifact still describes two separate
+executions. These new same-run captures do not change that earlier provenance.
+
+A capture failure is not a transaction rollback. Each phase can have committed
+its local work before the review command, output publication or byte comparison
+fails. A failed phase retains its started marker and any files already written;
+it does not get a successful phase receipt. Inspect the retained database and
+raw diagnostics before deciding how to proceed. The public command refuses an
+already existing run directory before phase work; do not reuse its private
+`--phase` option as a retry mechanism or overwrite an existing review page.
+
+For a literal comparison of saved observations, the separate
+[saved-inspection comparator](../../docs/compare-inspections.md) reads only the
+two JSON files. For example, from the repository root, replace `RUN` with the
+run directory and choose new output paths:
+
+```sh
+python3 -B -m fanout_engine.compare_inspections --first RUN/initial-inspect.stdout.json --second RUN/final-inspect.stdout.json --output RUN/initial-final-comparison.json
+python3 -B -m fanout_engine.compare_inspections --first RUN/unknown-inspect.stdout.json --second RUN/held-inspect.stdout.json --output RUN/unknown-held-comparison.json
+```
+
+The first/second roles are explicit. The comparator describes saved values; it
+does not read the ledger, infer progress from timestamps or perform work.
+
+## Open the saved comparisons from a new run
+
+After all four phases complete, the same public command now creates two readable
+comparison pages and their exact native JSON files. No extra comparison command
+is needed for a new run.
+
+| Open in the run directory | First saved inspection | Second saved inspection |
+| --- | --- | --- |
+| `initial-to-final-comparison.html` | `initial-inspect.stdout.json` | `final-inspect.stdout.json` |
+| `unknown-to-held-comparison.html` | `unknown-inspect.stdout.json` | `held-inspect.stdout.json` |
+
+Open either HTML file directly in a browser. The matching `.json` sibling
+contains the complete native comparison. The page's download link provides
+those exact JSON bytes, including the final newline. First and Second retain
+their explicit input roles; the comparator describes saved values without
+reading the ledger, dispatching work or inferring chronology from timestamps.
+
+The initial/final report shows changes to audit, summary and handoff. The
+audit's task reference remains null even when its state is completed. The
+unknown/held report confirms identical saved input bytes and values, with no
+changed fields or parts. These pairs belong to this one authored local run;
+they do not change the earlier separate-execution review artifact.
+
+The final `receipt.json` adds `comparison_reports` in the table's order. Each
+entry binds the two inspection filenames and SHA-256s, both output filenames
+and SHA-256s, and the actual JSON/HTML commands, exit codes and raw stream
+hashes. The eight `*-comparison-{json,html}.{stdout,stderr}.log` files retain
+the command streams. Successful explicit-output commands leave those streams
+empty. Every file present before the comparison step is checked for unchanged
+bytes afterward, including the database, journals, phase pages and raw reports.
+The existing checkout source checks also surround each comparison command.
+
+A comparison failure occurs **after the native phases have committed their
+work**. It does not roll back that work or invalidate the completed phase
+receipts. Partial comparison files and diagnostics remain available, but a
+successful overall `receipt.json` is not written. Preserve the directory for
+inspection; the public command refuses to reuse it. The private phase option
+is not a report retry mechanism. For an existing run, the separate commands
+above remain available with new output names; add `--format html` for a readable
+page. See the [saved-inspection guide](../../docs/compare-inspections.md).
+
+A focused maintained receiving test invokes the public workflow once and
+checks the new outputs against its actual saved inspections and retained
+references, then confirms an occupied output directory stays unchanged:
+
+```bash
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_comparisons.py' -v
+```
+
+This remains the authored local adapter example with five unique calls, no
+audit replay, four existing phase reviews and sixteen final events. It adds
+no provider, installed service or live status view.
+
+## Select an aggregate phase deadline
+
+The public command waits up to 30 seconds for each of its four existing child
+phases by default. A phase performs several bounded native reads in addition to
+its local work. On a slower computer, choose a larger aggregate phase budget
+explicitly, always using a new output directory:
+
+```sh
+python3 -I -B examples/retained_handoff/run_consumer.py --phase-timeout-seconds 180 --output ../fanout-handoff-run-180
+```
+
+`--phase-timeout-seconds` accepts a finite numeric value greater than zero and
+at most 3600 seconds (sixty minutes). Fractions are allowed. Zero, negative,
+non-finite, over-limit and malformed values are input errors before any output
+directory or phase work is created. Omitting the option retains the existing
+30-second behavior; there is no option to disable the deadline.
+
+This setting controls only the parent's aggregate wait for each phase child.
+Every individual inspection, route, blocker, review and comparison CLI retains
+its separate 15-second limit. The setting is not a whole-command deadline and
+does not promise that a slower individual reader will succeed. The four final
+comparison commands execute after the four phases, under their existing limits.
+The successful final receipt records `phase_timeout_seconds`, and each phase
+command record records its `timeout_seconds`.
+
+A timeout does not roll back local work that the phase has already committed.
+Preserve the partial directory and diagnostics. This option adds no automatic
+retry, resume or private-phase recovery; do not reuse an existing directory or
+its private `--phase` argument as a retry mechanism.
+
+The focused argument and propagation checks do not dispatch fixture work. They
+exercise actual CLI input errors/help and stop the real public runner at its
+first subprocess boundary before a child is launched:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_phase_timeout.py' -v
+```
+
+## Captured output when an aggregate phase wait expires
+
+If the public parent reaches a phase deadline, it saves the available captured bytes to
+`<phase>.stdout.json` and `<phase>.stderr.log`, then raises the original timeout.
+A missing capture becomes an empty file. Despite the stdout filename, a timeout capture
+may be incomplete JSON, partial UTF-8 or other binary bytes; inspect it as raw data.
+
+These diagnostic files use the same exclusive creation rule as ordinary phase output.
+An existing file is never overwritten. If writing a capture fails, the command still
+fails and the timeout remains in the exception context. The two writes are not atomic:
+the stdout capture may exist even if the later stderr write is refused.
+
+Captured output does not mean that a phase completed, that committed work was rolled
+back, or that every descendant process stopped. No successful phase-command record or
+final receipt is produced after this timeout, and no next phase or comparison is
+attempted. Preserve the partial run and diagnostics; do not automatically retry a
+private phase or reuse its output directory.
+
+This retention applies only to the aggregate parent wait selected by
+`--phase-timeout-seconds`. The default 30-second wait, maximum 3600-second admission,
+unchanged private phase arguments and separate 15-second reader waits retain their
+existing behavior. Successful and nonzero child returns keep their previous stream
+and failure handling.
+
+The focused regression uses the actual public runner's first subprocess boundary with
+a controlled real child that emits partial binary output and times out. The harness
+reaps that child without dispatching the authored workflow. Separate boundary controls
+cover absent captures, refusal of each existing stream path and ordinary child returns;
+they do not qualify a new provider, workflow execution or descendant cleanup policy.

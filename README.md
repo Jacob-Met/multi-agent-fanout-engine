@@ -299,3 +299,39 @@ Use `python -m fanout_engine.create_ledger --plan plan.json --database new-work.
 to record a parsed authored Plan in a new SQLite file. Every part starts queued;
 no work is dispatched. The [new-ledger guide](docs/create-plan-ledger.md) covers
 native identity, sidecar guards, exact receipts and publication/output failures.
+
+## Build an offline wheel
+
+Build and verify this reference package from captured source with an already
+installed backend using `tools/build_offline_wheel.py`. The command requires
+Python 3.11+, an explicit epoch and a new output directory outside the source.
+See [the offline wheel build guide](docs/offline-wheel-build.md) for the five-file
+receipt, source identity boundary and fresh-environment installation.
+
+
+## Installed ThinkPad saved readers
+
+On the verified ThinkPad user account, `hamon-fanout-read` provides the accepted
+`projects`, `inspect`, `history` and `review` readers from a pinned private
+installation. Every reader requires an explicit existing `--database` path;
+there is no default live ledger. The [installed reader guide](docs/receiving/thinkpad-readers-c4c3dc26dd94/README.md)
+provides the fictional sample, exact source and wheel identities, observed native
+receiving, offline HTML opening and guarded withdrawal instructions. This is a
+specific received installation, not a new package-wide console entry point.
+
+The received 2026-10-14 wrapper also exposes `blockers --database FILE --project ID`
+through the same unchanged private environment. The [installed blockers guide](docs/receiving/thinkpad-blockers-c4c3dc26dd94/README.md)
+shows the saved sample report, three staged checks, actual inherited-PATH use,
+and version-preserving recovery. The earlier reader guide remains its historical
+installation record.
+
+## Compare saved inspection reports
+
+Use `python -B -m fanout_engine.compare_inspections --first first-inspection.json --second second-inspection.json --output saved-comparison.json`
+to describe literal field differences between two saved reports for the same
+declared project, plan and part set. The result preserves both complete parsed
+documents and their original byte identities. The
+[saved-inspection comparison guide](docs/compare-inspections.md) explains
+ordering, typed values, structural limits and create-new output. The command
+reads saved files without opening a ledger; input order does not establish
+chronology or resolve recorded uncertainty.

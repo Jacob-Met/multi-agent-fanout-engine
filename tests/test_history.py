@@ -206,6 +206,55 @@ class HistoryTests(unittest.TestCase):
         self.assertNotIn(b"Traceback", result.stderr)
         self.assertEqual(self.database.read_bytes(), before)
 
+    def test_new_output_matches_stdout_without_modifying_ledger(self):
+        output = Path(self.temporary.name) / "history résumé.json"
+        before = self.database.read_bytes()
+        expected = self.cli("--part", "review")
+        self.assertEqual(expected.returncode, 0, expected.stderr)
+        result = self.cli("--part", "review", "--output", str(output))
+        self.assertEqual((result.returncode, result.stdout, result.stderr), (0, b"", b""))
+        self.assertEqual(output.read_bytes(), expected.stdout)
+        self.assertEqual(self.database.read_bytes(), before)
+        self.assertEqual(list(Path(self.temporary.name).glob(".fanout-preview-*")), [])
+
+    def test_output_destination_is_exclusive_and_errors_keep_existing_bytes(self):
+        directory = Path(self.temporary.name)
+        original = self.database.read_bytes()
+        occupied = directory / "occupied.json"
+        occupied.write_bytes(b"sentinel")
+        symlink = directory / "linked.json"
+        existing_dir = directory / "existing-dir"
+        existing_dir.mkdir()
+        destinations = [occupied, existing_dir, directory / "missing" / "new.json"]
+        try:
+            symlink.symlink_to(occupied)
+        except (OSError, NotImplementedError):
+            # Creating symlinks can require extra Windows permissions.
+            pass
+        else:
+            destinations.append(symlink)
+        for destination in destinations:
+            with self.subTest(destination=destination):
+                result = self.cli("--output", str(destination))
+                self.assertEqual((result.returncode, result.stdout), (1, b""), result.stderr)
+                self.assertIn(b"cannot write report", result.stderr)
+                self.assertNotIn(b"Traceback", result.stderr)
+        self.assertEqual(occupied.read_bytes(), b"sentinel")
+        if symlink.is_symlink():
+            self.assertEqual(symlink.read_bytes(), b"sentinel")
+        self.assertTrue(existing_dir.is_dir())
+        self.assertFalse((directory / "missing").exists())
+        self.assertEqual(self.database.read_bytes(), original)
+        self.assertEqual(list(directory.glob(".fanout-preview-*")), [])
+
+    def test_invalid_history_creates_no_output(self):
+        output = Path(self.temporary.name) / "should-not-exist.json"
+        before = self.database.read_bytes()
+        result = self.cli("--part", "no-such-part", "--output", str(output))
+        self.assertEqual((result.returncode, result.stdout), (3, b""), result.stderr)
+        self.assertIn(b"part_not_found", result.stderr)
+        self.assertFalse(output.exists())
+        self.assertEqual(self.database.read_bytes(), before)
 
 if __name__ == "__main__":
     unittest.main()

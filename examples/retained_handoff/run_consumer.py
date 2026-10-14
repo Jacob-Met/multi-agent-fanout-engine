@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import base64
 from contextlib import closing
 from dataclasses import asdict
 import hashlib
+from html.parser import HTMLParser
 import json
+import math
 import os
 from pathlib import Path
 import sqlite3
@@ -44,8 +47,21 @@ def bytes_new(path, data):
         stream.write(data)
 
 
+def phase_timeout_seconds(value):
+    message = "must be finite seconds greater than 0 and at most 3600"
+    try:
+        seconds = float(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(message) from error
+    if not math.isfinite(seconds) or not 0 < seconds <= 3600:
+        raise argparse.ArgumentTypeError(message)
+    return seconds
+
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, required=True, help="new retained run directory")
+parser.add_argument("--phase-timeout-seconds", type=phase_timeout_seconds, default=30.0, metavar="SECONDS",
+                    help="positive finite seconds per child phase, at most 3600 (default: 30)")
 parser.add_argument("--phase", choices=("all", "start", "resume", "hold", "reconcile"), default="all", help=argparse.SUPPRESS)
 args = parser.parse_args()
 SOURCE, OUTPUT = CHECKOUT, args.output.absolute()
@@ -78,6 +94,46 @@ def native_cli(label, arguments):
     require(capture_source() == source_pin, "Checkout source changed during native CLI")
     return json.loads(result.stdout), {"command": command, "cwd": str(SOURCE), "returncode": result.returncode,
                                      "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)}
+
+
+class ReviewDownload(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "a" and values.get("download") == "project-inspection.json":
+            self.links.append(values.get("href", ""))
+
+
+def native_review(label):
+    require(capture_source() == source_pin, "Checkout source changed before native review")
+    report = OUTPUT / (label + "-review.html")
+    command = [sys.executable, "-B", "-m", "fanout_engine.review",
+               "--database", str(DB), "--project", plan.project_id, "--output", str(report)]
+    result = subprocess.run(command, cwd=SOURCE, env=env, capture_output=True, timeout=15)
+    bytes_new(OUTPUT / (label + "-review.stdout.log"), result.stdout)
+    bytes_new(OUTPUT / (label + "-review.stderr.log"), result.stderr)
+    require(result.returncode == 0, label + " review capture failed after phase work: "
+            + result.stderr.decode(errors="replace"))
+    require(result.stdout == result.stderr == b"", "Unexpected native review output")
+    require(capture_source() == source_pin, "Checkout source changed during native review")
+    content = report.read_bytes()
+    parser = ReviewDownload()
+    parser.feed(content.decode("utf-8"))
+    parser.close()
+    require(len(parser.links) == 1, "Review must expose one exact inspection download")
+    prefix = "data:application/json;base64,"
+    require(parser.links[0].startswith(prefix), "Review inspection download MIME mismatch")
+    document = base64.b64decode(parser.links[0][len(prefix):], validate=True)
+    inspection = (OUTPUT / (label + "-inspect.stdout.json")).read_bytes()
+    require(document == inspection, "Review download differs from its saved phase inspection")
+    return {"review_command": {
+                "command": command, "cwd": str(SOURCE), "returncode": result.returncode,
+                "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)},
+            "review_report": report.name, "review_sha256": sha(content),
+            "review_inspection_sha256": sha(inspection)}
 
 
 def journal_path(part_id):
@@ -218,6 +274,7 @@ def capture(label):
                      for part_id in frontier_ids],
     }
     require(blockers == expected_blockers, "Blocker report differs from the retained fixture phase")
+    review = native_review(label)
     require(sha(DB.read_bytes()) == before, "Read-only receiving changed database bytes")
     save_new(OUTPUT / (label + "-state.json"), state)
     save_new(OUTPUT / (label + "-history.json"), history)
@@ -229,7 +286,7 @@ def capture(label):
                             "queued_route_ready_ids": queued["queued_ready_ids"],
                             "blocker_command": blocker_command,
                             "blocker_report": label + "-blockers.stdout.json",
-                            "blocker_frontier_ids": frontier_ids}
+                            "blocker_frontier_ids": frontier_ids, **review}
 
 
 def stage_start():
@@ -302,6 +359,75 @@ def stage_reconcile():
             "audit_replayed": False, "completed_parts": 5, **receiving}
 
 
+
+class ComparisonDownload(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "a" and "download" in values:
+            self.links.append((values["download"], values.get("href", "")))
+
+
+def capture_comparisons():
+    """Read only saved phase files after all native phase work has completed."""
+    preserved = {path: sha(path.read_bytes()) for path in OUTPUT.rglob("*") if path.is_file()}
+    comparisons = []
+    for first_label, second_label in (("initial", "final"), ("unknown", "held")):
+        label = first_label + "-to-" + second_label + "-comparison"
+        first = OUTPUT / (first_label + "-inspect.stdout.json")
+        second = OUTPUT / (second_label + "-inspect.stdout.json")
+        first_bytes, second_bytes = first.read_bytes(), second.read_bytes()
+        commands = {}
+        for kind in ("json", "html"):
+            require(capture_source() == source_pin, "Checkout source changed before saved comparison")
+            target = OUTPUT / (label + "." + kind)
+            command = [sys.executable, "-B", "-m", "fanout_engine.compare_inspections",
+                       "--first", str(first), "--second", str(second),
+                       "--format", kind, "--output", str(target)]
+            result = subprocess.run(command, cwd=SOURCE, env=env, capture_output=True, timeout=15)
+            bytes_new(OUTPUT / (label + "-" + kind + ".stdout.log"), result.stdout)
+            bytes_new(OUTPUT / (label + "-" + kind + ".stderr.log"), result.stderr)
+            require(result.returncode == 0, label + " " + kind
+                    + " capture failed after all phase work completed: "
+                    + result.stderr.decode(errors="replace"))
+            require(result.stdout == result.stderr == b"", "Unexpected saved comparison output")
+            require(capture_source() == source_pin, "Checkout source changed during saved comparison")
+            commands[kind] = {"command": command, "cwd": str(SOURCE),
+                              "returncode": result.returncode,
+                              "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)}
+        json_path, html_path = OUTPUT / (label + ".json"), OUTPUT / (label + ".html")
+        json_bytes, html_bytes = json_path.read_bytes(), html_path.read_bytes()
+        require(json_bytes.endswith(b"\n"), "Saved comparison JSON lacks its native final newline")
+        report = json.loads(json_bytes)
+        for side, content in (("first", first_bytes), ("second", second_bytes)):
+            require(report[side] == {"input_bytes": len(content), "input_sha256": sha(content),
+                                     "document": json.loads(content)},
+                    "Saved comparison does not describe its exact phase input")
+        download = ComparisonDownload()
+        download.feed(html_bytes.decode("utf-8"))
+        download.close()
+        require(len(download.links) == 1, "Comparison must expose one native download")
+        filename, href = download.links[0]
+        prefix = "data:application/json;base64,"
+        require(filename == "saved-inspection-comparison.json" and href.startswith(prefix),
+                "Saved comparison download identity mismatch")
+        require(base64.b64decode(href[len(prefix):], validate=True) == json_bytes,
+                "Saved comparison HTML download differs from its native JSON")
+        comparisons.append({"label": label, "first_inspection": first.name,
+                            "second_inspection": second.name,
+                            "first_inspection_sha256": sha(first_bytes),
+                            "second_inspection_sha256": sha(second_bytes),
+                            "json_report": json_path.name, "json_sha256": sha(json_bytes),
+                            "html_report": html_path.name, "html_sha256": sha(html_bytes),
+                            "json_command": commands["json"], "html_command": commands["html"]})
+    require(all(path.is_file() and sha(path.read_bytes()) == digest
+                for path, digest in preserved.items()),
+            "Saved comparison capture changed an existing retained file")
+    return comparisons
+
 stages = {"start": stage_start, "resume": stage_resume, "hold": stage_hold, "reconcile": stage_reconcile}
 if args.phase == "all":
     OUTPUT.mkdir()
@@ -310,23 +436,34 @@ if args.phase == "all":
     for stage in stages:
         command = [sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--phase", stage,
                    "--output", str(OUTPUT)]
-        result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=30)
+        try:
+            result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=args.phase_timeout_seconds)
+        except subprocess.TimeoutExpired as error:
+            bytes_new(OUTPUT / (stage + ".stdout.json"), error.stdout if error.stdout is not None else b"")
+            bytes_new(OUTPUT / (stage + ".stderr.log"), error.stderr if error.stderr is not None else b"")
+            raise
         bytes_new(OUTPUT / (stage + ".stdout.json"), result.stdout)
         bytes_new(OUTPUT / (stage + ".stderr.log"), result.stderr)
         require(result.returncode == 0, stage + " failed: " + result.stderr.decode(errors="replace"))
         processes.append({"phase": stage, "command": command, "returncode": result.returncode,
+                          "timeout_seconds": args.phase_timeout_seconds,
                           "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)})
     require(capture_source() == source_pin, "Checkout source changed during this run")
+    comparisons = capture_comparisons()
     summary = {"status": "completed", "scope": "authored-local-fixture", "project_id": plan.project_id,
                "plan_digest": plan.digest, "source": source_pin, "processes": processes,
+               "phase_timeout_seconds": args.phase_timeout_seconds,
                "completed_parts": 5, "unique_local_adapter_calls": 5, "unknown_acknowledgements": 1,
                "audit_replays": 0, "final_history_events": len(load(OUTPUT / "final-history.json")),
                "provider_calls": 0, "remote_worker_calls": 0,
                "retained_database": "retained.sqlite3", "handoff_artifact": "artifacts/handoff.json",
+               "comparison_reports": comparisons,
                "queued_route_reports": [label + "-queued-routes.stdout.json"
                                        for label in ("initial", "unknown", "held", "final")],
                "blocker_reports": [label + "-blockers.stdout.json"
                                    for label in ("initial", "unknown", "held", "final")],
+               "review_reports": [label + "-review.html"
+                                  for label in ("initial", "unknown", "held", "final")],
                "qualification": "The local adapter computes file products synchronously. Ultra is an explicitly authorized native route label here; no model inference or provider-effort behavior was exercised."}
     save_new(OUTPUT / "receipt.json", summary)
     print(json.dumps(summary, indent=2))
