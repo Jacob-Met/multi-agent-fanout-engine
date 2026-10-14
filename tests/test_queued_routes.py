@@ -140,7 +140,7 @@ class QueuedRoutesTests(unittest.TestCase):
     def test_usage_admission_precedes_file_access(self):
         missing = self.root / "missing" / "ledger.sqlite3"
         for extra in [("--project", "other"), ("--database", str(missing)),
-                      ("--routes", str(missing)), ("--output", str(missing)), ("--dat", str(missing))]:
+                      ("--routes", str(missing)), ("--output", str(missing), "--output", str(missing)), ("--dat", str(missing))]:
             with self.subTest(extra=extra):
                 result = self.invoke(*extra, database=missing, routes=missing)
                 self.assertEqual((result.returncode, result.stdout), (2, b""))
@@ -213,6 +213,113 @@ class QueuedRoutesTests(unittest.TestCase):
             result = self.invoke(stdout=sink)
         self.assertEqual(result.returncode, 1)
         self.assertIn(b"cannot write report", result.stderr)
+
+
+    @staticmethod
+    def _output_entry(path):
+        if not os.path.lexists(path):
+            return None
+        metadata = path.lstat()
+        details = (metadata.st_dev, metadata.st_ino, metadata.st_mode,
+                   metadata.st_size, metadata.st_mtime_ns)
+        if path.is_symlink():
+            return details, os.readlink(path)
+        if path.is_dir():
+            return details, None
+        return details, path.read_bytes()
+
+    def _retained_output_inputs(self):
+        paths = [self.database, self.routing]
+        paths.extend(Path(str(self.database) + suffix)
+                     for suffix in ("-wal", "-shm", "-journal"))
+        return {str(path): self._output_entry(path) for path in paths}
+
+    def test_new_output_matches_complete_stdout_and_preserves_inputs(self):
+        before = self._retained_output_inputs()
+        ordinary = self.invoke()
+        self.assertEqual((ordinary.returncode, ordinary.stderr), (0, b""))
+        destination = self.root / "queued report.json"
+        result = self.invoke("--output", str(destination))
+        self.assertEqual((result.returncode, result.stdout, result.stderr), (0, b"", b""))
+        self.assertEqual(destination.read_bytes(), ordinary.stdout)
+        self.assertTrue(ordinary.stdout.endswith(b"\n"))
+        self.assertEqual(json.loads(destination.read_bytes())["queued_ready_ids"], ["beta", "alpha"])
+        self.assertEqual(self._retained_output_inputs(), before)
+        self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
+
+    @unittest.skipUnless(os.name == "posix", "requires POSIX child file descriptor control")
+    def test_new_output_succeeds_with_actual_stdout_closed(self):
+        before = self._retained_output_inputs()
+        ordinary = self.invoke()
+        self.assertEqual((ordinary.returncode, ordinary.stderr), (0, b""))
+        destination = self.root / "closed-stdout.json"
+        result = subprocess.run(
+            [sys.executable, "-B", "-m", "fanout_engine.queued_routes",
+             "--database", str(self.database), "--project", self.plan.project_id,
+             "--routes", str(self.routing), "--output", str(destination)],
+            cwd=ROOT, capture_output=True, timeout=10,
+            preexec_fn=lambda: os.close(1),
+        )
+        self.assertEqual((result.returncode, result.stdout, result.stderr), (0, b"", b""))
+        self.assertEqual(destination.read_bytes(), ordinary.stdout)
+        self.assertEqual(self._retained_output_inputs(), before)
+        self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
+
+    def test_output_refusals_preserve_existing_and_sqlite_paths(self):
+        sentinel = self.root / "occupied.json"
+        sentinel.write_bytes(b"keep existing output\x00\xff")
+        directory = self.root / "output-directory"
+        directory.mkdir()
+        destinations = [sentinel, directory, self.database, self.routing]
+        destinations.extend(Path(str(self.database) + suffix)
+                            for suffix in ("-wal", "-shm", "-journal"))
+        if os.name == "posix":
+            dangling = self.root / "dangling.json"
+            dangling.symlink_to(self.root / "absent-target")
+            hardlink = self.root / "hardlinked-database"
+            os.link(self.database, hardlink)
+            linked = self.root / "linked-database"
+            linked.symlink_to(self.database)
+            destinations.extend([dangling, Path(str(hardlink) + "-wal"),
+                                 Path(str(linked) + "-shm")])
+        destinations.append(self.root / "missing-parent" / "report.json")
+        retained = self._retained_output_inputs()
+        for destination in destinations:
+            with self.subTest(destination=destination.name):
+                before = self._output_entry(destination)
+                result = self.invoke("--output", str(destination))
+                self.assertEqual((result.returncode, result.stdout), (1, b""))
+                self.assertIn(b"cannot write report", result.stderr)
+                self.assertIn(str(destination).encode(), result.stderr)
+                self.assertNotIn(b"Traceback", result.stderr)
+                self.assertEqual(self._output_entry(destination), before)
+                self.assertEqual(self._retained_output_inputs(), retained)
+                self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
+        self.assertFalse((self.root / "missing-parent").exists())
+        self.assertFalse((self.root / "absent-target").exists())
+
+    def test_output_validation_errors_keep_input_status_and_no_publication(self):
+        destination = self.root / "unknown.json"
+        unknown = self.invoke("--output", str(destination), project="not-recorded")
+        self.assertEqual((unknown.returncode, unknown.stdout), (3, b""))
+        self.assertIn(b"project_not_found", unknown.stderr)
+        self.assertFalse(destination.exists())
+        destination.write_bytes(b"retained occupied output")
+        before = self._output_entry(destination)
+        unknown = self.invoke("--output", str(destination), project="not-recorded")
+        self.assertEqual((unknown.returncode, unknown.stdout), (3, b""))
+        self.assertEqual(self._output_entry(destination), before)
+        self.routing.write_bytes(b"{invalid routing")
+        refused = self.root / "invalid-input.json"
+        invalid = self.invoke("--output", str(refused))
+        self.assertEqual((invalid.returncode, invalid.stdout), (2, b""))
+        self.assertIn(b"cannot preview retained routes", invalid.stderr)
+        self.assertFalse(refused.exists())
+        self.save_routes()
+        missing = self.invoke("--output", str(refused), database=self.root / "absent.sqlite3")
+        self.assertEqual((missing.returncode, missing.stdout), (2, b""))
+        self.assertFalse(refused.exists())
+        self.assertEqual(list(self.root.glob(".fanout-preview-*")), [])
 
 
 if __name__ == "__main__":
