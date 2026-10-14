@@ -10,14 +10,47 @@ python -B -m fanout_engine.queued_routes \
 
 Python 3.10 or newer and the standard library are sufficient. Run from this
 source checkout. The database must already exist; the command does not initialize
-one. The project identifier is exact. Each of the three required options occurs
-once; unknown, abbreviated or repeated options refuse before file access. Use
+one. The project identifier is exact. Each required option and optional `--output`
+occurs at most once; unknown, abbreviated or repeated options refuse before file access. Use
 `--project=VALUE` or the analogous equals form when an operand begins with a
 hyphen. Help reads no database or routing file.
 
-The command writes a JSON report to stdout. There is no output-file option.
-Shell redirection is a separate caller operation: never redirect stdout onto the
-database, a SQLite sidecar, the routing input or another file you need to retain.
+Without `--output`, the command writes the complete JSON report to stdout.
+To retain the same bytes in a new file, use:
+
+~~~sh
+python -B -m fanout_engine.queued_routes \
+  --database work/dispatch.sqlite3 --project sample --routes routes.json \
+  --output queued-routes.json
+~~~
+
+The parent directory must already exist. Successful file publication returns 0
+with empty stdout and stderr. Existing destinations, including directories and
+dangling symlinks, are refused. The existing SQLite output guard also refuses
+the selected database and reserved sidecar paths, including its supported
+resolved-name and hardlink-sibling aliases. The routing input is an existing
+file and cannot be replaced by this exclusive publisher. No `--force` option
+or output-directory creation is provided.
+
+Routing admission, the read-only snapshot and complete serialization finish
+before output-path checks or staging. An unknown project therefore remains
+exit 3 and an input/read failure remains exit 2 even when the requested output
+is also invalid. These failures create no report file. The default stdout
+bytes, report schema and readiness/routing semantics are unchanged.
+
+Publication uses the unchanged shared publisher: write and fsync a temporary
+file beside the destination, then publish through an exclusive hard link and
+remove the temporary name. An ordinary occupied/invalid-path refusal leaves
+prior files unchanged. A failure removing the temporary name *after* publication
+can return exit 1 even though the complete report is already available; inspect
+the destination and diagnostic before another action. This is not a filesystem
+transaction, an automatic rollback or protection against hostile concurrent
+path changes. Filesystems must support the publisher's hard-link operation.
+
+Shell redirection remains a separate caller operation: never redirect stdout
+onto the database, a SQLite sidecar, the routing input or a file to retain.
+This maintained-source option does not upgrade a previously installed wrapper's
+private runtime. Installed adoption requires its own source and receiving gate.
 
 ## What this adds
 
@@ -115,14 +148,15 @@ snapshot validation. Read only trusted authorized databases.
 | Exit | Meaning |
 | --- | --- |
 | `0` | Complete advisory JSON, including no ready work, or help |
-| `1` | Stdout write/flush failure |
+| `1` | Stdout write/flush or file publication/cleanup failure |
 | `2` | Usage, routing admission, database/read or malformed-record failure |
 | `3` | The exact requested project is not recorded |
 
-Validation and encoding finish before success output starts. A failed output
-stream may already have received a prefix; exit 1 is not an atomic output
-publication. Errors go to stderr. No partial success JSON is emitted for input
-or record validation failures.
+Validation and encoding finish before success output starts. A failed stdout
+stream may already have received a prefix. A file-output error names the
+requested destination; as described above, a late staging-cleanup error can
+leave the complete published file. Errors go to stderr. No partial success
+JSON is emitted for input or record validation failures.
 
 ## Native Python helper
 
@@ -175,3 +209,36 @@ Independent candidate receiving and exact publication are linked separately.
 The author course is not a full repository suite, native Windows/macOS,
 installed estate, remote-worker or provider qualification. Existing dispatch,
 inspection, routing, plan and ledger source remain unchanged.
+
+## Focused exclusive-output receiving
+
+The output follow-up is reserved at [PR77 comment6161847521](https://github.com/Jacob-Met/multi-agent-fanout-engine/pull/77#issuecomment-6161847521).
+It changes only this CLI's optional destination and failure reporting, the
+focused tests and this guide. The report function, inspection, ledger, routing,
+serialization limits and shared publication/path helpers remain unchanged.
+
+Before this change, one current-source course received the existing complete
+1010-byte nine-event authored report, the unsupported `--output` refusal and
+the unknown-project status. Those three calls returned 0/2/3; the original
+requested destination stayed absent. The original absence is retained as
+characterization rather than relabelled as file-output support.
+
+The maintained follow-up adds four output-focused methods. They use real CLI
+processes and owned SQLite fixtures for default/file byte parity, file output
+with an actually closed POSIX stdout, occupied/dangling/database/sidecar aliases,
+missing parents and input-status precedence. Only the obsolete unsupported
+`--output` operand in the existing usage regression changes to a repeated
+`--output` operand. The other inherited assertions remain intact.
+
+Run the complete maintained module from this source checkout:
+
+~~~sh
+python -B -m unittest discover -s tests -p test_queued_routes.py -v
+~~~
+
+A receiving report that selects only the four new methods and the affected
+usage method must describe that five-method scope, not claim the full discovery
+course. POSIX closed-descriptor/symlink controls are qualified only where
+actually executed. A separate saved-ledger export can compare complete output
+against the retained native oracle without replaying a workflow. Publication
+and platform results are recorded in the associated receiving evidence.

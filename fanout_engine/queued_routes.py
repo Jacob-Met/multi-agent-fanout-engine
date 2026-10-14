@@ -9,12 +9,13 @@ import sqlite3
 import sys
 from typing import Any
 
+from .inspect import _check_output_path
 from .inspection import InspectionError, inspect_project
 from .ledger import Ledger, LedgerError
 from .plan import canonical_json, strict_json_loads
 from .preview import (
     MAX_PARTS, MAX_POOL_ROUTES, MAX_REPORT_BYTES, MAX_ROUTING_BYTES,
-    PreviewError, _read_input, _read_routing, _write_stdout,
+    PreviewError, _publish_new_file, _read_input, _read_routing, _write_stdout,
 )
 from .routing import EffortRouter, Route
 
@@ -116,7 +117,11 @@ def main(argv: list[str] | None = None) -> int:
                         default=argparse.SUPPRESS, help="exact retained project identifier")
     parser.add_argument("--routes", type=Path, required=True, action=_Once,
                         default=argparse.SUPPRESS, help="caller-supplied routing JSON file")
+    parser.add_argument("--output", type=Path, action=_Once,
+                        default=argparse.SUPPRESS,
+                        help="new report file; otherwise write JSON to stdout")
     args = parser.parse_args(argv)
+    output = getattr(args, "output", None)
     try:
         captured = _read_input(args.routes, MAX_ROUTING_BYTES, "routing")
         router, explicit = _read_routing(strict_json_loads(captured.decode("utf-8")))
@@ -136,11 +141,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"fanout queued routes: cannot preview retained routes: {exc}", file=sys.stderr)
         return 2
     try:
-        if sys.stdout is None:
-            raise OSError("standard output is unavailable")
-        _write_stdout(content)
-    except OSError as exc:
-        print(f"fanout queued routes: cannot write report: {exc}", file=sys.stderr)
+        if output is None:
+            if sys.stdout is None:
+                raise OSError("standard output is unavailable")
+            _write_stdout(content)
+        else:
+            _check_output_path(args.database, output)
+            _publish_new_file(output, content)
+    except (OSError, ValueError) as exc:
+        destination_note = "" if output is None else f" (output: {output})"
+        print(f"fanout queued routes: cannot write report: {exc}{destination_note}", file=sys.stderr)
         return 1
     return 0
 
