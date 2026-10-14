@@ -1,0 +1,28 @@
+#!/bin/sh
+case "${1-}" in
+  -h|--help) cat <<'FANOUT_HELP'
+hamon-fanout-read: saved Fanout ledger readers
+Usage:
+  hamon-fanout-read projects --database FILE [--output NEW.json]
+  hamon-fanout-read inspect  --database FILE --project ID [--output NEW.json]
+  hamon-fanout-read history  --database FILE --project ID [--part ID] [--output NEW.json]
+  hamon-fanout-read review   --database FILE --project ID --output NEW.html
+  hamon-fanout-read blockers --database FILE --project ID [--output NEW.json]
+  hamon-fanout-read queued-routes --database FILE --project ID --routes ROUTING.json
+  hamon-fanout-read compare-inspections --first FIRST.json --second SECOND.json [--format json|html] [--output NEW]
+
+FILE must be an explicitly selected existing local ledger. No default ledger is used.
+compare-inspections reads two saved inspection JSON files; JSON is the default.
+Use --format html for a self-contained page with the exact native JSON download.
+queued-routes prints advisory JSON for ready queued parts; it applies no route or dispatch.
+Readers preserve recorded uncertainty; they do not dispatch, retry or reconcile work.
+Exports require a new output path. SQLite may maintain read-side WAL bookkeeping.
+Use a subcommand's --help for its exact options. Source: 36f83e0767cf (complete pinned source installation).
+FANOUT_HELP
+    exit 0 ;;
+  queued-routes) route=queued_routes; shift ;;
+  compare-inspections) route=compare_inspections; shift ;;
+  projects|inspect|history|review|blockers) route=$1; shift ;;
+  *) printf '%s\n' 'Use: hamon-fanout-read --help (projects, inspect, history, review, blockers, compare-inspections, queued-routes only)' >&2; exit 2 ;;
+esac
+exec '/home/jacob/.local/share/hamon-tools/hamon-fanout-read-36f83e0767cf-html-v1/venv/bin/python' -I -B -m "fanout_engine.$route" "$@"
