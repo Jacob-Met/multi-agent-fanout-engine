@@ -34,7 +34,13 @@ there is no fabricated capture timestamp or machine-specific source path in it.
 
 Markup in instructions and evidence is displayed literally. C0 controls other
 than tab, LF and CR, and the DEL/C1 controls, are shown as backslash Unicode
-escapes in the page. The embedded native JSON preserves the original values.
+escapes in the page. Unicode bidirectional formatting controls U+061C,
+U+200E/U+200F, U+202A–U+202E and U+2066–U+2069 also appear as visible
+backslash Unicode escapes. This exposes otherwise invisible direction marks,
+embeddings, overrides and isolates in accepted instruction, reference, route
+and evidence text. Ordinary Arabic/Hebrew letters and other Unicode, including
+emoji joiners, keep their original text. The embedded native JSON preserves the
+original values, including every formatting control.
 References and evidence locators remain text rather than links to external sites.
 They are not opened or authenticated by the report. `null` means no value was
 recorded, not a successful or empty external result.
@@ -99,3 +105,16 @@ states, exact embedded JSON, literal Unicode/markup/control text, original part
 order, deterministic output, missing and malformed records, existing-output
 preservation and reserved SQLite paths. It does not qualify an external adapter,
 an installed estate deployment or the truth of retained evidence.
+
+The focused display regression uses the same actual CLI over fictional retained
+plans, with all twelve formatting controls, exact native JSON bytes and ordinary
+RTL/Unicode/joiner controls:
+
+```sh
+python -B -m unittest discover -s tests -p test_project_review_bidi.py -v
+python -O -B -m unittest discover -s tests -p test_project_review_bidi.py -v
+```
+
+The optimized runner propagates `-O` to its CLI subprocesses. These checks cover
+the displayed text and unchanged native download, not a full Unicode shaping or
+browser accessibility audit.

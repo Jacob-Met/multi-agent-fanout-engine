@@ -21,7 +21,10 @@ def _text(value: str) -> str:
     visible = "".join(
         f"\\u{ord(character):04x}"
         if (ord(character) < 32 and character not in "\t\n\r")
-        or 127 <= ord(character) <= 159 else character
+        or 127 <= ord(character) <= 159
+        or ord(character) in (0x061c, 0x200e, 0x200f)
+        or 0x202a <= ord(character) <= 0x202e
+        or 0x2066 <= ord(character) <= 0x2069 else character
         for character in value
     )
     return html.escape(visible, quote=True)
