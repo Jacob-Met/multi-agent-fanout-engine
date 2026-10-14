@@ -2,7 +2,7 @@
   "accepted": true,
   "scope": "Static exact-owner/current dependency composition; no new behavioral execution",
   "repository": "Jacob-Met/multi-agent-fanout-engine",
-  "current_main": "36f83e0767cf7088fc56cd04d07042f2b285c8d1",
+  "current_main": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
   "owner_head": "d8fd4548534064c9a1c187fb726ed594ca5e03c8",
   "owner_publication_parent": "c58d648244650ed97addf7b0d6d18bf9966a2b0c",
   "owner_coordination_comment": 6161112544,
@@ -221,12 +221,10 @@
     "prior_portable_use": "Owner exact delivered-kit CLI; not rerun"
   },
   "three_path_projection": {
-    "current_leaves": 335,
-    "proposed_leaves": 336,
-    "unrelated_preserved": 333,
-    "workflow_paths_unchanged": [
-      ".github/workflows/test.yml"
-    ]
+    "current_leaves": 338,
+    "proposed_leaves": 339,
+    "unrelated_preserved": 336,
+    "workflow_paths_unchanged": []
   },
   "preserved_scopes": [
     "Owner separate leading-LF child comment6154521576",
@@ -237,5 +235,68 @@
     "No new runtime, browser, installed consumer or full-matrix result is claimed",
     "Historical recovered/reconstructed fixture distinction remains in owner PR92 evidence",
     "Final repository merge requires fresh current-parent proof"
-  ]
+  ],
+  "initial_current_main": "36f83e0767cf7088fc56cd04d07042f2b285c8d1",
+  "publication_rebase": {
+    "reason": "Concurrent current-main changes observed before branch creation",
+    "all_qualified_inputs_and_intended_beforeimages_unchanged": true,
+    "preserved_changes": {
+      "README.md": {
+        "before": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "a475c98cb4e6658daae347c377e308233b110c0b"
+        },
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f0642959f777d6bde58613b9409fd192bdd88c92"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/source-manifest.json": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d0f6db367de6c6a47c4f1f774069afe6a5c2ffc4"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/hamon-fanout-read": {
+        "before": null,
+        "after": {
+          "mode": "100755",
+          "type": "blob",
+          "sha": "e385ae440719b1d3370a2f35cb1cfc71e64db9c7"
+        }
+      },
+      ".github/workflows/test.yml": {
+        "before": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+        },
+        "after": null
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/install_html_reader.py": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "99c7390223d79ae37db467e7f5acb83ad932975b"
+        }
+      },
+      "docs/receiving/thinkpad-comparison-html-e1438c9d058f/README.md": {
+        "before": null,
+        "after": {
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1c7802e0a3bafd057dfeb47654b51bf0dca91e69"
+        }
+      }
+    },
+    "first_inert_proposal": "0b58ea6dba13fe9c6c54234d1847eb27a541d465",
+    "new_parent": "e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3",
+    "workflow_count": 0,
+    "no_runtime_rerun": true
+  }
 }

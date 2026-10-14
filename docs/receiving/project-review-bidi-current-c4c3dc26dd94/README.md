@@ -17,7 +17,9 @@ The product change is the exact three predicates offered at `d8fd4548534064c9a1c
 
 ## Why existing qualification applies
 
-The [current composition proof](current-composition-proof.json) compares exact main `36f83e0767cf7088fc56cd04d07042f2b285c8d1` with the owner’s publication parent and offer. All nine package modules reached by the review entry and package initializer are byte-identical to that qualified baseline. The existing seven-method report test and guide beforeimage are also unchanged. After the offered delta, all twelve selected module/test/guide files equal the already published owner closure.
+The [current composition proof](current-composition-proof.json) compares exact main `e3ef5fe2da8f6520ee134b8bf5e792a4c00e51e3` with the owner’s publication parent and offer. All nine package modules reached by the review entry and package initializer are byte-identical to that qualified baseline. The existing seven-method report test and guide beforeimage are also unchanged. After the offered delta, all twelve selected module/test/guide files equal the already published owner closure.
+
+Before branch publication, main advanced with the separately received PR105 HTML-reader documentation and removal of the obsolete test workflow and README badge. The final composition preserves all of those changes; its twelve qualified inputs and three intended beforeimages remain exact. The earlier inert proposal and proof are retained in its ancestry.
 
 This is new source/dependency receiving, not a new behavioral course. No product command, native installer, browser, provider or full test matrix was run for this integration. The historical evidence remains attributed to its original authors and independent reviewers:
 
