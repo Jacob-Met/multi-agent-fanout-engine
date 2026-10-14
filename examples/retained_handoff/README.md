@@ -338,3 +338,41 @@ python3 -B -m unittest discover -s tests -p 'test_retained_handoff_comparisons.p
 This remains the authored local adapter example with five unique calls, no
 audit replay, four existing phase reviews and sixteen final events. It adds
 no provider, installed service or live status view.
+
+## Select an aggregate phase deadline
+
+The public command waits up to 30 seconds for each of its four existing child
+phases by default. A phase performs several bounded native reads in addition to
+its local work. On a slower computer, choose a larger aggregate phase budget
+explicitly, always using a new output directory:
+
+```sh
+python3 -I -B examples/retained_handoff/run_consumer.py --phase-timeout-seconds 180 --output ../fanout-handoff-run-180
+```
+
+`--phase-timeout-seconds` accepts a finite numeric value greater than zero and
+at most 3600 seconds (sixty minutes). Fractions are allowed. Zero, negative,
+non-finite, over-limit and malformed values are input errors before any output
+directory or phase work is created. Omitting the option retains the existing
+30-second behavior; there is no option to disable the deadline.
+
+This setting controls only the parent's aggregate wait for each phase child.
+Every individual inspection, route, blocker, review and comparison CLI retains
+its separate 15-second limit. The setting is not a whole-command deadline and
+does not promise that a slower individual reader will succeed. The four final
+comparison commands execute after the four phases, under their existing limits.
+The successful final receipt records `phase_timeout_seconds`, and each phase
+command record records its `timeout_seconds`.
+
+A timeout does not roll back local work that the phase has already committed.
+Preserve the partial directory and diagnostics. This option adds no automatic
+retry, resume or private-phase recovery; do not reuse an existing directory or
+its private `--phase` argument as a retry mechanism.
+
+The focused argument and propagation checks do not dispatch fixture work. They
+exercise actual CLI input errors/help and stop the real public runner at its
+first subprocess boundary before a child is launched:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_retained_handoff_phase_timeout.py' -v
+```

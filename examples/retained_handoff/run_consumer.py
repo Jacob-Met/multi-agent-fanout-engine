@@ -9,6 +9,7 @@ from dataclasses import asdict
 import hashlib
 from html.parser import HTMLParser
 import json
+import math
 import os
 from pathlib import Path
 import sqlite3
@@ -46,8 +47,21 @@ def bytes_new(path, data):
         stream.write(data)
 
 
+def phase_timeout_seconds(value):
+    message = "must be finite seconds greater than 0 and at most 3600"
+    try:
+        seconds = float(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError(message) from error
+    if not math.isfinite(seconds) or not 0 < seconds <= 3600:
+        raise argparse.ArgumentTypeError(message)
+    return seconds
+
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--output", type=Path, required=True, help="new retained run directory")
+parser.add_argument("--phase-timeout-seconds", type=phase_timeout_seconds, default=30.0, metavar="SECONDS",
+                    help="positive finite seconds per child phase, at most 3600 (default: 30)")
 parser.add_argument("--phase", choices=("all", "start", "resume", "hold", "reconcile"), default="all", help=argparse.SUPPRESS)
 args = parser.parse_args()
 SOURCE, OUTPUT = CHECKOUT, args.output.absolute()
@@ -422,16 +436,18 @@ if args.phase == "all":
     for stage in stages:
         command = [sys.executable, "-I", "-B", str(Path(__file__).resolve()), "--phase", stage,
                    "--output", str(OUTPUT)]
-        result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=30)
+        result = subprocess.run(command, cwd=OUTPUT, env=env, capture_output=True, timeout=args.phase_timeout_seconds)
         bytes_new(OUTPUT / (stage + ".stdout.json"), result.stdout)
         bytes_new(OUTPUT / (stage + ".stderr.log"), result.stderr)
         require(result.returncode == 0, stage + " failed: " + result.stderr.decode(errors="replace"))
         processes.append({"phase": stage, "command": command, "returncode": result.returncode,
+                          "timeout_seconds": args.phase_timeout_seconds,
                           "stdout_sha256": sha(result.stdout), "stderr_sha256": sha(result.stderr)})
     require(capture_source() == source_pin, "Checkout source changed during this run")
     comparisons = capture_comparisons()
     summary = {"status": "completed", "scope": "authored-local-fixture", "project_id": plan.project_id,
                "plan_digest": plan.digest, "source": source_pin, "processes": processes,
+               "phase_timeout_seconds": args.phase_timeout_seconds,
                "completed_parts": 5, "unique_local_adapter_calls": 5, "unknown_acknowledgements": 1,
                "audit_replays": 0, "final_history_events": len(load(OUTPUT / "final-history.json")),
                "provider_calls": 0, "remote_worker_calls": 0,
