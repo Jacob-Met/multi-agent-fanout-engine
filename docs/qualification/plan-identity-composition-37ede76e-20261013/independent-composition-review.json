@@ -1,0 +1,564 @@
+{
+  "schema": "hamon.plan-identity-composition-static-receiving.v1",
+  "reviewer": "shared_delivery / team 37ede76e2734",
+  "reviewed_at_utc": "2026-10-13 00:31:46 UTC",
+  "accepted": true,
+  "review_kind": "Independent static full-tree and retained-evidence review",
+  "product_execution_performed": false,
+  "scope": {
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "reviewed_qualified_commit": "da12e1b9b88dad28dc5b5409b85d3d3019e2fe3a",
+    "reviewed_qualified_tree": "7bd39e71496fcab4c37aa42950b7db1b8504c0c5",
+    "reviewed_source_commit": "b0330ae230d033d6e7d4a56b564180ef7b185092",
+    "reviewed_source_tree": "aa06d9625bef6ecb726cc6bc4b04947f1fa810e6",
+    "pinned_main": "23daeba5b97ea87733f95bae19b45525e40ae95c",
+    "integration_authority": "Root; main integration and installed adoption remain pending."
+  },
+  "method": "Read complete recursive trees and immutable three-dot contribution compares. Apply only the disjoint owned deltas to the pinned main; compare every resulting leaf by path, mode, type and Git object identity. Check diverged existing paths against their merge base. Inspect exact retained native logs and JSON without rerunning product code.",
+  "merge_base": {
+    "commit": "dca36bef09f39a2b339cc116051b5784619f71ee",
+    "tree": "8e28ee92cd7e03fbaa211dbff69ecfe65d4924ce",
+    "owners": [
+      "preview",
+      "ledger"
+    ],
+    "behind_pinned_main_commits": 5
+  },
+  "contributions": [
+    {
+      "owner": "preview",
+      "path": "docs/plan-preview.md",
+      "status": "modified",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "c463eb4732eb1c8eaf84e012c28cc058bed282bf"
+    },
+    {
+      "owner": "preview",
+      "path": "fanout_engine/preview.py",
+      "status": "modified",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "71dabb931a1adafd7ff449b53d3a1223e08e290d"
+    },
+    {
+      "owner": "preview",
+      "path": "tests/test_preview_plan_snapshot.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "828e0b06117c5f30ceef3787bfcafe6870af1889"
+    },
+    {
+      "owner": "ledger",
+      "path": "docs/ledger-plan-identity.md",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "e4ea1ce5a3979af47e66b675d69f929fe4bbc71e"
+    },
+    {
+      "owner": "ledger",
+      "path": "docs/qualification/ledger-plan-identity-37ede76e-20261012/README.md",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "da4374bee7bafdd4139b897af40e5b48b6b92d01"
+    },
+    {
+      "owner": "ledger",
+      "path": "docs/qualification/ledger-plan-identity-37ede76e-20261012/independent/normal.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "59ade88b9e7d5e23c126251415f8e9ce133bcf1b"
+    },
+    {
+      "owner": "ledger",
+      "path": "docs/qualification/ledger-plan-identity-37ede76e-20261012/independent/optimized.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "53080b684308c94e5aba874c87c7933f7c51ec74"
+    },
+    {
+      "owner": "ledger",
+      "path": "docs/qualification/ledger-plan-identity-37ede76e-20261012/independent/receive_ledger.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "2f7c617b88e8d9af387dd2c1e6844f48b5271c84"
+    },
+    {
+      "owner": "ledger",
+      "path": "fanout_engine/ledger.py",
+      "status": "modified",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "627ece1c327b6a15eb47f25b3e7041c371e4d558"
+    },
+    {
+      "owner": "ledger",
+      "path": "tests/test_ledger_plan_identity.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "7212920d87c0d5634ac49135ea008387f3635d2c"
+    },
+    {
+      "owner": "dispatch",
+      "path": "docs/dispatch-plan-snapshots.md",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "a6629ed9cdbf8fc3ce0c5abad3cec8d7da01b6e6"
+    },
+    {
+      "owner": "dispatch",
+      "path": "fanout_engine/dispatch.py",
+      "status": "modified",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "bec8a82063dc06653128f155b8487428847b73c2"
+    },
+    {
+      "owner": "dispatch",
+      "path": "tests/test_dispatch_plan_snapshot.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "f190ee6df87d9ccab07a8159ac3ef6c3c57c35b6"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/README.md",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "064365ed1645feeba9f2fc23cd1c225431ffe1c6"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/dispatch/normal.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "7ffd46d1f90dff0d06226530baf78e5dfbe1acd3"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/dispatch/optimized.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "832e60e41c5e8dbdef0cac2bd9bd7305b381a69d"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/dispatch/original-focused.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "48b1b7f99fea78bb42c3308893e62421f58ae845"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/independent/check_dispatch_callbacks.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "487ca043f64c15e6008ca5868ceb0985a736c98a"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/independent/dispatch-independent-receipt.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "bba6c3036a029145539b9e04db48efd902f7c35f"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/independent/run_dispatch_receiving.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "e64b516e0e6364f4c2c6a9762346ceb0aaf94ca8"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/independent/source-admission.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "c4fa1dd49bf941285334584473006e0ba4178df8"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/ledger-dispatch/normal.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "3dc30af9fe7d91c69496503540266fe3ca88de4f"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/ledger-dispatch/optimized.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "4b407285e679019008e8344bbc671559002aae04"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/ledger-dispatch/receiving.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "c098c69953b96b26a8a082fca6af523ce6d3da66"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/preview/corrected-source-review.json",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "1462a642bc89f36e70217749355245ce45151e6e"
+    },
+    {
+      "owner": "receiving",
+      "path": "docs/qualification/plan-identity-receiving-37ede76e-20261012/preview/focused.txt",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "5c471be4d77eaf0fc5f549130e8b1bf832281791"
+    },
+    {
+      "owner": "receiving",
+      "path": "tests/test_dispatch_plan_identity.py",
+      "status": "added",
+      "mode": "100644",
+      "type": "blob",
+      "blob": "c429fb2105be4f0e2c76b5879371212f4a736243"
+    }
+  ],
+  "checks": [
+    {
+      "id": "all_complete_tree_responses",
+      "pass": true,
+      "details": [
+        {
+          "name": "main",
+          "sha": "792a42dd186f28eca1f16452cb0da211f5f9c74b",
+          "leaf_count": 182
+        },
+        {
+          "name": "preview",
+          "sha": "a93660df16e931a0a20a2dffa98be70a0ec6b59a",
+          "leaf_count": 172
+        },
+        {
+          "name": "ledger",
+          "sha": "ad3592d1a1f8ea7acfbcb6dfa14704e025e4c63e",
+          "leaf_count": 177
+        },
+        {
+          "name": "dispatch",
+          "sha": "da96ad3e995a27961e9e077298e786571227197c",
+          "leaf_count": 184
+        },
+        {
+          "name": "receiving",
+          "sha": "a416493b2b5c1600d8eb93d7d95e5c1bcf314d32",
+          "leaf_count": 198
+        },
+        {
+          "name": "source",
+          "sha": "aa06d9625bef6ecb726cc6bc4b04947f1fa810e6",
+          "leaf_count": 205
+        },
+        {
+          "name": "qualified",
+          "sha": "7bd39e71496fcab4c37aa42950b7db1b8504c0c5",
+          "leaf_count": 211
+        },
+        {
+          "name": "merge_base",
+          "sha": "8e28ee92cd7e03fbaa211dbff69ecfe65d4924ce",
+          "leaf_count": 171
+        }
+      ]
+    },
+    {
+      "id": "commit_tree_main",
+      "pass": true,
+      "details": {
+        "commit": "23daeba5b97ea87733f95bae19b45525e40ae95c",
+        "tree": "792a42dd186f28eca1f16452cb0da211f5f9c74b"
+      }
+    },
+    {
+      "id": "commit_tree_preview",
+      "pass": true,
+      "details": {
+        "commit": "02ab6b6705705b9738a0f7d6601dee0d35b9efc7",
+        "tree": "a93660df16e931a0a20a2dffa98be70a0ec6b59a"
+      }
+    },
+    {
+      "id": "commit_tree_ledger",
+      "pass": true,
+      "details": {
+        "commit": "762ed069d7949f7a302db36a349ace17a3e0325f",
+        "tree": "ad3592d1a1f8ea7acfbcb6dfa14704e025e4c63e"
+      }
+    },
+    {
+      "id": "commit_tree_dispatch",
+      "pass": true,
+      "details": {
+        "commit": "842d33b92ac5fc2be186e7172535e83c2ca3a6de",
+        "tree": "da96ad3e995a27961e9e077298e786571227197c"
+      }
+    },
+    {
+      "id": "commit_tree_receiving",
+      "pass": true,
+      "details": {
+        "commit": "c38f66f047cd0749dd80a450cd63014b8ac45b0f",
+        "tree": "a416493b2b5c1600d8eb93d7d95e5c1bcf314d32"
+      }
+    },
+    {
+      "id": "commit_tree_source",
+      "pass": true,
+      "details": {
+        "commit": "b0330ae230d033d6e7d4a56b564180ef7b185092",
+        "tree": "aa06d9625bef6ecb726cc6bc4b04947f1fa810e6"
+      }
+    },
+    {
+      "id": "commit_tree_qualified",
+      "pass": true,
+      "details": {
+        "commit": "da12e1b9b88dad28dc5b5409b85d3d3019e2fe3a",
+        "tree": "7bd39e71496fcab4c37aa42950b7db1b8504c0c5"
+      }
+    },
+    {
+      "id": "ordered_source_parents",
+      "pass": true,
+      "details": [
+        "23daeba5b97ea87733f95bae19b45525e40ae95c",
+        "02ab6b6705705b9738a0f7d6601dee0d35b9efc7",
+        "762ed069d7949f7a302db36a349ace17a3e0325f",
+        "c38f66f047cd0749dd80a450cd63014b8ac45b0f"
+      ]
+    },
+    {
+      "id": "qualification_child_parent",
+      "pass": true,
+      "details": [
+        "b0330ae230d033d6e7d4a56b564180ef7b185092"
+      ]
+    },
+    {
+      "id": "owned_paths_are_disjoint",
+      "pass": true,
+      "details": {
+        "preview": 3,
+        "ledger": 7,
+        "dispatch": 3,
+        "receiving_only": 14,
+        "total": 27
+      }
+    },
+    {
+      "id": "no_owned_deletions_or_renames",
+      "pass": true,
+      "details": {
+        "modified": 4,
+        "added": 23
+      }
+    },
+    {
+      "id": "owned_compare_blobs_match_owner_trees",
+      "pass": true,
+      "details": "Every compare entry is an exact regular Git blob in its immutable contributing head."
+    },
+    {
+      "id": "union_reconstructs_complete_source",
+      "pass": true,
+      "details": {
+        "mismatches": [],
+        "source_leaves": 205
+      }
+    },
+    {
+      "id": "source_delta_exact_owned_set",
+      "pass": true,
+      "details": {
+        "changed_paths": 27
+      }
+    },
+    {
+      "id": "unowned_current_main_preserved",
+      "pass": true,
+      "details": {
+        "unowned_current_main_leaves": 178,
+        "identity_fields": [
+          "mode",
+          "type",
+          "sha"
+        ]
+      }
+    },
+    {
+      "id": "diverged_existing_paths_no_main_overwrite",
+      "pass": true,
+      "details": [
+        {
+          "owner": "preview",
+          "path": "docs/plan-preview.md",
+          "merge_base_blob": "d5070c7eb1ff9b6ac3eea87418e4d7c4342bbc31",
+          "current_main_blob": "d5070c7eb1ff9b6ac3eea87418e4d7c4342bbc31"
+        },
+        {
+          "owner": "preview",
+          "path": "fanout_engine/preview.py",
+          "merge_base_blob": "3af98db006853a19f60506322f7e450ce3685cfc",
+          "current_main_blob": "3af98db006853a19f60506322f7e450ce3685cfc"
+        },
+        {
+          "owner": "ledger",
+          "path": "fanout_engine/ledger.py",
+          "merge_base_blob": "92707378ebd914097927fc12d5c3a9dfad84b30c",
+          "current_main_blob": "92707378ebd914097927fc12d5c3a9dfad84b30c"
+        }
+      ]
+    },
+    {
+      "id": "diverged_added_paths_not_present_on_main",
+      "pass": true,
+      "details": "All seven added preview/ledger paths were absent from the pinned main."
+    },
+    {
+      "id": "all_source_leaves_preserved_in_child",
+      "pass": true,
+      "details": {
+        "preserved_source_leaves": 205
+      }
+    },
+    {
+      "id": "qualification_scope_exact_six_additions",
+      "pass": true,
+      "details": [
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/README.md",
+          "sha": "87a9b99b7aac45acefe696b359744727f2d9d8b2",
+          "bytes": 4836
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/complete-normal.stderr.txt",
+          "sha": "7a596ce8dcd334731a0ec7cf15da2cb7842026e0",
+          "bytes": 40940
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/complete-normal.stdout.txt",
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "bytes": 0
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/identity-optimized.stderr.txt",
+          "sha": "5e29d3db7c0602e1c7b64a8448ec4c3ec5e8e9fe",
+          "bytes": 4586
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/identity-optimized.stdout.txt",
+          "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "bytes": 0
+        },
+        {
+          "path": "docs/qualification/plan-identity-composition-37ede76e-20261013/receiving.json",
+          "sha": "44bd857ecfb8608cdb5be973e7ec585101e912f0",
+          "bytes": 31557
+        }
+      ]
+    },
+    {
+      "id": "three_reviewed_product_blobs_preserved",
+      "pass": true,
+      "details": {
+        "fanout_engine/preview.py": "71dabb931a1adafd7ff449b53d3a1223e08e290d",
+        "fanout_engine/ledger.py": "627ece1c327b6a15eb47f25b3e7041c371e4d558",
+        "fanout_engine/dispatch.py": "bec8a82063dc06653128f155b8487428847b73c2"
+      }
+    },
+    {
+      "id": "independent_receiving_inputs_retained",
+      "pass": true,
+      "details": {
+        "check_dispatch_callbacks.py": "487ca043f64c15e6008ca5868ceb0985a736c98a",
+        "run_dispatch_receiving.py": "e64b516e0e6364f4c2c6a9762346ceb0aaf94ca8",
+        "dispatch-independent-receipt.json": "bba6c3036a029145539b9e04db48efd902f7c35f",
+        "source-admission.json": "c4fa1dd49bf941285334584473006e0ba4178df8"
+      }
+    },
+    {
+      "id": "native_witness_tree_and_parents_match",
+      "pass": true,
+      "details": {
+        "native_commit": "9ca7d3553ad96e7f0ce82ed01bde4db7531bfe2c",
+        "published_commit": "b0330ae230d033d6e7d4a56b564180ef7b185092",
+        "tree": "aa06d9625bef6ecb726cc6bc4b04947f1fa810e6",
+        "relationship": "Different commit IDs, identical declared source tree and ordered parents; no commit equality claimed."
+      }
+    },
+    {
+      "id": "native_watched_path_set_exact",
+      "pass": true,
+      "details": {
+        "watched_paths": 205
+      }
+    },
+    {
+      "id": "native_retained_preservation_status",
+      "pass": true,
+      "details": {
+        "changed_tracked_files": []
+      }
+    },
+    {
+      "id": "native_raw_normal_count_and_limit",
+      "pass": true,
+      "details": {
+        "tests": 202,
+        "passed": 198,
+        "skipped": 4,
+        "skip_lines": [
+          "test_failed_output_is_not_success_or_a_shutdown_traceback (test_compare_plans.ComparePlansTests.test_failed_output_is_not_success_or_a_shutdown_traceback) ... skipped 'requires /dev/full'",
+          "test_cli_reports_output_failure_cleanly (test_history.HistoryTests.test_cli_reports_output_failure_cleanly) ... skipped '/dev/full is unavailable'",
+          "test_output_write_failure_is_nonzero_without_shutdown_traceback (test_inspect_cli.InspectCliTests.test_output_write_failure_is_nonzero_without_shutdown_traceback) ... skipped 'requires /dev/full'",
+          "test_stdout_failure_is_an_io_refusal_without_shutdown_traceback (test_preview.PreviewTests.test_stdout_failure_is_an_io_refusal_without_shutdown_traceback) ... skipped 'requires native /dev/full'"
+        ]
+      }
+    },
+    {
+      "id": "native_raw_optimized_count_and_limit",
+      "pass": true,
+      "details": {
+        "tests": 25,
+        "passed": 25,
+        "skipped": 0,
+        "scope": "Focused test_*_plan_*.py only, not the complete suite."
+      }
+    }
+  ],
+  "limits": [
+    "This review qualifies exact da12e1b9b88dad28dc5b5409b85d3d3019e2fe3a and its b0330ae230d033d6e7d4a56b564180ef7b185092 source composition only.",
+    "Retained author native results were inspected, not independently executed again.",
+    "The four /dev/full-dependent methods remain skipped on macOS; no Linux result is implied.",
+    "The qualified child adds only the six retained evidence files. No automatic merge, installed worker, provider submission or deployment is claimed.",
+    "Preserved historical failed stdout contains three trailing spaces; this review does not claim a whole-diff whitespace pass."
+  ]
+}

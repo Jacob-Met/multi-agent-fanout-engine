@@ -1,0 +1,137 @@
+{
+  "accepted": true,
+  "calls": [
+    {
+      "effort": "low",
+      "idempotency_key": "fanout-cb05071761de41a36b3cd8215f0d374108ca9a480bfd84f35684459533cfa5ad",
+      "instruction": "Retain the authored local package receipt.",
+      "model": "local-model",
+      "part_id": "stage",
+      "worker_id": "local-worker"
+    }
+  ],
+  "database": {
+    "bytes": 32768,
+    "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/consumer outputs/retained dispatch #1.sqlite3",
+    "sha256": "ac894a1c62e46c3204168638a5cc2bfeb3ac46712626ef83822d2fecee3d4390"
+  },
+  "dont_write_bytecode": true,
+  "first": {
+    "not_ready": [
+      "verify"
+    ],
+    "started": [
+      "stage"
+    ]
+  },
+  "imported_modules": {
+    "fanout_engine": {
+      "bytes": 613,
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/__init__.py",
+      "relative_path": "fanout_engine/__init__.py",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine.dispatch": {
+      "bytes": 5256,
+      "git_blob": "bec8a82063dc06653128f155b8487428847b73c2",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/dispatch.py",
+      "relative_path": "fanout_engine/dispatch.py",
+      "sha256": "5933060a2724b59f705d0e9bba99f7b196d1d261953c729d5e76a3a5db9ecf7f"
+    },
+    "fanout_engine.inspection": {
+      "bytes": 6055,
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/inspection.py",
+      "relative_path": "fanout_engine/inspection.py",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine.ledger": {
+      "bytes": 17243,
+      "git_blob": "01c2f7845cad6f92152f797bbad8f4e791cc7273",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/ledger.py",
+      "relative_path": "fanout_engine/ledger.py",
+      "sha256": "2c5d4d3cc2f4156e2b76f7643526f9df8e08ab5c0024b18703647cc30e019be6"
+    },
+    "fanout_engine.plan": {
+      "bytes": 7513,
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/plan.py",
+      "relative_path": "fanout_engine/plan.py",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine.routing": {
+      "bytes": 2818,
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/routing.py",
+      "relative_path": "fanout_engine/routing.py",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "isolated": 1,
+  "plan_digest": "2f35c139c813b9693c1b360f3ef5791157598056dc42d815e7881e21009b0033",
+  "report": {
+    "blocked_queued_ids": [
+      "verify"
+    ],
+    "parts": [
+      {
+        "artifact_ref": null,
+        "depends_on": [],
+        "evidence": null,
+        "id": "stage",
+        "idempotency_key": "fanout-cb05071761de41a36b3cd8215f0d374108ca9a480bfd84f35684459533cfa5ad",
+        "instruction": "Retain the authored local package receipt.",
+        "route": {
+          "effort": "low",
+          "model": "local-model"
+        },
+        "state": "running",
+        "tags": [],
+        "task_id": "local-receiving-stage",
+        "unmet_dependencies": [],
+        "updated_at": 1791853725.278924,
+        "worker_id": "local-worker"
+      },
+      {
+        "artifact_ref": null,
+        "depends_on": [
+          "stage"
+        ],
+        "evidence": null,
+        "id": "verify",
+        "idempotency_key": "fanout-776e41233477ac3647bfa4da8a0bbf860b08cf2c7ab8906c5533ba5e8b08e023",
+        "instruction": "Inspect the completed local receipt.",
+        "route": null,
+        "state": "queued",
+        "tags": [],
+        "task_id": null,
+        "unmet_dependencies": [
+          {
+            "id": "stage",
+            "state": "running"
+          }
+        ],
+        "updated_at": 1791853725.2781582,
+        "worker_id": null
+      }
+    ],
+    "plan_digest": "2f35c139c813b9693c1b360f3ef5791157598056dc42d815e7881e21009b0033",
+    "project_id": "relocated-receiving",
+    "queued_ready_ids": [],
+    "state_counts": {
+      "completed": 0,
+      "dispatching": 0,
+      "failed": 0,
+      "outcome_unknown": 0,
+      "queued": 1,
+      "running": 1
+    }
+  },
+  "second": {
+    "not_ready": [
+      "verify"
+    ],
+    "started": []
+  }
+}

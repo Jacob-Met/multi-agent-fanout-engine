@@ -1,0 +1,292 @@
+{
+  "accepted": true,
+  "archive": {
+    "bytes": 663260,
+    "git_blob": "969d50b83a1b92eab879873523257c9610f6c6d4",
+    "path": "/private/tmp/hamon-estate-fanout-kit-37ede-20261013/HAMON_Fanout_Plan_Identity_37ede_000b1a0.zip",
+    "sha256": "1273461ad0b7129eb5831ef3d0cb74d88e0ddea5d894ab277bfc98a67210e1a2"
+  },
+  "consumer": {
+    "accepted": true,
+    "all_imported_modules_from_frozen_extraction": true,
+    "consumer_imports": {
+      "fanout_engine": {
+        "bytes": 613,
+        "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/__init__.py",
+        "relative_path": "fanout_engine/__init__.py",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+      },
+      "fanout_engine.dispatch": {
+        "bytes": 5256,
+        "git_blob": "bec8a82063dc06653128f155b8487428847b73c2",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/dispatch.py",
+        "relative_path": "fanout_engine/dispatch.py",
+        "sha256": "5933060a2724b59f705d0e9bba99f7b196d1d261953c729d5e76a3a5db9ecf7f"
+      },
+      "fanout_engine.inspection": {
+        "bytes": 6055,
+        "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/inspection.py",
+        "relative_path": "fanout_engine/inspection.py",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+      },
+      "fanout_engine.ledger": {
+        "bytes": 17243,
+        "git_blob": "01c2f7845cad6f92152f797bbad8f4e791cc7273",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/ledger.py",
+        "relative_path": "fanout_engine/ledger.py",
+        "sha256": "2c5d4d3cc2f4156e2b76f7643526f9df8e08ab5c0024b18703647cc30e019be6"
+      },
+      "fanout_engine.plan": {
+        "bytes": 7513,
+        "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/plan.py",
+        "relative_path": "fanout_engine/plan.py",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+      },
+      "fanout_engine.routing": {
+        "bytes": 2818,
+        "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+        "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/routing.py",
+        "relative_path": "fanout_engine/routing.py",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+      }
+    },
+    "database": {
+      "bytes": 32768,
+      "git_blob": "674d2511aeb49fcf2b2d14ee91e59670ca7b6088",
+      "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/consumer outputs/retained dispatch #1.sqlite3",
+      "sha256": "ac894a1c62e46c3204168638a5cc2bfeb3ac46712626ef83822d2fecee3d4390"
+    },
+    "database_unchanged_by_cli": true,
+    "initial_started": [
+      "stage"
+    ],
+    "inspect_provenance": {
+      "argv": [
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/run_inspect_cli.py",
+        "--database",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/consumer outputs/retained dispatch #1.sqlite3",
+        "--project",
+        "relocated-receiving"
+      ],
+      "dont_write_bytecode": true,
+      "imported_modules": {
+        "fanout_engine": {
+          "bytes": 613,
+          "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/__init__.py",
+          "relative_path": "fanout_engine/__init__.py",
+          "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+        },
+        "fanout_engine.dispatch": {
+          "bytes": 5256,
+          "git_blob": "bec8a82063dc06653128f155b8487428847b73c2",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/dispatch.py",
+          "relative_path": "fanout_engine/dispatch.py",
+          "sha256": "5933060a2724b59f705d0e9bba99f7b196d1d261953c729d5e76a3a5db9ecf7f"
+        },
+        "fanout_engine.inspection": {
+          "bytes": 6055,
+          "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/inspection.py",
+          "relative_path": "fanout_engine/inspection.py",
+          "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+        },
+        "fanout_engine.ledger": {
+          "bytes": 17243,
+          "git_blob": "01c2f7845cad6f92152f797bbad8f4e791cc7273",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/ledger.py",
+          "relative_path": "fanout_engine/ledger.py",
+          "sha256": "2c5d4d3cc2f4156e2b76f7643526f9df8e08ab5c0024b18703647cc30e019be6"
+        },
+        "fanout_engine.plan": {
+          "bytes": 7513,
+          "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/plan.py",
+          "relative_path": "fanout_engine/plan.py",
+          "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+        },
+        "fanout_engine.preview": {
+          "bytes": 9862,
+          "git_blob": "71dabb931a1adafd7ff449b53d3a1223e08e290d",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/preview.py",
+          "relative_path": "fanout_engine/preview.py",
+          "sha256": "a4cd8ef979b14a427c32621f3d2bbd830b749c7a76986e66d14c02a250781e39"
+        },
+        "fanout_engine.routing": {
+          "bytes": 2818,
+          "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+          "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/routing.py",
+          "relative_path": "fanout_engine/routing.py",
+          "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+        }
+      },
+      "isolated": 1,
+      "target": "fanout_engine.inspect",
+      "target_git_blob": "07ccaace152531f5c188907ba45d03cd48b67552",
+      "target_path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1/fanout_engine/inspect.py"
+    },
+    "local_submissions": 1,
+    "native_and_actual_cli_reports_equal": true,
+    "not_ready": [
+      "verify"
+    ],
+    "retained_states": [
+      [
+        "stage",
+        "running"
+      ],
+      [
+        "verify",
+        "queued"
+      ]
+    ],
+    "second_started": []
+  },
+  "execution": {
+    "argv": [
+      "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/receive_fanout_kit.py"
+    ],
+    "broad_or_previous_behavior_courses_run": 0,
+    "device_id": "95471aa0-31a3-4fd9-a2a6-a4a06f09d7cb",
+    "executable": "/usr/local/bin/python3",
+    "model_provider_or_remote_adapter_calls": 0,
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+    "scope": "Fresh package extraction, exact full Git/manifest identity, one local persistent public consumer and the maintained inspect CLI.",
+    "working_directory": "/Users/me/.npm/_npx/4b4c857f6efdfb61/node_modules/@wonderwhy-er/desktop-commander/dist"
+  },
+  "extraction": {
+    "extra_files": [],
+    "files_verified": 230,
+    "fresh_directory": true,
+    "path": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1",
+    "symlinks": []
+  },
+  "finished_at_utc": "2026-10-13T01:08:45.363093+00:00",
+  "inputs_before": {
+    "local_consumer.py": {
+      "bytes": 3974,
+      "git_blob": "1cf35ceeb53bcd1f23f56efdc45370bc98b40a89",
+      "sha256": "338404f50c86f1d49a5f287e6bc587ac6dfd948654e745ba54478857f50b2802"
+    },
+    "published-MANIFEST.json": {
+      "bytes": 70398,
+      "git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+      "sha256": "2181f1d112cf3068cce35ae3143b4e909baf78b22883b4e24f5817d3127bccfa"
+    },
+    "published-README_RECEIVING.md": {
+      "bytes": 3585,
+      "git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+      "sha256": "91a329ff488cf796a5237f00d3fe6b906fa2950a93228ae170bba9ed0702e9be"
+    },
+    "receive_fanout_kit.py": {
+      "bytes": 14336,
+      "git_blob": "a806ec1dbb81c4877f8416222b071ad5a5bfc03a",
+      "sha256": "c9476ffe64674cce0a2de72cd2f1c5aac29eabd9ed20943213d5494ac62a04d4"
+    },
+    "run_inspect_cli.py": {
+      "bytes": 1518,
+      "git_blob": "b58c45459ba5bf7ec258231937704118335efa2e",
+      "sha256": "994e548ee8c8ca4eb1b1773eb896bdb2552b143c4f269c0079023c93c82e1ca0"
+    },
+    "source-admission.json": {
+      "bytes": 51163,
+      "git_blob": "2aa0ccc5948e0e92fdaa0aef71b8a12c580e388a",
+      "sha256": "b75105eb4ab87e9afdd0aca3c2252ec8cb14736e0e41b8c7de888c993b3fdabd"
+    }
+  },
+  "manifest": {
+    "all_payload_sizes_sha256_and_git_blobs_match": true,
+    "bytes": 70398,
+    "crc_check_passed": true,
+    "full_frozen_git_tree_matches": true,
+    "git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+    "git_files_verified": 228,
+    "payloads_verified": 229,
+    "published_manifest_and_opening_readme_byte_exact": true,
+    "regular_unique_relative_members": 230,
+    "sha256": "2181f1d112cf3068cce35ae3143b4e909baf78b22883b4e24f5817d3127bccfa"
+  },
+  "preservation": {
+    "archive_unchanged": true,
+    "extracted_files_unchanged": 230,
+    "receiver_inputs_unchanged": 6
+  },
+  "runs": [
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "-B",
+        "-I",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/local_consumer.py",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/consumer outputs/retained dispatch #1.sqlite3"
+      ],
+      "cwd": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/unrelated working directory",
+      "elapsed_seconds": 0.10102491700672545,
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-13T01:08:45.285379+00:00",
+      "name": "consumer",
+      "started_at_utc": "2026-10-13T01:08:45.184345+00:00",
+      "stderr": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "path": "consumer.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 4808,
+        "git_blob": "3f7e9c575f2a9f9339e8c4dc5161623bc23ef30d",
+        "path": "consumer.stdout.txt",
+        "sha256": "6c107bc5ce2f03773a88d48104d79f92ac76452604bdc359b414017edaf24fb2"
+      }
+    },
+    {
+      "command": [
+        "/usr/local/bin/python3",
+        "-B",
+        "-I",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/run_inspect_cli.py",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/relocated checkout #1",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/inspect-provenance.json",
+        "--database",
+        "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/consumer outputs/retained dispatch #1.sqlite3",
+        "--project",
+        "relocated-receiving"
+      ],
+      "cwd": "/private/tmp/hamon-estate-fanout-kit-receiving-37ede-20261013-v2/unrelated working directory",
+      "elapsed_seconds": 0.06239037500927225,
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-13T01:08:45.348234+00:00",
+      "name": "inspect",
+      "started_at_utc": "2026-10-13T01:08:45.285853+00:00",
+      "stderr": {
+        "bytes": 0,
+        "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+        "path": "inspect.stderr.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 1072,
+        "git_blob": "28ee160552a3de987eaa48d9a65cdbef4cbee0f9",
+        "path": "inspect.stdout.txt",
+        "sha256": "c8fee600df7db5cd284bd2a9d4e12255c15bc7d2d1e16c2c45c481733388c978"
+      }
+    }
+  ],
+  "schema": "fanout-kit-independent-package-receiving.37ede.v1",
+  "source": {
+    "commit": "000b1a0927b3864befb75f791f793991f5b53b5e",
+    "git_tree_complete": true,
+    "git_tree_entries": 265,
+    "manifest_git_blob": "e32ee362014ed8948cd8873318538693e2e961c4",
+    "opening_readme_git_blob": "2f4ed2323d2f3b3c21b62cefb00df75126adbd22",
+    "product_commit": "de72b62cac3f2d783691b7dfe39800e658b0800b",
+    "repository": "Jacob-Met/multi-agent-fanout-engine",
+    "tree": "35472226a5fe2b208e1fcee8d19efe49fe3e5fbf"
+  },
+  "started_at_utc": "2026-10-13T01:08:45.081511+00:00"
+}

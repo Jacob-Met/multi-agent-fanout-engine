@@ -1,0 +1,25 @@
+{
+  "accepted": true,
+  "all_205_tracked_files_preserved": true,
+  "command": [
+    "/usr/local/bin/python3",
+    "-B",
+    "examples/demo.py"
+  ],
+  "cwd": "/private/tmp/hamon-estate-plan-composition-37ede-20261013",
+  "expected_native_dependency_behavior": true,
+  "expected_stdout": "accepted research on worker-a at model-a/low\nstarted: research\nwaiting on prerequisites: write\n",
+  "limits": "Native local equivalent of the existing workflow demo step; no GitHub Actions run or missing /dev/full cases received.",
+  "native_source_commit": "9ca7d3553ad96e7f0ce82ed01bde4db7531bfe2c",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "provider_or_installed_worker_calls": 0,
+  "published_source_commit": "b0330ae230d033d6e7d4a56b564180ef7b185092",
+  "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "returncode": 0,
+  "schema": "hamon.plan-identity-composition.workflow-demo.v1",
+  "source_manifest_receipt_sha256": "2d43202e36a619f85fc1cf5b42e617795d124ee3045b7fa99aa1e26bfbc9ea1b",
+  "source_tree": "aa06d9625bef6ecb726cc6bc4b04947f1fa810e6",
+  "stderr": "",
+  "stdout": "accepted research on worker-a at model-a/low\nstarted: research\nwaiting on prerequisites: write\n",
+  "workflow_blob": "8fc1b6dab1d4b4f3ce5dff9748ba6b1e0c137b53"
+}
