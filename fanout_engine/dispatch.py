@@ -73,7 +73,7 @@ def dispatch_ready(
             continue
         try:
             task_id = response.get("task_id") if isinstance(response, Mapping) else None
-            valid_task_id = isinstance(task_id, str) and bool(task_id.strip())
+            valid_task_id = isinstance(task_id, str) and bool(str.strip(task_id))
             if valid_task_id:
                 try:
                     str.encode(task_id, "utf-8")

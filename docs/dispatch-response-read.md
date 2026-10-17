@@ -15,8 +15,15 @@ The uncertain part is never automatically submitted again. Resolve it through
 the existing `reconcile_unknown` operation only after obtaining external evidence.
 Ordinary mappings and accepted task identifiers retain their original behavior;
 leading or trailing whitespace in an otherwise non-empty identifier is preserved.
-Missing, empty and non-string identifiers retain their existing unknown-state
-finding.
+Missing, empty, whitespace-only and non-string identifiers retain their existing
+unknown-state finding.
+
+String-subclass receipts are checked using Python's built-in `str.strip` and
+`str.encode`, so these checks inspect the Unicode payload itself.
+An overridden `strip()` cannot invent a nonblank reference, hide a valid literal
+reference or reject that reference by raising. The original accepted string is
+still passed to the ledger with its leading and trailing whitespace intact.
+Mapping extraction remains inside the existing exception guard.
 
 `KeyboardInterrupt`, `SystemExit` and other `BaseException` interruptions still
 propagate. They leave the already admitted part in `dispatching`, for the existing
@@ -30,13 +37,14 @@ Run from the repository root with Python 3.10 or later:
 
 ```sh
 python -B -m unittest discover -s tests -p test_dispatch_response_read.py -v
+python -B -m unittest discover -s tests -p test_dispatch_receipt_whitespace.py -v
 python -B -m unittest discover -s tests -v
 python -O -B -m unittest discover -s tests -v
 ```
 
 The six response-read regression methods use only local adapters and temporary
 SQLite databases. They cover an ordinary deferred `Mapping`, a failing custom
-`get`, a failing string validator, malformed-response controls, exact accepted
+`get`, malformed-response controls, exact accepted
 identifier preservation, cancellation/recovery, and an injected persistence
 failure. The disk-backed case closes and reopens the database, verifies the
 retained unknown state and evidence, confirms no repeated submission, reconciles
