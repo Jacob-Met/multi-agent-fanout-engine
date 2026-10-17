@@ -1,0 +1,671 @@
+{
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "branch": "estate/fanout-worker-identity-44ffa024",
+  "parent": "afd0ac5657888cb348be8717bb3c8ac436a29dfd",
+  "parent_tree": "1cbfce6bc068f73281640ca4181a7c14d536abb7",
+  "old_head": "6adf88a6ecc51203b16c73f24caf2a72ca30b298",
+  "started": "2026-10-13T03:48:25.652531+00:00",
+  "source_packet_sha256": "091594b3098a1b207d65036c82a29fbf04b3dd89e515d49e64e79e6670cc7130",
+  "runner_sha256": "17028286567dab4aa16bdb80f970781fddaada9abe8a37cac8724607d0171006",
+  "runtime": {
+    "host": "MSI",
+    "user": "jacob",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.14.3",
+    "executable": "C:\\Python314\\python.exe",
+    "sqlite": "3.50.4"
+  },
+  "source_before": {
+    "original": {
+      "README.md": {
+        "git": "b4a22e7bf06f66036600f67fc20e353d4f25e30f",
+        "sha256": "f9607e27210db38fcce3964df5ccf9b320c9e819d2d7a94c30ca7c95ea4e0c2d",
+        "bytes": 11268,
+        "mode": "100644"
+      },
+      "docs/dispatch-worker-identity.md": {
+        "git": "211c83f8debc773411385cffd20d4ede2c1b0285",
+        "sha256": "b8e9a1ec661b28aa802af4da8ca9ad3d44e8dd3bb5c045106ab35fcf543d7274",
+        "bytes": 3734,
+        "mode": "100644"
+      },
+      "fanout_engine/__init__.py": {
+        "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+        "bytes": 613,
+        "mode": "100644"
+      },
+      "fanout_engine/compare.py": {
+        "git": "fb478246d94d6dfab6671910a641f86eab60d78c",
+        "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5",
+        "bytes": 6671,
+        "mode": "100644"
+      },
+      "fanout_engine/dispatch.py": {
+        "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+        "bytes": 4599,
+        "mode": "100644"
+      },
+      "fanout_engine/history.py": {
+        "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+        "bytes": 4243,
+        "mode": "100644"
+      },
+      "fanout_engine/inspect.py": {
+        "git": "07ccaace152531f5c188907ba45d03cd48b67552",
+        "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7",
+        "bytes": 2371,
+        "mode": "100644"
+      },
+      "fanout_engine/inspection.py": {
+        "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+        "bytes": 6055,
+        "mode": "100644"
+      },
+      "fanout_engine/ledger.py": {
+        "git": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21",
+        "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+        "bytes": 17553,
+        "mode": "100644"
+      },
+      "fanout_engine/plan.py": {
+        "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+        "bytes": 7513,
+        "mode": "100644"
+      },
+      "fanout_engine/preview.py": {
+        "git": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+        "bytes": 9379,
+        "mode": "100644"
+      },
+      "fanout_engine/projects.py": {
+        "git": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+        "bytes": 2390,
+        "mode": "100644"
+      },
+      "fanout_engine/routing.py": {
+        "git": "436a9f014caf69960fce67de28c062a431805b99",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+        "bytes": 2818,
+        "mode": "100644"
+      },
+      "pyproject.toml": {
+        "git": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+        "bytes": 248,
+        "mode": "100644"
+      },
+      "tests/test_ledger_init_cleanup.py": {
+        "git": "e8455bff8e26d533c39beacd13d05802c46716bd",
+        "sha256": "b6994bd7b650dfddd925423e9e4c9ef52276203731a9b36340716d3a2adb5bb0",
+        "bytes": 1226,
+        "mode": "100644"
+      },
+      "tests/test_part_state.py": {
+        "git": "c44c237a97b4642d613d61bdf25d569a92752517",
+        "sha256": "33c9cff5621a2b199f26727ce2787d882e6d3d81878abfe71bb5a36a88e984a1",
+        "bytes": 4459,
+        "mode": "100644"
+      },
+      "tests/test_read_transaction_ownership.py": {
+        "git": "bccb161186f4ff5f57ccd75252e09ecc559a0fdb",
+        "sha256": "89fa654dd9f4e0ffa3e1772d266a7d5a5ecdf3795fe06b73e8d5e199fe683c6e",
+        "bytes": 8039,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity.py": {
+        "git": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637",
+        "sha256": "dbe960468477cb606af7f97b71a30e41116e3d3cbbd917a9141b66be4677c0f6",
+        "bytes": 6198,
+        "mode": "100644"
+      }
+    },
+    "candidate": {
+      "README.md": {
+        "git": "5d874129d530852fea4cd0dea99f4ca6bdd8d1fc",
+        "sha256": "0607b18f6a7b949bfddd3bed664fc803700340d9a92c88ef68c2531fedebd2bb",
+        "bytes": 11413,
+        "mode": "100644"
+      },
+      "docs/dispatch-worker-identity.md": {
+        "git": "211c83f8debc773411385cffd20d4ede2c1b0285",
+        "sha256": "b8e9a1ec661b28aa802af4da8ca9ad3d44e8dd3bb5c045106ab35fcf543d7274",
+        "bytes": 3734,
+        "mode": "100644"
+      },
+      "fanout_engine/__init__.py": {
+        "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+        "bytes": 613,
+        "mode": "100644"
+      },
+      "fanout_engine/compare.py": {
+        "git": "fb478246d94d6dfab6671910a641f86eab60d78c",
+        "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5",
+        "bytes": 6671,
+        "mode": "100644"
+      },
+      "fanout_engine/dispatch.py": {
+        "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+        "bytes": 4599,
+        "mode": "100644"
+      },
+      "fanout_engine/history.py": {
+        "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+        "bytes": 4243,
+        "mode": "100644"
+      },
+      "fanout_engine/inspect.py": {
+        "git": "07ccaace152531f5c188907ba45d03cd48b67552",
+        "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7",
+        "bytes": 2371,
+        "mode": "100644"
+      },
+      "fanout_engine/inspection.py": {
+        "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+        "bytes": 6055,
+        "mode": "100644"
+      },
+      "fanout_engine/ledger.py": {
+        "git": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21",
+        "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+        "bytes": 17553,
+        "mode": "100644"
+      },
+      "fanout_engine/plan.py": {
+        "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+        "bytes": 7513,
+        "mode": "100644"
+      },
+      "fanout_engine/preview.py": {
+        "git": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+        "bytes": 9379,
+        "mode": "100644"
+      },
+      "fanout_engine/projects.py": {
+        "git": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+        "bytes": 2390,
+        "mode": "100644"
+      },
+      "fanout_engine/routing.py": {
+        "git": "436a9f014caf69960fce67de28c062a431805b99",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+        "bytes": 2818,
+        "mode": "100644"
+      },
+      "pyproject.toml": {
+        "git": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+        "bytes": 248,
+        "mode": "100644"
+      },
+      "tests/test_ledger_init_cleanup.py": {
+        "git": "e8455bff8e26d533c39beacd13d05802c46716bd",
+        "sha256": "b6994bd7b650dfddd925423e9e4c9ef52276203731a9b36340716d3a2adb5bb0",
+        "bytes": 1226,
+        "mode": "100644"
+      },
+      "tests/test_part_state.py": {
+        "git": "c44c237a97b4642d613d61bdf25d569a92752517",
+        "sha256": "33c9cff5621a2b199f26727ce2787d882e6d3d81878abfe71bb5a36a88e984a1",
+        "bytes": 4459,
+        "mode": "100644"
+      },
+      "tests/test_read_transaction_ownership.py": {
+        "git": "bccb161186f4ff5f57ccd75252e09ecc559a0fdb",
+        "sha256": "89fa654dd9f4e0ffa3e1772d266a7d5a5ecdf3795fe06b73e8d5e199fe683c6e",
+        "bytes": 8039,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity.py": {
+        "git": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637",
+        "sha256": "dbe960468477cb606af7f97b71a30e41116e3d3cbbd917a9141b66be4677c0f6",
+        "bytes": 6198,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity_receiving.py": {
+        "git": "5085f395f75e9da6d3956a7235635e591e11bc5d",
+        "sha256": "78e2586648cd505d5f1ffa5d083554f2ce425a568b23d0acfd8306839f5c7a6a",
+        "bytes": 7198,
+        "mode": "100644"
+      }
+    }
+  },
+  "runs": [
+    {
+      "label": "worker-main",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_worker_identity.py",
+        "-v"
+      ],
+      "started": "2026-10-13T03:48:25.774113+00:00",
+      "finished": "2026-10-13T03:48:27.898931+00:00",
+      "seconds": 2.125,
+      "exit_code": 0,
+      "expected_methods": 4,
+      "logs": {
+        "stdout": {
+          "path": "evidence/worker-main.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "evidence/worker-main.stderr",
+          "bytes": 817,
+          "sha256": "74250a6d5fdcd9398fa9478846ccf60617ff637f7ef42a7bd06d69911dd886bc"
+        }
+      }
+    },
+    {
+      "label": "worker-receiving",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_worker_identity_receiving.py",
+        "-v"
+      ],
+      "started": "2026-10-13T03:49:52.655098+00:00",
+      "finished": "2026-10-13T03:49:53.172819+00:00",
+      "seconds": 0.518,
+      "exit_code": 0,
+      "expected_methods": 5,
+      "logs": {
+        "stdout": {
+          "path": "evidence/worker-receiving.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "evidence/worker-receiving.stderr",
+          "bytes": 1007,
+          "sha256": "3f8d13b7bd554ff27122b0eeb82e79f3832a377135f9753487ef107dd1b09d0a"
+        }
+      }
+    },
+    {
+      "label": "read-transactions",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_read_transaction_ownership.py",
+        "-v"
+      ],
+      "started": "2026-10-13T03:49:53.175013+00:00",
+      "finished": "2026-10-13T03:49:53.937004+00:00",
+      "seconds": 0.762,
+      "exit_code": 0,
+      "expected_methods": 7,
+      "logs": {
+        "stdout": {
+          "path": "evidence/read-transactions.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "evidence/read-transactions.stderr",
+          "bytes": 1429,
+          "sha256": "e765d443d3c73841424620ae3298c9e400bd9af2475a50f6f64fdca690da4136"
+        }
+      }
+    },
+    {
+      "label": "part-state",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_part_state.py",
+        "-v"
+      ],
+      "started": "2026-10-13T03:49:53.938469+00:00",
+      "finished": "2026-10-13T03:49:54.247758+00:00",
+      "seconds": 0.309,
+      "exit_code": 0,
+      "expected_methods": 3,
+      "logs": {
+        "stdout": {
+          "path": "evidence/part-state.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "evidence/part-state.stderr",
+          "bytes": 642,
+          "sha256": "9b2b8cf5c90d3ecd885fdd3e71f1a2d97d3695a47bee825ecbff222994706a63"
+        }
+      }
+    },
+    {
+      "label": "initialization",
+      "command": [
+        "C:\\Python314\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_ledger_init_cleanup.py",
+        "-v"
+      ],
+      "started": "2026-10-13T03:49:54.249418+00:00",
+      "finished": "2026-10-13T03:49:54.583841+00:00",
+      "seconds": 0.334,
+      "exit_code": 0,
+      "expected_methods": 2,
+      "logs": {
+        "stdout": {
+          "path": "evidence/initialization.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "evidence/initialization.stderr",
+          "bytes": 441,
+          "sha256": "72342a52c9f422fbc5da0411045a3c6119880dcdbee5f52c8b7eb3484c848c89"
+        }
+      }
+    }
+  ],
+  "initial_receiver_attempt": {
+    "pid": 116836,
+    "exit_code": 1,
+    "cause": "The receiver required LF around OK; actual Windows unittest stderr is CRLF. The first maintained course exited 0 with four passing methods. Sources/tests were unchanged and that course was not repeated.",
+    "progress_sha256": "bdd04afa77871ef19cf352867f6a1c1344431390d99be8221c50a74b5d057094"
+  },
+  "continuation_runner_sha256": "7a257082f81d927568c6bc51f82eb0234b7c4e08d54c53797933165ea28ee9cb",
+  "finished": "2026-10-13T03:49:54.603794+00:00",
+  "source_after": {
+    "original": {
+      "README.md": {
+        "git": "b4a22e7bf06f66036600f67fc20e353d4f25e30f",
+        "sha256": "f9607e27210db38fcce3964df5ccf9b320c9e819d2d7a94c30ca7c95ea4e0c2d",
+        "bytes": 11268,
+        "mode": "100644"
+      },
+      "docs/dispatch-worker-identity.md": {
+        "git": "211c83f8debc773411385cffd20d4ede2c1b0285",
+        "sha256": "b8e9a1ec661b28aa802af4da8ca9ad3d44e8dd3bb5c045106ab35fcf543d7274",
+        "bytes": 3734,
+        "mode": "100644"
+      },
+      "fanout_engine/__init__.py": {
+        "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+        "bytes": 613,
+        "mode": "100644"
+      },
+      "fanout_engine/compare.py": {
+        "git": "fb478246d94d6dfab6671910a641f86eab60d78c",
+        "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5",
+        "bytes": 6671,
+        "mode": "100644"
+      },
+      "fanout_engine/dispatch.py": {
+        "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+        "bytes": 4599,
+        "mode": "100644"
+      },
+      "fanout_engine/history.py": {
+        "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+        "bytes": 4243,
+        "mode": "100644"
+      },
+      "fanout_engine/inspect.py": {
+        "git": "07ccaace152531f5c188907ba45d03cd48b67552",
+        "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7",
+        "bytes": 2371,
+        "mode": "100644"
+      },
+      "fanout_engine/inspection.py": {
+        "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+        "bytes": 6055,
+        "mode": "100644"
+      },
+      "fanout_engine/ledger.py": {
+        "git": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21",
+        "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+        "bytes": 17553,
+        "mode": "100644"
+      },
+      "fanout_engine/plan.py": {
+        "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+        "bytes": 7513,
+        "mode": "100644"
+      },
+      "fanout_engine/preview.py": {
+        "git": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+        "bytes": 9379,
+        "mode": "100644"
+      },
+      "fanout_engine/projects.py": {
+        "git": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+        "bytes": 2390,
+        "mode": "100644"
+      },
+      "fanout_engine/routing.py": {
+        "git": "436a9f014caf69960fce67de28c062a431805b99",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+        "bytes": 2818,
+        "mode": "100644"
+      },
+      "pyproject.toml": {
+        "git": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+        "bytes": 248,
+        "mode": "100644"
+      },
+      "tests/test_ledger_init_cleanup.py": {
+        "git": "e8455bff8e26d533c39beacd13d05802c46716bd",
+        "sha256": "b6994bd7b650dfddd925423e9e4c9ef52276203731a9b36340716d3a2adb5bb0",
+        "bytes": 1226,
+        "mode": "100644"
+      },
+      "tests/test_part_state.py": {
+        "git": "c44c237a97b4642d613d61bdf25d569a92752517",
+        "sha256": "33c9cff5621a2b199f26727ce2787d882e6d3d81878abfe71bb5a36a88e984a1",
+        "bytes": 4459,
+        "mode": "100644"
+      },
+      "tests/test_read_transaction_ownership.py": {
+        "git": "bccb161186f4ff5f57ccd75252e09ecc559a0fdb",
+        "sha256": "89fa654dd9f4e0ffa3e1772d266a7d5a5ecdf3795fe06b73e8d5e199fe683c6e",
+        "bytes": 8039,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity.py": {
+        "git": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637",
+        "sha256": "dbe960468477cb606af7f97b71a30e41116e3d3cbbd917a9141b66be4677c0f6",
+        "bytes": 6198,
+        "mode": "100644"
+      }
+    },
+    "candidate": {
+      "README.md": {
+        "git": "5d874129d530852fea4cd0dea99f4ca6bdd8d1fc",
+        "sha256": "0607b18f6a7b949bfddd3bed664fc803700340d9a92c88ef68c2531fedebd2bb",
+        "bytes": 11413,
+        "mode": "100644"
+      },
+      "docs/dispatch-worker-identity.md": {
+        "git": "211c83f8debc773411385cffd20d4ede2c1b0285",
+        "sha256": "b8e9a1ec661b28aa802af4da8ca9ad3d44e8dd3bb5c045106ab35fcf543d7274",
+        "bytes": 3734,
+        "mode": "100644"
+      },
+      "fanout_engine/__init__.py": {
+        "git": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+        "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72",
+        "bytes": 613,
+        "mode": "100644"
+      },
+      "fanout_engine/compare.py": {
+        "git": "fb478246d94d6dfab6671910a641f86eab60d78c",
+        "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5",
+        "bytes": 6671,
+        "mode": "100644"
+      },
+      "fanout_engine/dispatch.py": {
+        "git": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+        "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4",
+        "bytes": 4599,
+        "mode": "100644"
+      },
+      "fanout_engine/history.py": {
+        "git": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+        "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b",
+        "bytes": 4243,
+        "mode": "100644"
+      },
+      "fanout_engine/inspect.py": {
+        "git": "07ccaace152531f5c188907ba45d03cd48b67552",
+        "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7",
+        "bytes": 2371,
+        "mode": "100644"
+      },
+      "fanout_engine/inspection.py": {
+        "git": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+        "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a",
+        "bytes": 6055,
+        "mode": "100644"
+      },
+      "fanout_engine/ledger.py": {
+        "git": "9d0dc63f0a984c5093abcc32f1d3110d2156ab21",
+        "sha256": "40ba7846929d4ec524deaaf6ce86ff07497f139a487fadd44a747777610a2502",
+        "bytes": 17553,
+        "mode": "100644"
+      },
+      "fanout_engine/plan.py": {
+        "git": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+        "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61",
+        "bytes": 7513,
+        "mode": "100644"
+      },
+      "fanout_engine/preview.py": {
+        "git": "3af98db006853a19f60506322f7e450ce3685cfc",
+        "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019",
+        "bytes": 9379,
+        "mode": "100644"
+      },
+      "fanout_engine/projects.py": {
+        "git": "6589dba3740f51e42cafd6b484912818cccac211",
+        "sha256": "cce3dbaef82839e3cc374fd70596431119008ddc37d52ba2806bd71a9424a1c4",
+        "bytes": 2390,
+        "mode": "100644"
+      },
+      "fanout_engine/routing.py": {
+        "git": "436a9f014caf69960fce67de28c062a431805b99",
+        "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17",
+        "bytes": 2818,
+        "mode": "100644"
+      },
+      "pyproject.toml": {
+        "git": "24aee72bfc0f9fed624ed240215ba6205b3d1248",
+        "sha256": "d6d54093ff342b37a7f3900756322a3e6198f8acafb2751a05728a60817efe28",
+        "bytes": 248,
+        "mode": "100644"
+      },
+      "tests/test_ledger_init_cleanup.py": {
+        "git": "e8455bff8e26d533c39beacd13d05802c46716bd",
+        "sha256": "b6994bd7b650dfddd925423e9e4c9ef52276203731a9b36340716d3a2adb5bb0",
+        "bytes": 1226,
+        "mode": "100644"
+      },
+      "tests/test_part_state.py": {
+        "git": "c44c237a97b4642d613d61bdf25d569a92752517",
+        "sha256": "33c9cff5621a2b199f26727ce2787d882e6d3d81878abfe71bb5a36a88e984a1",
+        "bytes": 4459,
+        "mode": "100644"
+      },
+      "tests/test_read_transaction_ownership.py": {
+        "git": "bccb161186f4ff5f57ccd75252e09ecc559a0fdb",
+        "sha256": "89fa654dd9f4e0ffa3e1772d266a7d5a5ecdf3795fe06b73e8d5e199fe683c6e",
+        "bytes": 8039,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity.py": {
+        "git": "9ba9cd79ee3a41b2f5a01357a45bf45724dcf637",
+        "sha256": "dbe960468477cb606af7f97b71a30e41116e3d3cbbd917a9141b66be4677c0f6",
+        "bytes": 6198,
+        "mode": "100644"
+      },
+      "tests/test_worker_identity_receiving.py": {
+        "git": "5085f395f75e9da6d3956a7235635e591e11bc5d",
+        "sha256": "78e2586648cd505d5f1ffa5d083554f2ce425a568b23d0acfd8306839f5c7a6a",
+        "bytes": 7198,
+        "mode": "100644"
+      }
+    }
+  },
+  "methods_passed": 21,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "tmp_empty_after": true,
+  "changes": {
+    "README.md": {
+      "git": "5d874129d530852fea4cd0dea99f4ca6bdd8d1fc",
+      "sha256": "0607b18f6a7b949bfddd3bed664fc803700340d9a92c88ef68c2531fedebd2bb",
+      "bytes": 11413,
+      "mode": "100644"
+    },
+    "tests/test_worker_identity_receiving.py": {
+      "git": "5085f395f75e9da6d3956a7235635e591e11bc5d",
+      "sha256": "78e2586648cd505d5f1ffa5d083554f2ce425a568b23d0acfd8306839f5c7a6a",
+      "bytes": 7198,
+      "mode": "100644"
+    }
+  },
+  "limits": [
+    "Candidate-only current-dependency receiving; historical original-defect and whole-repository suites were not rerun.",
+    "All adapters and fixtures are local. No live provider, real worker, dependency installation, networking or GitHub Actions run."
+  ],
+  "combined_log": {
+    "bytes": 4632,
+    "sha256": "363dc256794a072ad2794a2f98b514fa06b9fc5207b32be965c89c4dbd33278d"
+  }
+}

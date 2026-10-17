@@ -121,6 +121,7 @@ the provider it uses.
 
 | Guide | Contract covered |
 |---|---|
+| [Worker identity admission](docs/dispatch-worker-identity.md) | Literal worker text, rejection before dispatch and correction without replay |
 | [Per-call route overrides](docs/dispatch-overrides.md) | Exact part IDs, captured override mappings and route-authorization timing |
 | [Unreadable acknowledgements](docs/dispatch-response-read.md) | Unknown outcomes after response-read failures and the reconciliation boundary |
 | [Transaction cleanup](docs/transaction-rollback.md) | Rollback after body or commit errors, caller-owned transactions and external-effect limits |

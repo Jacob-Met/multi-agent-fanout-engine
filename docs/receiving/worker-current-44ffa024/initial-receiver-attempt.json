@@ -1,0 +1,6 @@
+{
+  "pid": 116836,
+  "exit_code": 1,
+  "cause": "The receiver required LF around OK; actual Windows unittest stderr is CRLF. The first maintained course exited 0 with four passing methods. Sources/tests were unchanged and that course was not repeated.",
+  "progress_sha256": "bdd04afa77871ef19cf352867f6a1c1344431390d99be8221c50a74b5d057094"
+}
