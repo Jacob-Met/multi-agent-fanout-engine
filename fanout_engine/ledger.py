@@ -8,7 +8,7 @@ import sqlite3
 import time
 from typing import Any, Iterator
 
-from .plan import Plan, canonical_json
+from .plan import Part, Plan, canonical_json
 
 _STATES = {"queued", "dispatching", "running", "outcome_unknown", "completed", "failed"}
 
@@ -117,6 +117,17 @@ class Ledger:
         )
 
     def record_plan(self, plan: Plan) -> bool:
+        # Custom Plan subclasses retain their serialization and key methods.
+        # The standard Plan records one native capture, keeping caller-owned
+        # mutable Part-like fields paired with their validated identity.
+        if type(plan) is Plan:
+            captured = Plan(plan.project_id, tuple(
+                Part(part.id, part.instruction, part.depends_on, part.tags)
+                for part in plan.parts
+            ))
+            if captured.digest != plan.digest:
+                raise LedgerError("plan has changed since validation")
+            plan = captured
         document = canonical_json(plan.to_dict())
         with self._transaction() as db:
             prior = db.execute("SELECT plan_digest FROM projects WHERE project_id=?", (plan.project_id,)).fetchone()
