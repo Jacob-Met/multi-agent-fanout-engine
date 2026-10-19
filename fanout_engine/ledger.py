@@ -371,9 +371,14 @@ class Ledger:
 
     @staticmethod
     def _validate_evidence(evidence: dict[str, str]) -> None:
-        if not isinstance(evidence, dict) or any(not isinstance(evidence.get(key), str) or not evidence[key].strip()
+        if not isinstance(evidence, dict) or any(not isinstance(evidence.get(key), str) or not str.strip(evidence[key])
                                                   for key in ("source", "locator", "finding")):
             raise LedgerError("evidence needs non-empty source, locator, and finding")
+        try:
+            for key in ("source", "locator", "finding"):
+                str.encode(evidence[key], "utf-8")
+        except UnicodeEncodeError as exc:
+            raise LedgerError("evidence needs UTF-8 source, locator, and finding") from exc
 
     def close(self) -> None:
         self._db.close()
