@@ -1,0 +1,384 @@
+{
+  "candidate": {
+    "checks": [
+      {
+        "error": "LedgerError",
+        "name": "invalid-none",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-integer",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-boolean",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-float",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-bytes",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-bytearray",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-empty",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-whitespace",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-surrogate",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "adaptation_calls": 0,
+        "error": null,
+        "event_task": "  task/\u03a9#1  ",
+        "inspection_task": "  task/\u03a9#1  ",
+        "name": "literal-receipt-parity",
+        "pass": true,
+        "row_task": "  task/\u03a9#1  "
+      },
+      {
+        "error": null,
+        "name": "same-literal-is-idempotent",
+        "pass": true
+      },
+      {
+        "error": "LedgerError",
+        "name": "different-equality-override-refused",
+        "pass": true,
+        "rows_events_unchanged": true
+      },
+      {
+        "error": null,
+        "name": "literal-text-ignores-subclass-truthiness",
+        "pass": true
+      },
+      {
+        "dependent_state": "queued",
+        "name": "dispatch-once-retains-literal",
+        "pass": true,
+        "second_dispatch_rows_events_unchanged": true,
+        "submit_calls": 1,
+        "task_id": "dispatch-literal-task"
+      },
+      {
+        "name": "reopened-row-event-inspection-parity",
+        "pass": true,
+        "task_id": "  task/\u03a9#1  "
+      },
+      {
+        "name": "sqlite-integrity",
+        "pass": true,
+        "result": "ok"
+      }
+    ],
+    "database": "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate.sqlite3",
+    "database_sha256": "01ac15380982723537e4b6035497f627fa26dd95636d97cff7e9bfad1361b2d3",
+    "failed_names": [],
+    "passed": 16,
+    "source": "/home/jacob/hamon-fanout-427671b85c4a/repo-current",
+    "total": 16
+  },
+  "candidate_commit": "a5959edc361b4345ec6c356e8e40a294b1e6b3d6",
+  "candidate_result_sha256": "a2e1e008443af2aaddf55f854da132e6313b778a9897f7ae7763b1595f5f084b",
+  "candidate_tree": "6b6ac5d71602fece8de8659b401a2cf00a7d24a9",
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/independent_course.py",
+        "--source",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/parent-source",
+        "--database",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/parent.sqlite3",
+        "--result",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/parent-result.json"
+      ],
+      "exit_code": 0,
+      "name": "parent",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "b86e7737ba977ba3879824f661df31de3725e0e2d6905f1649b21727bd6ea2e7"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-B",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/independent_course.py",
+        "--source",
+        "/home/jacob/hamon-fanout-427671b85c4a/repo-current",
+        "--database",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate.sqlite3",
+        "--result",
+        "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/candidate-result.json"
+      ],
+      "exit_code": 0,
+      "name": "candidate",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "25c75a8cd5e2fc10a8500271799c06f5bf9f35778ad3f4abb5281cb25e58c607"
+    }
+  ],
+  "course_sha256": "63e4c42caba44c337a7c0965eff167ec1d75e1080d16f1222927e53cdbf41114",
+  "filesystem": "unique tmpfs after home ENOSPC",
+  "finished_utc": "2026-10-13T03:03:29Z",
+  "host": "hamon-thinkpad",
+  "parent": {
+    "checks": [
+      {
+        "error": "LedgerError",
+        "name": "invalid-none",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": null,
+        "name": "invalid-integer",
+        "pass": false,
+        "rows_events_unchanged": false,
+        "state": "running"
+      },
+      {
+        "error": null,
+        "name": "invalid-boolean",
+        "pass": false,
+        "rows_events_unchanged": false,
+        "state": "running"
+      },
+      {
+        "error": null,
+        "name": "invalid-float",
+        "pass": false,
+        "rows_events_unchanged": false,
+        "state": "running"
+      },
+      {
+        "error": "PlanError",
+        "name": "invalid-bytes",
+        "pass": false,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "PlanError",
+        "name": "invalid-bytearray",
+        "pass": false,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": "LedgerError",
+        "name": "invalid-empty",
+        "pass": true,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "error": null,
+        "name": "invalid-whitespace",
+        "pass": false,
+        "rows_events_unchanged": false,
+        "state": "running"
+      },
+      {
+        "error": "UnicodeEncodeError",
+        "name": "invalid-surrogate",
+        "pass": false,
+        "rows_events_unchanged": true,
+        "state": "dispatching"
+      },
+      {
+        "adaptation_calls": 1,
+        "error": null,
+        "event_task": "  task/\u03a9#1  ",
+        "inspection_task": "wrong-SQLite-adapted-id",
+        "name": "literal-receipt-parity",
+        "pass": false,
+        "row_task": "wrong-SQLite-adapted-id"
+      },
+      {
+        "error": "LedgerError",
+        "name": "same-literal-is-idempotent",
+        "pass": false
+      },
+      {
+        "error": null,
+        "name": "different-equality-override-refused",
+        "pass": false,
+        "rows_events_unchanged": true
+      },
+      {
+        "error": "LedgerError",
+        "name": "literal-text-ignores-subclass-truthiness",
+        "pass": false
+      },
+      {
+        "dependent_state": "queued",
+        "name": "dispatch-once-retains-literal",
+        "pass": false,
+        "second_dispatch_rows_events_unchanged": true,
+        "submit_calls": 1,
+        "task_id": "wrong-SQLite-adapted-id"
+      },
+      {
+        "name": "reopened-row-event-inspection-parity",
+        "pass": false,
+        "task_id": "wrong-SQLite-adapted-id"
+      },
+      {
+        "name": "sqlite-integrity",
+        "pass": true,
+        "result": "ok"
+      }
+    ],
+    "database": "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/parent.sqlite3",
+    "database_sha256": "ce5a3f7d3fc173d039445d83f97f64126ff14c241ca9274b898e2f380dcf1d7a",
+    "failed_names": [
+      "invalid-integer",
+      "invalid-boolean",
+      "invalid-float",
+      "invalid-bytes",
+      "invalid-bytearray",
+      "invalid-whitespace",
+      "invalid-surrogate",
+      "literal-receipt-parity",
+      "same-literal-is-idempotent",
+      "different-equality-override-refused",
+      "literal-text-ignores-subclass-truthiness",
+      "dispatch-once-retains-literal",
+      "reopened-row-event-inspection-parity"
+    ],
+    "passed": 3,
+    "source": "/dev/shm/hamon-runtime-receiving-427671b85c4a-fanout-v1/parent-source",
+    "total": 16
+  },
+  "parent_commit": "484ad9270b6c5e49db87171eb26ac516d592ddd6",
+  "parent_ledger_sha256": "a346c8408db6b6a92a88b894ece6c605fa0e1099f3cf4a2ae4578a937c02d463",
+  "parent_result_sha256": "20de09bcbf36f110071fc9ccea8530d39ef1a9c819f09a234647d1769527db1d",
+  "python": "3.14.4",
+  "repository": "Jacob-Met/multi-agent-fanout-engine",
+  "schema": "hamon.fanout-independent-native-receiving/1",
+  "source_after": {
+    "fanout_engine/__init__.py": {
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "git_blob": "fb478246d94d6dfab6671910a641f86eab60d78c",
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "git_blob": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "git_blob": "07ccaace152531f5c188907ba45d03cd48b67552",
+      "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7"
+    },
+    "fanout_engine/inspection.py": {
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "git_blob": "0abb2b5ee43a6d3b58d08ceb5b8ebc1357f66679",
+      "sha256": "c07a96ea8cf7aaaea85623120b6eb3adaafa227744d68be40111f933dd8a9dd8"
+    },
+    "fanout_engine/plan.py": {
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "git_blob": "3af98db006853a19f60506322f7e450ce3685cfc",
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/routing.py": {
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "source_before": {
+    "fanout_engine/__init__.py": {
+      "git_blob": "d0ca3bb491865798e334dfe137906b00f802a3b8",
+      "sha256": "8a4a43d2294f363cdb8fbc78d03fc1f8a5a6511169bf4d0e0056bb7d29f72c72"
+    },
+    "fanout_engine/compare.py": {
+      "git_blob": "fb478246d94d6dfab6671910a641f86eab60d78c",
+      "sha256": "4c44fe57e623ce9627625abf3d520f1ddba70818a8b7ac310a259c16a37cfed5"
+    },
+    "fanout_engine/dispatch.py": {
+      "git_blob": "973c1882d83c9ba32d64d95456cbd695a230f05c",
+      "sha256": "1fe8c06be28f2f354facb4c4b376caf9842bf4957fb1a924444b710c9f8b09b4"
+    },
+    "fanout_engine/history.py": {
+      "git_blob": "80bf355f9a1c791bcc53737f5b3db441fe8aea3c",
+      "sha256": "ae9e194c6486c4c6d8ddc956b7de2dff90703ca7895963fbd47b962b38177f2b"
+    },
+    "fanout_engine/inspect.py": {
+      "git_blob": "07ccaace152531f5c188907ba45d03cd48b67552",
+      "sha256": "56bf478f6b043195813a75e9df834d33e54a2a1ca7ff327bd31ce23b4eb591d7"
+    },
+    "fanout_engine/inspection.py": {
+      "git_blob": "2944a58dae77ce7b5bf91f0637d4c5e7686c7e34",
+      "sha256": "b78fd6c39ada899d68f65c2ec98c6aba4093b7c8b6584772fcd59ba152b0de2a"
+    },
+    "fanout_engine/ledger.py": {
+      "git_blob": "0abb2b5ee43a6d3b58d08ceb5b8ebc1357f66679",
+      "sha256": "c07a96ea8cf7aaaea85623120b6eb3adaafa227744d68be40111f933dd8a9dd8"
+    },
+    "fanout_engine/plan.py": {
+      "git_blob": "69a633cacd6f32e8bbc6d0d580db3b2fcb14ec82",
+      "sha256": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+    },
+    "fanout_engine/preview.py": {
+      "git_blob": "3af98db006853a19f60506322f7e450ce3685cfc",
+      "sha256": "b6ac067523be58daf75fd69a209a7fcfe3d5841c61a15a46b47b2b204a413019"
+    },
+    "fanout_engine/routing.py": {
+      "git_blob": "436a9f014caf69960fce67de28c062a431805b99",
+      "sha256": "eaadf7ed864c38a6b6e2681d2a9bcb453ba6ea6a22faca52b73b72cc5ef86f17"
+    }
+  },
+  "source_snapshot_unchanged": true,
+  "started_utc": "2026-10-13T03:03:29Z",
+  "status": "pass"
+}
