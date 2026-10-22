@@ -1,0 +1,43 @@
+{
+  "base_commit": "dca36bef09f39a2b339cc116051b5784619f71ee",
+  "candidate_commit": "82816fffa823a605f1d54d4bbc091c2a26447afb",
+  "checks": 52,
+  "failures": [],
+  "limit": "Standard Plan capture plus preserved subclass protocol; no post-record dispatch callback claim.",
+  "observations": [
+    {
+      "accepted": true,
+      "case": "stale-before-admission",
+      "error": null,
+      "version": "original"
+    },
+    {
+      "case": "BEGIN-callback",
+      "detached_identity": false,
+      "document_matches_validated": true,
+      "version": "original"
+    },
+    {
+      "accepted": null,
+      "case": "stale-before-admission",
+      "error": "LedgerError: plan has changed since validation",
+      "version": "candidate"
+    },
+    {
+      "case": "BEGIN-callback",
+      "detached_identity": true,
+      "document_matches_validated": true,
+      "version": "candidate"
+    }
+  ],
+  "observed_utc": "2026-10-12T23:41:38.051873+00:00",
+  "optimize": 0,
+  "python": "3.13.7 (v3.13.7:bcee1c32211, Aug 14 2025, 19:10:51) [Clang 16.0.0 (clang-1600.0.26.6)]",
+  "schema": "fanout.ledger.independent-receiving.v1",
+  "source_bytes_preserved": true,
+  "source_sha256": {
+    "candidate": "2ad8ad98de472a8deeaf6b0e656e868b906cbdc855912374aa456998797e5b14",
+    "original": "621d661ccaaca774b35f3aeb53c4c3d87a1c46a9fe9f86319c0b9c49b195af1c",
+    "plan": "884f85eff1ef526a8a47e6ee258fc473ce6647e914bd93298d91824640deab61"
+  }
+}
