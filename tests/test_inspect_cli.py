@@ -1,6 +1,7 @@
 """Receive the existing-ledger inspection command through real SQLite files."""
 from __future__ import annotations
 
+from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
@@ -78,14 +79,14 @@ class InspectCliTests(unittest.TestCase):
 
     def test_readonly_constructor_does_not_initialize_schema(self) -> None:
         database = self.root / "unrelated.sqlite3"
-        with sqlite3.connect(database) as connection:
+        with closing(sqlite3.connect(database)) as connection, connection:
             connection.execute("CREATE TABLE preserved(value TEXT)")
             connection.execute("INSERT INTO preserved VALUES ('keep')")
         before = database.read_bytes()
         with Ledger.open_readonly(database) as ledger:
             with self.assertRaises(sqlite3.OperationalError):
                 ledger.project_snapshot("retained")
-        with sqlite3.connect(database) as connection:
+        with closing(sqlite3.connect(database)) as connection, connection:
             tables = connection.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()
             self.assertEqual(tables, [("preserved",)])
         self.assertEqual(database.read_bytes(), before)
@@ -111,7 +112,7 @@ class InspectCliTests(unittest.TestCase):
 
     def test_corrupt_empty_and_foreign_databases_are_not_repaired(self) -> None:
         foreign = self.root / "foreign.sqlite3"
-        with sqlite3.connect(foreign) as connection:
+        with closing(sqlite3.connect(foreign)) as connection, connection:
             connection.execute("CREATE TABLE keep(value TEXT)")
         empty = self.root / "empty.sqlite3"
         empty.touch()
@@ -128,7 +129,7 @@ class InspectCliTests(unittest.TestCase):
                 self.assertEqual(database.read_bytes(), before)
 
     def test_inconsistent_late_record_refuses_complete_report(self) -> None:
-        with sqlite3.connect(self.database) as connection:
+        with closing(sqlite3.connect(self.database)) as connection, connection:
             connection.execute("UPDATE parts SET evidence_json='nullx' WHERE part_id='blocked'")
         before = self.database.read_bytes()
         result = self.run_cli("--database", str(self.database), "--project", "retained")
@@ -138,7 +139,7 @@ class InspectCliTests(unittest.TestCase):
         self.assertEqual(self.database.read_bytes(), before)
 
     def test_missing_part_rows_are_reported_without_partial_output(self) -> None:
-        with sqlite3.connect(self.database) as connection:
+        with closing(sqlite3.connect(self.database)) as connection, connection:
             connection.execute("DELETE FROM parts WHERE part_id='blocked'")
         before = self.database.read_bytes()
         result = self.run_cli("--database", str(self.database), "--project", "retained")

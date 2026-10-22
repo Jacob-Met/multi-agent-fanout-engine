@@ -1,5 +1,6 @@
 """Failed ledger operations must not be committed by a later ordinary read."""
 import asyncio
+from contextlib import closing
 from pathlib import Path
 import sqlite3
 import tempfile
@@ -22,7 +23,7 @@ class TransactionRollbackTests(unittest.TestCase):
         ]})
 
     def persisted_counts(self):
-        with sqlite3.connect(self.database) as reader:
+        with closing(sqlite3.connect(self.database)) as reader, reader:
             return tuple(reader.execute(f"SELECT count(*) FROM {table}").fetchone()[0]
                          for table in ("projects", "parts", "events"))
 
@@ -142,7 +143,7 @@ class TransactionRollbackTests(unittest.TestCase):
         self.assertTrue(self.ledger._db.in_transaction)
         row = self.ledger._db.execute("SELECT worker_id FROM parts WHERE part_id='prepare'").fetchone()
         self.assertEqual(row[0], "caller-owned")
-        with sqlite3.connect(self.database) as reader:
+        with closing(sqlite3.connect(self.database)) as reader, reader:
             self.assertIsNone(reader.execute("SELECT worker_id FROM parts WHERE part_id='prepare'").fetchone()[0])
         self.ledger._db.rollback()
         self.assertIsNone(self.ledger.part(self.plan.project_id, "prepare")["worker_id"])

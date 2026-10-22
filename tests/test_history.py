@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from contextlib import closing
 import json
 import os
 from pathlib import Path
@@ -137,7 +138,7 @@ class HistoryTests(unittest.TestCase):
         ]
         for field, value in cases:
             with self.subTest(field=field, value=value):
-                with sqlite3.connect(self.database) as db:
+                with closing(sqlite3.connect(self.database)) as db, db:
                     db.execute(f"UPDATE events SET {field}=? WHERE seq=?", (value, original["seq"]))
                 before = self.database.read_bytes()
                 result = self.cli("--part", "work")
@@ -145,17 +146,17 @@ class HistoryTests(unittest.TestCase):
                 self.assertIn(b"invalid_record", result.stderr)
                 self.assertNotIn(b"Traceback", result.stderr)
                 self.assertEqual(self.database.read_bytes(), before)
-                with sqlite3.connect(self.database) as db:
+                with closing(sqlite3.connect(self.database)) as db, db:
                     db.execute(f"UPDATE events SET {field}=? WHERE seq=?",
                                (original[field], original["seq"]))
 
     def test_invalid_sequence_and_plan_identity_refuse_before_output(self):
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("UPDATE events SET seq=-1 WHERE seq=11")
         result = self.cli()
         self.assertEqual((result.returncode, result.stdout), (2, b""))
         self.assertIn(b"invalid recording sequence", result.stderr)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("UPDATE events SET seq=11 WHERE seq=-1")
             db.execute("UPDATE projects SET plan_digest='wrong' WHERE project_id='sample'")
         result = self.cli()
@@ -181,7 +182,7 @@ class HistoryTests(unittest.TestCase):
             self.assertEqual(inspect_history(ledger, "sample")["events"], self.expected_events)
 
     def test_cli_observes_committed_wal_events_without_recovery(self):
-        with sqlite3.connect(self.database, isolation_level=None) as writer:
+        with closing(sqlite3.connect(self.database, isolation_level=None)) as writer, writer:
             self.assertEqual(writer.execute("PRAGMA journal_mode=WAL").fetchone()[0], "wal")
             writer.execute("BEGIN IMMEDIATE")
             writer.execute("UPDATE events SET detail_json=? WHERE seq=11", ('{"committed":true}',))
